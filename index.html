@@ -18,20 +18,18 @@
 html,
 body{
     width:100%;
-    min-height:100%;
+    height:100%;
 }
 
 body{
-    background:#080808;
+    background:#050505;
     color:#fff;
     font-family:Arial, Helvetica, sans-serif;
     overflow:hidden;
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
+/* ================= HEADER ================= */
 
 header{
     position:fixed;
@@ -39,7 +37,7 @@ header{
     left:0;
 
     width:100%;
-    height:86px;
+    height:82px;
 
     padding:0 6%;
 
@@ -49,28 +47,26 @@ header{
 
     z-index:1000;
 
-    background:rgba(5,5,5,.92);
+    background:rgba(5,5,5,.78);
     backdrop-filter:blur(12px);
 
-    border-bottom:1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.14);
 }
 
 .logo{
     font-family:Georgia, serif;
     font-size:23px;
     letter-spacing:3px;
-    white-space:nowrap;
 }
 
 .logo span{
-    color:#caa55f;
+    color:#caa45d;
 }
 
 .header-center{
     font-size:10px;
     letter-spacing:4px;
-    color:#8f8f8f;
-    text-transform:uppercase;
+    color:#999;
 }
 
 .header-right{
@@ -88,31 +84,28 @@ header{
     display:flex;
     align-items:center;
     gap:8px;
-
-    font-size:11px;
-    letter-spacing:2px;
 }
 
 .lang{
-    border:0;
     background:none;
+    border:0;
 
     color:#777;
 
-    cursor:pointer;
-
     font-size:11px;
     letter-spacing:2px;
+
+    cursor:pointer;
 
     transition:.3s;
 }
 
-.lang:hover,
-.lang.active{
-    color:#d1ad67;
+.lang.active,
+.lang:hover{
+    color:#d0ab64;
 }
 
-.language-line{
+.divider{
     width:1px;
     height:14px;
     background:#555;
@@ -121,53 +114,46 @@ header{
 
 /* SEARCH */
 
-.search-button{
-    width:32px;
-    height:32px;
+.search-btn{
+    width:31px;
+    height:31px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:0;
     background:none;
+    border:0;
 
     color:white;
 
     cursor:pointer;
 }
 
-.search-button svg{
+.search-btn svg{
     width:20px;
-    height:20px;
 }
 
 
 /* HAMBURGER */
 
 .hamburger{
-    width:35px;
+    width:36px;
     height:27px;
-
-    background:none;
-    border:0;
 
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 
+    border:0;
+    background:none;
+
     cursor:pointer;
 }
 
 .hamburger span{
-    display:block;
-
     width:100%;
     height:2px;
 
-    background:#fff;
+    background:white;
 
-    transition:.35s;
+    transition:.3s;
 }
 
 .hamburger:hover span:nth-child(2){
@@ -175,70 +161,413 @@ header{
 }
 
 
-/* =========================================
-   SEARCH PANEL
-========================================= */
+/* ================= HERO ================= */
 
-.search-panel{
-    position:fixed;
+.hero{
+    position:relative;
 
-    top:86px;
-    right:6%;
+    width:100%;
+    height:100vh;
+    height:100dvh;
 
-    width:340px;
+    overflow:hidden;
 
-    padding:18px;
+    background:#050505;
+}
 
-    background:#111;
 
-    border:1px solid rgba(202,165,95,.3);
+/* ================= FULL SCREEN IMAGE ================= */
 
-    z-index:1200;
+.hero-image{
+    position:absolute;
 
-    transform:translateY(-15px);
-    opacity:0;
+    /* slightly oversized so 3D rotation
+       never creates a bottom gap */
+
+    top:-4%;
+    left:-4%;
+
+    width:108%;
+    height:108%;
+
+    z-index:1;
+
+    transform-origin:100% 50%;
+
+    transform:
+        perspective(1800px)
+        rotateY(0deg)
+        scale(1.02);
+
+    transition:
+        transform 1s cubic-bezier(.65,0,.2,1),
+        filter 1s ease;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    display:block;
+
+    /*
+      Your current photo has Justice on the left.
+      This mirrors it so Justice is on the RIGHT.
+    */
+
+    transform:scaleX(-1);
+
+    filter:
+        brightness(.75)
+        contrast(1.08)
+        saturate(.85);
+}
+
+
+/* DARK LEFT AREA */
+
+.image-shade{
+    position:absolute;
+    inset:0;
+
+    z-index:2;
+
     pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(0,0,0,.96) 0%,
+            rgba(0,0,0,.87) 27%,
+            rgba(0,0,0,.58) 47%,
+            rgba(0,0,0,.15) 68%,
+            rgba(0,0,0,.05) 100%
+        );
+
+    transition:background .9s ease;
+}
+
+
+/* GOLD LIGHT */
+
+.gold-light{
+    position:absolute;
+
+    right:6%;
+    top:20%;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(208,166,87,.14),
+            transparent 70%
+        );
+
+    z-index:3;
+
+    pointer-events:none;
+
+    opacity:.5;
+
+    transition:.8s;
+}
+
+
+/* ================= OPENING ================= */
+
+.intro{
+    position:absolute;
+
+    left:50%;
+    top:52%;
+
+    transform:translate(-50%,-50%);
+
+    width:90%;
+
+    text-align:center;
+
+    z-index:20;
+
+    transition:
+        opacity .8s ease,
+        transform 1.1s ease;
+}
+
+.intro-small{
+    color:#d0a95e;
+
+    font-size:11px;
+    letter-spacing:6px;
+
+    margin-bottom:18px;
+}
+
+.intro h1{
+    font-family:Georgia, serif;
+
+    font-size:clamp(50px,7vw,100px);
+
+    font-weight:normal;
+
+    letter-spacing:4px;
+
+    text-shadow:
+        0 10px 50px rgba(0,0,0,.95);
+}
+
+
+/* ================= INFORMATION ================= */
+
+.content{
+    position:absolute;
+
+    left:8%;
+    top:52%;
+
+    width:560px;
+
+    transform:translateY(-46%) translateX(35px);
+
+    opacity:0;
+
+    z-index:10;
+
+    transition:
+        opacity 1.1s ease .5s,
+        transform 1.1s ease .5s;
+}
+
+.eyebrow{
+    color:#caa45d;
+
+    font-size:11px;
+    letter-spacing:4px;
+
+    margin-bottom:22px;
+}
+
+.content h2{
+    font-family:Georgia, serif;
+
+    font-size:clamp(48px,5.1vw,76px);
+
+    font-weight:normal;
+
+    line-height:1.03;
+}
+
+.content h2 span{
+    color:#caa45d;
+}
+
+.description{
+    margin-top:25px;
+
+    max-width:520px;
+
+    color:#d0d0d0;
+
+    font-size:16px;
+    line-height:1.75;
+}
+
+.buttons{
+    margin-top:34px;
+
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:16px 25px;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.4px;
+
+    font-size:11px;
 
     transition:.3s;
 }
 
-.search-panel.open{
-    transform:translateY(0);
+.gold{
+    background:#caa45d;
+    color:#111;
+}
+
+.gold:hover{
+    background:#e1c17b;
+}
+
+.outline{
+    color:white;
+
+    border:1px solid rgba(255,255,255,.42);
+}
+
+.outline:hover{
+    color:#d0aa62;
+
+    border-color:#d0aa62;
+}
+
+
+/* LEFT DECORATIVE LINE */
+
+.left-line{
+    position:absolute;
+
+    left:4.3%;
+    top:39%;
+
+    height:190px;
+    width:1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            #caa45d,
+            transparent
+        );
+
+    z-index:10;
+
+    opacity:0;
+
+    transition:1s ease .7s;
+}
+
+
+/* ================= NORMAL VIEW AFTER OPENING ================= */
+
+body.ready .intro{
+    opacity:0;
+
+    transform:
+        translate(-58%,-50%)
+        scale(.96);
+
+    pointer-events:none;
+}
+
+body.ready .content{
     opacity:1;
-    pointer-events:auto;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
 }
 
-.search-panel input{
-    width:100%;
+body.ready .left-line{
+    opacity:1;
+}
 
-    padding:14px;
-
-    border:1px solid #444;
-    outline:none;
-
-    background:#191919;
-    color:#fff;
-
-    font-size:14px;
+body.ready .hero-image{
+    transform:
+        perspective(1800px)
+        translateX(1%)
+        rotateY(0deg)
+        scale(1.02);
 }
 
 
-/* =========================================
-   SIDE MENU
-========================================= */
+/* ================= UNIQUE IMAGE HOVER ================= */
+
+/*
+   Mouse enters RIGHT SIDE:
+   the FULL image rotates from its right edge.
+*/
+
+.hero.photo-hover .hero-image{
+
+    transform:
+        perspective(1800px)
+        translateX(3%)
+        rotateY(-9deg)
+        scale(1.08);
+}
+
+
+/* make left area deeper */
+
+.hero.photo-hover .image-shade{
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(0,0,0,.99) 0%,
+            rgba(0,0,0,.94) 34%,
+            rgba(0,0,0,.66) 50%,
+            rgba(0,0,0,.18) 70%,
+            rgba(0,0,0,.02) 100%
+        );
+}
+
+
+/* information moves left */
+
+.hero.photo-hover .content{
+
+    transform:
+        translateY(-50%)
+        translateX(-28px);
+}
+
+
+/* gold glow appears */
+
+.hero.photo-hover .gold-light{
+
+    opacity:1;
+
+    transform:scale(1.25);
+}
+
+
+/* invisible mouse area over photo side */
+
+.photo-hover-zone{
+    position:absolute;
+
+    top:82px;
+    right:0;
+
+    width:55%;
+    height:calc(100% - 82px);
+
+    z-index:30;
+
+    cursor:pointer;
+}
+
+
+/* ================= SIDE MENU ================= */
 
 .menu-overlay{
     position:fixed;
     inset:0;
 
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.60);
+
+    z-index:1200;
 
     opacity:0;
     pointer-events:none;
 
     transition:.4s;
-
-    z-index:1400;
 }
 
 .menu-overlay.open{
@@ -250,20 +579,20 @@ header{
     position:fixed;
 
     top:0;
-    right:-420px;
+    right:-410px;
 
     width:390px;
     max-width:90%;
 
     height:100vh;
 
-    padding:120px 55px 40px;
+    padding:115px 50px;
 
     background:#0d0d0d;
 
-    border-left:1px solid rgba(202,165,95,.25);
+    border-left:1px solid rgba(202,164,93,.3);
 
-    z-index:1500;
+    z-index:1300;
 
     transition:right .55s cubic-bezier(.7,0,.2,1);
 }
@@ -275,11 +604,11 @@ header{
 .close-menu{
     position:absolute;
 
-    top:28px;
-    right:38px;
+    right:35px;
+    top:25px;
 
-    border:0;
     background:none;
+    border:0;
 
     color:white;
 
@@ -288,25 +617,18 @@ header{
     cursor:pointer;
 }
 
-.menu-number{
-    color:#a88449;
-    font-size:10px;
-    letter-spacing:2px;
-
-    margin-right:15px;
-}
-
 .side-menu a{
     display:block;
 
-    padding:17px 0;
-
     color:white;
 
-    text-decoration:none;
+    padding:16px 0;
 
     font-family:Georgia, serif;
-    font-size:27px;
+
+    font-size:26px;
+
+    text-decoration:none;
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
@@ -314,417 +636,72 @@ header{
 }
 
 .side-menu a:hover{
-    color:#caa55f;
     padding-left:10px;
-}
 
-.menu-bottom{
-    position:absolute;
-
-    left:55px;
-    bottom:42px;
-
-    color:#777;
-
-    font-size:11px;
-    line-height:1.7;
-
-    letter-spacing:1px;
+    color:#caa45d;
 }
 
 
-/* =========================================
-   HERO
-========================================= */
+/* ================= SEARCH ================= */
 
-.hero{
-    position:relative;
+.search-panel{
+    position:fixed;
 
-    width:100%;
-    height:100vh;
+    top:82px;
+    right:6%;
 
-    overflow:hidden;
+    width:330px;
 
-    background:
-        radial-gradient(circle at 75% 48%,
-        #2c2418 0%,
-        #15120e 28%,
-        #080808 70%);
-}
+    padding:16px;
 
-.hero::before{
-    content:"";
+    background:#111;
 
-    position:absolute;
-    inset:0;
+    border:1px solid rgba(202,164,93,.3);
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.90) 0%,
-            rgba(0,0,0,.62) 45%,
-            rgba(0,0,0,.15) 100%
-        );
-
-    z-index:1;
-}
-
-
-/* =========================================
-   OPENING TITLE
-========================================= */
-
-.intro{
-    position:absolute;
-
-    left:50%;
-    top:52%;
-
-    transform:translate(-50%,-50%);
-
-    text-align:center;
-
-    width:90%;
-
-    z-index:20;
-
-    transition:
-        opacity .8s ease,
-        transform 1s ease;
-}
-
-.intro-small{
-    color:#caa55f;
-
-    font-size:11px;
-    letter-spacing:5px;
-
-    margin-bottom:16px;
-}
-
-.intro h1{
-    font-family:Georgia, serif;
-
-    font-weight:normal;
-
-    font-size:clamp(46px,7vw,95px);
-
-    letter-spacing:3px;
-
-    text-shadow:0 10px 40px #000;
-}
-
-
-/* =========================================
-   JUSTICE FRAME
-========================================= */
-
-.justice-frame{
-    --x:50%;
-    --y:50%;
-    --moveX:0px;
-    --moveY:0px;
-
-    position:absolute;
-
-    top:53%;
-    left:50%;
-
-    width:min(610px,43vw);
-    height:70vh;
-
-    overflow:hidden;
-
-    z-index:8;
-
-    border:1px solid rgba(202,165,95,.28);
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.75);
-
-    transform:
-        translate(-50%,-50%)
-        perspective(1500px)
-        rotateY(0deg);
-
-    transition:
-        left 1.8s cubic-bezier(.7,0,.2,1),
-        transform 1.8s cubic-bezier(.7,0,.2,1),
-        box-shadow .5s ease;
-}
-
-
-/* GOLD GLOW FOLLOWING CURSOR */
-
-.justice-frame::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle 180px at var(--x) var(--y),
-            rgba(213,174,96,.20),
-            transparent 65%
-        );
+    z-index:1100;
 
     opacity:0;
 
-    transition:opacity .35s ease;
-
     pointer-events:none;
 
-    z-index:5;
-}
-
-.justice-frame:hover::after{
-    opacity:1;
-}
-
-
-/* GOLD CORNERS */
-
-.justice-frame::before{
-    content:"";
-
-    position:absolute;
-    inset:12px;
-
-    border:
-        1px solid rgba(202,165,95,.18);
-
-    z-index:6;
-
-    pointer-events:none;
-}
-
-
-/* IMAGE */
-
-.justice-frame img{
-    width:108%;
-    height:108%;
-
-    margin-left:-4%;
-    margin-top:-4%;
-
-    object-fit:cover;
-    object-position:center;
-
-    display:block;
-
-    transform:
-        translate(
-            var(--moveX),
-            var(--moveY)
-        )
-        scale(1);
-
-    filter:
-        brightness(.82)
-        contrast(1.09)
-        saturate(.88);
-
-    transition:
-        transform .22s ease-out,
-        filter .5s ease;
-}
-
-
-/* HOVER = FRAME STAYS,
-   IMAGE MOVES INSIDE */
-
-.justice-frame:hover img{
-    transform:
-        translate(
-            var(--moveX),
-            var(--moveY)
-        )
-        scale(1.07);
-
-    filter:
-        brightness(.97)
-        contrast(1.1)
-        saturate(1);
-}
-
-.justice-frame:hover{
-    box-shadow:
-        0 38px 110px rgba(0,0,0,.82),
-        0 0 55px rgba(202,165,95,.10);
-}
-
-
-/* =========================================
-   CONTENT
-========================================= */
-
-.content{
-    position:absolute;
-
-    left:8%;
-    top:53%;
-
-    width:570px;
-
-    transform:translateY(-44%);
-
-    opacity:0;
-
-    z-index:10;
-
-    transition:
-        opacity 1.1s ease .7s,
-        transform 1.1s ease .7s;
-}
-
-.eyebrow{
-    color:#caa55f;
-
-    font-size:11px;
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    margin-bottom:24px;
-}
-
-.content h2{
-    font-family:Georgia, serif;
-
-    font-size:clamp(48px,5.1vw,76px);
-
-    line-height:1.03;
-
-    font-weight:normal;
-}
-
-.content h2 span{
-    color:#caa55f;
-}
-
-.content-description{
-    margin-top:26px;
-
-    max-width:540px;
-
-    color:#c8c8c8;
-
-    font-size:16px;
-    line-height:1.8;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-
-    margin-top:34px;
-}
-
-.btn{
-    padding:16px 25px;
-
-    text-decoration:none;
-
-    text-transform:uppercase;
-
-    font-size:11px;
-    letter-spacing:1.5px;
+    transform:translateY(-12px);
 
     transition:.3s;
 }
 
-.gold{
-    background:#caa55f;
-    color:#111;
-}
-
-.gold:hover{
-    background:#e2c37e;
-}
-
-.outline{
-    color:white;
-
-    border:1px solid rgba(255,255,255,.35);
-}
-
-.outline:hover{
-    border-color:#caa55f;
-    color:#caa55f;
-}
-
-
-/* =========================================
-   LEFT DETAIL
-========================================= */
-
-.vertical-detail{
-    position:absolute;
-
-    left:3.8%;
-    top:43%;
-
-    height:180px;
-    width:1px;
-
-    background:
-        linear-gradient(
-            transparent,
-            #caa55f,
-            transparent
-        );
-
-    z-index:9;
-}
-
-
-/* =========================================
-   AFTER INTRO
-========================================= */
-
-body.loaded .justice-frame{
-    left:78%;
-
-    transform:
-        translate(-50%,-50%)
-        perspective(1500px)
-        rotateY(-5deg);
-}
-
-body.loaded .intro{
-    opacity:0;
-
-    transform:
-        translate(-60%,-50%)
-        scale(.96);
-
-    pointer-events:none;
-}
-
-body.loaded .content{
+.search-panel.open{
     opacity:1;
 
-    transform:translateY(-50%);
+    pointer-events:auto;
+
+    transform:translateY(0);
+}
+
+.search-panel input{
+    width:100%;
+
+    padding:13px;
+
+    color:white;
+
+    background:#1a1a1a;
+
+    border:1px solid #444;
+
+    outline:none;
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
-
-    body{
-        overflow-y:auto;
-    }
 
     header{
         height:72px;
 
-        grid-template-columns:1fr auto;
         padding:0 5%;
+
+        grid-template-columns:1fr auto;
     }
 
     .header-center{
@@ -732,79 +709,98 @@ body.loaded .content{
     }
 
     .logo{
-        font-size:17px;
+        font-size:16px;
         letter-spacing:2px;
     }
 
     .header-right{
-        gap:13px;
+        gap:11px;
     }
 
-    .languages{
-        gap:5px;
+    .hero-image{
+        top:-2%;
+        left:-12%;
+
+        width:124%;
+        height:104%;
     }
 
-    .hero{
-        min-height:100vh;
-        height:auto;
+    .hero-image img{
+        object-position:center;
     }
 
-    .justice-frame{
-        width:78vw;
-        height:54vh;
-
-        top:43%;
-    }
-
-    body.loaded .justice-frame{
-        left:72%;
-        top:34%;
-
-        width:65vw;
-        height:42vh;
-
-        opacity:.44;
-
-        transform:
-            translate(-50%,-50%);
+    .image-shade{
+        background:
+            linear-gradient(
+                0deg,
+                rgba(0,0,0,.96) 0%,
+                rgba(0,0,0,.76) 44%,
+                rgba(0,0,0,.20) 100%
+            );
     }
 
     .content{
         left:7%;
         right:7%;
-        top:59%;
+
+        top:60%;
 
         width:auto;
     }
 
     .content h2{
-        font-size:40px;
+        font-size:39px;
     }
 
-    .content-description{
+    .description{
         font-size:14px;
+
         line-height:1.6;
     }
 
     .buttons{
         flex-direction:column;
 
-        width:230px;
+        width:220px;
     }
 
     .btn{
         text-align:center;
     }
 
-    .vertical-detail{
+    .left-line{
         display:none;
+    }
+
+    .photo-hover-zone{
+        display:none;
+    }
+
+    .hero.photo-hover .hero-image{
+        transform:none;
+    }
+
+    .languages{
+        gap:5px;
     }
 
     .search-panel{
         top:72px;
+
         right:5%;
 
         width:90%;
+    }
+
+}
+
+
+/* disable hover animation on touch devices */
+
+@media(hover:none){
+
+    .photo-hover-zone{
+        display:none;
     }
 
 }
@@ -816,50 +812,55 @@ body.loaded .content{
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
     <div class="logo">
+
         KRONBERG <span>LEGAL</span>
+
     </div>
 
 
     <div class="header-center">
-        München · International Counsel
+
+        MÜNCHEN · INTERNATIONAL COUNSEL
+
     </div>
 
 
     <div class="header-right">
 
 
-        <!-- LANGUAGES -->
-
         <div class="languages">
 
             <button
                 class="lang active"
-                id="englishButton">
+                id="enButton">
+
                 EN
+
             </button>
 
-            <div class="language-line"></div>
+
+            <div class="divider"></div>
+
 
             <button
                 class="lang"
-                id="germanButton">
+                id="deButton">
+
                 DE
+
             </button>
 
         </div>
 
 
-        <!-- SEARCH -->
-
         <button
-            class="search-button"
-            id="searchButton"
-            aria-label="Search">
+            class="search-btn"
+            id="searchButton">
 
             <svg
                 viewBox="0 0 24 24"
@@ -885,12 +886,9 @@ body.loaded .content{
         </button>
 
 
-        <!-- HAMBURGER -->
-
         <button
             class="hamburger"
-            id="menuButton"
-            aria-label="Menu">
+            id="menuButton">
 
             <span></span>
             <span></span>
@@ -904,96 +902,16 @@ body.loaded .content{
 
 
 
-<!-- ================= SEARCH ================= -->
+<!-- FULL PAGE -->
 
-<div
-    class="search-panel"
-    id="searchPanel">
-
-    <input
-        id="searchInput"
-        type="text"
-        placeholder="Search Kronberg Legal...">
-
-</div>
+<main
+    class="hero"
+    id="hero">
 
 
+    <!-- FULL-SCREEN PHOTO -->
 
-<!-- ================= MENU BACKDROP ================= -->
-
-<div
-    class="menu-overlay"
-    id="menuOverlay">
-</div>
-
-
-
-<!-- ================= SIDE MENU ================= -->
-
-<aside
-    class="side-menu"
-    id="sideMenu">
-
-    <button
-        class="close-menu"
-        id="closeMenu">
-        ×
-    </button>
-
-
-    <a href="#">
-        <span class="menu-number">01</span>
-        <span data-menu="home">Home</span>
-    </a>
-
-    <a href="#">
-        <span class="menu-number">02</span>
-        <span data-menu="firm">Our Firm</span>
-    </a>
-
-    <a href="#">
-        <span class="menu-number">03</span>
-        <span data-menu="expertise">Expertise</span>
-    </a>
-
-    <a href="#">
-        <span class="menu-number">04</span>
-        <span data-menu="floors">12 Floors</span>
-    </a>
-
-    <a href="#">
-        <span class="menu-number">05</span>
-        <span data-menu="lawyers">Lawyers</span>
-    </a>
-
-    <a href="#">
-        <span class="menu-number">06</span>
-        <span data-menu="contact">Contact</span>
-    </a>
-
-
-    <div class="menu-bottom">
-        KRONBERG LEGAL<br>
-        RECHTSANWÄLTE · MÜNCHEN
-    </div>
-
-</aside>
-
-
-
-<!-- ================= HERO ================= -->
-
-<main class="hero">
-
-
-    <div class="vertical-detail"></div>
-
-
-    <!-- JUSTICE IMAGE -->
-
-    <div
-        class="justice-frame"
-        id="justiceFrame">
+    <div class="hero-image">
 
         <img
             src="blindfolded_justice_in_golden_shadows.png"
@@ -1002,24 +920,39 @@ body.loaded .content{
     </div>
 
 
-    <!-- INTRO -->
+    <div class="image-shade"></div>
+
+    <div class="gold-light"></div>
+
+    <div class="left-line"></div>
+
+
+
+    <!-- OPENING SCREEN -->
 
     <div class="intro">
 
         <div class="intro-small">
+
             RECHTSANWÄLTE · MÜNCHEN
+
         </div>
 
+
         <h1>
+
             KRONBERG LEGAL
+
         </h1>
 
     </div>
 
 
-    <!-- INFORMATION -->
+
+    <!-- MAIN TEXT -->
 
     <section class="content">
+
 
         <div
             class="eyebrow"
@@ -1033,6 +966,7 @@ body.loaded .content{
         <h2 id="headline">
 
             Law with
+
             <span>clarity.</span>
 
             <br>
@@ -1043,7 +977,7 @@ body.loaded .content{
 
 
         <p
-            class="content-description"
+            class="description"
             id="description">
 
             Kronberg Legal is a fictional international law firm
@@ -1056,6 +990,7 @@ body.loaded .content{
 
 
         <div class="buttons">
+
 
             <a
                 href="#"
@@ -1070,123 +1005,146 @@ body.loaded .content{
             <a
                 href="#"
                 class="btn outline"
-                id="floorsButton">
+                id="floorButton">
 
                 Discover The Floors
 
             </a>
 
+
         </div>
+
 
     </section>
 
+
+    <!-- THIS AREA ACTIVATES PHOTO ROTATION -->
+
+    <div
+        class="photo-hover-zone"
+        id="photoHoverZone">
+    </div>
+
+
 </main>
+
+
+
+<!-- SEARCH -->
+
+<div
+    class="search-panel"
+    id="searchPanel">
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Search Kronberg Legal...">
+
+</div>
+
+
+
+<!-- MENU OVERLAY -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+
+<!-- MENU -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+
+    <button
+        class="close-menu"
+        id="closeMenu">
+
+        ×
+
+    </button>
+
+
+    <a href="#" data-en="Home" data-de="Startseite">
+        Home
+    </a>
+
+    <a href="#" data-en="Our Firm" data-de="Unsere Kanzlei">
+        Our Firm
+    </a>
+
+    <a href="#" data-en="Expertise" data-de="Expertise">
+        Expertise
+    </a>
+
+    <a href="#" data-en="12 Floors" data-de="12 Etagen">
+        12 Floors
+    </a>
+
+    <a href="#" data-en="Lawyers" data-de="Anwälte">
+        Lawyers
+    </a>
+
+    <a href="#" data-en="Contact" data-de="Kontakt">
+        Contact
+    </a>
+
+
+</aside>
 
 
 
 <script>
 
 
-/* =========================================
-   OPENING ANIMATION
-========================================= */
+/* ================= OPENING ================= */
 
 window.addEventListener("load", function(){
 
     setTimeout(function(){
 
-        document.body.classList.add("loaded");
+        document.body.classList.add("ready");
 
-    }, 1800);
-
-});
-
-
-
-/* =========================================
-   JUSTICE IMAGE INTERACTION
-========================================= */
-
-const justiceFrame =
-document.getElementById("justiceFrame");
-
-
-justiceFrame.addEventListener(
-"mousemove",
-function(event){
-
-    const rect =
-    justiceFrame.getBoundingClientRect();
-
-
-    const x =
-    event.clientX - rect.left;
-
-    const y =
-    event.clientY - rect.top;
-
-
-    const percentX =
-    (x / rect.width) * 100;
-
-    const percentY =
-    (y / rect.height) * 100;
-
-
-    const moveX =
-    ((x / rect.width) - .5) * -18;
-
-    const moveY =
-    ((y / rect.height) - .5) * -14;
-
-
-    justiceFrame.style.setProperty(
-        "--x",
-        percentX + "%"
-    );
-
-
-    justiceFrame.style.setProperty(
-        "--y",
-        percentY + "%"
-    );
-
-
-    justiceFrame.style.setProperty(
-        "--moveX",
-        moveX + "px"
-    );
-
-
-    justiceFrame.style.setProperty(
-        "--moveY",
-        moveY + "px"
-    );
+    }, 1900);
 
 });
 
 
-justiceFrame.addEventListener(
+
+/* ================= IMAGE HOVER ================= */
+
+const hero =
+document.getElementById("hero");
+
+const photoHoverZone =
+document.getElementById("photoHoverZone");
+
+
+photoHoverZone.addEventListener(
+"mouseenter",
+function(){
+
+    hero.classList.add("photo-hover");
+
+});
+
+
+photoHoverZone.addEventListener(
 "mouseleave",
 function(){
 
-    justiceFrame.style.setProperty(
-        "--moveX",
-        "0px"
-    );
-
-    justiceFrame.style.setProperty(
-        "--moveY",
-        "0px"
-    );
+    hero.classList.remove("photo-hover");
 
 });
 
 
 
-/* =========================================
-   MENU
-========================================= */
+/* ================= MENU ================= */
 
 const menuButton =
 document.getElementById("menuButton");
@@ -1194,20 +1152,20 @@ document.getElementById("menuButton");
 const sideMenu =
 document.getElementById("sideMenu");
 
-const closeMenu =
-document.getElementById("closeMenu");
-
 const menuOverlay =
 document.getElementById("menuOverlay");
 
+const closeMenu =
+document.getElementById("closeMenu");
 
-function openMenu(){
+
+menuButton.onclick = function(){
 
     sideMenu.classList.add("open");
 
     menuOverlay.classList.add("open");
 
-}
+};
 
 
 function closeSideMenu(){
@@ -1219,28 +1177,15 @@ function closeSideMenu(){
 }
 
 
-menuButton.addEventListener(
-"click",
-openMenu
-);
+closeMenu.onclick =
+closeSideMenu;
 
-
-closeMenu.addEventListener(
-"click",
-closeSideMenu
-);
-
-
-menuOverlay.addEventListener(
-"click",
-closeSideMenu
-);
+menuOverlay.onclick =
+closeSideMenu;
 
 
 
-/* =========================================
-   SEARCH
-========================================= */
+/* ================= SEARCH ================= */
 
 const searchButton =
 document.getElementById("searchButton");
@@ -1249,25 +1194,21 @@ const searchPanel =
 document.getElementById("searchPanel");
 
 
-searchButton.addEventListener(
-"click",
-function(){
+searchButton.onclick = function(){
 
     searchPanel.classList.toggle("open");
 
-});
+};
 
 
 
-/* =========================================
-   LANGUAGE SYSTEM
-========================================= */
+/* ================= LANGUAGE ================= */
 
-const englishButton =
-document.getElementById("englishButton");
+const enButton =
+document.getElementById("enButton");
 
-const germanButton =
-document.getElementById("germanButton");
+const deButton =
+document.getElementById("deButton");
 
 
 const translations = {
@@ -1283,23 +1224,14 @@ const translations = {
         description:
         "Kronberg Legal is a fictional international law firm based in Munich, Germany. Our specialist legal teams are organised across twelve floors, bringing together focused expertise for businesses, institutions and private clients.",
 
-        firmButton:
+        firm:
         "Explore Our Firm",
 
-        floorsButton:
+        floor:
         "Discover The Floors",
 
         search:
-        "Search Kronberg Legal...",
-
-        menu:[
-            "Home",
-            "Our Firm",
-            "Expertise",
-            "12 Floors",
-            "Lawyers",
-            "Contact"
-        ]
+        "Search Kronberg Legal..."
 
     },
 
@@ -1315,31 +1247,21 @@ const translations = {
         description:
         "Kronberg Legal ist eine fiktive internationale Kanzlei mit Sitz in München. Unsere spezialisierten Rechtsteams sind auf zwölf Etagen organisiert und beraten Unternehmen, Institutionen und Privatmandanten.",
 
-        firmButton:
+        firm:
         "Unsere Kanzlei",
 
-        floorsButton:
+        floor:
         "Die Etagen entdecken",
 
         search:
-        "Kronberg Legal durchsuchen...",
-
-        menu:[
-            "Startseite",
-            "Kanzlei",
-            "Expertise",
-            "12 Etagen",
-            "Anwälte",
-            "Kontakt"
-        ]
+        "Kronberg Legal durchsuchen..."
 
     }
 
 };
 
 
-
-function setLanguage(language){
+function changeLanguage(language){
 
     const text =
     translations[language];
@@ -1362,12 +1284,12 @@ function setLanguage(language){
 
     document.getElementById("firmButton")
     .textContent =
-    text.firmButton;
+    text.firm;
 
 
-    document.getElementById("floorsButton")
+    document.getElementById("floorButton")
     .textContent =
-    text.floorsButton;
+    text.floor;
 
 
     document.getElementById("searchInput")
@@ -1375,54 +1297,42 @@ function setLanguage(language){
     text.search;
 
 
-    const menuText =
-    document.querySelectorAll("[data-menu]");
+    document
+    .querySelectorAll(".side-menu a")
+    .forEach(function(link){
 
-
-    menuText.forEach(
-    function(item,index){
-
-        item.textContent =
-        text.menu[index];
+        link.textContent =
+        link.dataset[language];
 
     });
 
 
-    englishButton.classList.toggle(
+    enButton.classList.toggle(
         "active",
         language === "en"
     );
 
 
-    germanButton.classList.toggle(
+    deButton.classList.toggle(
         "active",
         language === "de"
     );
 
-
-    document.documentElement.lang =
-    language;
-
 }
 
 
+enButton.onclick = function(){
 
-englishButton.addEventListener(
-"click",
-function(){
+    changeLanguage("en");
 
-    setLanguage("en");
-
-});
+};
 
 
-germanButton.addEventListener(
-"click",
-function(){
+deButton.onclick = function(){
 
-    setLanguage("de");
+    changeLanguage("de");
 
-});
+};
 
 
 </script>
