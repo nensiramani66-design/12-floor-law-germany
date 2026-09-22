@@ -4,222 +4,398 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Adler & Stein Rechtsanwälte</title>
+<title>Kronberg Legal | Rechtsanwälte München</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0b0b0b;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* INTRO IMAGE */
-.intro{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    z-index:1000;
-    transform-origin:left center;
-    animation:turnPage 1.8s ease-in-out 2.5s forwards;
-}
-
-.intro img{
+html,body{
     width:100%;
     height:100%;
-    object-fit:cover;
 }
 
-.intro::after{
-    content:"";
+body{
+    background:#080808;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
     position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        rgba(0,0,0,.15),
-        rgba(0,0,0,.45)
-    );
-}
-
-.intro-title{
-    position:absolute;
-    z-index:2;
-    bottom:12%;
-    left:8%;
-}
-
-.intro-title h1{
-    font-family:Georgia, serif;
-    font-size:60px;
-    letter-spacing:4px;
-}
-
-.intro-title p{
-    margin-top:10px;
-    letter-spacing:3px;
-    color:#d7b87a;
-}
-
-@keyframes turnPage{
-    0%{
-        transform:perspective(1600px) rotateY(0deg);
-        opacity:1;
-    }
-
-    100%{
-        transform:perspective(1600px) rotateY(-100deg);
-        opacity:0;
-        visibility:hidden;
-    }
-}
-
-
-/* MAIN WEBSITE */
-
-.hero{
-    min-height:100vh;
-    background:
-    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35)),
-    url("justice-hero.png");
-
-    background-size:cover;
-    background-position:center;
-}
-
-
-/* NAVBAR */
-
-nav{
+    top:0;
+    left:0;
+    width:100%;
     height:90px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.15);
+
+    padding:0 6%;
+
+    z-index:50;
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.75),
+        transparent
+    );
 }
 
 .logo{
     font-family:Georgia, serif;
     font-size:24px;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 .logo span{
-    color:#c9a35e;
+    color:#caa65d;
 }
 
-.nav-right{
+nav{
     display:flex;
     align-items:center;
-    gap:30px;
-}
-
-.nav-links{
-    display:flex;
     gap:28px;
 }
 
-.nav-links a{
-    color:white;
+nav a{
+    color:#fff;
     text-decoration:none;
-    font-size:14px;
-    letter-spacing:1px;
+
+    font-size:12px;
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
 }
 
-.nav-links a:hover{
-    color:#c9a35e;
+nav a:hover{
+    color:#caa65d;
 }
 
 .search{
-    font-size:22px;
+    background:none;
+    border:0;
+    color:white;
+    font-size:20px;
     cursor:pointer;
 }
 
 .menu{
     display:none;
+    background:none;
+    border:none;
+    color:white;
     font-size:27px;
 }
 
 
-/* HERO TEXT */
+/* ================= HERO ================= */
 
-.hero-content{
-    min-height:calc(100vh - 90px);
-    display:flex;
-    align-items:center;
-    padding:0 8%;
+.hero{
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 70% 50%,
+        #282015 0%,
+        #111 38%,
+        #060606 78%
+    );
 }
 
-.hero-text{
-    max-width:720px;
+
+/* subtle background light */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.85) 0%,
+        rgba(0,0,0,.35) 55%,
+        rgba(0,0,0,.15) 100%
+    );
+
+    z-index:1;
+}
+
+
+/* ================= JUSTICE IMAGE ================= */
+
+.justice{
+    position:absolute;
+
+    top:52%;
+    left:50%;
+
+    width:min(560px,48vw);
+    height:78vh;
+
+    transform:
+        translate(-50%,-50%)
+        perspective(1400px)
+        rotateY(0deg)
+        scale(1);
+
+    transform-origin:center;
+
+    z-index:5;
+
+    transition:
+        left 1.7s cubic-bezier(.7,0,.15,1),
+        transform 1.7s cubic-bezier(.7,0,.15,1),
+        width 1.7s ease;
+}
+
+.justice img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.75);
+
+    filter:
+        brightness(.83)
+        contrast(1.08)
+        saturate(.85);
+}
+
+
+/* ================= FIRST TITLE ================= */
+
+.intro-text{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:10;
+
+    text-align:center;
+
+    width:90%;
+
+    transition:
+        opacity .7s ease,
+        transform .9s ease;
+}
+
+.intro-text p{
+    color:#d5b46d;
+
+    font-size:12px;
+    letter-spacing:5px;
+
+    margin-bottom:15px;
+}
+
+.intro-text h1{
+    font-family:Georgia, serif;
+
+    font-weight:normal;
+
+    font-size:clamp(50px,7vw,95px);
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 8px 35px rgba(0,0,0,.9);
+}
+
+
+/* ================= INFORMATION ================= */
+
+.content{
+    position:absolute;
+
+    left:8%;
+    top:52%;
+
+    transform:translateY(-42%);
+
+    width:520px;
+
+    z-index:8;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity 1.1s ease .65s,
+        transform 1.1s ease .65s;
 }
 
 .small-title{
-    color:#c9a35e;
-    font-size:14px;
+    color:#caa65d;
+
+    font-size:11px;
     letter-spacing:4px;
-    margin-bottom:20px;
+
+    margin-bottom:22px;
 }
 
-.hero-text h1{
+.content h2{
     font-family:Georgia, serif;
-    font-size:68px;
-    line-height:1.08;
+
+    font-size:clamp(48px,5vw,72px);
+
+    line-height:1.02;
+
     font-weight:normal;
 }
 
-.hero-text h1 span{
-    color:#d7b87a;
+.content h2 span{
+    color:#caa65d;
 }
 
-.hero-text p{
-    margin-top:28px;
-    max-width:600px;
-    color:#ddd;
+.content p{
+    margin-top:25px;
+
+    max-width:500px;
+
+    color:#c9c9c9;
+
+    font-size:16px;
     line-height:1.8;
-    font-size:17px;
 }
 
 .buttons{
-    margin-top:35px;
+    margin-top:34px;
+
     display:flex;
-    gap:15px;
+    gap:14px;
 }
 
 .btn{
-    padding:15px 27px;
+    padding:15px 24px;
+
     text-decoration:none;
-    font-size:13px;
-    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    font-size:11px;
+    letter-spacing:1.5px;
+
+    transition:.3s;
 }
 
-.btn-gold{
-    background:#b99655;
+.gold{
+    background:#caa65d;
     color:#111;
 }
 
-.btn-outline{
-    border:1px solid rgba(255,255,255,.6);
+.gold:hover{
+    background:#e1c27e;
+}
+
+.outline{
     color:white;
+    border:1px solid rgba(255,255,255,.5);
+}
+
+.outline:hover{
+    border-color:#caa65d;
+    color:#caa65d;
 }
 
 
-/* MOBILE */
+/* ================= ANIMATION ================= */
 
-@media(max-width:850px){
+body.loaded .justice{
 
-    nav{
+    left:77%;
+
+    transform:
+        translate(-50%,-50%)
+        perspective(1400px)
+        rotateY(-16deg)
+        scale(.92);
+}
+
+body.loaded .intro-text{
+
+    opacity:0;
+
+    transform:
+        translate(-65%,-50%)
+        scale(.96);
+
+    pointer-events:none;
+}
+
+body.loaded .content{
+
+    opacity:1;
+
+    transform:translateY(-50%);
+
+    pointer-events:auto;
+}
+
+
+/* decorative line */
+
+.line{
+    position:absolute;
+
+    left:4.5%;
+    top:40%;
+
+    width:1px;
+    height:180px;
+
+    z-index:5;
+
+    background:
+    linear-gradient(
+        transparent,
+        #caa65d,
+        transparent
+    );
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    header{
+        height:72px;
         padding:0 5%;
-        height:75px;
     }
 
-    .nav-links{
+    .logo{
+        font-size:18px;
+    }
+
+    nav a{
         display:none;
     }
 
@@ -227,27 +403,66 @@ nav{
         display:block;
     }
 
-    .hero-text h1{
-        font-size:43px;
+    .justice{
+
+        width:78vw;
+        height:60vh;
+
+        top:45%;
     }
 
-    .intro-title{
-        left:6%;
+    body.loaded .justice{
+
+        left:73%;
+        top:34%;
+
+        width:62vw;
+        height:46vh;
+
+        opacity:.50;
+
+        transform:
+            translate(-50%,-50%)
+            rotateY(-10deg);
     }
 
-    .intro-title h1{
-        font-size:36px;
+    .intro-text h1{
+        font-size:46px;
     }
 
-    .hero-content{
-        padding:0 6%;
+    .content{
+
+        left:7%;
+        right:7%;
+
+        top:60%;
+
+        width:auto;
+    }
+
+    .content h2{
+        font-size:42px;
+    }
+
+    .content p{
+        font-size:14px;
+        line-height:1.6;
     }
 
     .buttons{
         flex-direction:column;
-        width:max-content;
+        width:220px;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+    .line{
+        display:none;
     }
 }
+
 </style>
 </head>
 
@@ -255,101 +470,115 @@ nav{
 <body>
 
 
-<!-- OPENING ANIMATION -->
+<header>
 
-<div class="intro">
-
-    <img src="justice-hero.png" alt="Lady Justice">
-
-    <div class="intro-title">
-
-        <h1>ADLER & STEIN</h1>
-
-        <p>RECHTSANWÄLTE · MÜNCHEN</p>
-
+    <div class="logo">
+        KRONBERG <span>LEGAL</span>
     </div>
 
-</div>
+    <nav>
 
+        <a href="#">Home</a>
+        <a href="#">Our Firm</a>
+        <a href="#">Expertise</a>
+        <a href="#">Floors</a>
+        <a href="#">Lawyers</a>
+        <a href="#">Contact</a>
 
+        <button class="search" aria-label="Search">
+            &#128269;
+        </button>
 
-<!-- MAIN HOMEPAGE -->
+        <button class="menu" aria-label="Menu">
+            ☰
+        </button>
+
+    </nav>
+
+</header>
+
 
 <section class="hero">
 
-<nav>
+    <div class="line"></div>
 
-    <div class="logo">
-        ADLER <span>&</span> STEIN
-    </div>
 
-    <div class="nav-right">
+    <!-- JUSTICE IMAGE -->
 
-        <div class="nav-links">
+    <div class="justice">
 
-            <a href="#">Home</a>
-
-            <a href="#">Our Firm</a>
-
-            <a href="#">Expertise</a>
-
-            <a href="#">Floors</a>
-
-            <a href="#">Lawyers</a>
-
-            <a href="#">Contact</a>
-
-        </div>
-
-        <div class="search">
-            &#128269;
-        </div>
-
-        <div class="menu">
-            ☰
-        </div>
+        <img
+        src="justice-hero.png"
+        alt="Lady Justice">
 
     </div>
 
-</nav>
 
+    <!-- FIRST SCREEN -->
 
-<div class="hero-content">
-
-    <div class="hero-text">
-
-        <div class="small-title">
-            RECHTSANWÄLTE · MÜNCHEN
-        </div>
-
-        <h1>
-            Law with <span>clarity.</span><br>
-            Counsel with purpose.
-        </h1>
+    <div class="intro-text">
 
         <p>
-            Adler & Stein Rechtsanwälte is a fictional international
-            law firm based in Munich, Germany, bringing together
-            specialist legal teams across twelve floors of expertise.
+            RECHTSANWÄLTE · MÜNCHEN
+        </p>
+
+        <h1>
+            KRONBERG LEGAL
+        </h1>
+
+    </div>
+
+
+    <!-- INFORMATION AFTER ROTATION -->
+
+    <div class="content">
+
+        <div class="small-title">
+            KRONBERG LEGAL · GERMANY
+        </div>
+
+        <h2>
+            Law with
+            <span>clarity.</span><br>
+            Counsel with purpose.
+        </h2>
+
+        <p>
+            Kronberg Legal is a fictional international law firm
+            based in Munich, bringing specialist legal teams
+            together across twelve floors of expertise.
         </p>
 
         <div class="buttons">
 
-            <a class="btn btn-gold" href="#">
-                EXPLORE OUR FIRM
+            <a href="#" class="btn gold">
+                Explore Our Firm
             </a>
 
-            <a class="btn btn-outline" href="#">
-                VIEW ALL FLOORS
+            <a href="#" class="btn outline">
+                Discover The Floors
             </a>
 
         </div>
 
     </div>
 
-</div>
-
 </section>
+
+
+<script>
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+
+        document.body.classList.add("loaded");
+
+    }, 2000);
+
+});
+
+</script>
 
 
 </body>
