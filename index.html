@@ -36,6 +36,46 @@ body{
 
 
 /* ==================================================
+   CURSOR LIGHT
+================================================== */
+
+.cursor-light{
+    position:fixed;
+
+    width:190px;
+    height:190px;
+
+    left:0;
+    top:0;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:2000;
+
+    opacity:0;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(230,150,65,.17) 0%,
+            rgba(212,130,45,.08) 34%,
+            rgba(190,110,30,.03) 50%,
+            transparent 72%
+        );
+
+    filter:blur(5px);
+
+    mix-blend-mode:screen;
+
+    transition:opacity .25s ease;
+}
+
+
+/* ==================================================
    HEADER
 ================================================== */
 
@@ -97,6 +137,7 @@ header{
 .languages{
     display:flex;
     align-items:center;
+
     gap:8px;
 }
 
@@ -151,7 +192,7 @@ header{
 }
 
 
-/* HAMBURGER */
+/* MENU ICON */
 
 .hamburger{
     width:37px;
@@ -182,7 +223,7 @@ header{
 
 
 /* ==================================================
-   MAIN PAGE
+   HERO
 ================================================== */
 
 .hero{
@@ -210,10 +251,8 @@ header{
 
 
 /* ==================================================
-   JUSTICE CARD
+   IMAGE CARD
 ================================================== */
-
-/* STAGE 1 */
 
 .justice-card{
     position:absolute;
@@ -278,7 +317,9 @@ header{
 }
 
 
-/* FRONT */
+/* ==================================================
+   ORIGINAL IMAGE
+================================================== */
 
 .card-front{
     transform:rotateY(0deg);
@@ -300,8 +341,7 @@ header{
 
 
 /* ==================================================
-   NEW BRAND MARK
-   ONLY ON ORIGINAL IMAGE
+   BRAND MARK ON ORIGINAL IMAGE
 ================================================== */
 
 .image-brand{
@@ -310,10 +350,6 @@ header{
     right:7%;
     top:50%;
 
-    transform:
-        translateY(-50%)
-        translateY(12px);
-
     width:260px;
 
     text-align:center;
@@ -321,6 +357,10 @@ header{
     z-index:10;
 
     opacity:0;
+
+    transform:
+        translateY(-50%)
+        translateY(12px);
 
     transition:
         opacity .8s ease .7s,
@@ -337,8 +377,6 @@ body.ready .image-brand{
 }
 
 
-/* LOGO SYMBOL */
-
 .brand-symbol{
     width:92px;
     height:92px;
@@ -349,7 +387,8 @@ body.ready .image-brand{
     align-items:center;
     justify-content:center;
 
-    border:1px solid rgba(202,164,95,.65);
+    border:
+        1px solid rgba(202,164,95,.65);
 
     transform:rotate(45deg);
 }
@@ -360,15 +399,13 @@ body.ready .image-brand{
 
     font-size:31px;
 
-    color:#d7b36b;
-
     letter-spacing:2px;
+
+    color:#d7b36b;
 
     transform:rotate(-45deg);
 }
 
-
-/* COMPANY NAME */
 
 .brand-name{
     font-family:Georgia,serif;
@@ -377,7 +414,7 @@ body.ready .image-brand{
 
     letter-spacing:4px;
 
-    color:#fff;
+    color:white;
 
     white-space:nowrap;
 }
@@ -408,15 +445,8 @@ body.ready .image-brand{
 }
 
 
-/*
-When Stage 3 starts,
-the FRONT rotates away,
-so the logo naturally disappears.
-*/
-
-
 /* ==================================================
-   BACK / FLIPPED SIDE
+   FLIPPED IMAGE
 ================================================== */
 
 .card-back{
@@ -435,18 +465,21 @@ so the logo naturally disappears.
     object-fit:cover;
 
     /*
-    Keep the top/head.
-    Crop from bottom when necessary.
+      Keep the upper part visible.
+      If cropping happens,
+      crop from lower side.
     */
 
     object-position:center top;
 
     /*
-    Original:
-    Justice left / empty right.
+      Original image:
+      Justice LEFT.
+      Empty area RIGHT.
 
-    Mirror:
-    empty left / Justice right.
+      Mirrored:
+      Empty area LEFT.
+      Justice RIGHT.
     */
 
     transform:scaleX(-1);
@@ -459,7 +492,7 @@ so the logo naturally disappears.
 
 
 /* ==================================================
-   STAGE 1 TITLE
+   FIRST STAGE
 ================================================== */
 
 .intro{
@@ -483,14 +516,17 @@ so the logo naturally disappears.
         transform .9s ease;
 }
 
+
 .intro-small{
     margin-bottom:18px;
 
     color:var(--gold);
 
     font-size:11px;
+
     letter-spacing:6px;
 }
+
 
 .intro h1{
     font-family:Georgia,serif;
@@ -662,7 +698,8 @@ body.ready .justice-card{
 
     width:min(760px,47vw);
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 }
 
 
@@ -693,7 +730,13 @@ body.ready .gold-line{
 
 /* ==================================================
    STAGE 3
+   FINAL POSITION
 ================================================== */
+
+/*
+Once triggered,
+this stays permanently.
+*/
 
 .hero.stage3 .justice-card{
     left:0;
@@ -710,14 +753,14 @@ body.ready .gold-line{
 }
 
 
-/* FLIP */
-
 .hero.stage3 .card-inner{
     transform:rotateY(180deg);
 }
 
 
-/* DARK LEFT SIDE */
+/* ==================================================
+   LEFT DARK GRADIENT AFTER FLIP
+================================================== */
 
 .stage3-shade{
     position:absolute;
@@ -752,7 +795,7 @@ body.ready .gold-line{
 }
 
 
-/* INFORMATION DOES NOT MOVE */
+/* INFORMATION STAYS STILL */
 
 .hero.stage3 .content{
     opacity:1;
@@ -764,13 +807,7 @@ body.ready .gold-line{
 
 
 /* ==================================================
-   INTERACTION AREA
-
-   Cursor enters right side:
-   original -> flip
-
-   Move cursor away and enter again:
-   flip -> original
+   ONE-TIME TRIGGER AREA
 ================================================== */
 
 .interaction-zone{
@@ -785,6 +822,16 @@ body.ready .gold-line{
     z-index:50;
 
     cursor:pointer;
+}
+
+
+/*
+After the flip has happened once,
+disable this area permanently.
+*/
+
+.hero.stage3 .interaction-zone{
+    pointer-events:none;
 }
 
 
@@ -1049,7 +1096,7 @@ body.ready .gold-line{
     }
 
 
-    /* brand */
+    /* BRAND */
 
     .image-brand{
         right:6%;
@@ -1121,10 +1168,20 @@ body.ready .gold-line{
 
 
     /*
-    Desktop hover zone isn't needed on touch.
+    Desktop trigger disabled on phone.
+    Tap triggers once.
     */
 
     .interaction-zone{
+        display:none;
+    }
+
+
+    /*
+    Cursor glow not needed on touch.
+    */
+
+    .cursor-light{
         display:none;
     }
 
@@ -1135,6 +1192,15 @@ body.ready .gold-line{
 
 
 <body>
+
+
+<!-- CURSOR LIGHT -->
+
+<div
+    class="cursor-light"
+    id="cursorLight">
+</div>
+
 
 
 <!-- HEADER -->
@@ -1255,7 +1321,7 @@ body.ready .gold-line{
         <div class="card-inner">
 
 
-            <!-- ORIGINAL SIDE -->
+            <!-- ORIGINAL IMAGE -->
 
             <div class="card-face card-front">
 
@@ -1265,10 +1331,7 @@ body.ready .gold-line{
                     alt="Lady Justice">
 
 
-                <!--
-                NEW PROFESSIONAL BRAND MARK
-                -->
-
+                <!-- BRAND -->
 
                 <div class="image-brand">
 
@@ -1306,7 +1369,7 @@ body.ready .gold-line{
             </div>
 
 
-            <!-- FLIPPED SIDE -->
+            <!-- FINAL FLIPPED IMAGE -->
 
             <div class="card-face card-back">
 
@@ -1323,13 +1386,11 @@ body.ready .gold-line{
 
 
 
-    <!-- DARK LEFT SIDE DURING STAGE 3 -->
-
     <div class="stage3-shade"></div>
 
 
 
-    <!-- STAGE 1 -->
+    <!-- FIRST STAGE -->
 
     <div class="intro">
 
@@ -1414,13 +1475,12 @@ body.ready .gold-line{
 
         </div>
 
+
     </section>
 
 
 
-    <!--
-    THIS CONTROLS THE BACK-AND-FORTH CURSOR EFFECT
-    -->
+    <!-- ONE-TIME FLIP AREA -->
 
     <div
         class="interaction-zone"
@@ -1561,7 +1621,7 @@ function(){
 
 
 /* ==================================================
-   STAGE 2 ↔ STAGE 3
+   ONE-TIME STAGE 3
 ================================================== */
 
 const hero =
@@ -1572,16 +1632,18 @@ const interactionZone =
 document.getElementById("interactionZone");
 
 
+let hasRotated = false;
+
+
 /*
 DESKTOP:
 
-Every time the cursor LEAVES the right area
-and ENTERS it again:
+First time cursor enters image area:
+rotate once.
 
-Stage 2 -> Stage 3
-Stage 3 -> Stage 2
-Stage 2 -> Stage 3
-etc.
+After that:
+never rotate back.
+Never rotate again.
 */
 
 interactionZone.addEventListener(
@@ -1589,11 +1651,13 @@ interactionZone.addEventListener(
 function(){
 
     if(
-        document.body.classList.contains("ready") &&
-        window.matchMedia("(hover:hover)").matches
+        !hasRotated &&
+        document.body.classList.contains("ready")
     ){
 
-        hero.classList.toggle("stage3");
+        hasRotated = true;
+
+        hero.classList.add("stage3");
 
     }
 
@@ -1601,14 +1665,9 @@ function(){
 
 
 
-/*
-MOBILE / TABLET:
-
-Tap the picture area:
-
-Stage 2 -> Stage 3
-Stage 3 -> Stage 2
-*/
+/* ==================================================
+   MOBILE ONE-TIME TAP
+================================================== */
 
 hero.addEventListener(
 "click",
@@ -1624,11 +1683,6 @@ function(event){
     }
 
 
-    /*
-    Do not rotate when clicking
-    actual buttons or links.
-    */
-
     if(
         event.target.closest("a") ||
         event.target.closest("button")
@@ -1640,14 +1694,60 @@ function(event){
 
 
     if(
+        !hasRotated &&
         document.body.classList.contains("ready")
     ){
 
-        hero.classList.toggle("stage3");
+        hasRotated = true;
+
+        hero.classList.add("stage3");
 
     }
 
 });
+
+
+
+/* ==================================================
+   PROFESSIONAL CURSOR LIGHT
+================================================== */
+
+const cursorLight =
+document.getElementById("cursorLight");
+
+
+if(
+    window.matchMedia("(hover:hover)").matches
+){
+
+    document.addEventListener(
+    "mousemove",
+    function(event){
+
+        cursorLight.style.left =
+        event.clientX + "px";
+
+
+        cursorLight.style.top =
+        event.clientY + "px";
+
+
+        cursorLight.style.opacity =
+        "1";
+
+    });
+
+
+    document.addEventListener(
+    "mouseleave",
+    function(){
+
+        cursorLight.style.opacity =
+        "0";
+
+    });
+
+}
 
 
 
