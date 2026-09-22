@@ -30,7 +30,7 @@ body{
 body{
     background:var(--black);
     color:white;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     overflow:hidden;
 }
 
@@ -61,7 +61,7 @@ header{
 }
 
 .logo{
-    font-family:Georgia, serif;
+    font-family:Georgia,serif;
 
     font-size:23px;
     letter-spacing:3px;
@@ -192,6 +192,7 @@ header{
     left:0;
 
     width:100%;
+
     height:calc(100vh - var(--header));
     height:calc(100dvh - var(--header));
 
@@ -209,13 +210,10 @@ header{
 
 
 /* ==================================================
-   JUSTICE IMAGE CARD
+   JUSTICE CARD
 ================================================== */
 
-/*
-   STAGE 1:
-   full original image centered.
-*/
+/* STAGE 1 */
 
 .justice-card{
     position:absolute;
@@ -231,20 +229,16 @@ header{
 
     z-index:5;
 
-    cursor:pointer;
-
     transform-style:preserve-3d;
 
     transition:
         left 1.35s cubic-bezier(.7,0,.2,1),
         top 1.35s cubic-bezier(.7,0,.2,1),
         width 1.35s cubic-bezier(.7,0,.2,1),
-        height .95s cubic-bezier(.7,0,.2,1),
-        transform .95s cubic-bezier(.7,0,.2,1);
+        height 1s cubic-bezier(.7,0,.2,1),
+        transform 1s cubic-bezier(.7,0,.2,1);
 }
 
-
-/* FLIP CONTAINER */
 
 .card-inner{
     position:relative;
@@ -257,14 +251,12 @@ header{
     transform:rotateY(0deg);
 
     transition:
-        transform .9s cubic-bezier(.62,.05,.25,1);
+        transform .95s cubic-bezier(.62,.05,.25,1);
 
     box-shadow:
         0 30px 90px rgba(0,0,0,.78);
 }
 
-
-/* BOTH SIDES */
 
 .card-face{
     position:absolute;
@@ -286,7 +278,7 @@ header{
 }
 
 
-/* FRONT IMAGE */
+/* FRONT */
 
 .card-front{
     transform:rotateY(0deg);
@@ -307,28 +299,132 @@ header{
 }
 
 
-/* BACK IMAGE */
+/* ==================================================
+   NEW BRAND MARK
+   ONLY ON ORIGINAL IMAGE
+================================================== */
 
-.card-back{
-    transform:rotateY(180deg);
+.image-brand{
+    position:absolute;
 
-    background:#090807;
+    right:7%;
+    top:50%;
+
+    transform:
+        translateY(-50%)
+        translateY(12px);
+
+    width:260px;
+
+    text-align:center;
+
+    z-index:10;
+
+    opacity:0;
+
+    transition:
+        opacity .8s ease .7s,
+        transform .8s ease .7s;
+}
+
+
+body.ready .image-brand{
+    opacity:1;
+
+    transform:
+        translateY(-50%)
+        translateY(0);
+}
+
+
+/* LOGO SYMBOL */
+
+.brand-symbol{
+    width:92px;
+    height:92px;
+
+    margin:0 auto 23px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(202,164,95,.65);
+
+    transform:rotate(45deg);
+}
+
+
+.brand-symbol span{
+    font-family:Georgia,serif;
+
+    font-size:31px;
+
+    color:#d7b36b;
+
+    letter-spacing:2px;
+
+    transform:rotate(-45deg);
+}
+
+
+/* COMPANY NAME */
+
+.brand-name{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    letter-spacing:4px;
+
+    color:#fff;
+
+    white-space:nowrap;
+}
+
+.brand-name span{
+    color:var(--gold);
+}
+
+
+.brand-rule{
+    width:75px;
+    height:1px;
+
+    margin:17px auto;
+
+    background:var(--gold);
+}
+
+
+.brand-subtitle{
+    color:#b2a38b;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    line-height:1.8;
 }
 
 
 /*
-   This is Stage 3.
-
-   We mirror the original image.
-
-   Original:
-   Justice LEFT
-   empty area RIGHT
-
-   After mirror:
-   empty area LEFT
-   Justice RIGHT
+When Stage 3 starts,
+the FRONT rotates away,
+so the logo naturally disappears.
 */
+
+
+/* ==================================================
+   BACK / FLIPPED SIDE
+================================================== */
+
+.card-back{
+    transform:rotateY(180deg);
+
+    background:#080706;
+}
+
 
 .card-back img{
     width:100%;
@@ -339,11 +435,19 @@ header{
     object-fit:cover;
 
     /*
-       Keep TOP visible.
-       Her face/head cannot be cut.
-       Extra cropping happens at BOTTOM.
+    Keep the top/head.
+    Crop from bottom when necessary.
     */
+
     object-position:center top;
+
+    /*
+    Original:
+    Justice left / empty right.
+
+    Mirror:
+    empty left / Justice right.
+    */
 
     transform:scaleX(-1);
 
@@ -389,7 +493,7 @@ header{
 }
 
 .intro h1{
-    font-family:Georgia, serif;
+    font-family:Georgia,serif;
 
     font-size:clamp(52px,7vw,100px);
 
@@ -429,17 +533,20 @@ header{
         transform 1s ease .4s;
 }
 
+
 .eyebrow{
     margin-bottom:22px;
 
     color:var(--gold);
 
     font-size:11px;
+
     letter-spacing:4px;
 }
 
+
 .content h2{
-    font-family:Georgia, serif;
+    font-family:Georgia,serif;
 
     font-size:clamp(48px,5vw,73px);
 
@@ -448,9 +555,11 @@ header{
     line-height:1.04;
 }
 
+
 .content h2 span{
     color:var(--gold);
 }
+
 
 .description{
     margin-top:25px;
@@ -464,6 +573,7 @@ header{
     line-height:1.75;
 }
 
+
 .buttons{
     display:flex;
 
@@ -471,6 +581,7 @@ header{
 
     margin-top:33px;
 }
+
 
 .btn{
     padding:16px 25px;
@@ -480,19 +591,24 @@ header{
     text-transform:uppercase;
 
     font-size:11px;
+
     letter-spacing:1.4px;
 
     transition:.3s;
 }
 
+
 .gold{
     background:var(--gold);
+
     color:#111;
 }
+
 
 .gold:hover{
     background:#e1c17c;
 }
+
 
 .outline{
     color:white;
@@ -500,6 +616,7 @@ header{
     border:
         1px solid rgba(255,255,255,.42);
 }
+
 
 .outline:hover{
     color:var(--gold);
@@ -539,12 +656,6 @@ header{
    STAGE 2
 ================================================== */
 
-/*
-   Stage 1 ends.
-   Image moves right.
-   Complete image remains visible.
-*/
-
 body.ready .justice-card{
     left:76.5%;
     top:50%;
@@ -554,6 +665,7 @@ body.ready .justice-card{
     transform:translate(-50%,-50%);
 }
 
+
 body.ready .intro{
     opacity:0;
 
@@ -561,6 +673,7 @@ body.ready .intro{
         translate(-58%,-50%)
         scale(.96);
 }
+
 
 body.ready .content{
     opacity:1;
@@ -572,6 +685,7 @@ body.ready .content{
         translateX(0);
 }
 
+
 body.ready .gold-line{
     opacity:1;
 }
@@ -581,15 +695,7 @@ body.ready .gold-line{
    STAGE 3
 ================================================== */
 
-/*
-   Cursor enters the image / user taps it.
-
-   The image expands ONLY inside the middle page.
-   Header is untouched.
-*/
-
 .hero.stage3 .justice-card{
-
     left:0;
     top:0;
 
@@ -604,19 +710,14 @@ body.ready .gold-line{
 }
 
 
-/*
-   Actual left-to-right flip.
-*/
+/* FLIP */
 
 .hero.stage3 .card-inner{
     transform:rotateY(180deg);
 }
 
 
-/*
-   Dark overlay only on the left,
-   where the original photo's empty area now sits.
-*/
+/* DARK LEFT SIDE */
 
 .stage3-shade{
     position:absolute;
@@ -636,44 +737,54 @@ body.ready .gold-line{
             rgba(0,0,0,.96) 0%,
             rgba(0,0,0,.90) 24%,
             rgba(0,0,0,.68) 42%,
-            rgba(0,0,0,.28) 57%,
-            rgba(0,0,0,.05) 74%,
+            rgba(0,0,0,.27) 58%,
+            rgba(0,0,0,.05) 75%,
             transparent 100%
         );
 
     transition:
-        opacity .55s ease .28s;
+        opacity .55s ease .3s;
 }
+
 
 .hero.stage3 .stage3-shade{
     opacity:1;
 }
 
 
-/*
-   The text stays on LEFT.
-   It does not jump.
-*/
+/* INFORMATION DOES NOT MOVE */
 
 .hero.stage3 .content{
+    opacity:1;
+
     transform:
         translateY(-50%)
         translateX(0);
-
-    opacity:1;
 }
 
 
-/*
-   Slightly improve Stage 3 photograph.
+/* ==================================================
+   INTERACTION AREA
 
-   We keep the TOP fixed,
-   allowing only bottom cropping.
-*/
+   Cursor enters right side:
+   original -> flip
 
-.hero.stage3 .card-back img{
+   Move cursor away and enter again:
+   flip -> original
+================================================== */
 
-    object-position:center top;
+.interaction-zone{
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:52%;
+    height:100%;
+
+    z-index:50;
+
+    cursor:pointer;
 }
 
 
@@ -707,6 +818,7 @@ body.ready .gold-line{
     transition:.3s;
 }
 
+
 .search-panel.open{
     opacity:1;
 
@@ -714,6 +826,7 @@ body.ready .gold-line{
 
     transform:translateY(0);
 }
+
 
 .search-panel input{
     width:100%;
@@ -731,7 +844,7 @@ body.ready .gold-line{
 
 
 /* ==================================================
-   SIDE MENU
+   MENU
 ================================================== */
 
 .overlay{
@@ -750,11 +863,13 @@ body.ready .gold-line{
     transition:.4s;
 }
 
+
 .overlay.open{
     opacity:1;
 
     pointer-events:auto;
 }
+
 
 .side-menu{
     position:fixed;
@@ -780,9 +895,11 @@ body.ready .gold-line{
         right .55s cubic-bezier(.7,0,.2,1);
 }
 
+
 .side-menu.open{
     right:0;
 }
+
 
 .close-menu{
     position:absolute;
@@ -800,6 +917,7 @@ body.ready .gold-line{
     cursor:pointer;
 }
 
+
 .side-menu a{
     display:block;
 
@@ -809,7 +927,7 @@ body.ready .gold-line{
 
     text-decoration:none;
 
-    font-family:Georgia, serif;
+    font-family:Georgia,serif;
 
     font-size:26px;
 
@@ -818,6 +936,7 @@ body.ready .gold-line{
 
     transition:.3s;
 }
+
 
 .side-menu a:hover{
     padding-left:10px;
@@ -836,20 +955,25 @@ body.ready .gold-line{
         --header:72px;
     }
 
+
     header{
         padding:0 5%;
 
         grid-template-columns:1fr auto;
     }
 
+
     .header-center{
         display:none;
     }
 
+
     .logo{
         font-size:16px;
+
         letter-spacing:2px;
     }
+
 
     .header-right{
         gap:10px;
@@ -864,9 +988,11 @@ body.ready .gold-line{
         width:92vw;
     }
 
+
     .intro{
         top:39%;
     }
+
 
     .intro h1{
         font-size:42px;
@@ -883,6 +1009,7 @@ body.ready .gold-line{
         width:88vw;
     }
 
+
     .content{
         left:7%;
         right:7%;
@@ -892,9 +1019,11 @@ body.ready .gold-line{
         width:auto;
     }
 
+
     .content h2{
         font-size:38px;
     }
+
 
     .description{
         font-size:14px;
@@ -902,18 +1031,55 @@ body.ready .gold-line{
         line-height:1.6;
     }
 
+
     .buttons{
         flex-direction:column;
 
         width:225px;
     }
 
+
     .btn{
         text-align:center;
     }
 
+
     .gold-line{
         display:none;
+    }
+
+
+    /* brand */
+
+    .image-brand{
+        right:6%;
+
+        width:150px;
+    }
+
+
+    .brand-symbol{
+        width:60px;
+        height:60px;
+
+        margin-bottom:15px;
+    }
+
+
+    .brand-symbol span{
+        font-size:21px;
+    }
+
+
+    .brand-name{
+        font-size:14px;
+
+        letter-spacing:2px;
+    }
+
+
+    .brand-subtitle{
+        font-size:7px;
     }
 
 
@@ -929,26 +1095,37 @@ body.ready .gold-line{
         transform:none;
     }
 
-    .hero.stage3 .card-back img{
 
+    .hero.stage3 .card-back img{
         object-fit:cover;
 
         object-position:center top;
     }
 
-    .hero.stage3 .stage3-shade{
 
+    .hero.stage3 .stage3-shade{
         background:
             linear-gradient(
                 0deg,
+
                 rgba(0,0,0,.96) 0%,
                 rgba(0,0,0,.72) 48%,
                 rgba(0,0,0,.12) 100%
             );
     }
 
+
     .hero.stage3 .content{
         top:64%;
+    }
+
+
+    /*
+    Desktop hover zone isn't needed on touch.
+    */
+
+    .interaction-zone{
+        display:none;
     }
 
 }
@@ -965,17 +1142,23 @@ body.ready .gold-line{
 <header>
 
     <div class="logo">
+
         KRONBERG <span>LEGAL</span>
+
     </div>
 
 
     <div class="header-center">
+
         MÜNCHEN · INTERNATIONAL COUNSEL
+
     </div>
 
 
     <div class="header-right">
 
+
+        <!-- LANGUAGE -->
 
         <div class="languages">
 
@@ -1001,6 +1184,8 @@ body.ready .gold-line{
 
         </div>
 
+
+        <!-- SEARCH -->
 
         <button
             class="search-button"
@@ -1031,6 +1216,8 @@ body.ready .gold-line{
         </button>
 
 
+        <!-- MENU -->
+
         <button
             class="hamburger"
             id="menuButton"
@@ -1048,7 +1235,7 @@ body.ready .gold-line{
 
 
 
-<!-- MAIN HERO -->
+<!-- MAIN PAGE -->
 
 <main
     class="hero"
@@ -1058,7 +1245,7 @@ body.ready .gold-line{
     <div class="gold-line"></div>
 
 
-    <!-- JUSTICE IMAGE -->
+    <!-- IMAGE -->
 
     <div
         class="justice-card"
@@ -1068,18 +1255,58 @@ body.ready .gold-line{
         <div class="card-inner">
 
 
-            <!-- STAGE 1 + STAGE 2 -->
+            <!-- ORIGINAL SIDE -->
 
             <div class="card-face card-front">
+
 
                 <img
                     src="blindfolded_justice_in_golden_shadows.png"
                     alt="Lady Justice">
 
+
+                <!--
+                NEW PROFESSIONAL BRAND MARK
+                -->
+
+
+                <div class="image-brand">
+
+
+                    <div class="brand-symbol">
+
+                        <span>KL</span>
+
+                    </div>
+
+
+                    <div class="brand-name">
+
+                        KRONBERG
+                        <span>LEGAL</span>
+
+                    </div>
+
+
+                    <div class="brand-rule"></div>
+
+
+                    <div class="brand-subtitle">
+
+                        RECHTSANWÄLTE
+                        <br>
+                        MÜNCHEN · GERMANY
+
+                    </div>
+
+
+                </div>
+
+
             </div>
 
 
-            <!-- STAGE 3 -->
+            <!-- FLIPPED SIDE -->
 
             <div class="card-face card-back">
 
@@ -1095,27 +1322,35 @@ body.ready .gold-line{
     </div>
 
 
+
+    <!-- DARK LEFT SIDE DURING STAGE 3 -->
+
     <div class="stage3-shade"></div>
 
 
 
-    <!-- STAGE 1 TITLE -->
+    <!-- STAGE 1 -->
 
     <div class="intro">
 
         <div class="intro-small">
+
             RECHTSANWÄLTE · MÜNCHEN
+
         </div>
 
+
         <h1>
+
             KRONBERG LEGAL
+
         </h1>
 
     </div>
 
 
 
-    <!-- STAGE 2 + STAGE 3 INFORMATION -->
+    <!-- INFORMATION -->
 
     <section class="content">
 
@@ -1179,8 +1414,18 @@ body.ready .gold-line{
 
         </div>
 
-
     </section>
+
+
+
+    <!--
+    THIS CONTROLS THE BACK-AND-FORTH CURSOR EFFECT
+    -->
+
+    <div
+        class="interaction-zone"
+        id="interactionZone">
+    </div>
 
 
 </main>
@@ -1298,37 +1543,48 @@ body.ready .gold-line{
    STAGE 1 → STAGE 2
 ================================================== */
 
-window.addEventListener("load",function(){
+window.addEventListener(
+"load",
+function(){
 
-    setTimeout(function(){
+    setTimeout(
+    function(){
 
         document.body.classList.add("ready");
 
-    },2000);
+    },
+    2000
+    );
 
 });
 
 
 
 /* ==================================================
-   STAGE 3
+   STAGE 2 ↔ STAGE 3
 ================================================== */
 
 const hero =
 document.getElementById("hero");
 
-const justiceCard =
-document.getElementById("justiceCard");
+
+const interactionZone =
+document.getElementById("interactionZone");
 
 
 /*
-   DESKTOP:
+DESKTOP:
 
-   cursor enters the actual image
-   → immediately start Stage 3.
+Every time the cursor LEAVES the right area
+and ENTERS it again:
+
+Stage 2 -> Stage 3
+Stage 3 -> Stage 2
+Stage 2 -> Stage 3
+etc.
 */
 
-justiceCard.addEventListener(
+interactionZone.addEventListener(
 "mouseenter",
 function(){
 
@@ -1337,47 +1593,51 @@ function(){
         window.matchMedia("(hover:hover)").matches
     ){
 
-        hero.classList.add("stage3");
+        hero.classList.toggle("stage3");
 
     }
 
 });
 
 
-/*
-   Stage 3 stays open while cursor
-   is anywhere inside the main page.
 
-   Move cursor back to top header
-   and it returns to Stage 2.
+/*
+MOBILE / TABLET:
+
+Tap the picture area:
+
+Stage 2 -> Stage 3
+Stage 3 -> Stage 2
 */
 
 hero.addEventListener(
-"mouseleave",
-function(){
+"click",
+function(event){
+
 
     if(
-        window.matchMedia("(hover:hover)").matches
+        !window.matchMedia("(hover:none)").matches
     ){
 
-        hero.classList.remove("stage3");
+        return;
 
     }
 
-});
 
+    /*
+    Do not rotate when clicking
+    actual buttons or links.
+    */
 
+    if(
+        event.target.closest("a") ||
+        event.target.closest("button")
+    ){
 
-/*
-   CLICK / TOUCH:
+        return;
 
-   tap once = Stage 3
-   tap again = Stage 2
-*/
+    }
 
-justiceCard.addEventListener(
-"click",
-function(){
 
     if(
         document.body.classList.contains("ready")
@@ -1398,11 +1658,13 @@ function(){
 const searchButton =
 document.getElementById("searchButton");
 
+
 const searchPanel =
 document.getElementById("searchPanel");
 
 
-searchButton.onclick=function(){
+searchButton.onclick =
+function(){
 
     searchPanel.classList.toggle("open");
 
@@ -1417,17 +1679,21 @@ searchButton.onclick=function(){
 const menuButton =
 document.getElementById("menuButton");
 
+
 const sideMenu =
 document.getElementById("sideMenu");
 
+
 const overlay =
 document.getElementById("overlay");
+
 
 const closeMenu =
 document.getElementById("closeMenu");
 
 
-menuButton.onclick=function(){
+menuButton.onclick =
+function(){
 
     sideMenu.classList.add("open");
 
@@ -1445,11 +1711,11 @@ function closeSideMenu(){
 }
 
 
-closeMenu.onclick=
+closeMenu.onclick =
 closeSideMenu;
 
 
-overlay.onclick=
+overlay.onclick =
 closeSideMenu;
 
 
@@ -1460,6 +1726,7 @@ closeSideMenu;
 
 const englishButton =
 document.getElementById("englishButton");
+
 
 const germanButton =
 document.getElementById("germanButton");
@@ -1519,6 +1786,7 @@ const translations={
 
 function changeLanguage(language){
 
+
     const text =
     translations[language];
 
@@ -1561,7 +1829,8 @@ function changeLanguage(language){
 
     document
     .querySelectorAll(".side-menu a")
-    .forEach(function(link){
+    .forEach(
+    function(link){
 
         link.textContent =
         link.dataset[language];
@@ -1588,14 +1857,16 @@ function changeLanguage(language){
 
 
 
-englishButton.onclick=function(){
+englishButton.onclick =
+function(){
 
     changeLanguage("en");
 
 };
 
 
-germanButton.onclick=function(){
+germanButton.onclick =
+function(){
 
     changeLanguage("de");
 
