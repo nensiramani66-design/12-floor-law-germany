@@ -15,11 +15,6 @@
     box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-}
-
 body{
     background:#080808;
     color:white;
@@ -28,96 +23,134 @@ body{
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:82px;
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 
     padding:0 6%;
 
     z-index:100;
 
+    background:rgba(5,5,5,.88);
     border-bottom:1px solid rgba(255,255,255,.12);
-
-    background:
-    linear-gradient(
-        to bottom,
-        rgba(0,0,0,.85),
-        rgba(0,0,0,.15)
-    );
 }
-
 
 .logo{
     font-family:Georgia, serif;
-
     font-size:23px;
-
     letter-spacing:3px;
-
-    white-space:nowrap;
 }
 
 .logo span{
-    color:#c7a35d;
+    color:#c9a45f;
 }
 
-
-.nav-area{
+.header-right{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:20px;
 }
 
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
-}
-
-
-.nav-links a{
+.icon{
+    background:none;
+    border:0;
     color:white;
+    cursor:pointer;
+    font-size:25px;
+}
 
-    text-decoration:none;
 
-    font-size:12px;
+/* HAMBURGER */
 
-    letter-spacing:1.4px;
+.hamburger{
+    width:32px;
+    height:26px;
 
-    text-transform:uppercase;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    background:none;
+    border:none;
+
+    cursor:pointer;
+}
+
+.hamburger span{
+    display:block;
+    width:100%;
+    height:2px;
+
+    background:white;
 
     transition:.3s;
 }
 
 
-.nav-links a:hover{
-    color:#c7a35d;
+/* SIDE MENU */
+
+.side-menu{
+    position:fixed;
+
+    top:0;
+    right:-360px;
+
+    width:340px;
+    height:100vh;
+
+    background:#101010;
+
+    z-index:300;
+
+    padding:110px 45px 40px;
+
+    transition:right .5s ease;
+
+    border-left:1px solid rgba(201,164,95,.35);
 }
 
+.side-menu.open{
+    right:0;
+}
 
-.icon-button{
-    width:36px;
-    height:36px;
+.side-menu a{
+    display:block;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color:white;
+    text-decoration:none;
 
+    font-family:Georgia, serif;
+    font-size:25px;
+
+    margin-bottom:28px;
+
+    transition:.3s;
+}
+
+.side-menu a:hover{
+    color:#c9a45f;
+    transform:translateX(8px);
+}
+
+.close{
+    position:absolute;
+
+    top:27px;
+    right:35px;
+
+    font-size:30px;
+
+    background:none;
     border:none;
-    background:transparent;
 
     color:white;
 
@@ -125,64 +158,28 @@ header{
 }
 
 
-.icon-button svg{
-    width:21px;
-    height:21px;
-}
-
-
-.menu-button{
-    display:none;
-}
-
-
-/* =========================
-   MAIN HERO
-========================= */
+/* HERO */
 
 .hero{
-    position:relative;
-
     width:100%;
     height:100vh;
 
+    position:relative;
     overflow:hidden;
 
     background:
     radial-gradient(
-        circle at 75% 48%,
-        #302719 0%,
-        #17130e 30%,
-        #090909 72%
+        circle at 75% 50%,
+        #302719,
+        #111 42%,
+        #060606 80%
     );
 }
 
 
-.hero::after{
-    content:"";
+/* JUSTICE IMAGE */
 
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.88) 0%,
-        rgba(0,0,0,.50) 45%,
-        rgba(0,0,0,.10) 100%
-    );
-
-    z-index:2;
-
-    pointer-events:none;
-}
-
-
-/* =========================
-   JUSTICE IMAGE
-========================= */
-
-.justice-wrapper{
+.justice{
     position:absolute;
 
     top:52%;
@@ -191,60 +188,66 @@ header{
     width:min(600px,48vw);
     height:78vh;
 
+    z-index:5;
+
     transform:
     translate(-50%,-50%)
-    perspective(1400px)
-    rotateY(0deg)
-    scale(1);
-
-    transform-origin:center center;
+    perspective(1300px)
+    rotateY(0deg);
 
     transition:
-    left 1.8s cubic-bezier(.65,0,.20,1),
-    transform 1.8s cubic-bezier(.65,0,.20,1),
-    width 1.8s ease;
-
-    z-index:5;
+    left 1.7s cubic-bezier(.65,0,.2,1),
+    transform 1.7s cubic-bezier(.65,0,.2,1);
 }
 
-
-.justice-wrapper img{
+.justice img{
     width:100%;
     height:100%;
 
     object-fit:cover;
-    object-position:center;
 
     display:block;
 
-    filter:
-    brightness(.82)
-    contrast(1.08)
-    saturate(.88);
+    border:1px solid rgba(201,164,95,.25);
 
     box-shadow:
-    0 35px 100px rgba(0,0,0,.75);
+    0 30px 90px rgba(0,0,0,.8);
+
+    transition:
+    transform .55s ease,
+    filter .55s ease,
+    box-shadow .55s ease;
+
+    filter:
+    brightness(.82)
+    contrast(1.08);
 }
 
 
-/* golden edge */
+/* IMAGE REACTION */
 
-.justice-wrapper::after{
-    content:"";
+body.loaded .justice:hover{
 
-    position:absolute;
+    transform:
+    translate(-50%,-52%)
+    perspective(1300px)
+    rotateY(-7deg)
+    rotateX(2deg)
+    scale(.98);
+}
 
-    inset:0;
+body.loaded .justice:hover img{
 
-    border:1px solid rgba(199,163,93,.28);
+    filter:
+    brightness(.98)
+    contrast(1.1);
 
-    pointer-events:none;
+    box-shadow:
+    0 40px 110px rgba(201,164,95,.24);
 }
 
 
-/* =========================
-   FIRST CENTER TEXT
-========================= */
+/* INTRO */
 
 .intro{
     position:absolute;
@@ -254,46 +257,40 @@ header{
 
     transform:translate(-50%,-50%);
 
-    width:90%;
+    z-index:10;
 
     text-align:center;
 
-    z-index:10;
+    width:90%;
 
     transition:
-    opacity .7s ease,
+    opacity .8s ease,
     transform 1s ease;
 }
 
-
-.intro-small{
-    color:#d2b26c;
-
-    letter-spacing:5px;
+.intro p{
+    color:#c9a45f;
 
     font-size:11px;
+    letter-spacing:5px;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
 }
-
 
 .intro h1{
     font-family:Georgia, serif;
 
-    font-size:clamp(45px,6.5vw,92px);
+    font-size:clamp(48px,7vw,94px);
 
     font-weight:normal;
 
     letter-spacing:3px;
 
-    text-shadow:
-    0 8px 40px rgba(0,0,0,.95);
+    text-shadow:0 8px 35px black;
 }
 
 
-/* =========================
-   INFORMATION
-========================= */
+/* INFORMATION */
 
 .content{
     position:absolute;
@@ -301,7 +298,7 @@ header{
     left:8%;
     top:52%;
 
-    width:560px;
+    width:550px;
 
     transform:translateY(-42%);
 
@@ -309,173 +306,108 @@ header{
 
     z-index:8;
 
-    pointer-events:none;
-
     transition:
-    opacity 1.2s ease .65s,
-    transform 1.2s ease .65s;
+    opacity 1.1s ease .6s,
+    transform 1.1s ease .6s;
 }
 
-
-.eyebrow{
-    color:#c7a35d;
+.small{
+    color:#c9a45f;
 
     font-size:11px;
-
     letter-spacing:4px;
-
-    text-transform:uppercase;
 
     margin-bottom:22px;
 }
 
-
 .content h2{
     font-family:Georgia, serif;
 
-    font-size:clamp(48px,5.2vw,76px);
-
-    line-height:1.03;
+    font-size:clamp(48px,5vw,74px);
 
     font-weight:normal;
-}
 
+    line-height:1.03;
+}
 
 .content h2 span{
-    color:#c7a35d;
+    color:#c9a45f;
 }
-
 
 .content p{
     margin-top:25px;
 
-    max-width:520px;
+    max-width:530px;
 
-    color:#d0d0d0;
+    color:#ccc;
 
     font-size:16px;
-
     line-height:1.8;
 }
 
-
 .buttons{
-    display:flex;
-
-    gap:14px;
-
     margin-top:34px;
+
+    display:flex;
+    gap:16px;
 }
 
-
-.button{
-    display:inline-block;
-
-    padding:15px 24px;
+.btn{
+    padding:15px 25px;
 
     text-decoration:none;
 
     text-transform:uppercase;
 
-    letter-spacing:1.3px;
+    letter-spacing:1.5px;
 
     font-size:11px;
-
-    transition:.3s;
 }
 
-
-.button-gold{
-    background:#c7a35d;
-
+.gold{
+    background:#c9a45f;
     color:#111;
 }
 
-
-.button-gold:hover{
-    background:#e0c27c;
-}
-
-
-.button-outline{
-    border:1px solid rgba(255,255,255,.48);
-
+.outline{
     color:white;
+
+    border:1px solid #777;
 }
 
 
-.button-outline:hover{
-    border-color:#c7a35d;
+/* AFTER OPENING ANIMATION */
 
-    color:#c7a35d;
-}
-
-
-/* =========================
-   DECORATION
-========================= */
-
-.gold-line{
-    position:absolute;
-
-    left:4.5%;
-    top:39%;
-
-    width:1px;
-    height:190px;
-
-    z-index:7;
-
-    background:
-    linear-gradient(
-        transparent,
-        #c7a35d,
-        transparent
-    );
-}
-
-
-/* =========================
-   FINAL ANIMATION POSITION
-========================= */
-
-body.loaded .justice-wrapper{
+body.loaded .justice{
 
     left:78%;
 
     transform:
     translate(-50%,-50%)
-    perspective(1400px)
-    rotateY(-17deg)
+    perspective(1300px)
+    rotateY(-16deg)
     scale(.91);
 }
-
 
 body.loaded .intro{
 
     opacity:0;
 
     transform:
-    translate(-65%,-50%)
-    scale(.96);
+    translate(-70%,-50%);
 
     pointer-events:none;
 }
-
 
 body.loaded .content{
 
     opacity:1;
 
     transform:translateY(-50%);
-
-    pointer-events:auto;
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-box{
     position:fixed;
@@ -489,39 +421,33 @@ body.loaded .content{
 
     background:#111;
 
-    border:1px solid rgba(199,163,93,.35);
-
-    z-index:200;
+    z-index:250;
 
     display:none;
 }
 
-
-.search-box.active{
+.search-box.show{
     display:block;
 }
-
 
 .search-box input{
     width:100%;
 
-    padding:12px;
+    padding:13px;
 
-    background:#1a1a1a;
+    background:#202020;
 
     color:white;
 
-    border:1px solid #444;
+    border:1px solid #555;
 
     outline:none;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:850px){
 
     header{
         height:70px;
@@ -530,88 +456,40 @@ body.loaded .content{
 
     .logo{
         font-size:17px;
-        letter-spacing:2px;
     }
 
-    .nav-links{
-        position:absolute;
+    .justice{
+        width:80vw;
+        height:58vh;
 
-        top:70px;
-        right:0;
-
-        width:230px;
-
-        padding:25px;
-
-        background:#101010;
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        display:none;
+        top:43%;
     }
 
-    .nav-links.open{
-        display:flex;
-    }
-
-    .menu-button{
-        display:flex;
-    }
-
-
-    .justice-wrapper{
-
-        width:78vw;
-        height:60vh;
-
-        top:45%;
-    }
-
-
-    body.loaded .justice-wrapper{
-
+    body.loaded .justice{
         left:74%;
         top:32%;
 
-        width:62vw;
-        height:44vh;
+        width:64vw;
+        height:43vh;
 
         opacity:.48;
-
-        transform:
-        translate(-50%,-50%)
-        perspective(1000px)
-        rotateY(-10deg);
     }
-
-
-    .intro h1{
-        font-size:42px;
-    }
-
 
     .content{
-
         left:7%;
         right:7%;
-        top:60%;
+        top:61%;
 
         width:auto;
     }
 
-
     .content h2{
-        font-size:41px;
+        font-size:40px;
     }
-
 
     .content p{
         font-size:14px;
-        line-height:1.65;
     }
-
 
     .buttons{
         flex-direction:column;
@@ -619,22 +497,12 @@ body.loaded .content{
         width:220px;
     }
 
-
-    .button{
+    .btn{
         text-align:center;
     }
 
-
-    .gold-line{
-        display:none;
-    }
-
-
-    .search-box{
-        top:70px;
-        right:5%;
-
-        width:90%;
+    .side-menu{
+        width:85%;
     }
 
 }
@@ -646,8 +514,6 @@ body.loaded .content{
 <body>
 
 
-<!-- HEADER -->
-
 <header>
 
     <div class="logo">
@@ -655,65 +521,22 @@ body.loaded .content{
     </div>
 
 
-    <div class="nav-area">
-
-        <nav class="nav-links" id="navLinks">
-
-            <a href="#">Home</a>
-
-            <a href="#">Our Firm</a>
-
-            <a href="#">Expertise</a>
-
-            <a href="#">12 Floors</a>
-
-            <a href="#">Lawyers</a>
-
-            <a href="#">Contact</a>
-
-        </nav>
-
+    <div class="header-right">
 
         <!-- SEARCH -->
 
-        <button class="icon-button" id="searchButton" aria-label="Search">
-
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8">
-
-                <circle cx="11" cy="11" r="7"></circle>
-
-                <line x1="16.5"
-                      y1="16.5"
-                      x2="21"
-                      y2="21">
-                </line>
-
-            </svg>
-
+        <button class="icon" id="searchBtn">
+            ⌕
         </button>
 
 
-        <!-- MOBILE MENU -->
+        <!-- THREE LINE MENU -->
 
-        <button class="icon-button menu-button"
-                id="menuButton"
-                aria-label="Menu">
+        <button class="hamburger" id="menuBtn">
 
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.8">
-
-                <line x1="4" y1="7" x2="20" y2="7"></line>
-
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-
-                <line x1="4" y1="17" x2="20" y2="17"></line>
-
-            </svg>
+            <span></span>
+            <span></span>
+            <span></span>
 
         </button>
 
@@ -722,27 +545,46 @@ body.loaded .content{
 </header>
 
 
-<!-- SEARCH BOX -->
+<!-- SEARCH -->
 
 <div class="search-box" id="searchBox">
 
     <input
-        type="text"
-        placeholder="Search Kronberg Legal...">
+    type="text"
+    placeholder="Search Kronberg Legal...">
 
 </div>
 
 
-<!-- MAIN FRONT PAGE -->
+<!-- SIDE MENU -->
+
+<div class="side-menu" id="sideMenu">
+
+    <button class="close" id="closeMenu">
+        ×
+    </button>
+
+    <a href="#">Home</a>
+
+    <a href="#">Our Firm</a>
+
+    <a href="#">Expertise</a>
+
+    <a href="#">12 Floors</a>
+
+    <a href="#">Lawyers</a>
+
+    <a href="#">Contact</a>
+
+</div>
+
 
 <section class="hero">
 
-    <div class="gold-line"></div>
 
+    <!-- JUSTICE -->
 
-    <!-- JUSTICE IMAGE -->
-
-    <div class="justice-wrapper">
+    <div class="justice">
 
         <img
         src="blindfolded_justice_in_golden_shadows.png"
@@ -751,13 +593,13 @@ body.loaded .content{
     </div>
 
 
-    <!-- FIRST CENTER VIEW -->
+    <!-- OPENING -->
 
     <div class="intro">
 
-        <div class="intro-small">
+        <p>
             RECHTSANWÄLTE · MÜNCHEN
-        </div>
+        </p>
 
         <h1>
             KRONBERG LEGAL
@@ -766,12 +608,12 @@ body.loaded .content{
     </div>
 
 
-    <!-- TEXT AFTER IMAGE ROTATES -->
+    <!-- HOMEPAGE INFORMATION -->
 
     <div class="content">
 
-        <div class="eyebrow">
-            Kronberg Legal · Germany
+        <div class="small">
+            KRONBERG LEGAL · GERMANY
         </div>
 
 
@@ -800,19 +642,12 @@ body.loaded .content{
 
         <div class="buttons">
 
-            <a href="#"
-               class="button button-gold">
-
+            <a href="#" class="btn gold">
                 Explore Our Firm
-
             </a>
 
-
-            <a href="#"
-               class="button button-outline">
-
+            <a href="#" class="btn outline">
                 Discover The Floors
-
             </a>
 
         </div>
@@ -824,8 +659,7 @@ body.loaded .content{
 
 <script>
 
-/* IMAGE STARTS IN CENTER,
-   THEN ROTATES AND MOVES RIGHT */
+/* OPENING ANIMATION */
 
 window.addEventListener("load", function(){
 
@@ -833,39 +667,51 @@ window.addEventListener("load", function(){
 
         document.body.classList.add("loaded");
 
-    }, 2200);
+    }, 1800);
 
 });
 
 
-/* SEARCH BUTTON */
+/* MENU */
 
-const searchButton =
-document.getElementById("searchButton");
+const menuBtn =
+document.getElementById("menuBtn");
+
+const sideMenu =
+document.getElementById("sideMenu");
+
+const closeMenu =
+document.getElementById("closeMenu");
+
+
+menuBtn.onclick = function(){
+
+    sideMenu.classList.add("open");
+
+};
+
+
+closeMenu.onclick = function(){
+
+    sideMenu.classList.remove("open");
+
+};
+
+
+/* SEARCH */
+
+const searchBtn =
+document.getElementById("searchBtn");
 
 const searchBox =
 document.getElementById("searchBox");
 
-searchButton.addEventListener("click", function(){
 
-    searchBox.classList.toggle("active");
+searchBtn.onclick = function(){
 
-});
+    searchBox.classList.toggle("show");
 
-
-/* MOBILE MENU */
-
-const menuButton =
-document.getElementById("menuButton");
-
-const navLinks =
-document.getElementById("navLinks");
-
-menuButton.addEventListener("click", function(){
-
-    navLinks.classList.toggle("open");
-
-});
+};
 
 </script>
 
