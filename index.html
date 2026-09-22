@@ -36,23 +36,22 @@ body{
 
 
 /* ==================================================
-   CURSOR LIGHT
+   PROFESSIONAL CURSOR LIGHT
 ================================================== */
 
-.cursor-light{
+.cursor-glow{
     position:fixed;
-
-    width:190px;
-    height:190px;
-
     left:0;
     top:0;
+
+    width:170px;
+    height:170px;
 
     border-radius:50%;
 
     pointer-events:none;
 
-    z-index:2000;
+    z-index:9999;
 
     opacity:0;
 
@@ -61,17 +60,23 @@ body{
     background:
         radial-gradient(
             circle,
-            rgba(230,150,65,.17) 0%,
-            rgba(212,130,45,.08) 34%,
-            rgba(190,110,30,.03) 50%,
+            rgba(255,177,91,.20) 0%,
+            rgba(225,139,52,.11) 30%,
+            rgba(195,108,32,.045) 50%,
             transparent 72%
         );
 
-    filter:blur(5px);
+    filter:blur(6px);
 
     mix-blend-mode:screen;
 
     transition:opacity .25s ease;
+}
+
+@media(hover:none){
+    .cursor-glow{
+        display:none;
+    }
 }
 
 
@@ -192,7 +197,7 @@ header{
 }
 
 
-/* MENU ICON */
+/* HAMBURGER */
 
 .hamburger{
     width:37px;
@@ -341,7 +346,7 @@ header{
 
 
 /* ==================================================
-   BRAND MARK ON ORIGINAL IMAGE
+   BRAND MARK
 ================================================== */
 
 .image-brand{
@@ -464,23 +469,7 @@ body.ready .image-brand{
 
     object-fit:cover;
 
-    /*
-      Keep the upper part visible.
-      If cropping happens,
-      crop from lower side.
-    */
-
     object-position:center top;
-
-    /*
-      Original image:
-      Justice LEFT.
-      Empty area RIGHT.
-
-      Mirrored:
-      Empty area LEFT.
-      Justice RIGHT.
-    */
 
     transform:scaleX(-1);
 
@@ -492,7 +481,7 @@ body.ready .image-brand{
 
 
 /* ==================================================
-   FIRST STAGE
+   STAGE 1
 ================================================== */
 
 .intro{
@@ -729,14 +718,8 @@ body.ready .gold-line{
 
 
 /* ==================================================
-   STAGE 3
-   FINAL POSITION
+   STAGE 3 - ONE TIME FINAL POSITION
 ================================================== */
-
-/*
-Once triggered,
-this stays permanently.
-*/
 
 .hero.stage3 .justice-card{
     left:0;
@@ -758,9 +741,7 @@ this stays permanently.
 }
 
 
-/* ==================================================
-   LEFT DARK GRADIENT AFTER FLIP
-================================================== */
+/* LEFT DARK GRADIENT */
 
 .stage3-shade{
     position:absolute;
@@ -795,8 +776,6 @@ this stays permanently.
 }
 
 
-/* INFORMATION STAYS STILL */
-
 .hero.stage3 .content{
     opacity:1;
 
@@ -807,7 +786,7 @@ this stays permanently.
 
 
 /* ==================================================
-   ONE-TIME TRIGGER AREA
+   ONE-TIME IMAGE TRIGGER
 ================================================== */
 
 .interaction-zone{
@@ -824,11 +803,6 @@ this stays permanently.
     cursor:pointer;
 }
 
-
-/*
-After the flip has happened once,
-disable this area permanently.
-*/
 
 .hero.stage3 .interaction-zone{
     pointer-events:none;
@@ -891,7 +865,7 @@ disable this area permanently.
 
 
 /* ==================================================
-   MENU
+   SIDE MENU
 ================================================== */
 
 .overlay{
@@ -1027,8 +1001,6 @@ disable this area permanently.
     }
 
 
-    /* STAGE 1 */
-
     .justice-card{
         top:39%;
 
@@ -1045,8 +1017,6 @@ disable this area permanently.
         font-size:42px;
     }
 
-
-    /* STAGE 2 */
 
     body.ready .justice-card{
         left:50%;
@@ -1096,8 +1066,6 @@ disable this area permanently.
     }
 
 
-    /* BRAND */
-
     .image-brand{
         right:6%;
 
@@ -1129,8 +1097,6 @@ disable this area permanently.
         font-size:7px;
     }
 
-
-    /* STAGE 3 */
 
     .hero.stage3 .justice-card{
         left:0;
@@ -1167,21 +1133,7 @@ disable this area permanently.
     }
 
 
-    /*
-    Desktop trigger disabled on phone.
-    Tap triggers once.
-    */
-
     .interaction-zone{
-        display:none;
-    }
-
-
-    /*
-    Cursor glow not needed on touch.
-    */
-
-    .cursor-light{
         display:none;
     }
 
@@ -1194,11 +1146,11 @@ disable this area permanently.
 <body>
 
 
-<!-- CURSOR LIGHT -->
+<!-- SOFT GOLD CURSOR LIGHT -->
 
 <div
-    class="cursor-light"
-    id="cursorLight">
+    class="cursor-glow"
+    id="cursorGlow">
 </div>
 
 
@@ -1224,8 +1176,6 @@ disable this area permanently.
     <div class="header-right">
 
 
-        <!-- LANGUAGE -->
-
         <div class="languages">
 
             <button
@@ -1250,8 +1200,6 @@ disable this area permanently.
 
         </div>
 
-
-        <!-- SEARCH -->
 
         <button
             class="search-button"
@@ -1282,8 +1230,6 @@ disable this area permanently.
         </button>
 
 
-        <!-- MENU -->
-
         <button
             class="hamburger"
             id="menuButton"
@@ -1311,8 +1257,6 @@ disable this area permanently.
     <div class="gold-line"></div>
 
 
-    <!-- IMAGE -->
-
     <div
         class="justice-card"
         id="justiceCard">
@@ -1331,7 +1275,7 @@ disable this area permanently.
                     alt="Lady Justice">
 
 
-                <!-- BRAND -->
+                <!-- COMPANY MARK -->
 
                 <div class="image-brand">
 
@@ -1480,7 +1424,7 @@ disable this area permanently.
 
 
 
-    <!-- ONE-TIME FLIP AREA -->
+    <!-- ONE-TIME ROTATION TRIGGER -->
 
     <div
         class="interaction-zone"
@@ -1621,7 +1565,7 @@ function(){
 
 
 /* ==================================================
-   ONE-TIME STAGE 3
+   ONE-TIME FINAL ROTATION
 ================================================== */
 
 const hero =
@@ -1634,17 +1578,6 @@ document.getElementById("interactionZone");
 
 let hasRotated = false;
 
-
-/*
-DESKTOP:
-
-First time cursor enters image area:
-rotate once.
-
-After that:
-never rotate back.
-Never rotate again.
-*/
 
 interactionZone.addEventListener(
 "mouseenter",
@@ -1665,9 +1598,7 @@ function(){
 
 
 
-/* ==================================================
-   MOBILE ONE-TIME TAP
-================================================== */
+/* MOBILE ONE-TIME TAP */
 
 hero.addEventListener(
 "click",
@@ -1709,11 +1640,18 @@ function(event){
 
 
 /* ==================================================
-   PROFESSIONAL CURSOR LIGHT
+   SMOOTH GOLD CURSOR LIGHT
 ================================================== */
 
-const cursorLight =
-document.getElementById("cursorLight");
+const cursorGlow =
+document.getElementById("cursorGlow");
+
+
+let mouseX = 0;
+let mouseY = 0;
+
+let glowX = 0;
+let glowY = 0;
 
 
 if(
@@ -1724,15 +1662,13 @@ if(
     "mousemove",
     function(event){
 
-        cursorLight.style.left =
-        event.clientX + "px";
+        mouseX =
+        event.clientX;
 
+        mouseY =
+        event.clientY;
 
-        cursorLight.style.top =
-        event.clientY + "px";
-
-
-        cursorLight.style.opacity =
+        cursorGlow.style.opacity =
         "1";
 
     });
@@ -1742,10 +1678,52 @@ if(
     "mouseleave",
     function(){
 
-        cursorLight.style.opacity =
+        cursorGlow.style.opacity =
         "0";
 
     });
+
+
+    document.addEventListener(
+    "mouseenter",
+    function(){
+
+        cursorGlow.style.opacity =
+        "1";
+
+    });
+
+
+    function animateGlow(){
+
+        /*
+        Small delay creates a premium,
+        smooth trailing-light effect.
+        */
+
+        glowX +=
+        (mouseX - glowX) * 0.14;
+
+        glowY +=
+        (mouseY - glowY) * 0.14;
+
+
+        cursorGlow.style.left =
+        glowX + "px";
+
+
+        cursorGlow.style.top =
+        glowY + "px";
+
+
+        requestAnimationFrame(
+            animateGlow
+        );
+
+    }
+
+
+    animateGlow();
 
 }
 
