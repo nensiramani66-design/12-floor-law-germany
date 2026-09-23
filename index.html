@@ -436,6 +436,63 @@ body.ready .image-brand{
 }
 
 
+
+
+/* =========================================================
+   OPENING HERO TEXT — RIGHT-SIDE SAFE AREA
+========================================================= */
+@media(min-width:901px){
+
+    .intro{
+        left:auto;
+        right:7.5%;
+        top:50%;
+        width:min(520px,34vw);
+
+        transform:translateY(-50%);
+
+        text-align:left;
+    }
+
+    .intro-small{
+        margin-bottom:20px;
+        font-size:10px;
+        letter-spacing:5px;
+    }
+
+    .intro h1{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+
+        font-size:clamp(54px,5.4vw,88px);
+        line-height:.96;
+        letter-spacing:2px;
+
+        text-shadow:0 10px 45px rgba(0,0,0,.82);
+    }
+
+    .intro-word{
+        display:block;
+    }
+
+    .intro-gold{
+        margin-top:8px;
+        color:var(--gold);
+        font-style:italic;
+    }
+
+    body.ready .intro{
+        opacity:0;
+
+        transform:
+            translateY(-50%)
+            translateX(22px)
+            scale(.97);
+    }
+}
+
+
 /* =========================================================
    PAGE 1 INFORMATION
 ========================================================= */
