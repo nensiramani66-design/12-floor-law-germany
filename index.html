@@ -52,10 +52,8 @@ body{
     height:170px;
 
     border-radius:50%;
-
     pointer-events:none;
     z-index:9999;
-
     opacity:0;
 
     transform:translate(-50%,-50%);
@@ -71,7 +69,6 @@ body{
 
     filter:blur(6px);
     mix-blend-mode:screen;
-
     transition:opacity .25s ease;
 }
 
@@ -82,7 +79,6 @@ body{
 
 header{
     position:fixed;
-
     top:0;
     left:0;
 
@@ -105,10 +101,8 @@ header{
 
 .logo{
     font-family:Georgia,serif;
-
     font-size:23px;
     letter-spacing:3px;
-
     white-space:nowrap;
 }
 
@@ -119,18 +113,14 @@ header{
 .header-center{
     font-size:10px;
     letter-spacing:4px;
-
     color:#888;
-
     text-transform:uppercase;
 }
 
 .header-right{
     justify-self:end;
-
     display:flex;
     align-items:center;
-
     gap:18px;
 }
 
@@ -148,14 +138,12 @@ header{
 .lang{
     background:none;
     border:none;
-
     color:#777;
 
     font-size:11px;
     letter-spacing:2px;
 
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -167,7 +155,6 @@ header{
 .lang-line{
     width:1px;
     height:14px;
-
     background:#555;
 }
 
@@ -186,7 +173,6 @@ header{
 
     background:none;
     border:none;
-
     color:white;
 
     cursor:pointer;
@@ -219,9 +205,7 @@ header{
 .hamburger span{
     width:100%;
     height:2px;
-
     background:white;
-
     transition:.3s;
 }
 
@@ -236,7 +220,6 @@ header{
 
 .hero{
     position:absolute;
-
     top:var(--header);
     left:0;
 
@@ -264,18 +247,15 @@ header{
 
 .justice-card{
     position:absolute;
-
     left:50%;
     top:50%;
 
     width:min(1180px,76vw);
-
     aspect-ratio:16 / 9;
 
     transform:translate(-50%,-50%);
 
     z-index:5;
-
     transform-style:preserve-3d;
 
     transition:
@@ -288,12 +268,10 @@ header{
 
 .card-inner{
     position:relative;
-
     width:100%;
     height:100%;
 
     transform-style:preserve-3d;
-
     transform:rotateY(0deg);
 
     transition:
@@ -305,7 +283,6 @@ header{
 
 .card-face{
     position:absolute;
-
     inset:0;
 
     width:100%;
@@ -353,16 +330,13 @@ header{
 
 .image-brand{
     position:absolute;
-
     right:7%;
     top:50%;
 
     width:260px;
-
     text-align:center;
 
     z-index:10;
-
     opacity:0;
 
     transform:
@@ -376,9 +350,7 @@ header{
 
 body.ready .image-brand{
     opacity:1;
-
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 }
 
 .brand-symbol{
@@ -399,7 +371,6 @@ body.ready .image-brand{
 
 .brand-symbol span{
     font-family:Georgia,serif;
-
     font-size:31px;
     letter-spacing:2px;
 
@@ -410,12 +381,10 @@ body.ready .image-brand{
 
 .brand-name{
     font-family:Georgia,serif;
-
     font-size:25px;
     letter-spacing:4px;
 
     color:white;
-
     white-space:nowrap;
 }
 
@@ -437,7 +406,6 @@ body.ready .image-brand{
 
     font-size:9px;
     letter-spacing:3px;
-
     line-height:1.8;
 }
 
@@ -448,7 +416,6 @@ body.ready .image-brand{
 
 .card-back{
     transform:rotateY(180deg);
-
     background:#080706;
 }
 
@@ -487,7 +454,6 @@ body.ready .image-brand{
     text-align:center;
 
     z-index:20;
-
     pointer-events:none;
 
     transition:
@@ -511,7 +477,6 @@ body.ready .image-brand{
         clamp(52px,7vw,100px);
 
     font-weight:normal;
-
     letter-spacing:4px;
 
     text-shadow:
@@ -536,7 +501,6 @@ body.ready .image-brand{
         translateX(-20px);
 
     opacity:0;
-
     pointer-events:none;
 
     z-index:30;
@@ -562,7 +526,6 @@ body.ready .image-brand{
         clamp(48px,5vw,73px);
 
     font-weight:normal;
-
     line-height:1.04;
 }
 
@@ -583,7 +546,6 @@ body.ready .image-brand{
 
 .buttons{
     display:flex;
-
     gap:15px;
 
     margin-top:33px;
@@ -603,7 +565,6 @@ body.ready .image-brand{
 
 .gold{
     background:var(--gold);
-
     color:#111;
 }
 
@@ -620,7 +581,6 @@ body.ready .image-brand{
 
 .outline:hover{
     color:var(--gold);
-
     border-color:var(--gold);
 }
 
@@ -646,7 +606,6 @@ body.ready .image-brand{
         );
 
     opacity:0;
-
     z-index:20;
 
     transition:
@@ -678,7 +637,6 @@ body.ready .intro{
 
 body.ready .content{
     opacity:1;
-
     pointer-events:auto;
 
     transform:
@@ -720,11 +678,9 @@ body.ready .gold-line{
 
 .stage3-shade{
     position:absolute;
-
     inset:0;
 
     z-index:15;
-
     pointer-events:none;
 
     opacity:0;
@@ -763,7 +719,6 @@ body.ready .gold-line{
 
 .interaction-zone{
     position:absolute;
-
     top:0;
     right:0;
 
@@ -802,7 +757,6 @@ body.ready .gold-line{
     z-index:1200;
 
     opacity:0;
-
     pointer-events:none;
 
     transform:
@@ -813,7 +767,6 @@ body.ready .gold-line{
 
 .search-panel.open{
     opacity:1;
-
     pointer-events:auto;
 
     transform:
@@ -842,7 +795,6 @@ body.ready .gold-line{
 
 .overlay{
     position:fixed;
-
     inset:0;
 
     background:
@@ -851,7 +803,6 @@ body.ready .gold-line{
     z-index:1400;
 
     opacity:0;
-
     pointer-events:none;
 
     transition:.4s;
@@ -859,7 +810,6 @@ body.ready .gold-line{
 
 .overlay.open{
     opacity:1;
-
     pointer-events:auto;
 }
 
@@ -872,11 +822,9 @@ body.ready .gold-line{
     position:fixed;
 
     top:0;
-
     right:-420px;
 
     width:390px;
-
     max-width:90%;
 
     height:100vh;
@@ -925,7 +873,6 @@ body.ready .gold-line{
     text-decoration:none;
 
     font-family:Georgia,serif;
-
     font-size:26px;
 
     border-bottom:
@@ -936,17 +883,13 @@ body.ready .gold-line{
 
 .side-menu a:hover{
     padding-left:10px;
-
     color:var(--gold);
 }
 
 
 
 /* =========================================================
-   =========================================================
    MOBILE / ANDROID / IPHONE ONLY
-   DESKTOP CODE ABOVE REMAINS UNCHANGED
-   =========================================================
 ========================================================= */
 
 @media screen and (max-width:900px){
@@ -955,10 +898,6 @@ body.ready .gold-line{
         --header:70px;
     }
 
-
-    /* =====================================================
-       MOBILE BASE
-    ===================================================== */
 
     html,
     body{
@@ -988,9 +927,7 @@ body.ready .gold-line{
         display:flex;
 
         align-items:center;
-
-        justify-content:
-            space-between;
+        justify-content:space-between;
 
         background:
             rgba(7,7,7,.98);
@@ -1001,8 +938,7 @@ body.ready .gold-line{
 
     .logo{
         font-size:15px;
-
-        letter-spacing:1.3px;
+        letter-spacing:1.2px;
     }
 
     .header-center{
@@ -1011,9 +947,7 @@ body.ready .gold-line{
 
     .header-right{
         display:flex;
-
         align-items:center;
-
         gap:8px;
     }
 
@@ -1023,8 +957,7 @@ body.ready .gold-line{
 
     .lang{
         font-size:10px;
-
-        letter-spacing:.8px;
+        letter-spacing:.7px;
     }
 
     .lang-line{
@@ -1048,11 +981,11 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE HERO
+       IMPORTANT MOBILE RESET
 
-       IMPORTANT:
-       Everything uses normal vertical page flow.
-       The image and text therefore CANNOT overlap.
+       NO automatic opening transition on phone.
+
+       Image + information are visible immediately.
     ===================================================== */
 
     .hero{
@@ -1063,22 +996,22 @@ body.ready .gold-line{
 
         width:100%;
 
-        height:auto;
-
         min-height:
             calc(100dvh - 70px);
+
+        height:auto;
 
         overflow:visible;
 
         padding:
-            16px 16px 42px;
+            14px 14px 40px;
 
         background:
             radial-gradient(
-                circle at 50% 18%,
-                #261e14 0%,
-                #120f0b 38%,
-                #070707 75%
+                circle at 50% 15%,
+                #291f13 0%,
+                #120e09 38%,
+                #070707 76%
             );
 
         perspective:1500px;
@@ -1086,29 +1019,26 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE OPENING IMAGE
+       MAIN MOBILE IMAGE
 
-       IMAGE IS AT THE TOP.
-       COMPANY NAME IS UNDER THE IMAGE.
-       NOTHING IS WRITTEN OVER THE PHOTO.
+       Normal vertical flow prevents overlap.
     ===================================================== */
 
-    .justice-card{
+    .justice-card,
+    body.ready .justice-card{
         position:relative;
 
         left:auto;
         top:auto;
 
         width:100%;
-        max-width:620px;
 
         height:auto;
 
-        margin:
-            0 auto;
+        margin:0 auto;
 
         aspect-ratio:
-            16 / 10;
+            16 / 10.8;
 
         transform:none;
 
@@ -1120,210 +1050,161 @@ body.ready .gold-line{
         height:100%;
     }
 
-    /*
-       On mobile we crop away more of the
-       empty architectural area.
 
-       Lady Justice is the focus.
-    */
+    /* =====================================================
+       MOBILE ORIGINAL PHOTO CROP
 
-    .card-front img{
+       Main focus:
+       face + scales + upper body.
+
+       Empty right architecture is reduced.
+    ===================================================== */
+
+    .card-front img,
+    body.ready .card-front img{
         width:100%;
         height:100%;
 
         object-fit:cover;
 
         object-position:
-            34% 18%;
+            30% 15%;
 
         display:block;
     }
 
 
-    /*
-       Desktop KL mark stays exactly as it is,
-       but is intentionally hidden on mobile
-       because the company identity appears
-       underneath the photograph.
-    */
+    /* =====================================================
+       MOBILE BRAND PANEL INSIDE EMPTY SIDE OF PHOTO
+    ===================================================== */
 
-    .image-brand{
+    .image-brand,
+    body.ready .image-brand{
+        display:block !important;
+
+        position:absolute;
+
+        right:4%;
+        top:50%;
+
+        width:36%;
+
+        max-width:145px;
+
+        transform:
+            translateY(-50%);
+
+        opacity:1;
+
+        padding:
+            12px 8px;
+
+        background:
+            rgba(5,5,5,.22);
+
+        border:
+            1px solid rgba(202,164,95,.18);
+
+        backdrop-filter:
+            blur(3px);
+    }
+
+    .brand-symbol{
+        width:44px;
+        height:44px;
+
+        margin:
+            0 auto 11px;
+
+        border-color:
+            rgba(202,164,95,.75);
+    }
+
+    .brand-symbol span{
+        font-size:14px;
+    }
+
+    .brand-name{
+        font-size:11px;
+
+        letter-spacing:1.3px;
+
+        white-space:normal;
+    }
+
+    .brand-rule{
+        width:42px;
+
+        margin:
+            8px auto;
+    }
+
+    .brand-subtitle{
+        font-size:6px;
+
+        letter-spacing:1px;
+
+        line-height:1.5;
+    }
+
+
+    /* =====================================================
+       REMOVE DESKTOP INTRO ON MOBILE
+
+       We skip first transition completely.
+    ===================================================== */
+
+    .intro,
+    body.ready .intro{
         display:none !important;
     }
 
 
     /* =====================================================
-       MOBILE OPENING COMPANY IDENTITY
+       MOBILE INFORMATION
+
+       ALWAYS directly below photograph.
+       No position:absolute.
+       No overlap.
     ===================================================== */
 
-    .intro{
+    .content,
+    body.ready .content{
         position:relative;
 
         left:auto;
+        right:auto;
         top:auto;
 
         width:100%;
 
         margin:
-            24px auto 0;
+            24px 0 0;
 
         padding:
             0 4px;
 
-        transform:none;
-
-        text-align:center;
-
-        opacity:1;
-
-        z-index:20;
-
-        transition:
-            opacity .55s ease,
-            max-height .55s ease,
-            margin .55s ease;
-
-        max-height:180px;
-    }
-
-    .intro-small{
-        margin-bottom:12px;
-
-        color:var(--gold);
-
-        font-size:12px;
-
-        letter-spacing:3px;
-    }
-
-    .intro h1{
-        font-family:Georgia,serif;
-
-        font-size:
-            clamp(39px,10vw,54px);
-
-        line-height:1.02;
-
-        letter-spacing:2px;
-
-        font-weight:normal;
-
-        text-shadow:none;
-    }
-
-
-    /* =====================================================
-       MOBILE INFORMATION
-       HIDDEN DURING OPENING
-    ===================================================== */
-
-    .content{
-        position:relative;
-
-        left:auto;
-        top:auto;
-        right:auto;
-
-        width:100%;
-
-        margin:
-            0 auto;
-
-        padding:
-            0 3px;
-
-        transform:none;
-
-        opacity:0;
-
-        pointer-events:none;
-
-        z-index:30;
-
-        max-height:0;
-
-        overflow:hidden;
-
-        transition:
-            opacity .65s ease,
-            max-height .75s ease,
-            margin .75s ease;
-    }
-
-
-    /* =====================================================
-       MOBILE TRANSITION 1
-
-       IMAGE STAYS AT TOP.
-       COMPANY OPENING TITLE DISAPPEARS.
-       INFORMATION OPENS BELOW THE IMAGE.
-    ===================================================== */
-
-    body.ready .justice-card{
-        position:relative;
-
-        left:auto;
-        top:auto;
-
-        width:100%;
-
-        max-width:620px;
-
-        height:auto;
-
-        margin:
-            0 auto;
-
-        aspect-ratio:
-            16 / 10;
-
-        transform:none;
-    }
-
-    body.ready .card-front img{
-        object-fit:cover;
-
-        object-position:
-            34% 18%;
-    }
-
-    body.ready .intro{
-        opacity:0;
-
-        max-height:0;
-
-        margin-top:0;
-
-        overflow:hidden;
-    }
-
-    body.ready .content{
         opacity:1;
 
         pointer-events:auto;
 
-        max-height:900px;
+        transform:none;
+
+        max-height:none;
 
         overflow:visible;
 
-        margin-top:28px;
-
-        transform:none;
+        z-index:30;
     }
 
-
-    /* =====================================================
-       MOBILE INFORMATION TYPOGRAPHY
-    ===================================================== */
-
     .eyebrow{
-        margin-bottom:14px;
+        margin-bottom:13px;
 
         color:var(--gold);
 
         font-size:11px;
 
-        letter-spacing:2.5px;
+        letter-spacing:2.2px;
     }
 
     .content h2{
@@ -1334,23 +1215,23 @@ body.ready .gold-line{
             serif;
 
         font-size:
-            clamp(40px,10.5vw,54px);
+            clamp(
+                39px,
+                10.2vw,
+                50px
+            );
 
         line-height:1.02;
 
         font-weight:normal;
     }
 
-    .content h2 span{
-        color:var(--gold);
-    }
-
     .description{
         max-width:100%;
 
-        margin-top:20px;
+        margin-top:19px;
 
-        color:#d2d2d2;
+        color:#d1d1d1;
 
         font-size:16px;
 
@@ -1359,34 +1240,117 @@ body.ready .gold-line{
 
 
     /* =====================================================
+       EXTRA MOBILE DETAILS
+
+       Fill lower page so it does not look empty.
+    ===================================================== */
+
+    .mobile-extra{
+        display:block;
+
+        margin-top:24px;
+
+        padding:
+            19px 18px;
+
+        border:
+            1px solid rgba(202,164,95,.22);
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(202,164,95,.08),
+                rgba(255,255,255,.018)
+            );
+    }
+
+    .mobile-extra-title{
+        font-family:
+            Georgia,
+            serif;
+
+        color:white;
+
+        font-size:20px;
+
+        margin-bottom:12px;
+    }
+
+    .mobile-extra-grid{
+        display:grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:12px;
+    }
+
+    .mobile-extra-item{
+        padding:
+            12px 10px;
+
+        background:
+            rgba(255,255,255,.025);
+
+        border:
+            1px solid rgba(255,255,255,.07);
+    }
+
+    .mobile-extra-number{
+        display:block;
+
+        color:var(--gold);
+
+        font-family:
+            Georgia,
+            serif;
+
+        font-size:20px;
+
+        margin-bottom:5px;
+    }
+
+    .mobile-extra-label{
+        color:#bbb;
+
+        font-size:10px;
+
+        line-height:1.45;
+
+        letter-spacing:.7px;
+
+        text-transform:uppercase;
+    }
+
+
+    /* =====================================================
        MOBILE BUTTONS
     ===================================================== */
 
     .buttons{
-        display:flex;
+        display:grid;
 
-        flex-direction:column;
+        grid-template-columns:
+            1fr 1fr;
 
-        gap:12px;
+        gap:10px;
 
         width:100%;
 
-        margin-top:24px;
+        margin-top:23px;
     }
 
     .btn{
-        display:block;
-
         width:100%;
 
         padding:
-            16px 14px;
+            15px 8px;
 
         text-align:center;
 
-        font-size:12px;
+        font-size:10px;
 
-        letter-spacing:1px;
+        letter-spacing:.7px;
 
         white-space:normal;
     }
@@ -1397,23 +1361,16 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE TRANSITION 2
-       FINAL ONE-TIME IMAGE VIEW
+       FINAL MOBILE SHOWCASE
 
-       USER TAPS THE IMAGE ONCE.
+       FIRST TAP ON IMAGE:
+       normal mobile page -> showcase
 
-       - Image rotates.
-       - Final crop focuses on Lady Justice.
-       - Face is visible.
-       - Head is upper-middle.
-       - Upper body visible.
-       - Scales visible.
-       - Architectural empty side cropped away.
-       - No information over image.
-       - No third transition.
+       Lady Justice remains visible.
+       Information appears beside her.
     ===================================================== */
 
-    .hero.stage3{
+    .hero.mobile-showcase{
         position:fixed;
 
         top:70px;
@@ -1426,8 +1383,6 @@ body.ready .gold-line{
 
         min-height:0;
 
-        margin:0;
-
         padding:0;
 
         overflow:hidden;
@@ -1437,27 +1392,23 @@ body.ready .gold-line{
         z-index:50;
     }
 
-    .hero.stage3 .justice-card{
+    .hero.mobile-showcase .justice-card{
         position:absolute;
 
         left:0;
         top:0;
 
         width:100%;
-        max-width:none;
-
         height:100%;
 
         margin:0;
 
         aspect-ratio:auto;
 
-        transform:none;
-
         z-index:8;
     }
 
-    .hero.stage3 .card-inner{
+    .hero.mobile-showcase .card-inner{
         width:100%;
         height:100%;
 
@@ -1465,7 +1416,7 @@ body.ready .gold-line{
             rotateY(180deg);
     }
 
-    .hero.stage3 .card-face{
+    .hero.mobile-showcase .card-face{
         width:100%;
         height:100%;
 
@@ -1474,55 +1425,192 @@ body.ready .gold-line{
 
 
     /*
-       THIS IS THE IMPORTANT FINAL MOBILE CROP.
+       FINAL IMAGE CROP
 
-       We deliberately focus the crop on
-       the Lady Justice figure rather than
-       the blank side of the photograph.
+       This deliberately avoids the blank
+       architectural part of the original.
 
-       object-position:
-       34% = follows the figure horizontally.
-       18% = protects the face/head vertically.
-
-       Because the image is mirrored,
-       Lady Justice remains the visual focus.
+       Face = upper-middle
+       Scales = visible
+       Upper body = visible
+       Not an extreme close-up
     */
 
-    .hero.stage3 .card-back img{
+    .hero.mobile-showcase .card-back img{
         width:100%;
         height:100%;
 
         object-fit:cover;
 
         object-position:
-            34% 18%;
+            31% 12%;
 
         transform:
             scaleX(-1);
 
         filter:
-            brightness(.90)
+            brightness(.86)
             contrast(1.05)
             saturate(.92);
     }
 
 
+    /* =====================================================
+       FINAL SHOWCASE INFORMATION PANEL
+
+       Small professional text beside Justice.
+    ===================================================== */
+
+    .mobile-final-info{
+        display:none;
+    }
+
+    .hero.mobile-showcase .mobile-final-info{
+        display:block;
+
+        position:absolute;
+
+        left:18px;
+        bottom:22px;
+
+        width:
+            min(62%,280px);
+
+        z-index:40;
+
+        padding:
+            17px 15px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(5,5,5,.90),
+                rgba(8,8,8,.62)
+            );
+
+        border-left:
+            2px solid var(--gold);
+
+        backdrop-filter:
+            blur(8px);
+
+        box-shadow:
+            0 14px 40px
+            rgba(0,0,0,.45);
+    }
+
+    .mobile-final-kicker{
+        color:var(--gold);
+
+        font-size:8px;
+
+        letter-spacing:2px;
+
+        margin-bottom:8px;
+    }
+
+    .mobile-final-info h3{
+        font-family:
+            Georgia,
+            serif;
+
+        font-size:
+            clamp(
+                22px,
+                6.4vw,
+                29px
+            );
+
+        font-weight:normal;
+
+        line-height:1.05;
+
+        margin-bottom:10px;
+    }
+
+    .mobile-final-info h3 span{
+        color:var(--gold);
+    }
+
+    .mobile-final-info p{
+        color:#d1d1d1;
+
+        font-size:10.5px;
+
+        line-height:1.48;
+    }
+
+    .mobile-final-floor{
+        margin-top:12px;
+
+        color:#bda77d;
+
+        font-size:8px;
+
+        line-height:1.55;
+
+        letter-spacing:.8px;
+    }
+
+
     /*
-       Absolutely no text overlays the
-       final photograph.
+       Hide normal homepage information
+       while final showcase is open.
     */
 
-    .hero.stage3 .content,
-    .hero.stage3 .intro,
-    .hero.stage3 .stage3-shade,
-    .hero.stage3 .gold-line,
-    .hero.stage3 .image-brand{
+    .hero.mobile-showcase > .content,
+    .hero.mobile-showcase > .stage3-shade,
+    .hero.mobile-showcase > .gold-line{
         display:none !important;
     }
 
 
+    /*
+       No desktop stage3 should affect phone.
+    */
+
+    .hero.stage3:not(.mobile-showcase){
+        position:relative;
+        top:70px;
+
+        width:100%;
+        height:auto;
+
+        min-height:
+            calc(100dvh - 70px);
+
+        padding:
+            14px 14px 40px;
+
+        overflow:visible;
+
+        z-index:auto;
+    }
+
+    .hero.stage3:not(.mobile-showcase) .justice-card{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        width:100%;
+        height:auto;
+
+        margin:0;
+
+        aspect-ratio:
+            16 / 10.8;
+
+        transform:none;
+    }
+
+    .hero.stage3:not(.mobile-showcase) .card-inner{
+        transform:none;
+    }
+
+
     /* =====================================================
-       MOBILE SEARCH
+       SEARCH
     ===================================================== */
 
     .search-panel{
@@ -1549,7 +1637,6 @@ body.ready .gold-line{
 
     .side-menu{
         width:88%;
-
         max-width:360px;
 
         padding:
@@ -1565,7 +1652,6 @@ body.ready .gold-line{
 
     .close-menu{
         top:21px;
-
         right:24px;
     }
 
@@ -1578,14 +1664,6 @@ body.ready .gold-line{
         display:none !important;
     }
 
-    /*
-       Desktop hover trigger is removed
-       on mobile.
-
-       Mobile uses a direct tap on
-       #justiceCard instead.
-    */
-
     .interaction-zone{
         display:none !important;
     }
@@ -1593,17 +1671,15 @@ body.ready .gold-line{
 }
 
 
-
 /* =========================================================
-   EXTRA SMALL PHONES
+   SMALL PHONES
 ========================================================= */
 
 @media screen and (max-width:390px){
 
     .logo{
         font-size:13px;
-
-        letter-spacing:.9px;
+        letter-spacing:.8px;
     }
 
     .header-right{
@@ -1619,11 +1695,6 @@ body.ready .gold-line{
         height:24px;
     }
 
-    .search-button svg{
-        width:16px;
-        height:16px;
-    }
-
     .hamburger{
         width:25px;
         height:18px;
@@ -1631,89 +1702,87 @@ body.ready .gold-line{
 
     .hero{
         padding:
-            14px 14px 36px;
+            12px 12px 35px;
     }
 
     .justice-card,
     body.ready .justice-card{
         aspect-ratio:
-            16 / 10.4;
+            16 / 11.3;
     }
 
-    .intro{
-        margin-top:20px;
+    .card-front img,
+    body.ready .card-front img{
+        object-position:
+            29% 14%;
     }
 
-    .intro-small{
-        font-size:10px;
+    .image-brand,
+    body.ready .image-brand{
+        width:34%;
+
+        right:3%;
     }
 
-    .intro h1{
-        font-size:
-            clamp(34px,9.8vw,44px);
-    }
-
-    body.ready .content{
-        margin-top:24px;
+    .brand-name{
+        font-size:9px;
     }
 
     .content h2{
         font-size:
-            clamp(36px,10vw,45px);
+            clamp(
+                36px,
+                10vw,
+                44px
+            );
     }
 
     .description{
         font-size:15px;
-
-        line-height:1.58;
     }
 
     .btn{
-        padding:
-            15px 12px;
-
-        font-size:11px;
+        font-size:9px;
     }
 
-    .hero.stage3 .card-back img{
+    .hero.mobile-showcase
+    .card-back img{
         object-position:
-            34% 16%;
+            30% 10%;
+    }
+
+    .hero.mobile-showcase
+    .mobile-final-info{
+        left:14px;
+        bottom:16px;
+
+        width:64%;
+
+        padding:
+            14px 12px;
     }
 
 }
 
 
-
 /* =========================================================
-   VERY NARROW PHONES
+   VERY SMALL PHONES
 ========================================================= */
 
 @media screen and (max-width:345px){
 
     header{
         padding:
-            0 10px;
+            0 9px;
     }
 
     .logo{
         font-size:11.5px;
     }
 
-    .lang{
-        font-size:8px;
-    }
-
-    .hamburger{
-        width:23px;
-    }
-
     .hero{
         padding:
-            12px 12px 32px;
-    }
-
-    .intro h1{
-        font-size:32px;
+            10px 10px 30px;
     }
 
     .content h2{
@@ -1724,40 +1793,44 @@ body.ready .gold-line{
         font-size:14px;
     }
 
+    .mobile-extra-grid{
+        grid-template-columns:
+            1fr;
+    }
+
 }
 
 
-
 /* =========================================================
-   MOBILE LANDSCAPE / SHORT HEIGHT
+   SHORT / LANDSCAPE MOBILE
 ========================================================= */
 
 @media screen and (max-width:900px) and (max-height:600px){
 
-    /*
-       For a phone held horizontally,
-       scrolling remains available during
-       the information stage.
-    */
-
-    .hero{
-        min-height:650px;
+    .hero:not(.mobile-showcase){
+        min-height:700px;
     }
 
-    .intro h1{
-        font-size:36px;
-    }
-
-    .content h2{
-        font-size:37px;
-    }
-
-    .description{
-        font-size:14px;
-    }
-
-    .hero.stage3{
+    .hero.mobile-showcase{
         min-height:0;
+    }
+
+    .hero.mobile-showcase
+    .mobile-final-info{
+        bottom:10px;
+
+        padding:
+            11px 12px;
+    }
+
+    .hero.mobile-showcase
+    .mobile-final-info h3{
+        font-size:20px;
+    }
+
+    .hero.mobile-showcase
+    .mobile-final-info p{
+        font-size:9px;
     }
 
 }
@@ -1878,9 +1951,7 @@ id="hero">
 
 
 
-    <!-- =================================================
-         IMAGE CARD
-    ================================================== -->
+    <!-- IMAGE CARD -->
 
     <div
     class="justice-card"
@@ -1899,7 +1970,7 @@ id="hero">
                 alt="Lady Justice">
 
 
-                <!-- DESKTOP COMPANY MARK -->
+                <!-- COMPANY MARK -->
 
                 <div class="image-brand">
 
@@ -1944,23 +2015,13 @@ id="hero">
 
 
 
-    <!-- =================================================
-         FINAL DESKTOP GRADIENT
-    ================================================== -->
+    <!-- DESKTOP SHADE -->
 
     <div class="stage3-shade"></div>
 
 
 
-    <!-- =================================================
-         OPENING COMPANY IDENTITY
-
-         DESKTOP:
-         overlays image like current design.
-
-         MOBILE:
-         sits BELOW photograph.
-    ================================================== -->
+    <!-- DESKTOP INTRO -->
 
     <div class="intro">
 
@@ -1976,9 +2037,7 @@ id="hero">
 
 
 
-    <!-- =================================================
-         INFORMATION
-    ================================================== -->
+    <!-- MAIN INFORMATION -->
 
     <section class="content">
 
@@ -2019,7 +2078,6 @@ id="hero">
 
         <div class="buttons">
 
-
             <a
             href="#"
             class="btn gold"
@@ -2039,6 +2097,75 @@ id="hero">
 
             </a>
 
+        </div>
+
+
+
+        <!-- MOBILE ONLY EXTRA INFORMATION -->
+
+        <div class="mobile-extra">
+
+            <div class="mobile-extra-title">
+                Twelve floors. One legal vision.
+            </div>
+
+
+            <div class="mobile-extra-grid">
+
+
+                <div class="mobile-extra-item">
+
+                    <span class="mobile-extra-number">
+                        12
+                    </span>
+
+                    <span class="mobile-extra-label">
+                        Specialist legal floors
+                    </span>
+
+                </div>
+
+
+                <div class="mobile-extra-item">
+
+                    <span class="mobile-extra-number">
+                        DE / EN
+                    </span>
+
+                    <span class="mobile-extra-label">
+                        International client service
+                    </span>
+
+                </div>
+
+
+                <div class="mobile-extra-item">
+
+                    <span class="mobile-extra-number">
+                        München
+                    </span>
+
+                    <span class="mobile-extra-label">
+                        German headquarters
+                    </span>
+
+                </div>
+
+
+                <div class="mobile-extra-item">
+
+                    <span class="mobile-extra-number">
+                        360°
+                    </span>
+
+                    <span class="mobile-extra-label">
+                        Integrated legal counsel
+                    </span>
+
+                </div>
+
+
+            </div>
 
         </div>
 
@@ -2047,9 +2174,41 @@ id="hero">
 
 
 
-    <!-- =================================================
-         DESKTOP HOVER AREA
-    ================================================== -->
+    <!-- MOBILE FINAL INFO -->
+
+    <div
+    class="mobile-final-info"
+    id="mobileFinalInfo">
+
+        <div class="mobile-final-kicker">
+            KRONBERG LEGAL · MÜNCHEN
+        </div>
+
+
+        <h3>
+            Law with
+            <span>clarity.</span>
+        </h3>
+
+
+        <p>
+            Twelve specialist floors bring together focused
+            expertise for companies, institutions and private
+            clients across Germany and international markets.
+        </p>
+
+
+        <div class="mobile-final-floor">
+            CORPORATE · LITIGATION · TAX · EMPLOYMENT
+            <br>
+            REAL ESTATE · IP · PRIVATE CLIENTS
+        </div>
+
+    </div>
+
+
+
+    <!-- DESKTOP HOVER AREA -->
 
     <div
     class="interaction-zone"
@@ -2079,7 +2238,7 @@ id="searchPanel">
 
 
 <!-- =====================================================
-     MENU OVERLAY
+     OVERLAY
 ===================================================== -->
 
 <div
@@ -2160,12 +2319,28 @@ id="sideMenu">
 <script>
 
 /* =========================================================
-   STAGE 1 → STAGE 2
+   DESKTOP STAGE 1 → STAGE 2
+
+   MOBILE SKIPS THIS VISUAL TRANSITION.
 ========================================================= */
 
 window.addEventListener(
 "load",
 function(){
+
+    if(
+        window.matchMedia(
+            "(max-width:900px)"
+        ).matches
+    ){
+
+        document.body.classList.add(
+            "ready"
+        );
+
+        return;
+    }
+
 
     setTimeout(
     function(){
@@ -2183,7 +2358,7 @@ function(){
 
 
 /* =========================================================
-   ONE-TIME FINAL ROTATION
+   ELEMENTS
 ========================================================= */
 
 const hero =
@@ -2201,29 +2376,37 @@ document.getElementById(
     "interactionZone"
 );
 
-let hasRotated =
-false;
-
 
 /* =========================================================
-   DESKTOP
-
-   THIS BEHAVIOR IS UNCHANGED.
+   DESKTOP ONE-TIME FINAL ROTATION
 ========================================================= */
+
+let desktopHasRotated =
+false;
+
 
 interactionZone.addEventListener(
 "mouseenter",
 function(){
 
     if(
-        !hasRotated &&
+        window.matchMedia(
+            "(max-width:900px)"
+        ).matches
+    ){
+        return;
+    }
+
+
+    if(
+        !desktopHasRotated &&
         document.body.classList.contains(
             "ready"
         )
     ){
 
-        hasRotated =
-        true;
+        desktopHasRotated =
+            true;
 
         hero.classList.add(
             "stage3"
@@ -2236,52 +2419,93 @@ function(){
 
 
 /* =========================================================
-   MOBILE
+   MOBILE TWO-STEP TOUCH BEHAVIOR
 
-   TAP THE PHOTO ONCE.
+   STATE 0
+   Normal finished homepage.
 
-   ONLY TRANSITION 2 IS TRIGGERED.
+   First tap:
+   final Justice showcase.
 
-   AFTERWARD IT STAYS THERE.
+   Second tap:
+   return to normal homepage.
+
+   After second tap:
+   permanently locked.
 ========================================================= */
+
+let mobileState =
+0;
+
+let mobileLocked =
+false;
+
 
 justiceCard.addEventListener(
 "click",
 function(event){
 
-    const mobileDevice =
+    const isMobile =
         window.matchMedia(
             "(max-width:900px)"
         ).matches;
 
+
     if(
-        !mobileDevice
+        !isMobile ||
+        mobileLocked
     ){
         return;
     }
 
-    if(
-        !document.body.classList.contains(
-            "ready"
-        )
-    ){
-        return;
-    }
-
-    if(
-        hasRotated
-    ){
-        return;
-    }
 
     event.preventDefault();
 
-    hasRotated =
-        true;
 
-    hero.classList.add(
-        "stage3"
-    );
+    /* FIRST TAP */
+
+    if(
+        mobileState === 0
+    ){
+
+        mobileState =
+            1;
+
+        hero.classList.add(
+            "mobile-showcase"
+        );
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+        return;
+    }
+
+
+    /* SECOND TAP */
+
+    if(
+        mobileState === 1
+    ){
+
+        mobileState =
+            2;
+
+        mobileLocked =
+            true;
+
+        hero.classList.remove(
+            "mobile-showcase"
+        );
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
 
 });
 
@@ -2663,5 +2887,4 @@ function(){
 </script>
 
 </body>
-
 </html>
