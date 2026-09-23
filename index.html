@@ -887,6 +887,16 @@ body.ready .gold-line{
 }
 
 
+/* =========================================================
+   IMPORTANT FIX:
+   HIDE MOBILE-ONLY CONTENT ON LAPTOP / DESKTOP
+========================================================= */
+
+.mobile-extra,
+.mobile-final-info{
+    display:none;
+}
+
 
 /* =========================================================
    MOBILE / ANDROID / IPHONE ONLY
@@ -981,11 +991,7 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       IMPORTANT MOBILE RESET
-
-       NO automatic opening transition on phone.
-
-       Image + information are visible immediately.
+       MOBILE RESET
     ===================================================== */
 
     .hero{
@@ -1020,8 +1026,6 @@ body.ready .gold-line{
 
     /* =====================================================
        MAIN MOBILE IMAGE
-
-       Normal vertical flow prevents overlap.
     ===================================================== */
 
     .justice-card,
@@ -1053,11 +1057,6 @@ body.ready .gold-line{
 
     /* =====================================================
        MOBILE ORIGINAL PHOTO CROP
-
-       Main focus:
-       face + scales + upper body.
-
-       Empty right architecture is reduced.
     ===================================================== */
 
     .card-front img,
@@ -1075,7 +1074,7 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE BRAND PANEL INSIDE EMPTY SIDE OF PHOTO
+       MOBILE BRAND PANEL
     ===================================================== */
 
     .image-brand,
@@ -1150,8 +1149,6 @@ body.ready .gold-line{
 
     /* =====================================================
        REMOVE DESKTOP INTRO ON MOBILE
-
-       We skip first transition completely.
     ===================================================== */
 
     .intro,
@@ -1162,10 +1159,6 @@ body.ready .gold-line{
 
     /* =====================================================
        MOBILE INFORMATION
-
-       ALWAYS directly below photograph.
-       No position:absolute.
-       No overlap.
     ===================================================== */
 
     .content,
@@ -1241,8 +1234,6 @@ body.ready .gold-line{
 
     /* =====================================================
        EXTRA MOBILE DETAILS
-
-       Fill lower page so it does not look empty.
     ===================================================== */
 
     .mobile-extra{
@@ -1362,12 +1353,6 @@ body.ready .gold-line{
 
     /* =====================================================
        FINAL MOBILE SHOWCASE
-
-       FIRST TAP ON IMAGE:
-       normal mobile page -> showcase
-
-       Lady Justice remains visible.
-       Information appears beside her.
     ===================================================== */
 
     .hero.mobile-showcase{
@@ -1424,17 +1409,9 @@ body.ready .gold-line{
     }
 
 
-    /*
+    /* =====================================================
        FINAL IMAGE CROP
-
-       This deliberately avoids the blank
-       architectural part of the original.
-
-       Face = upper-middle
-       Scales = visible
-       Upper body = visible
-       Not an extreme close-up
-    */
+    ===================================================== */
 
     .hero.mobile-showcase .card-back img{
         width:100%;
@@ -1457,8 +1434,6 @@ body.ready .gold-line{
 
     /* =====================================================
        FINAL SHOWCASE INFORMATION PANEL
-
-       Small professional text beside Justice.
     ===================================================== */
 
     .mobile-final-info{
@@ -1553,10 +1528,7 @@ body.ready .gold-line{
     }
 
 
-    /*
-       Hide normal homepage information
-       while final showcase is open.
-    */
+    /* Hide normal content in mobile showcase */
 
     .hero.mobile-showcase > .content,
     .hero.mobile-showcase > .stage3-shade,
@@ -1565,9 +1537,9 @@ body.ready .gold-line{
     }
 
 
-    /*
-       No desktop stage3 should affect phone.
-    */
+    /* =====================================================
+       PREVENT DESKTOP STAGE 3 AFFECTING PHONE
+    ===================================================== */
 
     .hero.stage3:not(.mobile-showcase){
         position:relative;
@@ -2320,8 +2292,6 @@ id="sideMenu">
 
 /* =========================================================
    DESKTOP STAGE 1 → STAGE 2
-
-   MOBILE SKIPS THIS VISUAL TRANSITION.
 ========================================================= */
 
 window.addEventListener(
@@ -2420,18 +2390,6 @@ function(){
 
 /* =========================================================
    MOBILE TWO-STEP TOUCH BEHAVIOR
-
-   STATE 0
-   Normal finished homepage.
-
-   First tap:
-   final Justice showcase.
-
-   Second tap:
-   return to normal homepage.
-
-   After second tap:
-   permanently locked.
 ========================================================= */
 
 let mobileState =
