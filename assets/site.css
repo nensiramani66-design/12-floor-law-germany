@@ -1115,3 +1115,19 @@ body:has(#kl-home-final) .firm-footer{display:none!important}
 .kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
   transform:translateX(-50%) !important;
 }
+
+/* Final lawyers hero cleanup: Justice only, no portrait collage */
+.kl-site[data-page="lawyers"] .kl-page-hero{
+  background:
+    linear-gradient(90deg,rgba(6,7,7,.96) 0%,rgba(6,7,7,.82) 36%,rgba(6,7,7,.48) 62%,rgba(6,7,7,.26) 100%),
+    url('../blindfolded_justice_in_golden_shadows.png') center 20%/cover no-repeat !important;
+}
+.kl-site[data-page="lawyers"] .kl-page-hero::before{
+  content:none !important;
+  display:none !important;
+}
+.kl-site[data-page="lawyers"] .kl-page-hero::after{
+  content:none !important;
+  display:none !important;
+}
+
