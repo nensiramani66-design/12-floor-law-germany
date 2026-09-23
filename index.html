@@ -2,12 +2,20 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Kronberg Legal | Rechtsanwälte München</title>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 :root{
     --gold:#caa45f;
@@ -35,9 +43,9 @@ body{
 }
 
 
-/* ==================================================
-   PROFESSIONAL CURSOR LIGHT
-================================================== */
+/* =========================================================
+   PROFESSIONAL GOLD CURSOR LIGHT
+========================================================= */
 
 .cursor-glow{
     position:fixed;
@@ -73,19 +81,14 @@ body{
     transition:opacity .25s ease;
 }
 
-@media(hover:none){
-    .cursor-glow{
-        display:none;
-    }
-}
 
-
-/* ==================================================
+/* =========================================================
    HEADER
-================================================== */
+========================================================= */
 
 header{
     position:fixed;
+
     top:0;
     left:0;
 
@@ -95,31 +98,40 @@ header{
     padding:0 6%;
 
     display:grid;
-    grid-template-columns:1fr auto 1fr;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
     align-items:center;
 
     background:#080808;
 
-    border-bottom:1px solid rgba(255,255,255,.12);
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
 
     z-index:1000;
 }
+
 
 .logo{
     font-family:Georgia,serif;
 
     font-size:23px;
+
     letter-spacing:3px;
 
     white-space:nowrap;
 }
 
+
 .logo span{
     color:var(--gold);
 }
 
+
 .header-center{
     font-size:10px;
+
     letter-spacing:4px;
 
     color:#888;
@@ -127,32 +139,40 @@ header{
     text-transform:uppercase;
 }
 
+
 .header-right{
     justify-self:end;
 
     display:flex;
+
     align-items:center;
 
     gap:18px;
 }
 
 
-/* LANGUAGE */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 .languages{
     display:flex;
+
     align-items:center;
 
     gap:8px;
 }
 
+
 .lang{
     background:none;
+
     border:none;
 
     color:#777;
 
     font-size:11px;
+
     letter-spacing:2px;
 
     cursor:pointer;
@@ -160,30 +180,39 @@ header{
     transition:.3s;
 }
 
+
 .lang.active,
 .lang:hover{
     color:var(--gold);
 }
 
+
 .lang-line{
     width:1px;
+
     height:14px;
 
     background:#555;
 }
 
 
-/* SEARCH */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 .search-button{
     width:32px;
+
     height:32px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:none;
+
     border:none;
 
     color:white;
@@ -191,30 +220,40 @@ header{
     cursor:pointer;
 }
 
+
 .search-button svg{
     width:20px;
+
     height:20px;
 }
 
 
-/* HAMBURGER */
+/* =========================================================
+   HAMBURGER
+========================================================= */
 
 .hamburger{
     width:37px;
+
     height:27px;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
 
     background:none;
+
     border:none;
 
     cursor:pointer;
 }
 
+
 .hamburger span{
     width:100%;
+
     height:2px;
 
     background:white;
@@ -222,25 +261,30 @@ header{
     transition:.3s;
 }
 
+
 .hamburger:hover span:nth-child(2){
     width:65%;
 }
 
 
-/* ==================================================
+/* =========================================================
    HERO
-================================================== */
+========================================================= */
 
 .hero{
     position:absolute;
 
     top:var(--header);
+
     left:0;
 
     width:100%;
 
-    height:calc(100vh - var(--header));
-    height:calc(100dvh - var(--header));
+    height:
+        calc(100vh - var(--header));
+
+    height:
+        calc(100dvh - var(--header));
 
     overflow:hidden;
 
@@ -255,9 +299,9 @@ header{
 }
 
 
-/* ==================================================
+/* =========================================================
    IMAGE CARD
-================================================== */
+========================================================= */
 
 .justice-card{
     position:absolute;
@@ -269,7 +313,8 @@ header{
 
     aspect-ratio:16 / 9;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     z-index:5;
 
@@ -318,23 +363,27 @@ header{
         1px solid rgba(202,164,95,.28);
 
     backface-visibility:hidden;
+
     -webkit-backface-visibility:hidden;
 }
 
 
-/* ==================================================
+/* =========================================================
    ORIGINAL IMAGE
-================================================== */
+========================================================= */
 
 .card-front{
     transform:rotateY(0deg);
 }
+
 
 .card-front img{
     width:100%;
     height:100%;
 
     object-fit:contain;
+
+    object-position:center;
 
     display:block;
 
@@ -345,14 +394,15 @@ header{
 }
 
 
-/* ==================================================
-   BRAND MARK
-================================================== */
+/* =========================================================
+   COMPANY MARK
+========================================================= */
 
 .image-brand{
     position:absolute;
 
     right:7%;
+
     top:50%;
 
     width:260px;
@@ -377,19 +427,22 @@ body.ready .image-brand{
     opacity:1;
 
     transform:
-        translateY(-50%)
-        translateY(0);
+        translateY(-50%);
 }
 
 
 .brand-symbol{
     width:92px;
+
     height:92px;
 
-    margin:0 auto 23px;
+    margin:
+        0 auto 23px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border:
@@ -424,6 +477,7 @@ body.ready .image-brand{
     white-space:nowrap;
 }
 
+
 .brand-name span{
     color:var(--gold);
 }
@@ -431,6 +485,7 @@ body.ready .image-brand{
 
 .brand-rule{
     width:75px;
+
     height:1px;
 
     margin:17px auto;
@@ -450,9 +505,9 @@ body.ready .image-brand{
 }
 
 
-/* ==================================================
+/* =========================================================
    FLIPPED IMAGE
-================================================== */
+========================================================= */
 
 .card-back{
     transform:rotateY(180deg);
@@ -463,6 +518,7 @@ body.ready .image-brand{
 
 .card-back img{
     width:100%;
+
     height:100%;
 
     display:block;
@@ -480,9 +536,9 @@ body.ready .image-brand{
 }
 
 
-/* ==================================================
-   STAGE 1
-================================================== */
+/* =========================================================
+   STAGE 1 INTRO
+========================================================= */
 
 .intro{
     position:absolute;
@@ -492,7 +548,8 @@ body.ready .image-brand{
 
     width:90%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     text-align:center;
 
@@ -520,7 +577,8 @@ body.ready .image-brand{
 .intro h1{
     font-family:Georgia,serif;
 
-    font-size:clamp(52px,7vw,100px);
+    font-size:
+        clamp(52px,7vw,100px);
 
     font-weight:normal;
 
@@ -531,14 +589,15 @@ body.ready .image-brand{
 }
 
 
-/* ==================================================
+/* =========================================================
    INFORMATION
-================================================== */
+========================================================= */
 
 .content{
     position:absolute;
 
     left:7.5%;
+
     top:50%;
 
     width:560px;
@@ -573,7 +632,8 @@ body.ready .image-brand{
 .content h2{
     font-family:Georgia,serif;
 
-    font-size:clamp(48px,5vw,73px);
+    font-size:
+        clamp(48px,5vw,73px);
 
     font-weight:normal;
 
@@ -609,7 +669,8 @@ body.ready .image-brand{
 
 
 .btn{
-    padding:16px 25px;
+    padding:
+        16px 25px;
 
     text-decoration:none;
 
@@ -650,15 +711,19 @@ body.ready .image-brand{
 }
 
 
-/* GOLD LINE */
+/* =========================================================
+   GOLD LINE
+========================================================= */
 
 .gold-line{
     position:absolute;
 
     left:4.4%;
+
     top:38%;
 
     width:1px;
+
     height:180px;
 
     background:
@@ -677,12 +742,13 @@ body.ready .image-brand{
 }
 
 
-/* ==================================================
+/* =========================================================
    STAGE 2
-================================================== */
+========================================================= */
 
 body.ready .justice-card{
     left:76.5%;
+
     top:50%;
 
     width:min(760px,47vw);
@@ -717,15 +783,17 @@ body.ready .gold-line{
 }
 
 
-/* ==================================================
-   STAGE 3 - ONE TIME FINAL POSITION
-================================================== */
+/* =========================================================
+   STAGE 3
+========================================================= */
 
 .hero.stage3 .justice-card{
     left:0;
+
     top:0;
 
     width:100%;
+
     height:100%;
 
     aspect-ratio:auto;
@@ -741,7 +809,9 @@ body.ready .gold-line{
 }
 
 
-/* LEFT DARK GRADIENT */
+/* =========================================================
+   STAGE 3 SHADE
+========================================================= */
 
 .stage3-shade{
     position:absolute;
@@ -757,7 +827,6 @@ body.ready .gold-line{
     background:
         linear-gradient(
             90deg,
-
             rgba(0,0,0,.96) 0%,
             rgba(0,0,0,.90) 24%,
             rgba(0,0,0,.68) 42%,
@@ -785,17 +854,19 @@ body.ready .gold-line{
 }
 
 
-/* ==================================================
-   ONE-TIME IMAGE TRIGGER
-================================================== */
+/* =========================================================
+   DESKTOP ONE-TIME TRIGGER
+========================================================= */
 
 .interaction-zone{
     position:absolute;
 
     top:0;
+
     right:0;
 
     width:52%;
+
     height:100%;
 
     z-index:50;
@@ -809,14 +880,15 @@ body.ready .gold-line{
 }
 
 
-/* ==================================================
-   SEARCH
-================================================== */
+/* =========================================================
+   SEARCH PANEL
+========================================================= */
 
 .search-panel{
     position:fixed;
 
     top:var(--header);
+
     right:6%;
 
     width:330px;
@@ -834,7 +906,8 @@ body.ready .gold-line{
 
     pointer-events:none;
 
-    transform:translateY(-10px);
+    transform:
+        translateY(-10px);
 
     transition:.3s;
 }
@@ -845,7 +918,8 @@ body.ready .gold-line{
 
     pointer-events:auto;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 }
 
 
@@ -856,7 +930,8 @@ body.ready .gold-line{
 
     background:#1b1b1b;
 
-    border:1px solid #444;
+    border:
+        1px solid #444;
 
     color:white;
 
@@ -864,16 +939,17 @@ body.ready .gold-line{
 }
 
 
-/* ==================================================
-   SIDE MENU
-================================================== */
+/* =========================================================
+   OVERLAY
+========================================================= */
 
 .overlay{
     position:fixed;
 
     inset:0;
 
-    background:rgba(0,0,0,.62);
+    background:
+        rgba(0,0,0,.62);
 
     z-index:1400;
 
@@ -892,18 +968,25 @@ body.ready .gold-line{
 }
 
 
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
 .side-menu{
     position:fixed;
 
     top:0;
+
     right:-420px;
 
     width:390px;
+
     max-width:90%;
 
     height:100vh;
 
-    padding:115px 50px 40px;
+    padding:
+        115px 50px 40px;
 
     background:#0d0d0d;
 
@@ -926,9 +1009,11 @@ body.ready .gold-line{
     position:absolute;
 
     top:26px;
+
     right:35px;
 
     background:none;
+
     border:none;
 
     color:white;
@@ -966,21 +1051,70 @@ body.ready .gold-line{
 }
 
 
-/* ==================================================
-   MOBILE
-================================================== */
 
-@media(max-width:900px){
+/* =========================================================
+   =========================================================
+   MOBILE / ANDROID / IPHONE ONLY
+   DESKTOP CODE ABOVE IS UNCHANGED
+   =========================================================
+========================================================= */
+
+@media screen and (max-width:900px){
+
 
     :root{
-        --header:72px;
+        --header:68px;
     }
 
 
-    header{
-        padding:0 5%;
+    html,
+    body{
+        width:100%;
 
-        grid-template-columns:1fr auto;
+        min-height:100%;
+
+        overflow-x:hidden;
+    }
+
+
+    body{
+        overflow-y:auto;
+
+        background:#070707;
+    }
+
+
+    /* =====================================================
+       MOBILE HEADER
+    ===================================================== */
+
+    header{
+        height:68px;
+
+        padding:
+            0 14px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:
+            space-between;
+
+        background:
+            rgba(7,7,7,.98);
+
+        border-bottom:
+            1px solid rgba(255,255,255,.10);
+    }
+
+
+    .logo{
+        font-size:14px;
+
+        letter-spacing:1.3px;
+
+        white-space:nowrap;
     }
 
 
@@ -989,75 +1123,351 @@ body.ready .gold-line{
     }
 
 
-    .logo{
-        font-size:16px;
+    .header-right{
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+    }
+
+
+    .languages{
+        gap:4px;
+    }
+
+
+    .lang{
+        font-size:9px;
+
+        letter-spacing:.7px;
+    }
+
+
+    .lang-line{
+        height:11px;
+    }
+
+
+    .search-button{
+        width:25px;
+
+        height:25px;
+    }
+
+
+    .search-button svg{
+        width:16px;
+
+        height:16px;
+    }
+
+
+    .hamburger{
+        width:27px;
+
+        height:19px;
+    }
+
+
+
+    /* =====================================================
+       MOBILE MAIN AREA
+    ===================================================== */
+
+    .hero{
+        position:relative;
+
+        top:68px;
+
+        left:0;
+
+        width:100%;
+
+        height:auto;
+
+        min-height:
+            calc(100vh - 68px);
+
+        min-height:
+            calc(100dvh - 68px);
+
+        padding-bottom:35px;
+
+        overflow:visible;
+
+        background:
+            radial-gradient(
+                circle at 50% 21%,
+                #241c12 0%,
+                #110e0a 42%,
+                #070707 78%
+            );
+    }
+
+
+
+    /* =====================================================
+       MOBILE STAGE 1
+       INTRODUCTION
+    ===================================================== */
+
+    .justice-card{
+        position:absolute;
+
+        left:50%;
+
+        top:36vh;
+
+        top:36dvh;
+
+        width:92vw;
+
+        height:auto;
+
+        aspect-ratio:16 / 9;
+
+        transform:
+            translate(-50%,-50%);
+    }
+
+
+    .card-front img{
+        width:100%;
+
+        height:100%;
+
+        object-fit:contain;
+
+        object-position:center;
+    }
+
+
+    .intro{
+        left:50%;
+
+        top:36vh;
+
+        top:36dvh;
+
+        width:94%;
+
+        transform:
+            translate(-50%,-50%);
+    }
+
+
+    .intro-small{
+        margin-bottom:9px;
+
+        font-size:8px;
+
+        letter-spacing:2.8px;
+    }
+
+
+    .intro h1{
+        font-size:
+            clamp(30px,9vw,44px);
+
+        line-height:1;
+
+        letter-spacing:1.7px;
+    }
+
+
+
+    /* =====================================================
+       MOBILE STAGE 2
+       IMAGE ON TOP
+    ===================================================== */
+
+    body.ready .justice-card{
+        left:50%;
+
+        top:18px;
+
+        width:92vw;
+
+        height:auto;
+
+        aspect-ratio:16 / 9;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    body.ready .card-front img{
+        object-fit:contain;
+
+        object-position:center;
+    }
+
+
+
+    /* =====================================================
+       MOBILE COMPANY MARK
+    ===================================================== */
+
+    body.ready .image-brand{
+        right:4%;
+
+        top:50%;
+
+        width:104px;
+
+        opacity:1;
+
+        transform:
+            translateY(-50%);
+    }
+
+
+    .brand-symbol{
+        width:42px;
+
+        height:42px;
+
+        margin:
+            0 auto 9px;
+    }
+
+
+    .brand-symbol span{
+        font-size:14px;
+    }
+
+
+    .brand-name{
+        font-size:9.5px;
+
+        letter-spacing:1px;
+    }
+
+
+    .brand-rule{
+        width:40px;
+
+        margin:
+            7px auto;
+    }
+
+
+    .brand-subtitle{
+        font-size:4.8px;
+
+        letter-spacing:.8px;
+
+        line-height:1.5;
+    }
+
+
+
+    /* =====================================================
+       MOBILE INFORMATION
+       BELOW IMAGE
+    ===================================================== */
+
+    .content{
+        position:relative;
+
+        left:auto;
+
+        right:auto;
+
+        top:auto;
+
+        width:auto;
+
+        margin:
+            calc(51.75vw + 48px)
+            20px
+            0;
+
+        padding-bottom:22px;
+
+        opacity:0;
+
+        transform:none;
+
+        z-index:30;
+    }
+
+
+    body.ready .content{
+        opacity:1;
+
+        pointer-events:auto;
+
+        transform:none;
+    }
+
+
+    .eyebrow{
+        margin-bottom:10px;
+
+        font-size:8px;
 
         letter-spacing:2px;
     }
 
 
-    .header-right{
-        gap:10px;
-    }
-
-
-    .justice-card{
-        top:39%;
-
-        width:92vw;
-    }
-
-
-    .intro{
-        top:39%;
-    }
-
-
-    .intro h1{
-        font-size:42px;
-    }
-
-
-    body.ready .justice-card{
-        left:50%;
-
-        top:24%;
-
-        width:88vw;
-    }
-
-
-    .content{
-        left:7%;
-        right:7%;
-
-        top:64%;
-
-        width:auto;
-    }
-
-
     .content h2{
-        font-size:38px;
+        max-width:100%;
+
+        font-size:
+            clamp(30px,8.5vw,39px);
+
+        line-height:1.03;
     }
 
 
     .description{
-        font-size:14px;
+        max-width:100%;
 
-        line-height:1.6;
+        margin-top:14px;
+
+        font-size:12.5px;
+
+        line-height:1.55;
+
+        color:#c8c8c8;
     }
 
 
-    .buttons{
-        flex-direction:column;
 
-        width:225px;
+    /* =====================================================
+       MOBILE BUTTONS
+    ===================================================== */
+
+    .buttons{
+        display:grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:9px;
+
+        width:100%;
+
+        margin-top:18px;
     }
 
 
     .btn{
+        width:100%;
+
+        padding:
+            13px 5px;
+
         text-align:center;
+
+        font-size:7.5px;
+
+        letter-spacing:.6px;
+
+        white-space:nowrap;
     }
 
 
@@ -1066,102 +1476,459 @@ body.ready .gold-line{
     }
 
 
-    .image-brand{
-        right:6%;
 
-        width:150px;
-    }
+    /* =====================================================
+       MOBILE STAGE 3
+       TAP ONCE
+       ROTATES ONCE
+       STAYS PERMANENTLY
+    ===================================================== */
 
+    .hero.stage3{
+        position:fixed;
 
-    .brand-symbol{
-        width:60px;
-        height:60px;
+        top:68px;
 
-        margin-bottom:15px;
-    }
+        left:0;
 
+        width:100%;
 
-    .brand-symbol span{
-        font-size:21px;
-    }
+        height:
+            calc(100vh - 68px);
 
+        height:
+            calc(100dvh - 68px);
 
-    .brand-name{
-        font-size:14px;
+        min-height:0;
 
-        letter-spacing:2px;
-    }
+        padding:0;
 
+        overflow:hidden;
 
-    .brand-subtitle{
-        font-size:7px;
+        z-index:50;
     }
 
 
     .hero.stage3 .justice-card{
+        position:absolute;
+
         left:0;
+
         top:0;
 
         width:100%;
+
         height:100%;
 
+        aspect-ratio:auto;
+
         transform:none;
+
+        z-index:8;
+    }
+
+
+    .hero.stage3 .card-inner{
+        transform:
+            rotateY(180deg);
     }
 
 
     .hero.stage3 .card-back img{
+        width:100%;
+
+        height:100%;
+
         object-fit:cover;
 
+        /*
+        Keep face and top visible.
+        Lower part can crop.
+        */
+
         object-position:center top;
+
+        transform:
+            scaleX(-1);
     }
 
 
+
+    /* =====================================================
+       MOBILE STAGE 3 DARK GRADIENT
+    ===================================================== */
+
     .hero.stage3 .stage3-shade{
+        opacity:1;
+
         background:
             linear-gradient(
                 0deg,
 
-                rgba(0,0,0,.96) 0%,
-                rgba(0,0,0,.72) 48%,
-                rgba(0,0,0,.12) 100%
+                rgba(0,0,0,.99) 0%,
+
+                rgba(0,0,0,.95) 23%,
+
+                rgba(0,0,0,.80) 42%,
+
+                rgba(0,0,0,.42) 58%,
+
+                rgba(0,0,0,.10) 78%,
+
+                transparent 100%
             );
     }
 
 
+
+    /* =====================================================
+       MOBILE STAGE 3 TEXT
+    ===================================================== */
+
     .hero.stage3 .content{
-        top:64%;
+        position:absolute;
+
+        left:19px;
+
+        right:19px;
+
+        top:auto;
+
+        bottom:18px;
+
+        width:auto;
+
+        max-height:52%;
+
+        margin:0;
+
+        padding:
+            0 2px 2px 0;
+
+        overflow-y:auto;
+
+        opacity:1;
+
+        transform:none;
+
+        z-index:30;
+    }
+
+
+    .hero.stage3 .eyebrow{
+        margin-bottom:7px;
+
+        font-size:7px;
+
+        letter-spacing:1.6px;
+    }
+
+
+    .hero.stage3 .content h2{
+        font-size:
+            clamp(25px,7.6vw,34px);
+
+        line-height:1;
+    }
+
+
+    .hero.stage3 .description{
+        margin-top:10px;
+
+        max-width:97%;
+
+        font-size:11px;
+
+        line-height:1.42;
+    }
+
+
+    .hero.stage3 .buttons{
+        margin-top:12px;
+    }
+
+
+    .hero.stage3 .btn{
+        padding:
+            11px 4px;
+
+        font-size:7px;
+    }
+
+
+
+    /* =====================================================
+       MOBILE SEARCH
+    ===================================================== */
+
+    .search-panel{
+        top:68px;
+
+        left:5%;
+
+        right:5%;
+
+        width:90%;
+
+        padding:13px;
+    }
+
+
+    .search-panel input{
+        padding:12px;
+
+        font-size:14px;
+    }
+
+
+
+    /* =====================================================
+       MOBILE SIDE MENU
+    ===================================================== */
+
+    .side-menu{
+        width:88%;
+
+        max-width:360px;
+
+        padding:
+            92px 28px 32px;
+    }
+
+
+    .side-menu a{
+        padding:14px 0;
+
+        font-size:21px;
+    }
+
+
+    .close-menu{
+        top:21px;
+
+        right:24px;
+    }
+
+
+
+    /* =====================================================
+       MOBILE: NO MOUSE EFFECTS
+    ===================================================== */
+
+    .cursor-glow{
+        display:none !important;
     }
 
 
     .interaction-zone{
-        display:none;
+        display:none !important;
+    }
+
+}
+
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width:390px){
+
+
+    .logo{
+        font-size:12px;
+
+        letter-spacing:.9px;
+    }
+
+
+    .header-right{
+        gap:6px;
+    }
+
+
+    .lang{
+        font-size:8px;
+    }
+
+
+    .search-button{
+        width:23px;
+
+        height:23px;
+    }
+
+
+    .hamburger{
+        width:25px;
+
+        height:18px;
+    }
+
+
+    body.ready .image-brand{
+        width:90px;
+
+        right:3%;
+    }
+
+
+    .brand-symbol{
+        width:36px;
+
+        height:36px;
+
+        margin-bottom:7px;
+    }
+
+
+    .brand-symbol span{
+        font-size:12px;
+    }
+
+
+    .brand-name{
+        font-size:8px;
+    }
+
+
+    .content{
+        margin:
+            calc(51.75vw + 40px)
+            17px
+            0;
+    }
+
+
+    .content h2{
+        font-size:28px;
+    }
+
+
+    .description{
+        font-size:11.5px;
+    }
+
+
+    .btn{
+        font-size:6.7px;
+
+        padding:
+            12px 3px;
+    }
+
+
+    .hero.stage3 .content{
+        left:16px;
+
+        right:16px;
+
+        bottom:14px;
+
+        max-height:54%;
+    }
+
+
+    .hero.stage3 .content h2{
+        font-size:25px;
+    }
+
+
+    .hero.stage3 .description{
+        font-size:10px;
+    }
+
+}
+
+
+
+/* =========================================================
+   SHORT MOBILE SCREENS
+========================================================= */
+
+@media screen and (max-width:900px) and (max-height:700px){
+
+
+    .content h2{
+        font-size:27px;
+    }
+
+
+    .description{
+        margin-top:9px;
+
+        font-size:10.5px;
+
+        line-height:1.4;
+    }
+
+
+    .buttons{
+        margin-top:11px;
+    }
+
+
+    .btn{
+        padding:
+            10px 4px;
+    }
+
+
+    .hero.stage3 .content{
+        max-height:58%;
+
+        bottom:10px;
+    }
+
+
+    .hero.stage3 .content h2{
+        font-size:24px;
+    }
+
+
+    .hero.stage3 .description{
+        font-size:9.8px;
+
+        line-height:1.35;
+    }
+
+
+    .hero.stage3 .buttons{
+        margin-top:8px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- SOFT GOLD CURSOR LIGHT -->
+<!-- =====================================================
+     CURSOR LIGHT
+===================================================== -->
 
 <div
-    class="cursor-glow"
-    id="cursorGlow">
+class="cursor-glow"
+id="cursorGlow">
 </div>
 
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
+
     <div class="logo">
 
-        KRONBERG <span>LEGAL</span>
+        KRONBERG
+        <span>LEGAL</span>
 
     </div>
 
@@ -1178,9 +1945,10 @@ body.ready .gold-line{
 
         <div class="languages">
 
+
             <button
-                class="lang active"
-                id="englishButton">
+            class="lang active"
+            id="englishButton">
 
                 EN
 
@@ -1191,78 +1959,98 @@ body.ready .gold-line{
 
 
             <button
-                class="lang"
-                id="germanButton">
+            class="lang"
+            id="germanButton">
 
                 DE
 
             </button>
 
+
         </div>
 
 
+
         <button
-            class="search-button"
-            id="searchButton"
-            aria-label="Search">
+        class="search-button"
+        id="searchButton"
+        aria-label="Search">
+
 
             <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8">
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+
 
                 <circle
-                    cx="11"
-                    cy="11"
-                    r="6.5">
+                cx="11"
+                cy="11"
+                r="6.5">
                 </circle>
 
+
                 <line
-                    x1="16"
-                    y1="16"
-                    x2="21"
-                    y2="21">
+                x1="16"
+                y1="16"
+                x2="21"
+                y2="21">
                 </line>
+
 
             </svg>
 
+
         </button>
+
 
 
         <button
-            class="hamburger"
-            id="menuButton"
-            aria-label="Menu">
+        class="hamburger"
+        id="menuButton"
+        aria-label="Menu">
+
 
             <span></span>
+
             <span></span>
+
             <span></span>
+
 
         </button>
 
+
     </div>
+
 
 </header>
 
 
 
-<!-- MAIN PAGE -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <main
-    class="hero"
-    id="hero">
+class="hero"
+id="hero">
 
 
     <div class="gold-line"></div>
 
 
+
+    <!-- IMAGE CARD -->
+
     <div
-        class="justice-card"
-        id="justiceCard">
+    class="justice-card"
+    id="justiceCard">
 
 
         <div class="card-inner">
+
 
 
             <!-- ORIGINAL IMAGE -->
@@ -1271,8 +2059,8 @@ body.ready .gold-line{
 
 
                 <img
-                    src="blindfolded_justice_in_golden_shadows.png"
-                    alt="Lady Justice">
+                src="blindfolded_justice_in_golden_shadows.png"
+                alt="Lady Justice">
 
 
                 <!-- COMPANY MARK -->
@@ -1290,18 +2078,24 @@ body.ready .gold-line{
                     <div class="brand-name">
 
                         KRONBERG
-                        <span>LEGAL</span>
+
+                        <span>
+                        LEGAL
+                        </span>
 
                     </div>
 
 
-                    <div class="brand-rule"></div>
+                    <div class="brand-rule">
+                    </div>
 
 
                     <div class="brand-subtitle">
 
                         RECHTSANWÄLTE
+
                         <br>
+
                         MÜNCHEN · GERMANY
 
                     </div>
@@ -1313,30 +2107,38 @@ body.ready .gold-line{
             </div>
 
 
-            <!-- FINAL FLIPPED IMAGE -->
+
+            <!-- ROTATED IMAGE -->
 
             <div class="card-face card-back">
 
+
                 <img
-                    src="blindfolded_justice_in_golden_shadows.png"
-                    alt="Lady Justice">
+                src="blindfolded_justice_in_golden_shadows.png"
+                alt="Lady Justice">
+
 
             </div>
 
 
         </div>
 
+
     </div>
 
 
 
-    <div class="stage3-shade"></div>
+    <!-- FINAL STAGE GRADIENT -->
+
+    <div class="stage3-shade">
+    </div>
 
 
 
-    <!-- FIRST STAGE -->
+    <!-- STAGE 1 TEXT -->
 
     <div class="intro">
+
 
         <div class="intro-small">
 
@@ -1351,18 +2153,19 @@ body.ready .gold-line{
 
         </h1>
 
+
     </div>
 
 
 
-    <!-- INFORMATION -->
+    <!-- MAIN INFORMATION -->
 
     <section class="content">
 
 
         <div
-            class="eyebrow"
-            id="eyebrow">
+        class="eyebrow"
+        id="eyebrow">
 
             KRONBERG LEGAL · GERMANY
 
@@ -1382,8 +2185,8 @@ body.ready .gold-line{
 
 
         <p
-            class="description"
-            id="description">
+        class="description"
+        id="description">
 
             Kronberg Legal is a fictional international law firm
             based in Munich, Germany. Our specialist legal teams
@@ -1394,13 +2197,14 @@ body.ready .gold-line{
         </p>
 
 
+
         <div class="buttons">
 
 
             <a
-                href="#"
-                class="btn gold"
-                id="firmButton">
+            href="#"
+            class="btn gold"
+            id="firmButton">
 
                 Explore Our Firm
 
@@ -1408,9 +2212,9 @@ body.ready .gold-line{
 
 
             <a
-                href="#"
-                class="btn outline"
-                id="floorButton">
+            href="#"
+            class="btn outline"
+            id="floorButton">
 
                 Discover The Floors
 
@@ -1424,11 +2228,11 @@ body.ready .gold-line{
 
 
 
-    <!-- ONE-TIME ROTATION TRIGGER -->
+    <!-- DESKTOP ROTATION AREA -->
 
     <div
-        class="interaction-zone"
-        id="interactionZone">
+    class="interaction-zone"
+    id="interactionZone">
     </div>
 
 
@@ -1436,50 +2240,59 @@ body.ready .gold-line{
 
 
 
-<!-- SEARCH -->
+<!-- =====================================================
+     SEARCH PANEL
+===================================================== -->
 
 <div
-    class="search-panel"
-    id="searchPanel">
+class="search-panel"
+id="searchPanel">
+
 
     <input
-        id="searchInput"
-        type="text"
-        placeholder="Search Kronberg Legal...">
+    id="searchInput"
+    type="text"
+    placeholder="Search Kronberg Legal...">
+
 
 </div>
 
 
 
-<!-- MENU OVERLAY -->
+<!-- =====================================================
+     MENU OVERLAY
+===================================================== -->
 
 <div
-    class="overlay"
-    id="overlay">
+class="overlay"
+id="overlay">
 </div>
 
 
 
-<!-- SIDE MENU -->
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
 
 <aside
-    class="side-menu"
-    id="sideMenu">
+class="side-menu"
+id="sideMenu">
 
 
     <button
-        class="close-menu"
-        id="closeMenu">
+    class="close-menu"
+    id="closeMenu">
 
         ×
 
     </button>
 
 
+
     <a
-        href="#"
-        data-en="Home"
-        data-de="Startseite">
+    href="#"
+    data-en="Home"
+    data-de="Startseite">
 
         Home
 
@@ -1487,9 +2300,9 @@ body.ready .gold-line{
 
 
     <a
-        href="#"
-        data-en="Our Firm"
-        data-de="Unsere Kanzlei">
+    href="#"
+    data-en="Our Firm"
+    data-de="Unsere Kanzlei">
 
         Our Firm
 
@@ -1497,9 +2310,9 @@ body.ready .gold-line{
 
 
     <a
-        href="#"
-        data-en="Expertise"
-        data-de="Expertise">
+    href="#"
+    data-en="Expertise"
+    data-de="Expertise">
 
         Expertise
 
@@ -1507,9 +2320,9 @@ body.ready .gold-line{
 
 
     <a
-        href="#"
-        data-en="12 Floors"
-        data-de="12 Etagen">
+    href="#"
+    data-en="12 Floors"
+    data-de="12 Etagen">
 
         12 Floors
 
@@ -1517,9 +2330,9 @@ body.ready .gold-line{
 
 
     <a
-        href="#"
-        data-en="Lawyers"
-        data-de="Anwälte">
+    href="#"
+    data-en="Lawyers"
+    data-de="Anwälte">
 
         Lawyers
 
@@ -1527,9 +2340,9 @@ body.ready .gold-line{
 
 
     <a
-        href="#"
-        data-en="Contact"
-        data-de="Kontakt">
+    href="#"
+    data-en="Contact"
+    data-de="Kontakt">
 
         Contact
 
@@ -1543,76 +2356,117 @@ body.ready .gold-line{
 <script>
 
 
-/* ==================================================
+/* =========================================================
    STAGE 1 → STAGE 2
-================================================== */
+========================================================= */
 
 window.addEventListener(
 "load",
 function(){
 
+
     setTimeout(
     function(){
 
-        document.body.classList.add("ready");
+
+        document.body.classList.add(
+            "ready"
+        );
+
 
     },
     2000
     );
 
+
 });
 
 
 
-/* ==================================================
+/* =========================================================
    ONE-TIME FINAL ROTATION
-================================================== */
+========================================================= */
 
 const hero =
-document.getElementById("hero");
+document.getElementById(
+    "hero"
+);
 
 
 const interactionZone =
-document.getElementById("interactionZone");
+document.getElementById(
+    "interactionZone"
+);
 
 
-let hasRotated = false;
+let hasRotated =
+false;
 
+
+
+/* DESKTOP */
 
 interactionZone.addEventListener(
 "mouseenter",
 function(){
 
+
     if(
         !hasRotated &&
-        document.body.classList.contains("ready")
+        document.body.classList.contains(
+            "ready"
+        )
     ){
 
-        hasRotated = true;
 
-        hero.classList.add("stage3");
+        hasRotated =
+        true;
+
+
+        hero.classList.add(
+            "stage3"
+        );
+
 
     }
+
 
 });
 
 
 
-/* MOBILE ONE-TIME TAP */
+/* =========================================================
+   MOBILE
+   TAP ONCE ONLY
+========================================================= */
 
 hero.addEventListener(
 "click",
 function(event){
 
 
+    /*
+    Only use this behavior
+    on touch devices.
+    */
+
     if(
-        !window.matchMedia("(hover:none)").matches
+        !window
+        .matchMedia(
+            "(hover:none)"
+        )
+        .matches
     ){
 
         return;
 
     }
 
+
+    /*
+    Buttons, language controls
+    and links should still work.
+    */
 
     if(
         event.target.closest("a") ||
@@ -1624,88 +2478,127 @@ function(event){
     }
 
 
+    /*
+    Rotate only one time.
+    */
+
     if(
         !hasRotated &&
-        document.body.classList.contains("ready")
+        document.body.classList.contains(
+            "ready"
+        )
     ){
 
-        hasRotated = true;
 
-        hero.classList.add("stage3");
+        hasRotated =
+        true;
+
+
+        hero.classList.add(
+            "stage3"
+        );
+
 
     }
+
 
 });
 
 
 
-/* ==================================================
-   SMOOTH GOLD CURSOR LIGHT
-================================================== */
+/* =========================================================
+   GOLD CURSOR LIGHT
+   DESKTOP ONLY
+========================================================= */
 
 const cursorGlow =
-document.getElementById("cursorGlow");
+document.getElementById(
+    "cursorGlow"
+);
 
 
-let mouseX = 0;
-let mouseY = 0;
+let mouseX =
+0;
 
-let glowX = 0;
-let glowY = 0;
+let mouseY =
+0;
+
+
+let glowX =
+0;
+
+let glowY =
+0;
+
 
 
 if(
-    window.matchMedia("(hover:hover)").matches
+    window
+    .matchMedia(
+        "(hover:hover)"
+    )
+    .matches
 ){
+
 
     document.addEventListener(
     "mousemove",
     function(event){
 
+
         mouseX =
         event.clientX;
+
 
         mouseY =
         event.clientY;
 
+
         cursorGlow.style.opacity =
         "1";
 
+
     });
+
 
 
     document.addEventListener(
     "mouseleave",
     function(){
 
+
         cursorGlow.style.opacity =
         "0";
 
+
     });
+
 
 
     document.addEventListener(
     "mouseenter",
     function(){
 
+
         cursorGlow.style.opacity =
         "1";
+
 
     });
 
 
+
     function animateGlow(){
 
-        /*
-        Small delay creates a premium,
-        smooth trailing-light effect.
-        */
 
         glowX +=
-        (mouseX - glowX) * 0.14;
+        (mouseX - glowX)
+        * 0.14;
+
 
         glowY +=
-        (mouseY - glowY) * 0.14;
+        (mouseY - glowY)
+        * 0.14;
 
 
         cursorGlow.style.left =
@@ -1720,73 +2613,118 @@ if(
             animateGlow
         );
 
+
     }
 
 
     animateGlow();
 
+
 }
 
 
 
-/* ==================================================
+/* =========================================================
    SEARCH
-================================================== */
+========================================================= */
 
 const searchButton =
-document.getElementById("searchButton");
+document.getElementById(
+    "searchButton"
+);
 
 
 const searchPanel =
-document.getElementById("searchPanel");
+document.getElementById(
+    "searchPanel"
+);
 
 
 searchButton.onclick =
 function(){
 
-    searchPanel.classList.toggle("open");
+
+    searchPanel
+    .classList
+    .toggle(
+        "open"
+    );
+
 
 };
 
 
 
-/* ==================================================
+/* =========================================================
    MENU
-================================================== */
+========================================================= */
 
 const menuButton =
-document.getElementById("menuButton");
+document.getElementById(
+    "menuButton"
+);
 
 
 const sideMenu =
-document.getElementById("sideMenu");
+document.getElementById(
+    "sideMenu"
+);
 
 
 const overlay =
-document.getElementById("overlay");
+document.getElementById(
+    "overlay"
+);
 
 
 const closeMenu =
-document.getElementById("closeMenu");
+document.getElementById(
+    "closeMenu"
+);
+
 
 
 menuButton.onclick =
 function(){
 
-    sideMenu.classList.add("open");
 
-    overlay.classList.add("open");
+    sideMenu
+    .classList
+    .add(
+        "open"
+    );
+
+
+    overlay
+    .classList
+    .add(
+        "open"
+    );
+
 
 };
 
 
+
 function closeSideMenu(){
 
-    sideMenu.classList.remove("open");
 
-    overlay.classList.remove("open");
+    sideMenu
+    .classList
+    .remove(
+        "open"
+    );
+
+
+    overlay
+    .classList
+    .remove(
+        "open"
+    );
+
 
 }
+
 
 
 closeMenu.onclick =
@@ -1798,138 +2736,200 @@ closeSideMenu;
 
 
 
-/* ==================================================
+/* =========================================================
    LANGUAGE
-================================================== */
+========================================================= */
 
 const englishButton =
-document.getElementById("englishButton");
+document.getElementById(
+    "englishButton"
+);
 
 
 const germanButton =
-document.getElementById("germanButton");
+document.getElementById(
+    "germanButton"
+);
 
 
-const translations={
+
+const translations =
+{
 
 
-    en:{
+    en:
+    {
+
 
         eyebrow:
         "KRONBERG LEGAL · GERMANY",
 
+
         headline:
         'Law with <span>clarity.</span><br>Counsel with purpose.',
+
 
         description:
         "Kronberg Legal is a fictional international law firm based in Munich, Germany. Our specialist legal teams are organised across twelve floors, bringing together focused expertise for businesses, institutions and private clients.",
 
+
         firm:
         "Explore Our Firm",
+
 
         floor:
         "Discover The Floors",
 
+
         search:
         "Search Kronberg Legal..."
+
 
     },
 
 
-    de:{
+    de:
+    {
+
 
         eyebrow:
         "KRONBERG LEGAL · DEUTSCHLAND",
 
+
         headline:
         'Recht mit <span>Klarheit.</span><br>Beratung mit Haltung.',
+
 
         description:
         "Kronberg Legal ist eine fiktive internationale Kanzlei mit Sitz in München. Unsere spezialisierten Rechtsteams sind auf zwölf Etagen organisiert und beraten Unternehmen, Institutionen und Privatmandanten.",
 
+
         firm:
         "Unsere Kanzlei",
+
 
         floor:
         "Die Etagen entdecken",
 
+
         search:
         "Kronberg Legal durchsuchen..."
 
+
     }
+
 
 };
 
 
 
-function changeLanguage(language){
+function changeLanguage(
+language
+){
 
 
     const text =
-    translations[language];
+    translations[
+        language
+    ];
+
 
 
     document
-    .getElementById("eyebrow")
+    .getElementById(
+        "eyebrow"
+    )
     .textContent =
     text.eyebrow;
 
 
+
     document
-    .getElementById("headline")
+    .getElementById(
+        "headline"
+    )
     .innerHTML =
     text.headline;
 
 
+
     document
-    .getElementById("description")
+    .getElementById(
+        "description"
+    )
     .textContent =
     text.description;
 
 
+
     document
-    .getElementById("firmButton")
+    .getElementById(
+        "firmButton"
+    )
     .textContent =
     text.firm;
 
 
+
     document
-    .getElementById("floorButton")
+    .getElementById(
+        "floorButton"
+    )
     .textContent =
     text.floor;
 
 
+
     document
-    .getElementById("searchInput")
+    .getElementById(
+        "searchInput"
+    )
     .placeholder =
     text.search;
 
 
+
     document
-    .querySelectorAll(".side-menu a")
+    .querySelectorAll(
+        ".side-menu a"
+    )
     .forEach(
     function(link){
 
+
         link.textContent =
-        link.dataset[language];
+        link.dataset[
+            language
+        ];
+
 
     });
 
 
-    englishButton.classList.toggle(
+
+    englishButton
+    .classList
+    .toggle(
         "active",
-        language==="en"
+        language === "en"
     );
 
 
-    germanButton.classList.toggle(
+
+    germanButton
+    .classList
+    .toggle(
         "active",
-        language==="de"
+        language === "de"
     );
 
 
-    document.documentElement.lang =
+
+    document
+    .documentElement
+    .lang =
     language;
+
 
 }
 
@@ -1938,15 +2938,24 @@ function changeLanguage(language){
 englishButton.onclick =
 function(){
 
-    changeLanguage("en");
+
+    changeLanguage(
+        "en"
+    );
+
 
 };
+
 
 
 germanButton.onclick =
 function(){
 
-    changeLanguage("de");
+
+    changeLanguage(
+        "de"
+    );
+
 
 };
 
@@ -1954,4 +2963,5 @@ function(){
 </script>
 
 </body>
+
 </html>
