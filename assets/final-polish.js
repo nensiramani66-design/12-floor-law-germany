@@ -9,6 +9,8 @@
 
   function homeFooter(){
     if(!isHome)return;
+    document.getElementById("kl-premium-footer")?.remove();
+    document.querySelectorAll(".firm-footer").forEach(el=>el.remove());
     document.getElementById("kl-home-final")?.remove();
     const section=document.createElement("section");
     section.id="kl-home-final";
@@ -60,6 +62,9 @@
     if(!isFirm)return;
     const who=document.getElementById("who-we-are");
     if(who){
+      who.classList.add("kl-who-hero");
+      const label=who.querySelector(".section-label");
+      if(label)label.textContent="01 / "+L("WHO WE ARE","WER WIR SIND");
       const copy=who.querySelector(".section-copy");
       if(copy){
         copy.innerHTML=L(
@@ -67,28 +72,11 @@
           "Kronberg Legal ist um spezialisierte Fachetagen organisiert, die als eine verbundene Kanzlei zusammenarbeiten. Jedes Team verantwortet einen klar definierten Bereich; fachübergreifende Mandate werden über eine gemeinsame Mandatsstrategie koordiniert.<br><br>Unser fiktives Münchner Modell setzt auf direkte Kommunikation, diszipliniertes Projektmanagement und Beratung, die rechtliche Details mit der wirtschaftlichen oder persönlichen Entscheidung dahinter verbindet."
         );
       }
-      if(!document.getElementById("kl-leadership")){
-        const leadership=document.createElement("section");
-        leadership.id="kl-leadership";
-        leadership.className="kl-leadership-section";
-        leadership.innerHTML=`
-          <div class="kl-leadership-heading">
-            <div class="section-label">02 / ${L("LEADERSHIP","LEITUNG")}</div>
-            <div><h2>${L("Leadership with perspective.","Führung mit Perspektive.")}</h2><p>${L("Two fictional leadership profiles show how strategy, client care and day-to-day management connect across the firm.","Zwei fiktive Führungsprofile zeigen, wie Strategie, Mandantenbetreuung und tägliche Kanzleiführung verbunden werden.")}</p></div>
-          </div>
-          <div class="kl-leadership-grid">
-            <article class="kl-leader">
-              <img src="assets/leadership-ceo.webp" alt="${L("AI-generated fictional portrait of Alexander Kronberg","KI-generiertes fiktives Porträt von Alexander Kronberg")}">
-              <div class="kl-leader-copy"><p class="kl-kicker">${L("FOUNDER & CEO · FICTIONAL PROFILE","GRÜNDER & CEO · FIKTIVES PROFIL")}</p><h3>Alexander Kronberg</h3><p>${L("Alexander represents the strategic direction of the firm concept, connecting long-term growth, cross-border coordination and the quality of the client experience.","Alexander steht im Kanzleikonzept für die strategische Ausrichtung und verbindet langfristiges Wachstum, internationale Koordination und die Qualität des Mandantenerlebnisses.")}</p><dl><div><dt>${L("Focus","Fokus")}</dt><dd>${L("Strategy · Corporate growth · Cross-border coordination","Strategie · Unternehmenswachstum · Internationale Koordination")}</dd></div><div><dt>${L("Languages","Sprachen")}</dt><dd>Deutsch / English</dd></div></dl></div>
-            </article>
-            <article class="kl-leader">
-              <img src="assets/leadership-manager.webp" alt="${L("AI-generated fictional portrait of Clara Winter","KI-generiertes fiktives Porträt von Clara Winter")}">
-              <div class="kl-leader-copy"><p class="kl-kicker">${L("MANAGING PARTNER · FICTIONAL PROFILE","MANAGING PARTNER · FIKTIVES PROFIL")}</p><h3>Clara Winter</h3><p>${L("Clara leads the operating model of the fictional firm, with responsibility for connected teams, client communication and consistent delivery across the twelve-floor structure.","Clara leitet das Betriebsmodell der fiktiven Kanzlei und verantwortet vernetzte Teams, Mandantenkommunikation und eine konsistente Zusammenarbeit über die zwölf Etagen hinweg.")}</p><dl><div><dt>${L("Focus","Fokus")}</dt><dd>${L("Corporate structures · Finance · Client delivery","Unternehmensstrukturen · Finanzierung · Mandatsführung")}</dd></div><div><dt>${L("Languages","Sprachen")}</dt><dd>Deutsch / English</dd></div></dl></div>
-            </article>
-          </div>`;
-        who.insertAdjacentElement("afterend",leadership);
-      }
     }
+    const leadership=document.querySelector(".kl-leadership");
+    const leadershipLabel=leadership?.querySelector("[data-kl-text='leadershipKicker']");
+    if(leadershipLabel)leadershipLabel.textContent="02 / "+L("LEADERSHIP","LEITUNG");
+
     const principle=[...document.querySelectorAll(".section")].find(s=>/OUR PRINCIPLES|UNSERE GRUNDSÄTZE/i.test(s.textContent));
     const principleLabel=principle?.querySelector(".section-label");
     if(principleLabel)principleLabel.textContent="03 / "+L("OUR PRINCIPLES","UNSERE GRUNDSÄTZE");
@@ -106,7 +94,6 @@
       h?.insertAdjacentElement("afterend",p);
     }
   }
-
   function reveal(){
     const items=[...document.querySelectorAll(".kl-section,.kl-card,.kl-person,.kl-floor-card,.section,.card,.floor,.kl-leader")];
     if(!("IntersectionObserver" in window)){items.forEach(x=>x.classList.add("kl-in-view"));return;}
