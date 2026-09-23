@@ -137,58 +137,208 @@
 }
 
 /* =========================================================
-   FLOOR IMAGE COLOR TREATMENT — vintage monochrome
-   Keep the photography subdued; floor number is the only
-   strong gold/yellow accent in the directory cards.
+   FLOOR DIRECTORY — FINAL IMAGE TREATMENT
+   Sharp monochrome photography, neutral card chrome.
+   The only strong colour inside a floor card is its gold number.
+   Baked-in labels in source art are cropped/masked by the left veil.
 ========================================================= */
+.kl-site[data-page="floors"] .kl-floor-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  border-color:rgba(236,232,222,.22);
+  background:#070908;
+  box-shadow:none;
+}
+.kl-site[data-page="floors"] .kl-floor-card:hover,
+.kl-site[data-page="floors"] .kl-floor-card:focus-within,
+.kl-site[data-page="floors"] .kl-floor-card.active{
+  border-color:rgba(236,232,222,.42);
+  background:#070908;
+  box-shadow:0 16px 46px rgba(0,0,0,.42);
+}
+
+.kl-site[data-page="floors"] .kl-floor-select{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:210px;
+  padding:25px 26px;
+  overflow:hidden;
+  isolation:isolate;
+  background:#070908;
+  transition:min-height .5s cubic-bezier(.2,.75,.2,1),padding .5s cubic-bezier(.2,.75,.2,1);
+}
 .kl-site[data-page="floors"] .kl-floor-select::before{
-  filter:grayscale(1) sepia(.58) saturate(.72) brightness(.70) contrast(1.10);
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
   background-image:
     linear-gradient(90deg,
-      rgba(5,7,6,.95) 0%,
-      rgba(5,7,6,.84) 26%,
-      rgba(5,7,6,.54) 49%,
-      rgba(5,7,6,.18) 76%,
-      rgba(5,7,6,.28) 100%),
+      rgba(3,4,4,.98) 0%,
+      rgba(3,4,4,.94) 27%,
+      rgba(3,4,4,.70) 44%,
+      rgba(3,4,4,.30) 62%,
+      rgba(3,4,4,.10) 82%,
+      rgba(3,4,4,.16) 100%),
     var(--floor-image);
+  background-repeat:no-repeat;
+  background-position:center,100% 42%;
+  background-size:100% 100%,150% auto;
+  filter:grayscale(1) brightness(.80) contrast(1.16);
+  transform:none;
+  transform-origin:top left;
+  transition:background-size .55s cubic-bezier(.2,.75,.2,1),background-position .55s cubic-bezier(.2,.75,.2,1),filter .25s ease;
 }
 .kl-site[data-page="floors"] .kl-floor-card:hover .kl-floor-select::before,
 .kl-site[data-page="floors"] .kl-floor-card:focus-within .kl-floor-select::before{
-  filter:grayscale(1) sepia(.62) saturate(.76) brightness(.78) contrast(1.10);
+  transform:none;
+  background-size:100% 100%,147% auto;
+  filter:grayscale(1) brightness(.87) contrast(1.16);
 }
-.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::before{
-  filter:grayscale(1) sepia(.55) saturate(.68) brightness(.76) contrast(1.08);
+.kl-site[data-page="floors"] .kl-floor-select > *{
+  position:relative;
+  z-index:3;
 }
 .kl-site[data-page="floors"] .kl-floor-num,
 .kl-site[data-page="floors"] .kl-floor-card:hover .kl-floor-num,
 .kl-site[data-page="floors"] .kl-floor-card:focus-within .kl-floor-num,
 .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{
   color:#d8b25f;
+  text-shadow:0 2px 14px rgba(0,0,0,.9);
 }
 .kl-site[data-page="floors"] .kl-floor-name{
-  color:#f4efe5;
+  max-width:78%;
+  color:#f3efe7;
+  text-shadow:0 2px 14px rgba(0,0,0,.92);
 }
 .kl-site[data-page="floors"] .kl-floor-select::after,
 .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::after{
-  color:#e7e1d6;
+  z-index:6;
+  color:#f1ece2;
+  text-shadow:0 2px 12px #000;
 }
-.kl-site[data-page="floors"] .kl-floor-card,
-.kl-site[data-page="floors"] .kl-floor-card:hover,
-.kl-site[data-page="floors"] .kl-floor-card:focus-within,
-.kl-site[data-page="floors"] .kl-floor-card.active{
-  border-color:rgba(238,232,219,.26);
-  box-shadow:0 12px 42px rgba(0,0,0,.38);
-  background:#0b0d0c;
-}
+
+/* The preview is overlaid on the photograph, so opening a floor
+   does not create a separate empty black strip underneath. */
 .kl-site[data-page="floors"] .kl-floor-preview{
-  background:linear-gradient(180deg,rgba(5,7,6,.48),rgba(5,7,6,.95) 38%);
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:5;
+  display:block;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,5,5,0) 0%,rgba(4,5,5,.84) 28%,rgba(4,5,5,.97) 68%,#040505 100%);
+  backdrop-filter:none;
+  transition:max-height .45s cubic-bezier(.2,.75,.2,1),opacity .3s ease;
+}
+.kl-site[data-page="floors"] .kl-floor-preview>div{
+  overflow:visible;
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-preview{
+  grid-template-rows:none;
+  max-height:165px;
+  opacity:1;
+  pointer-events:auto;
+}
+.kl-site[data-page="floors"] .kl-preview-inside{
+  padding:48px 26px 23px;
+}
+.kl-site[data-page="floors"] .kl-preview-inside p{
+  margin:0;
+  color:#eee9df;
+  text-shadow:0 2px 12px #000;
 }
 .kl-site[data-page="floors"] .kl-preview-inside .kl-btn{
-  border-color:rgba(238,232,219,.36);
+  border-color:rgba(240,236,226,.42);
   color:#f4efe5;
+  background:rgba(5,6,6,.70);
 }
 .kl-site[data-page="floors"] .kl-preview-inside .kl-btn:hover{
-  background:rgba(255,255,255,.07);
-  transform:translateY(-2px);
+  border-color:#f4efe5;
+  background:rgba(255,255,255,.08);
+}
+
+/* Expanded state: reveal a little more of the scene without sacrificing
+   the upper-left floor number and title. No blur/scale transform is used. */
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select{
+  min-height:400px;
+  padding-bottom:154px;
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::before{
+  transform:none;
+  background-position:center,100% 38%;
+  background-size:100% 100%,143% auto;
+  filter:grayscale(1) brightness(.84) contrast(1.15);
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-name{
+  max-width:62%;
+  font-size:clamp(29px,2.5vw,38px);
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{
+  font-size:48px;
+}
+
+@media(min-width:1100px){
+  .kl-site[data-page="floors"] .kl-floor-card.active{grid-column:span 2}
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-preview-inside{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:28px;
+    align-items:end;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-preview-inside .kl-btn{
+    width:auto;
+    min-width:174px;
+  }
+}
+@media(max-width:1099px){
+  .kl-site[data-page="floors"] .kl-floor-card.active{grid-column:1/-1}
+}
+@media(max-width:700px){
+  .kl-site[data-page="floors"] .kl-floor-select{
+    min-height:180px;
+    padding:18px;
+  }
+  .kl-site[data-page="floors"] .kl-floor-select::before{
+    background-position:center,100% 42%;
+    background-size:100% 100%,158% auto;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select{
+    min-height:330px;
+    padding-bottom:164px;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::before{
+    background-size:100% 100%,150% auto;
+    background-position:center,100% 38%;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-name{
+    max-width:78%;
+    font-size:25px;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{
+    font-size:39px;
+  }
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-preview{
+    max-height:175px;
+  }
+  .kl-site[data-page="floors"] .kl-preview-inside{
+    padding:46px 18px 18px;
+  }
+  .kl-site[data-page="floors"] .kl-preview-inside p{
+    font-size:13px;
+    margin-bottom:12px;
+  }
+}
+
+/* Contact cards only show information that exists in the concept data. */
+.kl-site .kl-contact-card .kl-card .kl-fine{
+  margin-top:12px;
 }
 
