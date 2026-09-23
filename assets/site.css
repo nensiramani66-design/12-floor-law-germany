@@ -384,3 +384,167 @@
   }
 }
 
+/* =========================================================
+   FLOOR TOWER LABELS
+========================================================= */
+.kl-site[data-page="floors"] .kl-tower-bar{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 18px;
+  gap:10px;
+  justify-content:initial;
+}
+.kl-site[data-page="floors"] .kl-tower-name{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  text-align:center;
+  color:#c8c2b3;
+  font-size:8px;
+  line-height:1;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+.kl-site[data-page="floors"] .kl-tower-bar:hover .kl-tower-name,
+.kl-site[data-page="floors"] .kl-tower-bar:focus-visible .kl-tower-name,
+.kl-site[data-page="floors"] .kl-tower-bar.active .kl-tower-name{
+  color:#f2eee6;
+}
+@media(max-width:700px){
+  .kl-site[data-page="floors"] .kl-tower-name{
+    font-size:7px;
+    letter-spacing:.3px;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE CLIENT PERSPECTIVES
+========================================================= */
+.kl-testimonials{
+  position:relative;
+  overflow:hidden;
+  padding:78px 0 72px;
+  border-top:1px solid rgba(202,164,95,.22);
+  border-bottom:1px solid rgba(202,164,95,.16);
+  background:
+    radial-gradient(circle at 18% 0%,rgba(202,164,95,.08),transparent 34%),
+    linear-gradient(180deg,#0b0d0c,#070908);
+}
+.kl-testimonial-title{
+  margin-bottom:34px;
+}
+.kl-testimonial-title h2{
+  margin-top:8px;
+  font:normal clamp(38px,4.4vw,60px)/1.05 Georgia,serif;
+  color:#f3efe7;
+}
+.kl-testimonial-title>p:last-child{
+  max-width:760px;
+  margin-top:15px;
+  color:#aaa89f;
+  font-size:13px;
+  line-height:1.7;
+}
+.kl-testimonial-window{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+}
+.kl-testimonial-window::before,
+.kl-testimonial-window::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  z-index:3;
+  width:min(9vw,120px);
+  pointer-events:none;
+}
+.kl-testimonial-window::before{
+  left:0;
+  background:linear-gradient(90deg,#080a09,transparent);
+}
+.kl-testimonial-window::after{
+  right:0;
+  background:linear-gradient(-90deg,#080a09,transparent);
+}
+.kl-testimonial-track{
+  display:flex;
+  width:max-content;
+  gap:14px;
+  padding:4px 14px 10px;
+  animation:kl-testimonial-right 78s linear infinite;
+  will-change:transform;
+}
+.kl-testimonial-window:hover .kl-testimonial-track{
+  animation-play-state:paused;
+}
+.kl-testimonial-card{
+  flex:0 0 330px;
+  min-height:285px;
+  padding:24px;
+  border:1px solid rgba(238,232,219,.17);
+  background:
+    linear-gradient(145deg,rgba(202,164,95,.055),rgba(255,255,255,.012)),
+    #0d100e;
+  box-shadow:0 16px 46px rgba(0,0,0,.22);
+}
+.kl-testimonial-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.kl-testimonial-photo{
+  flex:0 0 58px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:1px solid rgba(202,164,95,.42);
+  background-image:url("client-testimonials.webp");
+  background-repeat:no-repeat;
+  background-size:500% 200%;
+  background-position:var(--tx) var(--ty);
+  box-shadow:0 8px 22px rgba(0,0,0,.35);
+}
+.kl-testimonial-head strong{
+  display:block;
+  color:#f3efe7;
+  font:normal 18px/1.15 Georgia,serif;
+}
+.kl-testimonial-head span{
+  display:block;
+  margin-top:4px;
+  color:#aaa89f;
+  font-size:11px;
+  letter-spacing:.5px;
+}
+.kl-testimonial-practice{
+  margin:22px 0 12px!important;
+  color:#caa45f;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.kl-testimonial-card blockquote{
+  margin:0;
+  color:#d8d4cb;
+  font:15px/1.62 Arial,Helvetica,sans-serif;
+}
+@keyframes kl-testimonial-right{
+  from{transform:translateX(-50%)}
+  to{transform:translateX(0)}
+}
+@media(max-width:700px){
+  .kl-testimonials{padding:58px 0 54px}
+  .kl-testimonial-title{margin-bottom:25px}
+  .kl-testimonial-card{flex-basis:285px;min-height:300px;padding:20px}
+  .kl-testimonial-track{animation-duration:88s}
+}
+@media(prefers-reduced-motion:reduce){
+  .kl-testimonial-track{
+    animation:none;
+    transform:none;
+    overflow-x:auto;
+  }
+}
+
