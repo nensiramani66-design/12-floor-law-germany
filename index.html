@@ -6,7 +6,441 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kronberg Legal | Rechtsanwälte München</title>
+/* =========================================================
+   PAGE 1 -> PAGE 2 SCROLL TRANSITION
+========================================================= */
 
+const firmPage =
+document.getElementById(
+    "our-firm"
+);
+
+
+const scrollStatue =
+document.getElementById(
+    "scrollStatue"
+);
+
+
+const firmStatue =
+document.getElementById(
+    "firmStatue"
+);
+
+
+const firmCopy =
+document.getElementById(
+    "firmCopy"
+);
+
+
+
+function transitionClamp(
+    value,
+    minimum,
+    maximum
+){
+
+    return Math.min(
+        maximum,
+        Math.max(
+            minimum,
+            value
+        )
+    );
+
+}
+
+
+
+function transitionMix(
+    start,
+    end,
+    amount
+){
+
+    return start +
+        (
+            end - start
+        ) * amount;
+
+}
+
+
+
+function updatePageTransition(){
+
+
+    if(
+        !firmPage ||
+        !scrollStatue ||
+        !firmStatue
+    ){
+        return;
+    }
+
+
+    const pageTwoTop =
+        firmPage.offsetTop;
+
+
+    const transitionDistance =
+        Math.max(
+            1,
+            pageTwoTop
+        );
+
+
+    let progress =
+        window.scrollY /
+        transitionDistance;
+
+
+    progress =
+        transitionClamp(
+            progress,
+            0,
+            1
+        );
+
+
+    /*
+       Smooth movement curve
+    */
+
+    const smooth =
+        progress *
+        progress *
+        (
+            3 -
+            2 * progress
+        );
+
+
+    const mobile =
+        window.innerWidth <=
+        900;
+
+
+
+    /*
+       When scrolling begins on desktop,
+       automatically complete the wide
+       Justice hero state.
+    */
+
+    if(
+        !mobile &&
+        window.scrollY > 20 &&
+        document.body
+        .classList
+        .contains(
+            "ready"
+        )
+    ){
+
+        hero.classList.add(
+            "stage3"
+        );
+
+        desktopHasRotated =
+            true;
+
+    }
+
+
+
+    /*
+       START POSITION:
+       inside the Justice image.
+
+       END POSITION:
+       lower-right corner where
+       Page 2 statue waits.
+    */
+
+    let startX;
+    let startY;
+    let endX;
+    let endY;
+
+    let startWidth;
+    let endWidth;
+
+
+    if(
+        mobile
+    ){
+
+        startX =
+            window.innerWidth *
+            0.38;
+
+        startY =
+            window.innerHeight *
+            0.18;
+
+
+        endX =
+            window.innerWidth *
+            0.50;
+
+        endY =
+            window.innerHeight *
+            0.55;
+
+
+        startWidth =
+            Math.min(
+                270,
+                window.innerWidth *
+                0.60
+            );
+
+
+        endWidth =
+            Math.min(
+                190,
+                window.innerWidth *
+                0.45
+            );
+
+    }
+    else{
+
+        startX =
+            window.innerWidth *
+            0.64;
+
+        startY =
+            window.innerHeight *
+            0.13;
+
+
+        endX =
+            window.innerWidth *
+            0.75;
+
+        endY =
+            window.innerHeight *
+            0.47;
+
+
+        startWidth =
+            Math.min(
+                430,
+                window.innerWidth *
+                0.30
+            );
+
+
+        endWidth =
+            Math.min(
+                300,
+                window.innerWidth *
+                0.21
+            );
+
+    }
+
+
+
+    const currentX =
+        transitionMix(
+            startX,
+            endX,
+            smooth
+        );
+
+
+    const currentY =
+        transitionMix(
+            startY,
+            endY,
+            smooth
+        );
+
+
+    const currentWidth =
+        transitionMix(
+            startWidth,
+            endWidth,
+            smooth
+        );
+
+
+
+    scrollStatue.style.left =
+        currentX + "px";
+
+
+    scrollStatue.style.top =
+        currentY + "px";
+
+
+    scrollStatue.style.width =
+        currentWidth + "px";
+
+
+    scrollStatue.style.transform =
+        "translate(-50%,0) rotate(" +
+        transitionMix(
+            -2,
+            2,
+            smooth
+        ) +
+        "deg)";
+
+
+
+    /*
+       Figure slowly appears as if
+       detaching from Page 1.
+    */
+
+    const appear =
+        transitionClamp(
+            (
+                progress -
+                0.04
+            ) /
+            0.16,
+            0,
+            1
+        );
+
+
+
+    /*
+       Near Page 2, moving figure
+       hands off to the final statue.
+    */
+
+    const handoff =
+        transitionClamp(
+            (
+                progress -
+                0.72
+            ) /
+            0.22,
+            0,
+            1
+        );
+
+
+    scrollStatue.style.opacity =
+        appear *
+        (
+            1 -
+            handoff
+        );
+
+
+    firmStatue.style.opacity =
+        handoff;
+
+
+    firmStatue.style.transform =
+        "translateY(" +
+        transitionMix(
+            30,
+            0,
+            handoff
+        ) +
+        "px) scale(" +
+        transitionMix(
+            0.94,
+            1,
+            handoff
+        ) +
+        ")";
+
+
+
+    /*
+       Page 2 text reveals around
+       the arriving Justice figure.
+    */
+
+    const contentReveal =
+        transitionClamp(
+            (
+                progress -
+                0.62
+            ) /
+            0.30,
+            0,
+            1
+        );
+
+
+    firmCopy.style.opacity =
+        contentReveal;
+
+
+    firmCopy.style.transform =
+        "translateY(" +
+        transitionMix(
+            30,
+            0,
+            contentReveal
+        ) +
+        "px)";
+
+}
+
+
+
+let transitionFrame =
+false;
+
+
+function requestTransitionUpdate(){
+
+    if(
+        transitionFrame
+    ){
+        return;
+    }
+
+
+    transitionFrame =
+        true;
+
+
+    requestAnimationFrame(
+    function(){
+
+        updatePageTransition();
+
+        transitionFrame =
+            false;
+
+    });
+
+}
+
+
+
+window.addEventListener(
+    "scroll",
+    requestTransitionUpdate,
+    {
+        passive:true
+    }
+);
+
+
+window.addEventListener(
+    "resize",
+    requestTransitionUpdate
+);
+
+
+window.addEventListener(
+    "load",
+    updatePageTransition
+);
 <style>
 
 /* =========================================================
