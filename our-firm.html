@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Our Firm | Kronberg Legal</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root{
+    --gold:#caa45f;
+    --black:#070707;
+    --panel:#11110f;
+    --text:#f3f0e9;
+    --muted:#b8b4ab;
+    --header:82px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:var(--header);
+
+    padding:0 6%;
+
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+
+    align-items:center;
+
+    background:
+        rgba(7,7,7,.97);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:
+        blur(10px);
+
+    z-index:1000;
+}
+
+
+.logo{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:23px;
+
+    letter-spacing:3px;
+
+    white-space:nowrap;
+}
+
+
+.logo span{
+    color:var(--gold);
+}
+
+
+.header-center{
+    color:#8c8c8c;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+
+.header-right{
+    justify-self:end;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.languages{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+
+.lang{
+    border:none;
+
+    background:none;
+
+    color:#777;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+}
+
+
+.lang.active{
+    color:var(--gold);
+}
+
+
+.lang-line{
+    width:1px;
+    height:13px;
+
+    background:#555;
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.home-link{
+    padding:11px 16px;
+
+    border:
+        1px solid rgba(202,164,95,.45);
+
+    color:#ddd;
+
+    font-size:10px;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+
+.home-link:hover{
+    color:#111;
+
+    background:var(--gold);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    min-height:100vh;
+
+    padding:
+        calc(var(--header) + 65px)
+        7%
+        70px;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.15fr)
+        minmax(380px,.85fr);
+
+    gap:55px;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 78% 58%,
+            #302617 0%,
+            #15120d 35%,
+            #090909 67%,
+            #070707 100%
+        );
+}
+
+
+/* decorative vertical line */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    left:4.5%;
+
+    top:28%;
+
+    width:1px;
+    height:270px;
+
+    background:
+        linear-gradient(
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    opacity:.65;
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-copy{
+    position:relative;
+
+    z-index:10;
+
+    max-width:700px;
+}
+
+
+.eyebrow{
+    margin-bottom:22px;
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+
+.hero h1{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(58px,6.2vw,92px);
+
+    font-weight:normal;
+
+    line-height:.98;
+
+    letter-spacing:-2px;
+}
+
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+
+.hero-description{
+    max-width:620px;
+
+    margin-top:28px;
+
+    color:#c9c6be;
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+
+.hero-buttons{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:32px;
+}
+
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:52px;
+
+    padding:14px 25px;
+
+    border:
+        1px solid rgba(255,255,255,.30);
+
+    font-size:11px;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+
+.btn-gold{
+    color:#111;
+
+    background:var(--gold);
+
+    border-color:var(--gold);
+}
+
+
+.btn:hover{
+    border-color:var(--gold);
+
+    color:var(--gold);
+}
+
+
+.btn-gold:hover{
+    color:#111;
+
+    background:#dfbf7a;
+}
+
+
+/* =========================================================
+   JUSTICE STATUE
+
+   IMPORTANT:
+   This is the final location for the cinematic
+   Page 1 -> Page 2 transition later.
+========================================================= */
+
+.justice-area{
+    position:relative;
+
+    height:640px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:flex-end;
+
+    z-index:5;
+}
+
+
+.justice-area::before{
+    content:"";
+
+    position:absolute;
+
+    right:-80px;
+
+    bottom:20px;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(202,164,95,.14),
+            rgba(202,164,95,.04) 45%,
+            transparent 70%
+        );
+
+    filter:blur(12px);
+}
+
+
+.justice-statue{
+    position:relative;
+
+    display:block;
+
+    width:auto;
+
+    max-width:100%;
+
+    height:620px;
+
+    object-fit:contain;
+
+    object-position:center bottom;
+
+    z-index:3;
+
+    filter:
+        drop-shadow(
+            0 30px 30px
+            rgba(0,0,0,.75)
+        );
+}
+
+
+/* bottom gold line */
+
+.justice-area::after{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    width:85%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(202,164,95,.75)
+        );
+}
+
+
+/* =========================================================
+   FACT STRIP
+========================================================= */
+
+.facts{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border-top:
+        1px solid rgba(255,255,255,.10);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.10);
+
+    background:#0c0c0b;
+}
+
+
+.fact{
+    padding:
+        32px 7%;
+
+    border-right:
+        1px solid rgba(255,255,255,.10);
+}
+
+
+.fact:last-child{
+    border-right:none;
+}
+
+
+.fact-number{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:var(--gold);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:34px;
+}
+
+
+.fact-label{
+    color:#aaa69e;
+
+    font-size:12px;
+
+    letter-spacing:.8px;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section{
+    padding:
+        100px 7%;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+
+.section-heading{
+    display:grid;
+
+    grid-template-columns:
+        190px 1fr;
+
+    gap:45px;
+
+    max-width:1200px;
+
+    margin:0 auto 55px;
+}
+
+
+.section-number{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+
+.section h2{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(40px,4vw,60px);
+
+    font-weight:normal;
+
+    line-height:1.08;
+}
+
+
+.section-intro{
+    max-width:760px;
+
+    margin-top:25px;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   PRINCIPLE CARDS
+========================================================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+.card{
+    min-height:285px;
+
+    padding:31px;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(202,164,95,.055),
+            rgba(255,255,255,.01)
+        );
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
+}
+
+
+.card:hover{
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(202,164,95,.55);
+}
+
+
+.card-number{
+    display:block;
+
+    margin-bottom:55px;
+
+    color:var(--gold);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:21px;
+}
+
+
+.card h3{
+    margin-bottom:15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:27px;
+
+    font-weight:normal;
+}
+
+
+.card p{
+    color:#aaa69f;
+
+    font-size:15px;
+
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   12 FLOOR PREVIEW
+========================================================= */
+
+.floor-section{
+    background:
+        linear-gradient(
+            180deg,
+            #0c0c0b,
+            #111009
+        );
+}
+
+
+.floor-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:1px;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    background:
+        rgba(202,164,95,.18);
+}
+
+
+.floor{
+    min-height:165px;
+
+    padding:24px;
+
+    background:#0c0c0b;
+
+    transition:.35s;
+}
+
+
+.floor:hover{
+    background:#17150f;
+}
+
+
+.floor-number{
+    display:block;
+
+    margin-bottom:26px;
+
+    color:var(--gold);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:25px;
+}
+
+
+.floor-title{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:18px;
+
+    line-height:1.25;
+}
+
+
+/* =========================================================
+   TEAM SECTION
+========================================================= */
+
+.team-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+.team-card{
+    padding:32px;
+
+    min-height:245px;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+}
+
+
+.team-role{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:32px;
+}
+
+
+.team-card h3{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:26px;
+
+    font-weight:normal;
+
+    margin-bottom:13px;
+}
+
+
+.team-card p{
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    margin:
+        0 7%
+        100px;
+
+    padding:
+        65px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:40px;
+
+    align-items:center;
+
+    border:
+        1px solid rgba(202,164,95,.32);
+
+    background:
+        linear-gradient(
+            120deg,
+            #16140e,
+            #0b0b09
+        );
+}
+
+
+.cta h2{
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(37px,4vw,57px);
+
+    font-weight:normal;
+}
+
+
+.cta p{
+    margin-top:15px;
+
+    color:var(--muted);
+
+    max-width:620px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:
+        34px 7%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    border-top:
+        1px solid rgba(255,255,255,.10);
+
+    color:#89867f;
+
+    font-size:11px;
+
+    letter-spacing:.8px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    :root{
+        --header:70px;
+    }
+
+
+    header{
+        height:70px;
+
+        padding:
+            0 15px;
+
+        display:flex;
+
+        justify-content:
+            space-between;
+    }
+
+
+    .logo{
+        font-size:15px;
+
+        letter-spacing:1.3px;
+    }
+
+
+    .header-center{
+        display:none;
+    }
+
+
+    .header-right{
+        gap:8px;
+    }
+
+
+    .home-link{
+        padding:
+            9px 10px;
+
+        font-size:8px;
+    }
+
+
+    .hero{
+        min-height:auto;
+
+        padding:
+            110px 18px
+            35px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:30px;
+    }
+
+
+    .hero::before{
+        display:none;
+    }
+
+
+    .hero-copy{
+        width:100%;
+    }
+
+
+    .eyebrow{
+        font-size:10px;
+
+        letter-spacing:2.5px;
+    }
+
+
+    .hero h1{
+        font-size:
+            clamp(
+                43px,
+                12vw,
+                62px
+            );
+
+        letter-spacing:-1px;
+    }
+
+
+    .hero-description{
+        font-size:16px;
+
+        line-height:1.65;
+    }
+
+
+    .hero-buttons{
+        width:100%;
+    }
+
+
+    .btn{
+        flex:
+            1 1 150px;
+    }
+
+
+    .justice-area{
+        width:100%;
+
+        height:430px;
+
+        justify-content:center;
+    }
+
+
+    .justice-statue{
+        height:420px;
+
+        max-width:100%;
+    }
+
+
+    .justice-area::before{
+        width:340px;
+        height:340px;
+
+        right:50%;
+
+        transform:
+            translateX(50%);
+    }
+
+
+    .justice-area::after{
+        right:10%;
+
+        width:80%;
+    }
+
+
+    .facts{
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .fact{
+        padding:
+            24px 20px;
+
+        border-right:none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.09);
+    }
+
+
+    .section{
+        padding:
+            65px 19px;
+    }
+
+
+    .section-heading{
+        grid-template-columns:
+            1fr;
+
+        gap:14px;
+
+        margin-bottom:35px;
+    }
+
+
+    .section h2{
+        font-size:
+            clamp(
+                38px,
+                10vw,
+                48px
+            );
+    }
+
+
+    .section-intro{
+        font-size:16px;
+    }
+
+
+    .cards,
+    .team-grid{
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .card{
+        min-height:auto;
+    }
+
+
+    .card-number{
+        margin-bottom:30px;
+    }
+
+
+    .floor-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .floor{
+        min-height:145px;
+
+        padding:20px;
+    }
+
+
+    .floor-title{
+        font-size:16px;
+    }
+
+
+    .cta{
+        margin:
+            0 18px
+            60px;
+
+        padding:
+            35px 25px;
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    footer{
+        padding:
+            28px 19px;
+
+        display:grid;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:390px){
+
+    .logo{
+        font-size:13px;
+    }
+
+
+    .lang{
+        font-size:9px;
+    }
+
+
+    .hero h1{
+        font-size:42px;
+    }
+
+
+    .justice-area{
+        height:390px;
+    }
+
+
+    .justice-statue{
+        height:380px;
+    }
+
+
+    .floor-grid{
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <a
+    class="logo"
+    href="index.html">
+
+        KRONBERG
+        <span>LEGAL</span>
+
+    </a>
+
+
+    <div class="header-center">
+
+        MÜNCHEN · INTERNATIONAL COUNSEL
+
+    </div>
+
+
+    <div class="header-right">
+
+
+        <div class="languages">
+
+            <button
+            class="lang active"
+            id="enButton">
+                EN
+            </button>
+
+
+            <div class="lang-line"></div>
+
+
+            <button
+            class="lang"
+            id="deButton">
+                DE
+            </button>
+
+        </div>
+
+
+        <a
+        class="home-link"
+        href="index.html">
+
+            Home
+
+        </a>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-copy">
+
+
+        <div
+        class="eyebrow"
+        data-en="02 / OUR FIRM"
+        data-de="02 / UNSERE KANZLEI">
+
+            02 / OUR FIRM
+
+        </div>
+
+
+        <h1>
+
+            <span
+            data-en="Clarity"
+            data-de="Klarheit">
+
+                Clarity
+
+            </span>
+
+            <br>
+
+            <span
+            style="color:white"
+            data-en="in every decision."
+            data-de="in jeder Entscheidung.">
+
+                in every decision.
+
+            </span>
+
+        </h1>
+
+
+        <p
+        class="hero-description"
+        data-en="Kronberg Legal is a fictional international law firm based in Munich. Our twelve-floor concept brings specialist legal teams together around one clear objective: focused, coordinated and understandable counsel."
+        data-de="Kronberg Legal ist eine fiktive internationale Kanzlei mit Sitz in München. Unser Zwölf-Etagen-Konzept vereint spezialisierte Rechtsteams mit einem klaren Ziel: fokussierte, koordinierte und verständliche Beratung.">
+
+            Kronberg Legal is a fictional international law
+            firm based in Munich. Our twelve-floor concept
+            brings specialist legal teams together around
+            one clear objective: focused, coordinated and
+            understandable counsel.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+            href="#who-we-are"
+            class="btn btn-gold"
+            data-en="Meet The Firm"
+            data-de="Die Kanzlei">
+
+                Meet The Firm
+
+            </a>
+
+
+            <a
+            href="#floors"
+            class="btn"
+            data-en="Explore 12 Floors"
+            data-de="12 Etagen">
+
+                Explore 12 Floors
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!--
+    VERY IMPORTANT:
+
+    GitHub image filename must be:
+
+    justice-statue.png
+    -->
+
+    <div
+    class="justice-area"
+    id="page2JusticeDestination">
+
+
+        <img
+        class="justice-statue"
+        id="page2JusticeStatue"
+        src="justice-statue.png"
+        alt="Lady Justice with weighing scales">
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FACTS
+===================================================== -->
+
+<section class="facts">
+
+
+    <div class="fact">
+
+        <span class="fact-number">
+            12
+        </span>
+
+        <span
+        class="fact-label"
+        data-en="Specialist legal floors"
+        data-de="Spezialisierte Rechtsetagen">
+
+            Specialist legal floors
+
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-number">
+            München
+        </span>
+
+        <span
+        class="fact-label"
+        data-en="German headquarters"
+        data-de="Deutscher Standort">
+
+            German headquarters
+
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-number">
+            DE / EN
+        </span>
+
+        <span
+        class="fact-label"
+        data-en="International perspective"
+        data-de="Internationale Perspektive">
+
+            International perspective
+
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WHO WE ARE
+===================================================== -->
+
+<section
+class="section"
+id="who-we-are">
+
+
+    <div class="section-heading">
+
+
+        <div
+        class="section-number"
+        data-en="01 / WHO WE ARE"
+        data-de="01 / WER WIR SIND">
+
+            01 / WHO WE ARE
+
+        </div>
+
+
+        <div>
+
+
+            <h2
+            data-en="Different expertise. One direction."
+            data-de="Unterschiedliche Expertise. Eine Richtung.">
+
+                Different expertise.
+                One direction.
+
+            </h2>
+
+
+            <p
+            class="section-intro"
+            data-en="Our concept is built around specialist teams working together instead of in isolation. Each floor represents a defined legal discipline, while the firm remains connected by a shared standard of clarity, discretion and strategic thinking."
+            data-de="Unser Konzept basiert auf spezialisierten Teams, die gemeinsam statt isoliert arbeiten. Jede Etage steht für ein definiertes Rechtsgebiet, während die Kanzlei durch gemeinsame Standards von Klarheit, Diskretion und strategischem Denken verbunden bleibt.">
+
+                Our concept is built around specialist teams
+                working together instead of in isolation.
+                Each floor represents a defined legal
+                discipline, while the firm remains connected
+                by a shared standard of clarity, discretion
+                and strategic thinking.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PRINCIPLES
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+
+        <div
+        class="section-number"
+        data-en="02 / OUR PRINCIPLES"
+        data-de="02 / UNSERE GRUNDSÄTZE">
+
+            02 / OUR PRINCIPLES
+
+        </div>
+
+
+        <h2
+        data-en="How we approach the work."
+        data-de="Wie wir arbeiten.">
+
+            How we approach the work.
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+
+            <span class="card-number">
+                01
+            </span>
+
+
+            <h3
+            data-en="Clarity"
+            data-de="Klarheit">
+
+                Clarity
+
+            </h3>
+
+
+            <p
+            data-en="Complex legal questions should lead to understandable choices. We focus on structure, priorities and a clear next step."
+            data-de="Komplexe rechtliche Fragen sollen zu verständlichen Entscheidungen führen. Unser Fokus liegt auf Struktur, Prioritäten und einem klaren nächsten Schritt.">
+
+                Complex legal questions should lead to
+                understandable choices. We focus on
+                structure, priorities and a clear next step.
+
+            </p>
+
+
+        </article>
+
+
+
+        <article class="card">
+
+
+            <span class="card-number">
+                02
+            </span>
+
+
+            <h3
+            data-en="Discretion"
+            data-de="Diskretion">
+
+                Discretion
+
+            </h3>
+
+
+            <p
+            data-en="Sensitive matters require careful communication, professional restraint and confidence in every interaction."
+            data-de="Sensible Angelegenheiten erfordern sorgfältige Kommunikation, professionelle Zurückhaltung und Vertrauen in jeder Interaktion.">
+
+                Sensitive matters require careful
+                communication, professional restraint and
+                confidence in every interaction.
+
+            </p>
+
+
+        </article>
+
+
+
+        <article class="card">
+
+
+            <span class="card-number">
+                03
+            </span>
+
+
+            <h3
+            data-en="Perspective"
+            data-de="Perspektive">
+
+                Perspective
+
+            </h3>
+
+
+            <p
+            data-en="The legal answer is only one part of the picture. Our fictional teams consider the commercial and strategic context around every matter."
+            data-de="Die rechtliche Antwort ist nur ein Teil des Gesamtbildes. Unsere fiktiven Teams berücksichtigen den wirtschaftlichen und strategischen Kontext jedes Mandats.">
+
+                The legal answer is only one part of the
+                picture. Our fictional teams consider the
+                commercial and strategic context around
+                every matter.
+
+            </p>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     12 FLOORS
+===================================================== -->
+
+<section
+class="section floor-section"
+id="floors">
+
+
+    <div class="section-heading">
+
+
+        <div
+        class="section-number"
+        data-en="03 / THE BUILDING"
+        data-de="03 / DAS GEBÄUDE">
+
+            03 / THE BUILDING
+
+        </div>
+
+
+        <div>
+
+
+            <h2
+            data-en="Twelve floors. Twelve perspectives."
+            data-de="Zwölf Etagen. Zwölf Perspektiven.">
+
+                Twelve floors.
+                Twelve perspectives.
+
+            </h2>
+
+
+            <p
+            class="section-intro"
+            data-en="Every floor represents a specialist legal practice. Later, each of these floors will receive its own dedicated website page."
+            data-de="Jede Etage steht für ein spezialisiertes Rechtsgebiet. Später erhält jede dieser Etagen eine eigene Website-Seite.">
+
+                Every floor represents a specialist legal
+                practice. Later, each of these floors will
+                receive its own dedicated website page.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="floor-grid">
+
+
+        <div class="floor">
+            <span class="floor-number">01</span>
+            <div class="floor-title">Corporate & M&A</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">02</span>
+            <div class="floor-title">Litigation</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">03</span>
+            <div class="floor-title">Tax</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">04</span>
+            <div class="floor-title">Employment</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">05</span>
+            <div class="floor-title">Real Estate</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">06</span>
+            <div class="floor-title">Banking & Finance</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">07</span>
+            <div class="floor-title">Intellectual Property</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">08</span>
+            <div class="floor-title">Technology & Data</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">09</span>
+            <div class="floor-title">Competition</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">10</span>
+            <div class="floor-title">Private Clients</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">11</span>
+            <div class="floor-title">Cross-Border</div>
+        </div>
+
+
+        <div class="floor">
+            <span class="floor-number">12</span>
+            <div class="floor-title">Strategic Counsel</div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PEOPLE
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+
+        <div
+        class="section-number"
+        data-en="04 / OUR PEOPLE"
+        data-de="04 / UNSER TEAM">
+
+            04 / OUR PEOPLE
+
+        </div>
+
+
+        <h2
+        data-en="A firm built around people."
+        data-de="Eine Kanzlei rund um Menschen.">
+
+            A firm built around people.
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="team-grid">
+
+
+        <div class="team-card">
+
+
+            <div
+            class="team-role"
+            data-en="PARTNERSHIP"
+            data-de="PARTNERSCHAFT">
+
+                PARTNERSHIP
+
+            </div>
+
+
+            <h3
+            data-en="Firm leadership"
+            data-de="Kanzleiführung">
+
+                Firm leadership
+
+            </h3>
+
+
+            <p
+            data-en="Shared standards, strategic direction and close coordination across specialist areas."
+            data-de="Gemeinsame Standards, strategische Ausrichtung und enge Koordination zwischen den Fachbereichen.">
+
+                Shared standards, strategic direction and
+                close coordination across specialist areas.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="team-card">
+
+
+            <div
+            class="team-role"
+            data-en="SPECIALISTS"
+            data-de="SPEZIALISTEN">
+
+                SPECIALISTS
+
+            </div>
+
+
+            <h3
+            data-en="Focused expertise"
+            data-de="Fokussierte Expertise">
+
+                Focused expertise
+
+            </h3>
+
+
+            <p
+            data-en="Each fictional legal team concentrates on its own discipline while remaining connected to the wider firm."
+            data-de="Jedes fiktive Rechtsteam konzentriert sich auf sein Fachgebiet und bleibt gleichzeitig mit der gesamten Kanzlei verbunden.">
+
+                Each fictional legal team concentrates on
+                its own discipline while remaining connected
+                to the wider firm.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="team-card">
+
+
+            <div
+            class="team-role"
+            data-en="CLIENT SERVICE"
+            data-de="MANDANTENSERVICE">
+
+                CLIENT SERVICE
+
+            </div>
+
+
+            <h3
+            data-en="One relationship"
+            data-de="Eine Beziehung">
+
+                One relationship
+
+            </h3>
+
+
+            <p
+            data-en="Clients should experience one coordinated firm, even when a matter requires expertise from several floors."
+            data-de="Mandanten sollen eine koordinierte Kanzlei erleben, auch wenn ein Mandat Expertise aus mehreren Etagen erfordert.">
+
+                Clients should experience one coordinated
+                firm, even when a matter requires expertise
+                from several floors.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+
+    <div>
+
+
+        <h2
+        data-en="Ready to explore the building?"
+        data-de="Bereit, das Gebäude zu entdecken?">
+
+            Ready to explore the building?
+
+        </h2>
+
+
+        <p
+        data-en="The next stage of the website will take visitors floor by floor through Kronberg Legal's specialist practice areas."
+        data-de="Im nächsten Abschnitt der Website werden Besucher Etage für Etage durch die spezialisierten Rechtsgebiete von Kronberg Legal geführt.">
+
+            The next stage of the website will take
+            visitors floor by floor through Kronberg
+            Legal's specialist practice areas.
+
+        </p>
+
+
+    </div>
+
+
+    <a
+    class="btn btn-gold"
+    href="#floors"
+    data-en="Discover The Floors"
+    data-de="Etagen Entdecken">
+
+        Discover The Floors
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <span>
+        © KRONBERG LEGAL · FICTIONAL WEBSITE CONCEPT
+    </span>
+
+
+    <span>
+        MÜNCHEN · GERMANY
+    </span>
+
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   LANGUAGE SWITCH
+========================================================= */
+
+const enButton =
+document.getElementById(
+    "enButton"
+);
+
+
+const deButton =
+document.getElementById(
+    "deButton"
+);
+
+
+function setLanguage(language){
+
+    document
+    .querySelectorAll(
+        "[data-en][data-de]"
+    )
+    .forEach(
+    function(element){
+
+        element.textContent =
+            element.dataset[
+                language
+            ];
+
+    });
+
+
+    enButton
+    .classList
+    .toggle(
+        "active",
+        language === "en"
+    );
+
+
+    deButton
+    .classList
+    .toggle(
+        "active",
+        language === "de"
+    );
+
+
+    document
+    .documentElement
+    .lang =
+        language;
+
+}
+
+
+enButton.onclick =
+function(){
+
+    setLanguage(
+        "en"
+    );
+
+};
+
+
+deButton.onclick =
+function(){
+
+    setLanguage(
+        "de"
+    );
+
+};
+
+</script>
+
+</body>
+
+</html>
