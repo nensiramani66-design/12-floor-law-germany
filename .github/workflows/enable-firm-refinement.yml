@@ -1,0 +1,46 @@
+name: Enable scoped Our Firm refinement
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/enable-firm-refinement.yml]
+permissions:
+  contents: write
+jobs:
+  enable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Add only the Our Firm script include to the two existing pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import base64, json, os, subprocess, tempfile, urllib.request
+          base = 'https://api.github.com/repos/' + os.environ['GH_REPO']
+          def api(path, method='GET', data=None):
+              request = urllib.request.Request(base + path, data=None if data is None else json.dumps(data).encode(), method=method, headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json', 'User-Agent': 'Kronberg-Our-Firm-Refinement'})
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  return json.load(response)
+          module = api('/contents/our-firm-refinement.js?ref=main')
+          assert module['sha'] == 'd62ec8516c4b0c0986c7991dad89ef267e330847', 'Module changed; review before publishing.'
+          with tempfile.NamedTemporaryFile(suffix='.js') as handle:
+              handle.write(base64.b64decode(module['content'])); handle.flush()
+              subprocess.run(['node', '--check', handle.name], check=True)
+          expected = {'index.html': 'f62fa4d348869470bd0311a6d093deecaf3a34ea', 'our-firm.html': '05741e20b26db7279a99031c64afcde34f01e680'}
+          include = b'<script src="our-firm-refinement.js" defer></script>\n'
+          planned = []
+          for path, sha in expected.items():
+              file = api('/contents/' + path + '?ref=main')
+              original = base64.b64decode(file['content'])
+              if include in original:
+                  print(path + ': already connected'); continue
+              assert file['sha'] == sha, path + ': source changed; refusing to overwrite.'
+              assert original.count(b'</head>') == 1, 'Expected one head closing tag.'
+              updated = original.replace(b'</head>', include + b'</head>', 1)
+              assert updated.replace(include, b'', 1) == original, 'Unrelated HTML change detected.'
+              planned.append((path, file['sha'], updated))
+          for path, sha, updated in planned:
+              result = api('/contents/' + path, 'PUT', {'message': 'Enable Our Firm refinement; preserve existing page and transition code', 'branch': 'main', 'sha': sha, 'content': base64.b64encode(updated).decode()})
+              print(path + ': only one script include added; commit ' + result['commit']['sha'])
+          PY
