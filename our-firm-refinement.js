@@ -185,25 +185,29 @@
       </div>
       <div class="kl-leadership-grid">
         <article class="kl-leader">
-          <img src="assets/ceo-portrait.webp" alt="Fictional CEO portrait">
+          <div class="kl-leader-photo-frame"><img src="assets/leadership-ceo.webp" alt="Fictional CEO portrait"></div>
           <div class="kl-leader-copy">
             <div class="kl-leader-role" data-kl-text="ceoRole"></div>
             <h4>Dr. Alexander Kronberg</h4>
             <p data-kl-text="ceoCopy"></p>
+            <p class="kl-leader-experience" data-kl-text="ceoExperience"></p>
+            <div class="kl-leader-scope" data-kl-text="ceoScope"></div>
             <div class="kl-leader-note" data-kl-text="leadershipNote"></div>
           </div>
         </article>
         <article class="kl-leader">
-          <img src="assets/manager-portrait.webp" alt="Fictional Managing Director portrait">
+          <div class="kl-leader-photo-frame"><img src="assets/leadership-manager.webp" alt="Fictional Managing Director portrait"></div>
           <div class="kl-leader-copy">
             <div class="kl-leader-role" data-kl-text="managerRole"></div>
             <h4>Leonie Falk</h4>
             <p data-kl-text="managerCopy"></p>
+            <p class="kl-leader-experience" data-kl-text="managerExperience"></p>
+            <div class="kl-leader-scope" data-kl-text="managerScope"></div>
             <div class="kl-leader-note" data-kl-text="leadershipNote"></div>
           </div>
         </article>
       </div>`;
-    whoSection.append(leadership);
+    whoSection.insertAdjacentElement('afterend', leadership);
   }
   root.querySelectorAll('.firm-card').forEach((card, i) => {
     if (i > 2 || card.querySelector('.kl-principle-extra')) return;
@@ -240,9 +244,13 @@
       whoPoint1Title:'Independent by design', whoPoint1Copy:'A Munich-based fictional firm concept built around direct responsibility, clear ownership of work and specialist collaboration.',
       whoPoint2Title:'Connected across floors', whoPoint2Copy:'The twelve-floor model makes cross-practice work visible: corporate, disputes, technology, private clients and other disciplines connect around the same matter.',
       whoPoint3Title:'International perspective', whoPoint3Copy:'German and English communication, cross-border coordination and a practical understanding of business context shape the client experience.',
-      leadershipKicker:'04 / LEADERSHIP', leadershipTitle:'Responsibility at the centre of the firm.',
-      ceoRole:'Chief Executive Officer', ceoCopy:'Leads firm-wide strategy, key client relationships and the integration of the twelve specialist floors, with a focus on long-term direction and international growth.',
-      managerRole:'Managing Director', managerCopy:'Leads operations, talent, technology and client-service standards so specialist teams can work consistently across practices and matters.',
+      leadershipKicker:'02 / LEADERSHIP', leadershipTitle:'Responsibility at the centre of the firm.',
+      ceoRole:'Founder & Chief Executive Officer', ceoCopy:'Shapes the firm-wide strategy and the way specialist teams work together on complex business and cross-border matters.',
+      ceoExperience:'Experience focus: corporate strategy, M&A coordination, cross-border mandates, key-client governance and long-term firm development.',
+      ceoScope:'Leadership scope: firm strategy · international growth · client relationships',
+      managerRole:'Managing Director', managerCopy:'Leads the operating model of the firm, connecting people, technology, project management and client-service standards across all twelve practice floors.',
+      managerExperience:'Experience focus: legal operations, team development, service design, technology implementation and multi-practice coordination.',
+      managerScope:'Leadership scope: operations · talent · technology · client delivery',
       leadershipNote:'AI-generated / fictional leadership profile',
       principleExtra0:'In practice: concise options, visible priorities and advice that ends with a clear decision path.',
       principleExtra1:'In practice: agreed communication channels, careful handling of sensitive information and disciplined documentation.',
@@ -267,9 +275,13 @@
       whoPoint1Title:'Bewusst unabhängig', whoPoint1Copy:'Ein fiktives Münchner Kanzleikonzept mit direkter Verantwortung, klarer Zuständigkeit und fachübergreifender Zusammenarbeit.',
       whoPoint2Title:'Über Etagen verbunden', whoPoint2Copy:'Das Zwölf-Etagen-Modell macht Zusammenarbeit sichtbar: Gesellschaftsrecht, Streitbeilegung, Technologie, Privatmandanten und weitere Fachgebiete greifen ineinander.',
       whoPoint3Title:'Internationale Perspektive', whoPoint3Copy:'Deutsch- und englischsprachige Kommunikation, grenzüberschreitende Koordination und wirtschaftlicher Kontext prägen das Mandantenerlebnis.',
-      leadershipKicker:'04 / LEITUNG', leadershipTitle:'Verantwortung im Zentrum der Kanzlei.',
-      ceoRole:'Chief Executive Officer', ceoCopy:'Verantwortet die Gesamtstrategie, zentrale Mandantenbeziehungen und die Verbindung der zwölf Fachetagen mit Blick auf langfristige Entwicklung und internationale Zusammenarbeit.',
-      managerRole:'Managing Director', managerCopy:'Verantwortet Betrieb, Talente, Technologie und Servicestandards, damit Fachteams konsistent über Rechtsgebiete und Mandate hinweg zusammenarbeiten.',
+      leadershipKicker:'02 / LEITUNG', leadershipTitle:'Verantwortung im Zentrum der Kanzlei.',
+      ceoRole:'Gründer & Chief Executive Officer', ceoCopy:'Prägt die Gesamtstrategie der Kanzlei und die Zusammenarbeit spezialisierter Teams bei komplexen unternehmerischen und internationalen Mandaten.',
+      ceoExperience:'Erfahrungsschwerpunkte: Unternehmensstrategie, M&A-Koordination, internationale Mandate, Key-Client-Governance und langfristige Kanzleientwicklung.',
+      ceoScope:'Verantwortung: Kanzleistrategie · internationales Wachstum · Mandantenbeziehungen',
+      managerRole:'Managing Director', managerCopy:'Leitet das Betriebsmodell der Kanzlei und verbindet Menschen, Technologie, Projektmanagement und Servicestandards über alle zwölf Fachetagen hinweg.',
+      managerExperience:'Erfahrungsschwerpunkte: Legal Operations, Teamentwicklung, Servicedesign, Technologieimplementierung und fachübergreifende Koordination.',
+      managerScope:'Verantwortung: Betrieb · Talente · Technologie · Mandatsführung',
       leadershipNote:'KI-generiert / fiktives Leitungsprofil',
       principleExtra0:'In der Praxis: klare Optionen, sichtbare Prioritäten und Beratung mit einem nachvollziehbaren Entscheidungsweg.',
       principleExtra1:'In der Praxis: abgestimmte Kommunikationswege, sorgfältiger Umgang mit sensiblen Informationen und disziplinierte Dokumentation.',
