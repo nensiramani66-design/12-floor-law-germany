@@ -342,3 +342,45 @@
   margin-top:12px;
 }
 
+/* =========================================================
+   SUBPAGE BACK NAVIGATION
+========================================================= */
+.kl-site .kl-back-nav{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:7px 10px 7px 2px;
+  margin-right:2px;
+  border:0;
+  background:transparent;
+  color:#d9d4c9;
+  font-size:11px;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  transition:color .2s ease,transform .2s ease;
+}
+.kl-site .kl-back-nav span:first-child{
+  font-size:22px;
+  line-height:1;
+  color:#caa45f;
+}
+.kl-site .kl-back-nav:hover,
+.kl-site .kl-back-nav:focus-visible{
+  color:#fffaf0;
+  transform:translateX(-2px);
+}
+@media(max-width:700px){
+  .kl-site .kl-back-nav{
+    padding-right:4px;
+    margin-right:0;
+  }
+  .kl-site .kl-back-label{
+    display:none;
+  }
+  .kl-site .kl-back-nav span:first-child{
+    font-size:24px;
+  }
+}
+
