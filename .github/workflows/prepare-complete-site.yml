@@ -1,0 +1,48 @@
+name: Prepare complete site preview
+on:
+  push:
+    branches: [complete-site-20260923]
+    paths: [.github/workflows/prepare-complete-site.yml]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: complete-site-20260923
+      - name: Build pages and check image integrity
+        run: |
+          python tools/build-site.py
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p = Path('assets/portraits.webp')
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == 'd8c0c528fb725505cb31f1b6f5905986cd8f0d5732348b57b37f1c1c62432a8e', 'Portrait asset checksum differs'
+          for page in ('index','our-firm','floors','lawyers','client-guide','insights','legal','contact'):
+              s=Path(page+'.html').read_text()
+              assert s.count('<!DOCTYPE html>') == 1 and s.count('</html>') == 1, page
+          PY
+          node --check assets/site.js
+          node --check assets/site-content.js
+          node --check assets/site-data.js
+      - name: Commit assembled pages to review branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets index.html our-firm.html floors.html lawyers.html client-guide.html insights.html legal.html contact.html SITE-PLAN.md
+          git diff --cached --quiet || git commit -m 'Assemble eight-page site and self-hosted AI portraits; preserve approved homepage'
+          git push origin HEAD:complete-site-20260923
+      - name: Export review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kronberg-complete-preview
+          path: |
+            *.html
+            *.png
+            *.js
+            assets/
+            SITE-PLAN.md
+          retention-days: 3
