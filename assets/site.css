@@ -1050,85 +1050,46 @@ body:has(#kl-home-final) .firm-footer{display:none!important}
   .kl-leadership .kl-leader-copy{padding:24px 20px 26px}
 }
 
-/* Leadership portrait crop correction */
+/* Leadership portraits — identical frame and crop behavior */
 .kl-leadership .kl-leader-photo-frame{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  margin:24px 0 24px 24px;
+  min-height:360px;
+  overflow:hidden;
+  border:1px solid rgba(202,164,95,.22);
+  background:#090a09;
 }
 .kl-leadership .kl-leader-photo-frame img{
   width:100%;
   height:100%;
-  object-fit:contain;
-  object-position:center center;
-  background:#090a09;
-}
-.kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
-  object-fit:contain;
-  object-position:center center;
-  transform:scale(.96);
-}
-.kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
-  transform:scale(.985);
-}
-
-/* Leadership portrait final face-safe correction */
-.kl-leadership .kl-leader-photo-frame{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#090a09;
-}
-.kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
-  width:92%;
-  height:92%;
-  min-height:0;
-  object-fit:contain;
-  object-position:50% 50%;
-  transform:none!important;
-  margin:auto;
-}
-.kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
-  transform:none!important;
-}
-@media(max-width:900px){
-  .kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
-    width:90%;
-    height:90%;
-  }
-}
-
-/* CEO portrait — match Managing Director crop and frame */
-.kl-leadership .kl-leader:first-child .kl-leader-photo-frame{
-  display:block;
-  overflow:hidden;
-  background:#090a09;
-}
-.kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
-  width:100%;
-  height:100%;
   min-height:360px;
+  display:block;
   object-fit:cover;
-  object-position:center 18%;
-  transform:none!important;
-  margin:0;
+  object-position:center top;
+  filter:grayscale(1) sepia(.20) contrast(1.08);
+  transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .35s ease;
 }
-.kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
-  transform:none!important;
+.kl-leadership .kl-leader:hover .kl-leader-photo-frame img{
+  transform:scale(1.025);
+  filter:grayscale(1) sepia(.28) contrast(1.08);
 }
 @media(max-width:900px){
-  .kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
+  .kl-leadership .kl-leader-photo-frame{
+    margin:18px 0 18px 18px;
     min-height:304px;
-    object-position:center 16%;
+  }
+  .kl-leadership .kl-leader-photo-frame img{
+    min-height:304px;
+    object-position:center top;
   }
 }
 @media(max-width:560px){
-  .kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
+  .kl-leadership .kl-leader-photo-frame{
+    margin:18px 18px 0;
+    min-height:310px;
+  }
+  .kl-leadership .kl-leader-photo-frame img{
     height:310px;
     min-height:310px;
-    object-position:center 14%;
+    object-position:center top;
   }
 }
-
