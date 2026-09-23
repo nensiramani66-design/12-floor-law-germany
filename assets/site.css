@@ -703,3 +703,104 @@
 body:has(#kl-client-perspectives) #kl-global-links{display:none!important}
 body:has(#kl-client-perspectives) .firm-footer{display:none!important}
 
+/* =========================================================
+   OUR FIRM LEADERSHIP + HOMEPAGE FINAL FOOTER
+========================================================= */
+.kl-reveal{opacity:0;transform:translateY(18px);transition:opacity .62s ease,transform .62s cubic-bezier(.2,.7,.2,1)}
+.kl-reveal.kl-in-view{opacity:1;transform:none}
+
+.kl-leadership-section{
+  padding:72px 7%;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:radial-gradient(circle at 12% 5%,rgba(202,164,95,.08),transparent 30%),#090a09;
+}
+.kl-leadership-heading{
+  max-width:1200px;
+  margin:0 auto 34px;
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:40px;
+}
+.kl-leadership-heading h2{font:normal clamp(40px,4vw,58px)/1.08 Georgia,serif}
+.kl-leadership-heading p{max-width:760px;margin-top:16px;color:#b7b2a8;font-size:16px;line-height:1.72}
+.kl-leadership-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.kl-leader{
+  display:grid;
+  grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr);
+  min-height:370px;
+  overflow:hidden;
+  border:1px solid rgba(202,164,95,.24);
+  background:linear-gradient(145deg,rgba(202,164,95,.055),rgba(255,255,255,.012));
+}
+.kl-leader img{
+  width:100%;height:100%;min-height:370px;object-fit:cover;object-position:center top;
+  filter:grayscale(1) sepia(.25) contrast(1.05);
+}
+.kl-leader-copy{padding:32px 28px;align-self:center}
+.kl-leader-copy h3{margin:8px 0 15px;font:normal 33px/1.06 Georgia,serif}
+.kl-leader-copy>p:not(.kl-kicker){color:#bdb7ac;font-size:15px;line-height:1.68}
+.kl-leader-copy dl{margin-top:22px;display:grid;gap:12px}
+.kl-leader-copy dl div{padding-top:11px;border-top:1px solid rgba(255,255,255,.09)}
+.kl-leader-copy dt{color:#caa45f;font-size:9px;letter-spacing:1.5px;text-transform:uppercase}
+.kl-leader-copy dd{margin:5px 0 0;color:#e3ddd2;font-size:13px;line-height:1.48}
+.kl-principle-intro{max-width:1010px;margin:-16px auto 34px;color:#b7b2a8;font-size:16px;line-height:1.72}
+
+.kl-home-final{
+  position:relative;
+  overflow:hidden;
+  padding:68px 0 26px;
+  border-top:1px solid rgba(202,164,95,.3);
+  background:
+    linear-gradient(90deg,rgba(5,6,6,.97),rgba(7,8,7,.92)),
+    url("../blindfolded_justice_in_golden_shadows.png") center 28%/cover no-repeat;
+}
+.kl-home-final-grid{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:1.45fr .9fr .8fr .8fr;
+  gap:38px;
+  align-items:start;
+}
+.kl-home-final .kl-brand{font-size:27px;color:#f3efe7}
+.kl-home-final-brand>p{max-width:430px;margin-top:20px;color:#b7b1a7;font-size:14px;line-height:1.72}
+.kl-home-final-tag{color:#caa45f!important;font:italic 19px Georgia,serif!important}
+.kl-home-final-grid>div:not(.kl-home-final-brand)>p:not(.kl-kicker){margin:12px 0 18px;color:#c9c2b7;font-size:13px;line-height:1.7}
+.kl-home-final a{display:block;width:max-content;max-width:100%;margin:8px 0;color:#d8d1c5;font-size:13px;text-decoration:none}
+.kl-home-final a:hover{color:#caa45f}
+.kl-home-socials{display:flex;gap:8px;margin-top:15px;flex-wrap:wrap}
+.kl-home-socials button{
+  width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(202,164,95,.36);
+  background:rgba(0,0,0,.22);color:#eee8df;font:15px Arial,sans-serif;cursor:pointer;
+}
+.kl-home-socials button:hover,.kl-home-socials button:focus-visible{border-color:#caa45f;color:#caa45f}
+.kl-home-final-bottom{
+  position:relative;z-index:1;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-top:48px;padding-top:20px;border-top:1px solid rgba(202,164,95,.18);
+  color:#8d8982;font-size:10px;letter-spacing:.4px;
+}
+
+@media(max-width:900px){
+  .kl-leadership-section{padding:56px 18px}
+  .kl-leadership-heading{grid-template-columns:1fr;gap:12px;margin-bottom:26px}
+  .kl-leadership-grid{grid-template-columns:1fr}
+  .kl-leader{grid-template-columns:130px 1fr;min-height:290px}
+  .kl-leader img{min-height:290px}
+  .kl-leader-copy{padding:23px 19px}
+  .kl-leader-copy h3{font-size:28px}
+  .kl-principle-intro{margin:-8px 18px 28px}
+  .kl-home-final{padding:54px 0 22px}
+  .kl-home-final-grid{grid-template-columns:1fr 1fr;gap:30px 20px;padding-inline:18px}
+  .kl-home-final-brand{grid-column:1/-1}
+  .kl-home-final-bottom{margin-inline:18px}
+}
+@media(max-width:560px){
+  .kl-leader{grid-template-columns:1fr}
+  .kl-leader img{height:320px;min-height:0}
+  .kl-home-final-grid{grid-template-columns:1fr}
+  .kl-home-final-brand{grid-column:auto}
+  .kl-home-final-bottom{display:grid}
+}
+@media(prefers-reduced-motion:reduce){
+  .kl-reveal{opacity:1;transform:none;transition:none}
+}
+
