@@ -1093,3 +1093,25 @@ body:has(#kl-home-final) .firm-footer{display:none!important}
     object-position:center top;
   }
 }
+
+/* CEO portrait sheet crop — same frame, sharper source */
+.kl-leadership .kl-leader:first-child .kl-leader-photo-frame{
+  position:relative;
+  overflow:hidden;
+}
+.kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:auto;
+  height:200%;
+  min-height:0;
+  max-width:none;
+  object-fit:initial;
+  object-position:initial;
+  transform:translateX(-50%) !important;
+  filter:grayscale(1) sepia(.20) contrast(1.08);
+}
+.kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
+  transform:translateX(-50%) !important;
+}
