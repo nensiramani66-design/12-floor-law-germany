@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -98,10 +97,7 @@ header{
     padding:0 6%;
 
     display:grid;
-
-    grid-template-columns:
-        1fr auto 1fr;
-
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
 
     background:#080808;
@@ -202,7 +198,6 @@ header{
 
 .search-button{
     width:32px;
-
     height:32px;
 
     display:flex;
@@ -223,7 +218,6 @@ header{
 
 .search-button svg{
     width:20px;
-
     height:20px;
 }
 
@@ -234,7 +228,6 @@ header{
 
 .hamburger{
     width:37px;
-
     height:27px;
 
     display:flex;
@@ -518,7 +511,6 @@ body.ready .image-brand{
 
 .card-back img{
     width:100%;
-
     height:100%;
 
     display:block;
@@ -1055,31 +1047,24 @@ body.ready .gold-line{
 /* =========================================================
    =========================================================
    MOBILE / ANDROID / IPHONE ONLY
-   DESKTOP CODE ABOVE IS UNCHANGED
    =========================================================
 ========================================================= */
 
 @media screen and (max-width:900px){
 
-
     :root{
         --header:68px;
     }
 
-
     html,
     body{
         width:100%;
-
         min-height:100%;
-
         overflow-x:hidden;
     }
 
-
     body{
         overflow-y:auto;
-
         background:#070707;
     }
 
@@ -1091,15 +1076,13 @@ body.ready .gold-line{
     header{
         height:68px;
 
-        padding:
-            0 14px;
+        padding:0 14px;
 
         display:flex;
 
         align-items:center;
 
-        justify-content:
-            space-between;
+        justify-content:space-between;
 
         background:
             rgba(7,7,7,.98);
@@ -1110,9 +1093,9 @@ body.ready .gold-line{
 
 
     .logo{
-        font-size:14px;
+        font-size:15px;
 
-        letter-spacing:1.3px;
+        letter-spacing:1.4px;
 
         white-space:nowrap;
     }
@@ -1138,41 +1121,37 @@ body.ready .gold-line{
 
 
     .lang{
-        font-size:9px;
+        font-size:10px;
 
-        letter-spacing:.7px;
+        letter-spacing:.8px;
     }
 
 
     .lang-line{
-        height:11px;
+        height:12px;
     }
 
 
     .search-button{
-        width:25px;
-
-        height:25px;
+        width:26px;
+        height:26px;
     }
 
 
     .search-button svg{
-        width:16px;
-
-        height:16px;
+        width:17px;
+        height:17px;
     }
 
 
     .hamburger{
-        width:27px;
-
-        height:19px;
+        width:28px;
+        height:20px;
     }
 
 
-
     /* =====================================================
-       MOBILE MAIN AREA
+       MOBILE PAGE
     ===================================================== */
 
     .hero{
@@ -1192,24 +1171,24 @@ body.ready .gold-line{
         min-height:
             calc(100dvh - 68px);
 
-        padding-bottom:35px;
+        padding-bottom:36px;
 
         overflow:visible;
 
         background:
             radial-gradient(
-                circle at 50% 21%,
+                circle at 50% 19%,
                 #241c12 0%,
-                #110e0a 42%,
-                #070707 78%
+                #120f0b 40%,
+                #070707 76%
             );
     }
 
 
-
     /* =====================================================
        MOBILE STAGE 1
-       INTRODUCTION
+       IMAGE AT TOP
+       COMPANY NAME BELOW
     ===================================================== */
 
     .justice-card{
@@ -1217,18 +1196,16 @@ body.ready .gold-line{
 
         left:50%;
 
-        top:36vh;
+        top:18px;
 
-        top:36dvh;
-
-        width:92vw;
+        width:94vw;
 
         height:auto;
 
         aspect-ratio:16 / 9;
 
         transform:
-            translate(-50%,-50%);
+            translateX(-50%);
     }
 
 
@@ -1246,40 +1223,51 @@ body.ready .gold-line{
     .intro{
         left:50%;
 
-        top:36vh;
+        top:calc(52.875vw + 48px);
 
-        top:36dvh;
-
-        width:94%;
+        width:90%;
 
         transform:
-            translate(-50%,-50%);
+            translateX(-50%);
+
+        text-align:center;
     }
 
 
     .intro-small{
-        margin-bottom:9px;
+        margin-bottom:11px;
 
-        font-size:8px;
+        font-size:10px;
 
-        letter-spacing:2.8px;
+        letter-spacing:3px;
     }
 
 
     .intro h1{
         font-size:
-            clamp(30px,9vw,44px);
+            clamp(36px,10vw,48px);
 
-        line-height:1;
+        line-height:1.02;
 
-        letter-spacing:1.7px;
+        letter-spacing:2px;
     }
 
+
+    /*
+       Do not put KL logo on top of the
+       mobile image.
+       This avoids overlap.
+    */
+
+    .image-brand{
+        display:none !important;
+    }
 
 
     /* =====================================================
        MOBILE STAGE 2
-       IMAGE ON TOP
+       IMAGE ABOVE
+       INFORMATION BELOW
     ===================================================== */
 
     body.ready .justice-card{
@@ -1287,7 +1275,7 @@ body.ready .gold-line{
 
         top:18px;
 
-        width:92vw;
+        width:94vw;
 
         height:auto;
 
@@ -1305,69 +1293,14 @@ body.ready .gold-line{
     }
 
 
-
-    /* =====================================================
-       MOBILE COMPANY MARK
-    ===================================================== */
-
-    body.ready .image-brand{
-        right:4%;
-
-        top:50%;
-
-        width:104px;
-
-        opacity:1;
+    body.ready .intro{
+        opacity:0;
 
         transform:
-            translateY(-50%);
+            translateX(-50%)
+            translateY(12px);
     }
 
-
-    .brand-symbol{
-        width:42px;
-
-        height:42px;
-
-        margin:
-            0 auto 9px;
-    }
-
-
-    .brand-symbol span{
-        font-size:14px;
-    }
-
-
-    .brand-name{
-        font-size:9.5px;
-
-        letter-spacing:1px;
-    }
-
-
-    .brand-rule{
-        width:40px;
-
-        margin:
-            7px auto;
-    }
-
-
-    .brand-subtitle{
-        font-size:4.8px;
-
-        letter-spacing:.8px;
-
-        line-height:1.5;
-    }
-
-
-
-    /* =====================================================
-       MOBILE INFORMATION
-       BELOW IMAGE
-    ===================================================== */
 
     .content{
         position:relative;
@@ -1381,11 +1314,11 @@ body.ready .gold-line{
         width:auto;
 
         margin:
-            calc(51.75vw + 48px)
+            calc(52.875vw + 54px)
             20px
             0;
 
-        padding-bottom:22px;
+        padding-bottom:28px;
 
         opacity:0;
 
@@ -1405,11 +1338,11 @@ body.ready .gold-line{
 
 
     .eyebrow{
-        margin-bottom:10px;
+        margin-bottom:13px;
 
-        font-size:8px;
+        font-size:10px;
 
-        letter-spacing:2px;
+        letter-spacing:2.3px;
     }
 
 
@@ -1417,7 +1350,7 @@ body.ready .gold-line{
         max-width:100%;
 
         font-size:
-            clamp(30px,8.5vw,39px);
+            clamp(37px,10vw,47px);
 
         line-height:1.03;
     }
@@ -1426,32 +1359,26 @@ body.ready .gold-line{
     .description{
         max-width:100%;
 
-        margin-top:14px;
+        margin-top:18px;
 
-        font-size:12.5px;
+        font-size:15.5px;
 
-        line-height:1.55;
+        line-height:1.62;
 
-        color:#c8c8c8;
+        color:#d0d0d0;
     }
 
 
-
-    /* =====================================================
-       MOBILE BUTTONS
-    ===================================================== */
-
     .buttons{
-        display:grid;
+        display:flex;
 
-        grid-template-columns:
-            1fr 1fr;
+        flex-direction:column;
 
-        gap:9px;
+        gap:12px;
 
         width:100%;
 
-        margin-top:18px;
+        margin-top:22px;
     }
 
 
@@ -1459,15 +1386,15 @@ body.ready .gold-line{
         width:100%;
 
         padding:
-            13px 5px;
+            15px 12px;
 
         text-align:center;
 
-        font-size:7.5px;
+        font-size:12px;
 
-        letter-spacing:.6px;
+        letter-spacing:1px;
 
-        white-space:nowrap;
+        white-space:normal;
     }
 
 
@@ -1476,12 +1403,9 @@ body.ready .gold-line{
     }
 
 
-
     /* =====================================================
        MOBILE STAGE 3
-       TAP ONCE
-       ROTATES ONCE
-       STAYS PERMANENTLY
+       SECOND AND FINAL TRANSITION
     ===================================================== */
 
     .hero.stage3{
@@ -1504,6 +1428,8 @@ body.ready .gold-line{
         padding:0;
 
         overflow:hidden;
+
+        background:#080706;
 
         z-index:50;
     }
@@ -1534,6 +1460,25 @@ body.ready .gold-line{
     }
 
 
+    .hero.stage3 .card-face{
+        border:none;
+    }
+
+
+    /*
+       IMPORTANT MOBILE FINAL IMAGE:
+
+       The picture still uses the original
+       Justice image.
+
+       object-position focuses the crop
+       on Lady Justice rather than on the
+       empty architectural side.
+
+       Face + upper body + scales remain
+       inside the phone screen.
+    */
+
     .hero.stage3 .card-back img{
         width:100%;
 
@@ -1541,120 +1486,35 @@ body.ready .gold-line{
 
         object-fit:cover;
 
-        /*
-        Keep face and top visible.
-        Lower part can crop.
-        */
-
-        object-position:center top;
+        object-position:
+            28% center;
 
         transform:
             scaleX(-1);
+
+        filter:
+            brightness(.90)
+            contrast(1.05)
+            saturate(.92);
     }
 
 
+    /*
+       Final mobile view is only the
+       Justice image.
 
-    /* =====================================================
-       MOBILE STAGE 3 DARK GRADIENT
-    ===================================================== */
+       No text on top.
+       No buttons on top.
+       Nothing overlaps the figure.
+    */
 
-    .hero.stage3 .stage3-shade{
-        opacity:1;
-
-        background:
-            linear-gradient(
-                0deg,
-
-                rgba(0,0,0,.99) 0%,
-
-                rgba(0,0,0,.95) 23%,
-
-                rgba(0,0,0,.80) 42%,
-
-                rgba(0,0,0,.42) 58%,
-
-                rgba(0,0,0,.10) 78%,
-
-                transparent 100%
-            );
+    .hero.stage3 .stage3-shade,
+    .hero.stage3 .content,
+    .hero.stage3 .intro,
+    .hero.stage3 .gold-line,
+    .hero.stage3 .image-brand{
+        display:none !important;
     }
-
-
-
-    /* =====================================================
-       MOBILE STAGE 3 TEXT
-    ===================================================== */
-
-    .hero.stage3 .content{
-        position:absolute;
-
-        left:19px;
-
-        right:19px;
-
-        top:auto;
-
-        bottom:18px;
-
-        width:auto;
-
-        max-height:52%;
-
-        margin:0;
-
-        padding:
-            0 2px 2px 0;
-
-        overflow-y:auto;
-
-        opacity:1;
-
-        transform:none;
-
-        z-index:30;
-    }
-
-
-    .hero.stage3 .eyebrow{
-        margin-bottom:7px;
-
-        font-size:7px;
-
-        letter-spacing:1.6px;
-    }
-
-
-    .hero.stage3 .content h2{
-        font-size:
-            clamp(25px,7.6vw,34px);
-
-        line-height:1;
-    }
-
-
-    .hero.stage3 .description{
-        margin-top:10px;
-
-        max-width:97%;
-
-        font-size:11px;
-
-        line-height:1.42;
-    }
-
-
-    .hero.stage3 .buttons{
-        margin-top:12px;
-    }
-
-
-    .hero.stage3 .btn{
-        padding:
-            11px 4px;
-
-        font-size:7px;
-    }
-
 
 
     /* =====================================================
@@ -1670,16 +1530,15 @@ body.ready .gold-line{
 
         width:90%;
 
-        padding:13px;
+        padding:14px;
     }
 
 
     .search-panel input{
-        padding:12px;
+        padding:13px;
 
-        font-size:14px;
+        font-size:15px;
     }
-
 
 
     /* =====================================================
@@ -1697,9 +1556,9 @@ body.ready .gold-line{
 
 
     .side-menu a{
-        padding:14px 0;
+        padding:15px 0;
 
-        font-size:21px;
+        font-size:23px;
     }
 
 
@@ -1710,9 +1569,8 @@ body.ready .gold-line{
     }
 
 
-
     /* =====================================================
-       MOBILE: NO MOUSE EFFECTS
+       MOBILE TOUCH CLEANUP
     ===================================================== */
 
     .cursor-glow{
@@ -1727,18 +1585,16 @@ body.ready .gold-line{
 }
 
 
-
 /* =========================================================
-   EXTRA SMALL MOBILE
+   EXTRA SMALL PHONES
 ========================================================= */
 
 @media screen and (max-width:390px){
 
-
     .logo{
-        font-size:12px;
+        font-size:13px;
 
-        letter-spacing:.9px;
+        letter-spacing:1px;
     }
 
 
@@ -1748,14 +1604,14 @@ body.ready .gold-line{
 
 
     .lang{
-        font-size:8px;
+        font-size:9px;
     }
 
 
     .search-button{
-        width:23px;
+        width:24px;
 
-        height:23px;
+        height:24px;
     }
 
 
@@ -1766,135 +1622,79 @@ body.ready .gold-line{
     }
 
 
-    body.ready .image-brand{
-        width:90px;
-
-        right:3%;
+    .intro{
+        top:
+            calc(52.875vw + 44px);
     }
 
 
-    .brand-symbol{
-        width:36px;
-
-        height:36px;
-
-        margin-bottom:7px;
-    }
-
-
-    .brand-symbol span{
-        font-size:12px;
-    }
-
-
-    .brand-name{
-        font-size:8px;
+    .intro h1{
+        font-size:35px;
     }
 
 
     .content{
         margin:
-            calc(51.75vw + 40px)
+            calc(52.875vw + 48px)
             17px
             0;
     }
 
 
     .content h2{
-        font-size:28px;
+        font-size:35px;
     }
 
 
     .description{
-        font-size:11.5px;
+        font-size:14.5px;
     }
 
 
     .btn{
-        font-size:6.7px;
+        font-size:11.5px;
 
         padding:
-            12px 3px;
+            14px 10px;
     }
 
 
-    .hero.stage3 .content{
-        left:16px;
-
-        right:16px;
-
-        bottom:14px;
-
-        max-height:54%;
-    }
-
-
-    .hero.stage3 .content h2{
-        font-size:25px;
-    }
-
-
-    .hero.stage3 .description{
-        font-size:10px;
+    .hero.stage3 .card-back img{
+        object-position:
+            27% center;
     }
 
 }
-
 
 
 /* =========================================================
    SHORT MOBILE SCREENS
 ========================================================= */
 
-@media screen and (max-width:900px) and (max-height:700px){
+@media screen and (max-width:900px) and (max-height:520px){
+
+    .hero{
+        min-height:620px;
+    }
+
+
+    .intro h1{
+        font-size:34px;
+    }
 
 
     .content h2{
-        font-size:27px;
+        font-size:34px;
     }
 
 
     .description{
-        margin-top:9px;
-
-        font-size:10.5px;
-
-        line-height:1.4;
+        font-size:14px;
     }
 
 
-    .buttons{
-        margin-top:11px;
-    }
-
-
-    .btn{
-        padding:
-            10px 4px;
-    }
-
-
-    .hero.stage3 .content{
-        max-height:58%;
-
-        bottom:10px;
-    }
-
-
-    .hero.stage3 .content h2{
-        font-size:24px;
-    }
-
-
-    .hero.stage3 .description{
-        font-size:9.8px;
-
-        line-height:1.35;
-    }
-
-
-    .hero.stage3 .buttons{
-        margin-top:8px;
+    .hero.stage3{
+        min-height:0;
     }
 
 }
@@ -2364,20 +2164,16 @@ window.addEventListener(
 "load",
 function(){
 
-
     setTimeout(
     function(){
-
 
         document.body.classList.add(
             "ready"
         );
 
-
     },
     2000
     );
-
 
 });
 
@@ -2404,12 +2200,13 @@ false;
 
 
 
-/* DESKTOP */
+/* =========================================================
+   DESKTOP
+========================================================= */
 
 interactionZone.addEventListener(
 "mouseenter",
 function(){
-
 
     if(
         !hasRotated &&
@@ -2418,18 +2215,14 @@ function(){
         )
     ){
 
-
         hasRotated =
         true;
-
 
         hero.classList.add(
             "stage3"
         );
 
-
     }
-
 
 });
 
@@ -2437,17 +2230,15 @@ function(){
 
 /* =========================================================
    MOBILE
-   TAP ONCE ONLY
+   TAP JUSTICE IMAGE ONCE ONLY
 ========================================================= */
 
 hero.addEventListener(
 "click",
 function(event){
 
-
     /*
-    Only use this behavior
-    on touch devices.
+       Only phones / touch devices.
     */
 
     if(
@@ -2464,13 +2255,14 @@ function(event){
 
 
     /*
-    Buttons, language controls
-    and links should still work.
+       The final transition only happens
+       when the image itself is tapped.
     */
 
     if(
-        event.target.closest("a") ||
-        event.target.closest("button")
+        !event.target.closest(
+            "#justiceCard"
+        )
     ){
 
         return;
@@ -2479,7 +2271,7 @@ function(event){
 
 
     /*
-    Rotate only one time.
+       Only one final rotation.
     */
 
     if(
@@ -2489,18 +2281,14 @@ function(event){
         )
     ){
 
-
         hasRotated =
         true;
-
 
         hero.classList.add(
             "stage3"
         );
 
-
     }
-
 
 });
 
@@ -2540,23 +2328,18 @@ if(
     .matches
 ){
 
-
     document.addEventListener(
     "mousemove",
     function(event){
 
-
         mouseX =
         event.clientX;
-
 
         mouseY =
         event.clientY;
 
-
         cursorGlow.style.opacity =
         "1";
-
 
     });
 
@@ -2566,10 +2349,8 @@ if(
     "mouseleave",
     function(){
 
-
         cursorGlow.style.opacity =
         "0";
-
 
     });
 
@@ -2579,10 +2360,8 @@ if(
     "mouseenter",
     function(){
 
-
         cursorGlow.style.opacity =
         "1";
-
 
     });
 
@@ -2590,11 +2369,9 @@ if(
 
     function animateGlow(){
 
-
         glowX +=
         (mouseX - glowX)
         * 0.14;
-
 
         glowY +=
         (mouseY - glowY)
@@ -2613,12 +2390,10 @@ if(
             animateGlow
         );
 
-
     }
 
 
     animateGlow();
-
 
 }
 
@@ -2643,13 +2418,11 @@ document.getElementById(
 searchButton.onclick =
 function(){
 
-
     searchPanel
     .classList
     .toggle(
         "open"
     );
-
 
 };
 
@@ -2687,7 +2460,6 @@ document.getElementById(
 menuButton.onclick =
 function(){
 
-
     sideMenu
     .classList
     .add(
@@ -2700,7 +2472,6 @@ function(){
     .add(
         "open"
     );
-
 
 };
 
@@ -2708,7 +2479,6 @@ function(){
 
 function closeSideMenu(){
 
-
     sideMenu
     .classList
     .remove(
@@ -2721,7 +2491,6 @@ function closeSideMenu(){
     .remove(
         "open"
     );
-
 
 }
 
@@ -2756,10 +2525,8 @@ document.getElementById(
 const translations =
 {
 
-
     en:
     {
-
 
         eyebrow:
         "KRONBERG LEGAL · GERMANY",
@@ -2784,13 +2551,11 @@ const translations =
         search:
         "Search Kronberg Legal..."
 
-
     },
 
 
     de:
     {
-
 
         eyebrow:
         "KRONBERG LEGAL · DEUTSCHLAND",
@@ -2815,9 +2580,7 @@ const translations =
         search:
         "Kronberg Legal durchsuchen..."
 
-
     }
-
 
 };
 
@@ -2827,12 +2590,10 @@ function changeLanguage(
 language
 ){
 
-
     const text =
     translations[
         language
     ];
-
 
 
     document
@@ -2843,14 +2604,12 @@ language
     text.eyebrow;
 
 
-
     document
     .getElementById(
         "headline"
     )
     .innerHTML =
     text.headline;
-
 
 
     document
@@ -2861,14 +2620,12 @@ language
     text.description;
 
 
-
     document
     .getElementById(
         "firmButton"
     )
     .textContent =
     text.firm;
-
 
 
     document
@@ -2879,14 +2636,12 @@ language
     text.floor;
 
 
-
     document
     .getElementById(
         "searchInput"
     )
     .placeholder =
     text.search;
-
 
 
     document
@@ -2896,15 +2651,12 @@ language
     .forEach(
     function(link){
 
-
         link.textContent =
         link.dataset[
             language
         ];
 
-
     });
-
 
 
     englishButton
@@ -2915,7 +2667,6 @@ language
     );
 
 
-
     germanButton
     .classList
     .toggle(
@@ -2924,12 +2675,10 @@ language
     );
 
 
-
     document
     .documentElement
     .lang =
     language;
-
 
 }
 
@@ -2938,11 +2687,9 @@ language
 englishButton.onclick =
 function(){
 
-
     changeLanguage(
         "en"
     );
-
 
 };
 
@@ -2951,11 +2698,9 @@ function(){
 germanButton.onclick =
 function(){
 
-
     changeLanguage(
         "de"
     );
-
 
 };
 
