@@ -548,3 +548,158 @@
   }
 }
 
+/* =========================================================
+   FINAL SITE POLISH — distinct pages + cross-page motion
+========================================================= */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:kl-page-out .24s ease both}
+::view-transition-new(root){animation:kl-page-in .42s cubic-bezier(.2,.7,.2,1) both}
+@keyframes kl-page-out{to{opacity:0;transform:translateY(-8px) scale(.995)}}
+@keyframes kl-page-in{from{opacity:0;transform:translateY(14px) scale(.995)}to{opacity:1;transform:none}}
+
+.kl-site[data-page="floors"] .kl-page-hero{
+  background:
+    linear-gradient(90deg,rgba(4,8,6,.95),rgba(4,8,6,.56)),
+    radial-gradient(circle at 78% 30%,rgba(202,164,95,.18),transparent 36%),
+    #080b09;
+}
+.kl-site[data-page="lawyers"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 78% 24%,rgba(202,164,95,.16),transparent 32%),
+    linear-gradient(125deg,#090b0b,#12100d 58%,#080909);
+}
+.kl-site[data-page="client-guide"] .kl-page-hero{
+  background:
+    linear-gradient(135deg,rgba(202,164,95,.10),transparent 38%),
+    repeating-linear-gradient(90deg,#0b0d0c 0,#0b0d0c 1px,#0d100e 1px,#0d100e 88px);
+}
+.kl-site[data-page="insights"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 76% 52%,rgba(176,134,73,.16),transparent 34%),
+    linear-gradient(140deg,#090a0a,#11100d 65%,#080909);
+}
+.kl-site[data-page="legal"] .kl-page-hero{
+  background:
+    linear-gradient(135deg,rgba(98,120,126,.12),transparent 45%),
+    #090b0c;
+}
+.kl-site[data-page="contact"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 82% 28%,rgba(202,164,95,.17),transparent 28%),
+    linear-gradient(145deg,#080b09,#10120f 58%,#080909);
+}
+
+/* Keep information-dense subpages comfortable on one desktop viewport where possible. */
+@media(min-width:1000px){
+  .kl-site[data-page] .kl-page-hero{min-height:38vh;padding-top:54px;padding-bottom:48px}
+  .kl-site[data-page] .kl-section{padding-top:54px;padding-bottom:54px}
+  .kl-site[data-page] .kl-shell{max-width:1240px}
+  .kl-site[data-page="lawyers"] .kl-person{min-height:0}
+  .kl-site[data-page="contact"] .kl-split{gap:30px}
+}
+
+/* =========================================================
+   FINAL HOMEPAGE FOOTER
+========================================================= */
+.kl-premium-footer{
+  position:relative;
+  background:#060807;
+  border-top:1px solid rgba(202,164,95,.28);
+  color:#d7d2c8;
+}
+.kl-premium-footer-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr 1fr .75fr;
+  gap:42px;
+  padding-top:52px;
+  padding-bottom:44px;
+}
+.kl-premium-footer-grid>div{
+  min-width:0;
+}
+.kl-premium-brand{
+  font:normal 24px/1 Georgia,serif;
+  letter-spacing:2.6px;
+  color:#f3efe7;
+  margin-bottom:14px;
+}
+.kl-premium-brand span{color:#caa45f}
+.kl-premium-footer h3{
+  margin:0 0 14px;
+  color:#f3efe7;
+  font:normal 15px/1.2 Georgia,serif;
+}
+.kl-premium-footer p,
+.kl-premium-footer a{
+  display:block;
+  margin:0 0 8px;
+  color:#b6b1a8;
+  font-size:12px;
+  line-height:1.55;
+  text-decoration:none;
+}
+.kl-premium-footer a:hover{color:#d9bb7d}
+.kl-footer-muted{max-width:300px;color:#77756f!important}
+.kl-footer-socials{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+.kl-footer-socials button{
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.18);
+  background:#0c0f0d;
+  color:#f3efe7;
+  font-size:14px;
+  cursor:pointer;
+  transition:.22s ease;
+}
+.kl-footer-socials button:hover,
+.kl-footer-socials button:focus-visible{
+  border-color:#caa45f;
+  color:#caa45f;
+  transform:translateY(-2px);
+}
+.kl-premium-footer-bottom{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#77756f;
+  font-size:10px;
+}
+.kl-premium-footer-bottom nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.kl-premium-footer-bottom a{
+  margin:0;
+  font-size:10px;
+}
+
+@media(max-width:900px){
+  .kl-premium-footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:30px 22px;
+    padding:38px 18px 30px;
+  }
+  .kl-premium-footer-grid>div:first-child{grid-column:1/-1}
+  .kl-premium-footer-bottom{
+    padding:18px;
+    display:grid;
+    gap:10px;
+  }
+}
+@media(max-width:520px){
+  .kl-premium-footer-grid{grid-template-columns:1fr}
+  .kl-premium-footer-grid>div:first-child{grid-column:auto}
+}
+
+/* Homepage-only cleanup: old auto-generated navigation strip is superseded by the final footer. */
+body:has(#kl-client-perspectives) #kl-global-links{display:none!important}
+body:has(#kl-client-perspectives) .firm-footer{display:none!important}
+
