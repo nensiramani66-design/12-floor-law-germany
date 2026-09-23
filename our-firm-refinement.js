@@ -63,6 +63,7 @@
 .kl-firm-refined .firm-floor{scroll-margin-top:calc(var(--header,82px) + 28px)}
 .kl-firm-refined .firm-floor:target{outline:1px solid #caa45f;outline-offset:-1px;background:#1b1911}
 .kl-firm-refined .kl-floor-summary{font-size:13px;line-height:1.55;color:#b8b1a4;margin-top:13px}
+.kl-firm-refined .kl-principle-extra{margin-top:18px;padding-top:16px;border-top:1px solid #ffffff12;color:#d2cabb!important;font-size:12px!important;line-height:1.6!important}
 
 .kl-firm-refined .kl-who-detail{max-width:1200px;margin:-18px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#ffffff18;border:1px solid #ffffff12}
 .kl-firm-refined .kl-who-detail article{padding:24px;background:#0d0f0d}
@@ -204,6 +205,14 @@
       </div>`;
     whoSection.append(leadership);
   }
+  root.querySelectorAll('.firm-card').forEach((card, i) => {
+    if (i > 2 || card.querySelector('.kl-principle-extra')) return;
+    const p = document.createElement('p');
+    p.className = 'kl-principle-extra';
+    p.dataset.klText = 'principleExtra' + i;
+    card.append(p);
+  });
+
   [0, 1, 9].forEach((index, i) => {
     const p = document.createElement('p');
     p.className = 'kl-floor-summary';
@@ -234,7 +243,10 @@
       leadershipKicker:'04 / LEADERSHIP', leadershipTitle:'Responsibility at the centre of the firm.',
       ceoRole:'Chief Executive Officer', ceoCopy:'Leads firm-wide strategy, key client relationships and the integration of the twelve specialist floors, with a focus on long-term direction and international growth.',
       managerRole:'Managing Director', managerCopy:'Leads operations, talent, technology and client-service standards so specialist teams can work consistently across practices and matters.',
-      leadershipNote:'AI-generated / fictional leadership profile'
+      leadershipNote:'AI-generated / fictional leadership profile',
+      principleExtra0:'In practice: concise options, visible priorities and advice that ends with a clear decision path.',
+      principleExtra1:'In practice: agreed communication channels, careful handling of sensitive information and disciplined documentation.',
+      principleExtra2:'In practice: the legal question is considered alongside commercial, personal and cross-border context.'
     },
     de: {
       approachKicker:'UNSER ANSATZ', approachTitle:'Klar denken. Gemeinsam beraten.',
@@ -258,7 +270,10 @@
       leadershipKicker:'04 / LEITUNG', leadershipTitle:'Verantwortung im Zentrum der Kanzlei.',
       ceoRole:'Chief Executive Officer', ceoCopy:'Verantwortet die Gesamtstrategie, zentrale Mandantenbeziehungen und die Verbindung der zwölf Fachetagen mit Blick auf langfristige Entwicklung und internationale Zusammenarbeit.',
       managerRole:'Managing Director', managerCopy:'Verantwortet Betrieb, Talente, Technologie und Servicestandards, damit Fachteams konsistent über Rechtsgebiete und Mandate hinweg zusammenarbeiten.',
-      leadershipNote:'KI-generiert / fiktives Leitungsprofil'
+      leadershipNote:'KI-generiert / fiktives Leitungsprofil',
+      principleExtra0:'In der Praxis: klare Optionen, sichtbare Prioritäten und Beratung mit einem nachvollziehbaren Entscheidungsweg.',
+      principleExtra1:'In der Praxis: abgestimmte Kommunikationswege, sorgfältiger Umgang mit sensiblen Informationen und disziplinierte Dokumentation.',
+      principleExtra2:'In der Praxis: Die Rechtsfrage wird gemeinsam mit wirtschaftlichem, persönlichem und internationalem Kontext betrachtet.'
     }
   };
 
