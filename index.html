@@ -1,497 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kronberg Legal | Rechtsanwälte München</title>
-/* =========================================================
-   PAGE 1 -> PAGE 2 SCROLL TRANSITION
-========================================================= */
 
-const firmPage =
-document.getElementById(
-    "our-firm"
-);
-
-
-const scrollStatue =
-document.getElementById(
-    "scrollStatue"
-);
-
-
-const firmStatue =
-document.getElementById(
-    "firmStatue"
-);
-
-
-const firmCopy =
-document.getElementById(
-    "firmCopy"
-);
-
-
-
-function transitionClamp(
-    value,
-    minimum,
-    maximum
-){
-
-    return Math.min(
-        maximum,
-        Math.max(
-            minimum,
-            value
-        )
-    );
-
-}
-
-
-
-function transitionMix(
-    start,
-    end,
-    amount
-){
-
-    return start +
-        (
-            end - start
-        ) * amount;
-
-}
-
-
-
-function updatePageTransition(){
-
-
-    if(
-        !firmPage ||
-        !scrollStatue ||
-        !firmStatue
-    ){
-        return;
-    }
-
-
-    const pageTwoTop =
-        firmPage.offsetTop;
-
-
-    const transitionDistance =
-        Math.max(
-            1,
-            pageTwoTop
-        );
-
-
-    let progress =
-        window.scrollY /
-        transitionDistance;
-
-
-    progress =
-        transitionClamp(
-            progress,
-            0,
-            1
-        );
-
-
-    /*
-       Smooth movement curve
-    */
-
-    const smooth =
-        progress *
-        progress *
-        (
-            3 -
-            2 * progress
-        );
-
-
-    const mobile =
-        window.innerWidth <=
-        900;
-
-
-
-    /*
-       When scrolling begins on desktop,
-       automatically complete the wide
-       Justice hero state.
-    */
-
-    if(
-        !mobile &&
-        window.scrollY > 20 &&
-        document.body
-        .classList
-        .contains(
-            "ready"
-        )
-    ){
-
-        hero.classList.add(
-            "stage3"
-        );
-
-        desktopHasRotated =
-            true;
-
-    }
-
-
-
-    /*
-       START POSITION:
-       inside the Justice image.
-
-       END POSITION:
-       lower-right corner where
-       Page 2 statue waits.
-    */
-
-    let startX;
-    let startY;
-    let endX;
-    let endY;
-
-    let startWidth;
-    let endWidth;
-
-
-    if(
-        mobile
-    ){
-
-        startX =
-            window.innerWidth *
-            0.38;
-
-        startY =
-            window.innerHeight *
-            0.18;
-
-
-        endX =
-            window.innerWidth *
-            0.50;
-
-        endY =
-            window.innerHeight *
-            0.55;
-
-
-        startWidth =
-            Math.min(
-                270,
-                window.innerWidth *
-                0.60
-            );
-
-
-        endWidth =
-            Math.min(
-                190,
-                window.innerWidth *
-                0.45
-            );
-
-    }
-    else{
-
-        startX =
-            window.innerWidth *
-            0.64;
-
-        startY =
-            window.innerHeight *
-            0.13;
-
-
-        endX =
-            window.innerWidth *
-            0.75;
-
-        endY =
-            window.innerHeight *
-            0.47;
-
-
-        startWidth =
-            Math.min(
-                430,
-                window.innerWidth *
-                0.30
-            );
-
-
-        endWidth =
-            Math.min(
-                300,
-                window.innerWidth *
-                0.21
-            );
-
-    }
-
-
-
-    const currentX =
-        transitionMix(
-            startX,
-            endX,
-            smooth
-        );
-
-
-    const currentY =
-        transitionMix(
-            startY,
-            endY,
-            smooth
-        );
-
-
-    const currentWidth =
-        transitionMix(
-            startWidth,
-            endWidth,
-            smooth
-        );
-
-
-
-    scrollStatue.style.left =
-        currentX + "px";
-
-
-    scrollStatue.style.top =
-        currentY + "px";
-
-
-    scrollStatue.style.width =
-        currentWidth + "px";
-
-
-    scrollStatue.style.transform =
-        "translate(-50%,0) rotate(" +
-        transitionMix(
-            -2,
-            2,
-            smooth
-        ) +
-        "deg)";
-
-
-
-    /*
-       Figure slowly appears as if
-       detaching from Page 1.
-    */
-
-    const appear =
-        transitionClamp(
-            (
-                progress -
-                0.04
-            ) /
-            0.16,
-            0,
-            1
-        );
-
-
-
-    /*
-       Near Page 2, moving figure
-       hands off to the final statue.
-    */
-
-    const handoff =
-        transitionClamp(
-            (
-                progress -
-                0.72
-            ) /
-            0.22,
-            0,
-            1
-        );
-
-
-    scrollStatue.style.opacity =
-        appear *
-        (
-            1 -
-            handoff
-        );
-
-
-    firmStatue.style.opacity =
-        handoff;
-
-
-    firmStatue.style.transform =
-        "translateY(" +
-        transitionMix(
-            30,
-            0,
-            handoff
-        ) +
-        "px) scale(" +
-        transitionMix(
-            0.94,
-            1,
-            handoff
-        ) +
-        ")";
-
-
-
-    /*
-       Page 2 text reveals around
-       the arriving Justice figure.
-    */
-
-    const contentReveal =
-        transitionClamp(
-            (
-                progress -
-                0.62
-            ) /
-            0.30,
-            0,
-            1
-        );
-
-
-    firmCopy.style.opacity =
-        contentReveal;
-
-
-    firmCopy.style.transform =
-        "translateY(" +
-        transitionMix(
-            30,
-            0,
-            contentReveal
-        ) +
-        "px)";
-
-}
-
-
-
-let transitionFrame =
-false;
-
-
-function requestTransitionUpdate(){
-
-    if(
-        transitionFrame
-    ){
-        return;
-    }
-
-
-    transitionFrame =
-        true;
-
-
-    requestAnimationFrame(
-    function(){
-
-        updatePageTransition();
-
-        transitionFrame =
-            false;
-
-    });
-
-}
-
-
-
-window.addEventListener(
-    "scroll",
-    requestTransitionUpdate,
-    {
-        passive:true
-    }
-);
-
-
-window.addEventListener(
-    "resize",
-    requestTransitionUpdate
-);
-
-
-window.addEventListener(
-    "load",
-    updatePageTransition
-);
 <style>
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 :root{
     --gold:#caa45f;
     --black:#070707;
     --header:82px;
 }
 
-*{
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-}
-
-body{
     background:var(--black);
-    color:white;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
-    overflow:hidden;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
 }
 
 
 /* =========================================================
-   PROFESSIONAL GOLD CURSOR LIGHT
+   CURSOR
 ========================================================= */
 
 .cursor-glow{
     position:fixed;
     left:0;
     top:0;
-
     width:170px;
     height:170px;
-
     border-radius:50%;
     pointer-events:none;
     z-index:9999;
     opacity:0;
-
     transform:translate(-50%,-50%);
-
     background:
         radial-gradient(
             circle,
@@ -500,7 +54,6 @@ body{
             rgba(195,108,32,.045) 50%,
             transparent 72%
         );
-
     filter:blur(6px);
     mix-blend-mode:screen;
     transition:opacity .25s ease;
@@ -515,10 +68,8 @@ header{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:var(--header);
-
     padding:0 6%;
 
     display:grid;
@@ -526,9 +77,7 @@ header{
     align-items:center;
 
     background:#080808;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.12);
 
     z-index:1000;
 }
@@ -558,11 +107,6 @@ header{
     gap:18px;
 }
 
-
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
 .languages{
     display:flex;
     align-items:center;
@@ -571,12 +115,10 @@ header{
 
 .lang{
     background:none;
-    border:none;
+    border:0;
     color:#777;
-
     font-size:11px;
     letter-spacing:2px;
-
     cursor:pointer;
     transition:.3s;
 }
@@ -592,23 +134,15 @@ header{
     background:#555;
 }
 
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
 .search-button{
     width:32px;
     height:32px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:none;
-    border:none;
-    color:white;
-
+    border:0;
+    color:#fff;
     cursor:pointer;
 }
 
@@ -617,29 +151,21 @@ header{
     height:20px;
 }
 
-
-/* =========================================================
-   HAMBURGER
-========================================================= */
-
 .hamburger{
     width:37px;
     height:27px;
-
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-
     background:none;
-    border:none;
-
+    border:0;
     cursor:pointer;
 }
 
 .hamburger span{
     width:100%;
     height:2px;
-    background:white;
+    background:#fff;
     transition:.3s;
 }
 
@@ -649,18 +175,17 @@ header{
 
 
 /* =========================================================
-   HERO
+   PAGE 1 HERO
 ========================================================= */
 
 .hero{
-    position:absolute;
-    top:var(--header);
-    left:0;
-
+    position:relative;
     width:100%;
 
     height:calc(100vh - var(--header));
     height:calc(100dvh - var(--header));
+
+    margin-top:var(--header);
 
     overflow:hidden;
 
@@ -675,21 +200,18 @@ header{
 }
 
 
-/* =========================================================
-   IMAGE CARD
-========================================================= */
-
 .justice-card{
     position:absolute;
     left:50%;
     top:50%;
 
     width:min(1180px,76vw);
-    aspect-ratio:16 / 9;
+    aspect-ratio:16/9;
 
     transform:translate(-50%,-50%);
 
     z-index:5;
+
     transform-style:preserve-3d;
 
     transition:
@@ -733,11 +255,6 @@ header{
     -webkit-backface-visibility:hidden;
 }
 
-
-/* =========================================================
-   ORIGINAL IMAGE
-========================================================= */
-
 .card-front{
     transform:rotateY(0deg);
 }
@@ -757,20 +274,45 @@ header{
         saturate(.9);
 }
 
+.card-back{
+    transform:rotateY(180deg);
+    background:#080706;
+}
+
+.card-back img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+    object-position:center top;
+
+    transform:scaleX(-1);
+
+    filter:
+        brightness(.86)
+        contrast(1.07)
+        saturate(.9);
+}
+
 
 /* =========================================================
-   COMPANY MARK
+   IMAGE BRAND
 ========================================================= */
 
 .image-brand{
     position:absolute;
+
     right:7%;
     top:50%;
 
     width:260px;
+
     text-align:center;
 
     z-index:10;
+
     opacity:0;
 
     transform:
@@ -818,7 +360,8 @@ body.ready .image-brand{
     font-size:25px;
     letter-spacing:4px;
 
-    color:white;
+    color:#fff;
+
     white-space:nowrap;
 }
 
@@ -845,34 +388,7 @@ body.ready .image-brand{
 
 
 /* =========================================================
-   FLIPPED IMAGE
-========================================================= */
-
-.card-back{
-    transform:rotateY(180deg);
-    background:#080706;
-}
-
-.card-back img{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-    object-position:center top;
-
-    transform:scaleX(-1);
-
-    filter:
-        brightness(.86)
-        contrast(1.07)
-        saturate(.9);
-}
-
-
-/* =========================================================
-   STAGE 1 INTRO
+   INTRO
 ========================================================= */
 
 .intro{
@@ -888,6 +404,7 @@ body.ready .image-brand{
     text-align:center;
 
     z-index:20;
+
     pointer-events:none;
 
     transition:
@@ -911,6 +428,7 @@ body.ready .image-brand{
         clamp(52px,7vw,100px);
 
     font-weight:normal;
+
     letter-spacing:4px;
 
     text-shadow:
@@ -919,7 +437,7 @@ body.ready .image-brand{
 
 
 /* =========================================================
-   INFORMATION
+   PAGE 1 INFORMATION
 ========================================================= */
 
 .content{
@@ -935,6 +453,7 @@ body.ready .image-brand{
         translateX(-20px);
 
     opacity:0;
+
     pointer-events:none;
 
     z-index:30;
@@ -960,6 +479,7 @@ body.ready .image-brand{
         clamp(48px,5vw,73px);
 
     font-weight:normal;
+
     line-height:1.04;
 }
 
@@ -975,11 +495,13 @@ body.ready .image-brand{
     color:#ccc;
 
     font-size:16px;
+
     line-height:1.75;
 }
 
 .buttons{
     display:flex;
+
     gap:15px;
 
     margin-top:33px;
@@ -1007,7 +529,7 @@ body.ready .image-brand{
 }
 
 .outline{
-    color:white;
+    color:#fff;
 
     border:
         1px solid rgba(255,255,255,.42);
@@ -1018,10 +540,6 @@ body.ready .image-brand{
     border-color:var(--gold);
 }
 
-
-/* =========================================================
-   GOLD LINE
-========================================================= */
 
 .gold-line{
     position:absolute;
@@ -1040,6 +558,7 @@ body.ready .image-brand{
         );
 
     opacity:0;
+
     z-index:20;
 
     transition:
@@ -1048,7 +567,7 @@ body.ready .image-brand{
 
 
 /* =========================================================
-   DESKTOP STAGE 2
+   PAGE 1 STAGE 2
 ========================================================= */
 
 body.ready .justice-card{
@@ -1071,6 +590,7 @@ body.ready .intro{
 
 body.ready .content{
     opacity:1;
+
     pointer-events:auto;
 
     transform:
@@ -1084,7 +604,7 @@ body.ready .gold-line{
 
 
 /* =========================================================
-   DESKTOP STAGE 3
+   PAGE 1 STAGE 3
 ========================================================= */
 
 .hero.stage3 .justice-card{
@@ -1105,16 +625,12 @@ body.ready .gold-line{
     transform:rotateY(180deg);
 }
 
-
-/* =========================================================
-   STAGE 3 SHADE
-========================================================= */
-
 .stage3-shade{
     position:absolute;
     inset:0;
 
     z-index:15;
+
     pointer-events:none;
 
     opacity:0;
@@ -1146,13 +662,9 @@ body.ready .gold-line{
         translateX(0);
 }
 
-
-/* =========================================================
-   DESKTOP ONE-TIME TRIGGER
-========================================================= */
-
 .interaction-zone{
     position:absolute;
+
     top:0;
     right:0;
 
@@ -1170,7 +682,7 @@ body.ready .gold-line{
 
 
 /* =========================================================
-   SEARCH PANEL
+   SEARCH
 ========================================================= */
 
 .search-panel{
@@ -1191,6 +703,7 @@ body.ready .gold-line{
     z-index:1200;
 
     opacity:0;
+
     pointer-events:none;
 
     transform:
@@ -1201,6 +714,7 @@ body.ready .gold-line{
 
 .search-panel.open{
     opacity:1;
+
     pointer-events:auto;
 
     transform:
@@ -1217,18 +731,19 @@ body.ready .gold-line{
     border:
         1px solid #444;
 
-    color:white;
+    color:#fff;
 
     outline:none;
 }
 
 
 /* =========================================================
-   OVERLAY
+   MENU
 ========================================================= */
 
 .overlay{
     position:fixed;
+
     inset:0;
 
     background:
@@ -1237,6 +752,7 @@ body.ready .gold-line{
     z-index:1400;
 
     opacity:0;
+
     pointer-events:none;
 
     transition:.4s;
@@ -1244,13 +760,9 @@ body.ready .gold-line{
 
 .overlay.open{
     opacity:1;
+
     pointer-events:auto;
 }
-
-
-/* =========================================================
-   SIDE MENU
-========================================================= */
 
 .side-menu{
     position:fixed;
@@ -1288,9 +800,10 @@ body.ready .gold-line{
     right:35px;
 
     background:none;
-    border:none;
 
-    color:white;
+    border:0;
+
+    color:#fff;
 
     font-size:34px;
 
@@ -1302,11 +815,12 @@ body.ready .gold-line{
 
     padding:16px 0;
 
-    color:white;
+    color:#fff;
 
     text-decoration:none;
 
     font-family:Georgia,serif;
+
     font-size:26px;
 
     border-bottom:
@@ -1317,13 +831,13 @@ body.ready .gold-line{
 
 .side-menu a:hover{
     padding-left:10px;
+
     color:var(--gold);
 }
 
 
 /* =========================================================
-   IMPORTANT FIX:
-   HIDE MOBILE-ONLY CONTENT ON LAPTOP / DESKTOP
+   MOBILE ONLY CONTENT
 ========================================================= */
 
 .mobile-extra,
@@ -1333,7 +847,597 @@ body.ready .gold-line{
 
 
 /* =========================================================
-   MOBILE / ANDROID / IPHONE ONLY
+   MOVING JUSTICE FIGURE
+========================================================= */
+
+.scroll-statue{
+    position:fixed;
+
+    left:74vw;
+    top:15vh;
+
+    width:min(430px,30vw);
+    height:auto;
+
+    z-index:900;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transform:
+        translate(-50%,0);
+
+    transform-origin:center center;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 28px 34px
+            rgba(0,0,0,.72)
+        );
+
+    will-change:
+        left,
+        top,
+        width,
+        opacity,
+        transform;
+}
+
+
+/* =========================================================
+   PAGE 2
+========================================================= */
+
+.firm-page{
+    --muted:#b7b2a8;
+
+    position:relative;
+
+    width:100%;
+
+    background:#080808;
+
+    color:#f3efe7;
+
+    z-index:2;
+
+    scroll-margin-top:var(--header);
+}
+
+.firm-hero{
+    min-height:
+        calc(100vh - var(--header));
+
+    min-height:
+        calc(100dvh - var(--header));
+
+    padding:
+        70px 7% 55px;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.15fr)
+        minmax(360px,.85fr);
+
+    gap:55px;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 58%,
+            #2c2317 0%,
+            #15110d 35%,
+            #090909 70%
+        );
+}
+
+.firm-copy{
+    max-width:700px;
+}
+
+.firm-eyebrow{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+}
+
+.firm-title{
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(58px,6vw,88px);
+
+    font-weight:normal;
+
+    line-height:1;
+
+    letter-spacing:-2px;
+}
+
+.firm-title span{
+    color:var(--gold);
+}
+
+.firm-text{
+    max-width:620px;
+
+    margin-top:28px;
+
+    color:#c9c4bb;
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+.firm-actions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:32px;
+}
+
+.firm-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:
+        14px 24px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.firm-btn-gold{
+    background:var(--gold);
+
+    color:#111;
+
+    border-color:var(--gold);
+}
+
+.firm-btn:hover{
+    border-color:var(--gold);
+
+    color:var(--gold);
+}
+
+.firm-btn-gold:hover{
+    background:#dfbf7a;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   PAGE 2 STATUE
+========================================================= */
+
+.firm-statue-zone{
+    position:relative;
+
+    min-height:600px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:flex-end;
+}
+
+.firm-statue-zone::before{
+    content:"";
+
+    position:absolute;
+
+    right:-80px;
+    bottom:35px;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(202,164,95,.15),
+            rgba(202,164,95,.05) 48%,
+            transparent 72%
+        );
+
+    filter:blur(10px);
+}
+
+.firm-statue{
+    position:relative;
+
+    z-index:2;
+
+    width:auto;
+
+    height:570px;
+
+    max-width:100%;
+
+    object-fit:contain;
+
+    object-position:
+        center bottom;
+
+    filter:
+        drop-shadow(
+            0 30px 30px
+            rgba(0,0,0,.7)
+        );
+}
+
+.firm-statue-line{
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:80%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(202,164,95,.75)
+        );
+}
+
+
+/* =========================================================
+   FACTS
+========================================================= */
+
+.firm-facts{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border-top:
+        1px solid rgba(255,255,255,.1);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.1);
+
+    background:#0d0d0c;
+}
+
+.firm-fact{
+    padding:
+        30px 7%;
+
+    border-right:
+        1px solid rgba(255,255,255,.1);
+}
+
+.firm-fact:last-child{
+    border-right:none;
+}
+
+.firm-fact strong{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:var(--gold);
+
+    font-family:Georgia,serif;
+
+    font-size:32px;
+}
+
+.firm-fact span{
+    color:#aaa59b;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   PAGE 2 SECTIONS
+========================================================= */
+
+.firm-section{
+    padding:
+        95px 7%;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    scroll-margin-top:var(--header);
+}
+
+.firm-heading{
+    display:grid;
+
+    grid-template-columns:
+        190px 1fr;
+
+    gap:40px;
+
+    max-width:1200px;
+
+    margin:
+        0 auto 50px;
+}
+
+.firm-label{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+.firm-heading h2{
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(40px,4vw,58px);
+
+    font-weight:normal;
+
+    line-height:1.08;
+}
+
+.firm-section-copy{
+    max-width:760px;
+
+    margin-top:24px;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+========================================================= */
+
+.firm-cards{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.firm-card{
+    min-height:280px;
+
+    padding:30px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(202,164,95,.055),
+            rgba(255,255,255,.01)
+        );
+
+    transition:.35s;
+}
+
+.firm-card:hover{
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(202,164,95,.55);
+}
+
+.firm-card-number{
+    display:block;
+
+    margin-bottom:52px;
+
+    color:var(--gold);
+
+    font-family:Georgia,serif;
+
+    font-size:21px;
+}
+
+.firm-card h3{
+    margin-bottom:14px;
+
+    font-family:Georgia,serif;
+
+    font-size:26px;
+
+    font-weight:normal;
+}
+
+.firm-card p{
+    color:#aaa69f;
+
+    font-size:15px;
+
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   12 FLOORS
+========================================================= */
+
+.firm-floor-grid{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:1px;
+
+    background:
+        rgba(202,164,95,.18);
+}
+
+.firm-floor{
+    min-height:160px;
+
+    padding:24px;
+
+    background:#0c0c0b;
+
+    transition:.3s;
+}
+
+.firm-floor:hover{
+    background:#17150f;
+}
+
+.firm-floor-number{
+    display:block;
+
+    margin-bottom:25px;
+
+    color:var(--gold);
+
+    font-family:Georgia,serif;
+
+    font-size:24px;
+}
+
+.firm-floor-title{
+    font-family:Georgia,serif;
+
+    font-size:18px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.firm-cta{
+    margin:
+        0 7% 90px;
+
+    padding:60px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:35px;
+
+    align-items:center;
+
+    border:
+        1px solid rgba(202,164,95,.32);
+
+    background:
+        linear-gradient(
+            120deg,
+            #16140e,
+            #0b0b09
+        );
+}
+
+.firm-cta h2{
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(36px,4vw,55px);
+
+    font-weight:normal;
+}
+
+.firm-cta p{
+    max-width:620px;
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.firm-footer{
+    padding:
+        30px 7%;
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    border-top:
+        1px solid rgba(255,255,255,.1);
+
+    color:#89867f;
+
+    font-size:11px;
+
+    letter-spacing:.8px;
+}
+
+
+/* =========================================================
+   MOBILE
 ========================================================= */
 
 @media screen and (max-width:900px){
@@ -1341,26 +1445,6 @@ body.ready .gold-line{
     :root{
         --header:70px;
     }
-
-
-    html,
-    body{
-        width:100%;
-        min-height:100%;
-
-        overflow-x:hidden;
-    }
-
-    body{
-        overflow-y:auto;
-
-        background:#070707;
-    }
-
-
-    /* =====================================================
-       MOBILE HEADER
-    ===================================================== */
 
     header{
         height:70px;
@@ -1370,18 +1454,13 @@ body.ready .gold-line{
 
         display:flex;
 
-        align-items:center;
-        justify-content:space-between;
-
-        background:
-            rgba(7,7,7,.98);
-
-        border-bottom:
-            1px solid rgba(255,255,255,.10);
+        justify-content:
+            space-between;
     }
 
     .logo{
         font-size:15px;
+
         letter-spacing:1.2px;
     }
 
@@ -1390,8 +1469,6 @@ body.ready .gold-line{
     }
 
     .header-right{
-        display:flex;
-        align-items:center;
         gap:8px;
     }
 
@@ -1401,6 +1478,7 @@ body.ready .gold-line{
 
     .lang{
         font-size:10px;
+
         letter-spacing:.7px;
     }
 
@@ -1424,27 +1502,20 @@ body.ready .gold-line{
     }
 
 
-    /* =====================================================
-       MOBILE RESET
-    ===================================================== */
+    /* PAGE 1 MOBILE */
 
     .hero{
-        position:relative;
-
-        top:70px;
-        left:0;
-
-        width:100%;
+        height:auto;
 
         min-height:
             calc(100dvh - 70px);
 
-        height:auto;
-
-        overflow:visible;
+        margin-top:70px;
 
         padding:
             14px 14px 40px;
+
+        overflow:visible;
 
         background:
             radial-gradient(
@@ -1453,14 +1524,7 @@ body.ready .gold-line{
                 #120e09 38%,
                 #070707 76%
             );
-
-        perspective:1500px;
     }
-
-
-    /* =====================================================
-       MAIN MOBILE IMAGE
-    ===================================================== */
 
     .justice-card,
     body.ready .justice-card{
@@ -1470,46 +1534,26 @@ body.ready .gold-line{
         top:auto;
 
         width:100%;
-
         height:auto;
 
-        margin:0 auto;
+        margin:
+            0 auto;
 
         aspect-ratio:
-            16 / 10.8;
+            16/10.8;
 
         transform:none;
 
         z-index:5;
     }
 
-    .card-inner{
-        width:100%;
-        height:100%;
-    }
-
-
-    /* =====================================================
-       MOBILE ORIGINAL PHOTO CROP
-    ===================================================== */
-
     .card-front img,
     body.ready .card-front img{
-        width:100%;
-        height:100%;
-
         object-fit:cover;
 
         object-position:
             30% 15%;
-
-        display:block;
     }
-
-
-    /* =====================================================
-       MOBILE BRAND PANEL
-    ===================================================== */
 
     .image-brand,
     body.ready .image-brand{
@@ -1548,9 +1592,6 @@ body.ready .gold-line{
 
         margin:
             0 auto 11px;
-
-        border-color:
-            rgba(202,164,95,.75);
     }
 
     .brand-symbol span{
@@ -1580,27 +1621,16 @@ body.ready .gold-line{
         line-height:1.5;
     }
 
-
-    /* =====================================================
-       REMOVE DESKTOP INTRO ON MOBILE
-    ===================================================== */
-
     .intro,
     body.ready .intro{
         display:none !important;
     }
-
-
-    /* =====================================================
-       MOBILE INFORMATION
-    ===================================================== */
 
     .content,
     body.ready .content{
         position:relative;
 
         left:auto;
-        right:auto;
         top:auto;
 
         width:100%;
@@ -1617,17 +1647,11 @@ body.ready .gold-line{
 
         transform:none;
 
-        max-height:none;
-
-        overflow:visible;
-
         z-index:30;
     }
 
     .eyebrow{
         margin-bottom:13px;
-
-        color:var(--gold);
 
         font-size:11px;
 
@@ -1635,122 +1659,17 @@ body.ready .gold-line{
     }
 
     .content h2{
-        max-width:100%;
-
-        font-family:
-            Georgia,
-            serif;
-
         font-size:
-            clamp(
-                39px,
-                10.2vw,
-                50px
-            );
-
-        line-height:1.02;
-
-        font-weight:normal;
+            clamp(39px,10.2vw,50px);
     }
 
     .description{
-        max-width:100%;
-
         margin-top:19px;
-
-        color:#d1d1d1;
 
         font-size:16px;
 
         line-height:1.62;
     }
-
-
-    /* =====================================================
-       EXTRA MOBILE DETAILS
-    ===================================================== */
-
-    .mobile-extra{
-        display:block;
-
-        margin-top:24px;
-
-        padding:
-            19px 18px;
-
-        border:
-            1px solid rgba(202,164,95,.22);
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(202,164,95,.08),
-                rgba(255,255,255,.018)
-            );
-    }
-
-    .mobile-extra-title{
-        font-family:
-            Georgia,
-            serif;
-
-        color:white;
-
-        font-size:20px;
-
-        margin-bottom:12px;
-    }
-
-    .mobile-extra-grid{
-        display:grid;
-
-        grid-template-columns:
-            1fr 1fr;
-
-        gap:12px;
-    }
-
-    .mobile-extra-item{
-        padding:
-            12px 10px;
-
-        background:
-            rgba(255,255,255,.025);
-
-        border:
-            1px solid rgba(255,255,255,.07);
-    }
-
-    .mobile-extra-number{
-        display:block;
-
-        color:var(--gold);
-
-        font-family:
-            Georgia,
-            serif;
-
-        font-size:20px;
-
-        margin-bottom:5px;
-    }
-
-    .mobile-extra-label{
-        color:#bbb;
-
-        font-size:10px;
-
-        line-height:1.45;
-
-        letter-spacing:.7px;
-
-        text-transform:uppercase;
-    }
-
-
-    /* =====================================================
-       MOBILE BUTTONS
-    ===================================================== */
 
     .buttons{
         display:grid;
@@ -1785,9 +1704,83 @@ body.ready .gold-line{
     }
 
 
-    /* =====================================================
-       FINAL MOBILE SHOWCASE
-    ===================================================== */
+    /* MOBILE EXTRA INFORMATION */
+
+    .mobile-extra{
+        display:block;
+
+        margin-top:24px;
+
+        padding:
+            19px 18px;
+
+        border:
+            1px solid rgba(202,164,95,.22);
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(202,164,95,.08),
+                rgba(255,255,255,.018)
+            );
+    }
+
+    .mobile-extra-title{
+        font-family:Georgia,serif;
+
+        color:#fff;
+
+        font-size:20px;
+
+        margin-bottom:12px;
+    }
+
+    .mobile-extra-grid{
+        display:grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:12px;
+    }
+
+    .mobile-extra-item{
+        padding:
+            12px 10px;
+
+        background:
+            rgba(255,255,255,.025);
+
+        border:
+            1px solid rgba(255,255,255,.07);
+    }
+
+    .mobile-extra-number{
+        display:block;
+
+        color:var(--gold);
+
+        font-family:Georgia,serif;
+
+        font-size:20px;
+
+        margin-bottom:5px;
+    }
+
+    .mobile-extra-label{
+        color:#bbb;
+
+        font-size:10px;
+
+        line-height:1.45;
+
+        letter-spacing:.7px;
+
+        text-transform:uppercase;
+    }
+
+
+    /* MOBILE SHOWCASE */
 
     .hero.mobile-showcase{
         position:fixed;
@@ -1801,6 +1794,8 @@ body.ready .gold-line{
             calc(100dvh - 70px);
 
         min-height:0;
+
+        margin:0;
 
         padding:0;
 
@@ -1839,13 +1834,8 @@ body.ready .gold-line{
         width:100%;
         height:100%;
 
-        border:none;
+        border:0;
     }
-
-
-    /* =====================================================
-       FINAL IMAGE CROP
-    ===================================================== */
 
     .hero.mobile-showcase .card-back img{
         width:100%;
@@ -1865,10 +1855,11 @@ body.ready .gold-line{
             saturate(.92);
     }
 
-
-    /* =====================================================
-       FINAL SHOWCASE INFORMATION PANEL
-    ===================================================== */
+    .hero.mobile-showcase > .content,
+    .hero.mobile-showcase > .stage3-shade,
+    .hero.mobile-showcase > .gold-line{
+        display:none !important;
+    }
 
     .mobile-final-info{
         display:none;
@@ -1904,8 +1895,7 @@ body.ready .gold-line{
             blur(8px);
 
         box-shadow:
-            0 14px 40px
-            rgba(0,0,0,.45);
+            0 14px 40px rgba(0,0,0,.45);
     }
 
     .mobile-final-kicker{
@@ -1919,16 +1909,10 @@ body.ready .gold-line{
     }
 
     .mobile-final-info h3{
-        font-family:
-            Georgia,
-            serif;
+        font-family:Georgia,serif;
 
         font-size:
-            clamp(
-                22px,
-                6.4vw,
-                29px
-            );
+            clamp(22px,6.4vw,29px);
 
         font-weight:normal;
 
@@ -1961,63 +1945,10 @@ body.ready .gold-line{
         letter-spacing:.8px;
     }
 
-
-    /* Hide normal content in mobile showcase */
-
-    .hero.mobile-showcase > .content,
-    .hero.mobile-showcase > .stage3-shade,
-    .hero.mobile-showcase > .gold-line{
+    .cursor-glow,
+    .interaction-zone{
         display:none !important;
     }
-
-
-    /* =====================================================
-       PREVENT DESKTOP STAGE 3 AFFECTING PHONE
-    ===================================================== */
-
-    .hero.stage3:not(.mobile-showcase){
-        position:relative;
-        top:70px;
-
-        width:100%;
-        height:auto;
-
-        min-height:
-            calc(100dvh - 70px);
-
-        padding:
-            14px 14px 40px;
-
-        overflow:visible;
-
-        z-index:auto;
-    }
-
-    .hero.stage3:not(.mobile-showcase) .justice-card{
-        position:relative;
-
-        left:auto;
-        top:auto;
-
-        width:100%;
-        height:auto;
-
-        margin:0;
-
-        aspect-ratio:
-            16 / 10.8;
-
-        transform:none;
-    }
-
-    .hero.stage3:not(.mobile-showcase) .card-inner{
-        transform:none;
-    }
-
-
-    /* =====================================================
-       SEARCH
-    ===================================================== */
 
     .search-panel{
         top:70px;
@@ -2026,23 +1957,11 @@ body.ready .gold-line{
         right:5%;
 
         width:90%;
-
-        padding:14px;
     }
-
-    .search-panel input{
-        padding:13px;
-
-        font-size:15px;
-    }
-
-
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
 
     .side-menu{
         width:88%;
+
         max-width:360px;
 
         padding:
@@ -2050,153 +1969,142 @@ body.ready .gold-line{
     }
 
     .side-menu a{
-        padding:
-            15px 0;
-
         font-size:23px;
     }
 
     .close-menu{
         top:21px;
+
         right:24px;
     }
 
 
-    /* =====================================================
-       MOBILE TOUCH CLEANUP
-    ===================================================== */
+    /* TRANSITION MOBILE */
 
-    .cursor-glow{
-        display:none !important;
+    .scroll-statue{
+        max-width:62vw;
     }
 
-    .interaction-zone{
-        display:none !important;
+
+    /* PAGE 2 MOBILE */
+
+    .firm-hero{
+        min-height:auto;
+
+        padding:
+            45px 18px 35px;
+
+        grid-template-columns:
+            1fr;
+
+        gap:25px;
     }
 
+    .firm-title{
+        font-size:
+            clamp(44px,11vw,58px);
+    }
+
+    .firm-text{
+        font-size:16px;
+    }
+
+    .firm-statue-zone{
+        min-height:390px;
+
+        justify-content:flex-end;
+    }
+
+    .firm-statue{
+        height:380px;
+
+        max-width:100%;
+    }
+
+    .firm-facts{
+        grid-template-columns:
+            1fr;
+    }
+
+    .firm-fact{
+        padding:
+            22px 20px;
+
+        border-right:0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
+    }
+
+    .firm-section{
+        padding:
+            60px 18px;
+    }
+
+    .firm-heading{
+        grid-template-columns:
+            1fr;
+
+        gap:14px;
+
+        margin-bottom:34px;
+    }
+
+    .firm-heading h2{
+        font-size:
+            clamp(36px,9vw,48px);
+    }
+
+    .firm-cards{
+        grid-template-columns:
+            1fr;
+    }
+
+    .firm-card{
+        min-height:auto;
+    }
+
+    .firm-card-number{
+        margin-bottom:28px;
+    }
+
+    .firm-floor-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .firm-cta{
+        margin:
+            0 18px 60px;
+
+        padding:
+            34px 24px;
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .firm-footer{
+        padding:
+            26px 18px;
+
+        display:grid;
+    }
 }
 
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
 
 @media screen and (max-width:390px){
 
     .logo{
         font-size:13px;
-        letter-spacing:.8px;
-    }
-
-    .header-right{
-        gap:6px;
-    }
-
-    .lang{
-        font-size:9px;
-    }
-
-    .search-button{
-        width:24px;
-        height:24px;
-    }
-
-    .hamburger{
-        width:25px;
-        height:18px;
-    }
-
-    .hero{
-        padding:
-            12px 12px 35px;
-    }
-
-    .justice-card,
-    body.ready .justice-card{
-        aspect-ratio:
-            16 / 11.3;
-    }
-
-    .card-front img,
-    body.ready .card-front img{
-        object-position:
-            29% 14%;
-    }
-
-    .image-brand,
-    body.ready .image-brand{
-        width:34%;
-
-        right:3%;
-    }
-
-    .brand-name{
-        font-size:9px;
     }
 
     .content h2{
-        font-size:
-            clamp(
-                36px,
-                10vw,
-                44px
-            );
+        font-size:36px;
     }
 
     .description{
         font-size:15px;
-    }
-
-    .btn{
-        font-size:9px;
-    }
-
-    .hero.mobile-showcase
-    .card-back img{
-        object-position:
-            30% 10%;
-    }
-
-    .hero.mobile-showcase
-    .mobile-final-info{
-        left:14px;
-        bottom:16px;
-
-        width:64%;
-
-        padding:
-            14px 12px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media screen and (max-width:345px){
-
-    header{
-        padding:
-            0 9px;
-    }
-
-    .logo{
-        font-size:11.5px;
-    }
-
-    .hero{
-        padding:
-            10px 10px 30px;
-    }
-
-    .content h2{
-        font-size:33px;
-    }
-
-    .description{
-        font-size:14px;
     }
 
     .mobile-extra-grid{
@@ -2204,39 +2112,21 @@ body.ready .gold-line{
             1fr;
     }
 
-}
-
-
-/* =========================================================
-   SHORT / LANDSCAPE MOBILE
-========================================================= */
-
-@media screen and (max-width:900px) and (max-height:600px){
-
-    .hero:not(.mobile-showcase){
-        min-height:700px;
+    .firm-title{
+        font-size:41px;
     }
 
-    .hero.mobile-showcase{
-        min-height:0;
+    .firm-statue-zone{
+        min-height:350px;
     }
 
-    .hero.mobile-showcase
-    .mobile-final-info{
-        bottom:10px;
-
-        padding:
-            11px 12px;
+    .firm-statue{
+        height:340px;
     }
 
-    .hero.mobile-showcase
-    .mobile-final-info h3{
-        font-size:20px;
-    }
-
-    .hero.mobile-showcase
-    .mobile-final-info p{
-        font-size:9px;
+    .firm-floor-grid{
+        grid-template-columns:
+            1fr;
     }
 
 }
@@ -2245,12 +2135,8 @@ body.ready .gold-line{
 </head>
 
 
-<body>
+<body id="top">
 
-
-<!-- =====================================================
-     GOLD CURSOR LIGHT
-===================================================== -->
 
 <div
 class="cursor-glow"
@@ -2258,24 +2144,17 @@ id="cursorGlow">
 </div>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
     <div class="logo">
         KRONBERG <span>LEGAL</span>
     </div>
 
-
     <div class="header-center">
         MÜNCHEN · INTERNATIONAL COUNSEL
     </div>
 
-
     <div class="header-right">
-
 
         <div class="languages">
 
@@ -2285,9 +2164,7 @@ id="cursorGlow">
                 EN
             </button>
 
-
             <div class="lang-line"></div>
-
 
             <button
             class="lang"
@@ -2343,9 +2220,8 @@ id="cursorGlow">
 </header>
 
 
-
 <!-- =====================================================
-     HERO
+     PAGE 1
 ===================================================== -->
 
 <main
@@ -2356,18 +2232,12 @@ id="hero">
     <div class="gold-line"></div>
 
 
-
-    <!-- IMAGE CARD -->
-
     <div
     class="justice-card"
     id="justiceCard">
 
-
         <div class="card-inner">
 
-
-            <!-- ORIGINAL SIDE -->
 
             <div class="card-face card-front">
 
@@ -2376,22 +2246,17 @@ id="hero">
                 alt="Lady Justice">
 
 
-                <!-- COMPANY MARK -->
-
                 <div class="image-brand">
 
                     <div class="brand-symbol">
                         <span>KL</span>
                     </div>
 
-
                     <div class="brand-name">
                         KRONBERG <span>LEGAL</span>
                     </div>
 
-
                     <div class="brand-rule"></div>
-
 
                     <div class="brand-subtitle">
                         RECHTSANWÄLTE
@@ -2403,8 +2268,6 @@ id="hero">
 
             </div>
 
-
-            <!-- ROTATED SIDE -->
 
             <div class="card-face card-back">
 
@@ -2420,14 +2283,8 @@ id="hero">
     </div>
 
 
-
-    <!-- DESKTOP SHADE -->
-
     <div class="stage3-shade"></div>
 
-
-
-    <!-- DESKTOP INTRO -->
 
     <div class="intro">
 
@@ -2441,9 +2298,6 @@ id="hero">
 
     </div>
 
-
-
-    <!-- MAIN INFORMATION -->
 
     <section class="content">
 
@@ -2495,7 +2349,7 @@ id="hero">
 
 
             <a
-           href="#firm-floors"
+            href="#firm-floors"
             class="btn outline"
             id="floorButton">
 
@@ -2505,9 +2359,6 @@ id="hero">
 
         </div>
 
-
-
-        <!-- MOBILE ONLY EXTRA INFORMATION -->
 
         <div class="mobile-extra">
 
@@ -2579,9 +2430,6 @@ id="hero">
     </section>
 
 
-
-    <!-- MOBILE FINAL INFO -->
-
     <div
     class="mobile-final-info"
     id="mobileFinalInfo">
@@ -2613,9 +2461,6 @@ id="hero">
     </div>
 
 
-
-    <!-- DESKTOP HOVER AREA -->
-
     <div
     class="interaction-zone"
     id="interactionZone">
@@ -2624,6 +2469,483 @@ id="hero">
 
 </main>
 
+
+<!-- =====================================================
+     MOVING FIGURE
+===================================================== -->
+
+<img
+class="scroll-statue"
+id="scrollStatue"
+src="justice-statue.png"
+alt=""
+aria-hidden="true">
+
+
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
+
+<section
+class="firm-page"
+id="our-firm">
+
+
+    <section class="firm-hero">
+
+
+        <div
+        class="firm-copy"
+        id="firmCopy">
+
+
+            <div class="firm-eyebrow">
+                02 / OUR FIRM
+            </div>
+
+
+            <h1 class="firm-title">
+
+                Built for
+                <span>clarity.</span>
+
+                <br>
+
+                Designed for perspective.
+
+            </h1>
+
+
+            <p class="firm-text">
+
+                Kronberg Legal is a fictional international law firm
+                based in Munich. Our twelve-floor concept brings
+                specialist legal teams together around a shared
+                standard of clarity, discretion and strategic thinking.
+
+            </p>
+
+
+            <div class="firm-actions">
+
+                <a
+                href="#firm-who"
+                class="firm-btn firm-btn-gold">
+
+                    Meet The Firm
+
+                </a>
+
+
+                <a
+                href="#firm-floors"
+                class="firm-btn">
+
+                    Explore 12 Floors
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+        class="firm-statue-zone"
+        id="statueDestination">
+
+
+            <img
+            class="firm-statue"
+            id="firmStatue"
+            src="justice-statue.png"
+            alt="Lady Justice with weighing scales">
+
+
+            <div class="firm-statue-line"></div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section class="firm-facts">
+
+
+        <div class="firm-fact">
+
+            <strong>
+                12
+            </strong>
+
+            <span>
+                Specialist legal floors
+            </span>
+
+        </div>
+
+
+        <div class="firm-fact">
+
+            <strong>
+                München
+            </strong>
+
+            <span>
+                German headquarters
+            </span>
+
+        </div>
+
+
+        <div class="firm-fact">
+
+            <strong>
+                DE / EN
+            </strong>
+
+            <span>
+                International perspective
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+    <section
+    class="firm-section"
+    id="firm-who">
+
+
+        <div class="firm-heading">
+
+
+            <div class="firm-label">
+                01 / WHO WE ARE
+            </div>
+
+
+            <div>
+
+
+                <h2>
+
+                    Different expertise.
+
+                    <br>
+
+                    One direction.
+
+                </h2>
+
+
+                <p class="firm-section-copy">
+
+                    Our concept is built around specialist teams
+                    working together instead of in isolation.
+                    Each floor represents a defined legal discipline,
+                    while the firm remains connected through a shared
+                    approach to client service and strategy.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section class="firm-section">
+
+
+        <div class="firm-heading">
+
+
+            <div class="firm-label">
+                02 / OUR PRINCIPLES
+            </div>
+
+
+            <h2>
+                How we approach the work.
+            </h2>
+
+
+        </div>
+
+
+        <div class="firm-cards">
+
+
+            <article class="firm-card">
+
+                <span class="firm-card-number">
+                    01
+                </span>
+
+                <h3>
+                    Clarity
+                </h3>
+
+                <p>
+                    Complex legal questions should lead to
+                    understandable choices, clear priorities
+                    and a practical next step.
+                </p>
+
+            </article>
+
+
+            <article class="firm-card">
+
+                <span class="firm-card-number">
+                    02
+                </span>
+
+                <h3>
+                    Discretion
+                </h3>
+
+                <p>
+                    Sensitive matters require careful communication,
+                    professional restraint and confidence in every
+                    interaction.
+                </p>
+
+            </article>
+
+
+            <article class="firm-card">
+
+                <span class="firm-card-number">
+                    03
+                </span>
+
+                <h3>
+                    Perspective
+                </h3>
+
+                <p>
+                    Legal advice works best when business,
+                    personal and strategic context are considered
+                    together.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section
+    class="firm-section"
+    id="firm-floors">
+
+
+        <div class="firm-heading">
+
+
+            <div class="firm-label">
+                03 / THE BUILDING
+            </div>
+
+
+            <div>
+
+
+                <h2>
+
+                    Twelve floors.
+
+                    <br>
+
+                    Twelve perspectives.
+
+                </h2>
+
+
+                <p class="firm-section-copy">
+
+                    Every floor represents one specialist area.
+                    Each floor will eventually have its own lawyers,
+                    contacts and detailed legal information.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="firm-floor-grid">
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">01</span>
+                <div class="firm-floor-title">
+                    Corporate &amp; M&amp;A
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">02</span>
+                <div class="firm-floor-title">
+                    Litigation
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">03</span>
+                <div class="firm-floor-title">
+                    Tax
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">04</span>
+                <div class="firm-floor-title">
+                    Employment
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">05</span>
+                <div class="firm-floor-title">
+                    Real Estate
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">06</span>
+                <div class="firm-floor-title">
+                    Banking &amp; Finance
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">07</span>
+                <div class="firm-floor-title">
+                    Intellectual Property
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">08</span>
+                <div class="firm-floor-title">
+                    Technology &amp; Data
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">09</span>
+                <div class="firm-floor-title">
+                    Competition
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">10</span>
+                <div class="firm-floor-title">
+                    Private Clients
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">11</span>
+                <div class="firm-floor-title">
+                    Cross-Border
+                </div>
+            </div>
+
+
+            <div class="firm-floor">
+                <span class="firm-floor-number">12</span>
+                <div class="firm-floor-title">
+                    Strategic Counsel
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section class="firm-cta">
+
+
+        <div>
+
+
+            <h2>
+                Explore Kronberg Legal floor by floor.
+            </h2>
+
+
+            <p>
+                Each specialist floor will eventually have its
+                own page, lawyers, contact details and detailed
+                practice information.
+            </p>
+
+
+        </div>
+
+
+        <a
+        href="#firm-floors"
+        class="firm-btn firm-btn-gold">
+
+            Discover The Floors
+
+        </a>
+
+
+    </section>
+
+
+    <footer class="firm-footer">
+
+
+        <span>
+            © KRONBERG LEGAL · FICTIONAL WEBSITE CONCEPT
+        </span>
+
+
+        <span>
+            MÜNCHEN · GERMANY
+        </span>
+
+
+    </footer>
+
+
+</section>
 
 
 <!-- =====================================================
@@ -2642,9 +2964,8 @@ id="searchPanel">
 </div>
 
 
-
 <!-- =====================================================
-     OVERLAY
+     MENU
 ===================================================== -->
 
 <div
@@ -2652,11 +2973,6 @@ class="overlay"
 id="overlay">
 </div>
 
-
-
-<!-- =====================================================
-     SIDE MENU
-===================================================== -->
 
 <aside
 class="side-menu"
@@ -2671,7 +2987,7 @@ id="sideMenu">
 
 
     <a
-    href="#"
+    href="#top"
     data-en="Home"
     data-de="Startseite">
         Home
@@ -2679,7 +2995,7 @@ id="sideMenu">
 
 
     <a
-    href="#"
+    href="#our-firm"
     data-en="Our Firm"
     data-de="Unsere Kanzlei">
         Our Firm
@@ -2687,7 +3003,7 @@ id="sideMenu">
 
 
     <a
-    href="#"
+    href="#firm-who"
     data-en="Expertise"
     data-de="Expertise">
         Expertise
@@ -2695,7 +3011,7 @@ id="sideMenu">
 
 
     <a
-    href="#"
+    href="#firm-floors"
     data-en="12 Floors"
     data-de="12 Etagen">
         12 Floors
@@ -2721,11 +3037,10 @@ id="sideMenu">
 </aside>
 
 
-
 <script>
 
 /* =========================================================
-   DESKTOP STAGE 1 → STAGE 2
+   PAGE 1 OPENING
 ========================================================= */
 
 window.addEventListener(
@@ -2742,27 +3057,27 @@ function(){
             "ready"
         );
 
-        return;
     }
+    else{
 
+        setTimeout(
+        function(){
 
-    setTimeout(
-    function(){
+            document.body.classList.add(
+                "ready"
+            );
 
-        document.body.classList.add(
-            "ready"
+        },
+        2000
         );
 
-    },
-    2000
-    );
+    }
 
 });
 
 
-
 /* =========================================================
-   ELEMENTS
+   PAGE 1 ELEMENTS
 ========================================================= */
 
 const hero =
@@ -2782,7 +3097,7 @@ document.getElementById(
 
 
 /* =========================================================
-   DESKTOP ONE-TIME FINAL ROTATION
+   DESKTOP IMAGE ROTATION
 ========================================================= */
 
 let desktopHasRotated =
@@ -2821,9 +3136,8 @@ function(){
 });
 
 
-
 /* =========================================================
-   MOBILE TWO-STEP TOUCH BEHAVIOR
+   MOBILE IMAGE
 ========================================================= */
 
 let mobileState =
@@ -2837,14 +3151,14 @@ justiceCard.addEventListener(
 "click",
 function(event){
 
-    const isMobile =
+    const mobile =
         window.matchMedia(
             "(max-width:900px)"
         ).matches;
 
 
     if(
-        !isMobile ||
+        !mobile ||
         mobileLocked
     ){
         return;
@@ -2853,8 +3167,6 @@ function(event){
 
     event.preventDefault();
 
-
-    /* FIRST TAP */
 
     if(
         mobileState === 0
@@ -2875,8 +3187,6 @@ function(event){
         return;
     }
 
-
-    /* SECOND TAP */
 
     if(
         mobileState === 1
@@ -2902,9 +3212,8 @@ function(event){
 });
 
 
-
 /* =========================================================
-   GOLD CURSOR LIGHT
+   CURSOR
 ========================================================= */
 
 const cursorGlow =
@@ -2912,19 +3221,24 @@ document.getElementById(
     "cursorGlow"
 );
 
-let mouseX = 0;
-let mouseY = 0;
 
-let glowX = 0;
-let glowY = 0;
+let mouseX =
+0;
+
+let mouseY =
+0;
+
+let glowX =
+0;
+
+let glowY =
+0;
 
 
 if(
-    window
-    .matchMedia(
+    window.matchMedia(
         "(hover:hover)"
-    )
-    .matches
+    ).matches
 ){
 
     document.addEventListener(
@@ -2966,16 +3280,22 @@ if(
     function animateGlow(){
 
         glowX +=
-            (mouseX - glowX)
-            * 0.14;
+            (
+                mouseX -
+                glowX
+            ) * .14;
+
 
         glowY +=
-            (mouseY - glowY)
-            * 0.14;
+            (
+                mouseY -
+                glowY
+            ) * .14;
 
 
         cursorGlow.style.left =
             glowX + "px";
+
 
         cursorGlow.style.top =
             glowY + "px";
@@ -2991,7 +3311,6 @@ if(
     animateGlow();
 
 }
-
 
 
 /* =========================================================
@@ -3019,7 +3338,6 @@ function(){
     );
 
 };
-
 
 
 /* =========================================================
@@ -3085,9 +3403,24 @@ function closeSideMenu(){
 closeMenu.onclick =
 closeSideMenu;
 
+
 overlay.onclick =
 closeSideMenu;
 
+
+document
+.querySelectorAll(
+    ".side-menu a"
+)
+.forEach(
+function(link){
+
+    link.addEventListener(
+        "click",
+        closeSideMenu
+    );
+
+});
 
 
 /* =========================================================
@@ -3158,7 +3491,6 @@ const translations =
 };
 
 
-
 function changeLanguage(
 language
 ){
@@ -3224,10 +3556,18 @@ language
     .forEach(
     function(link){
 
-        link.textContent =
+        if(
             link.dataset[
                 language
-            ];
+            ]
+        ){
+
+            link.textContent =
+                link.dataset[
+                    language
+                ];
+
+        }
 
     });
 
@@ -3256,7 +3596,6 @@ language
 }
 
 
-
 englishButton.onclick =
 function(){
 
@@ -3275,6 +3614,400 @@ function(){
     );
 
 };
+
+
+/* =========================================================
+   PAGE 1 -> PAGE 2 FIGURE TRANSITION
+========================================================= */
+
+const scrollStatue =
+document.getElementById(
+    "scrollStatue"
+);
+
+const firmStatue =
+document.getElementById(
+    "firmStatue"
+);
+
+const firmCopy =
+document.getElementById(
+    "firmCopy"
+);
+
+
+function clamp(
+value,
+minimum,
+maximum
+){
+
+    return Math.min(
+        maximum,
+        Math.max(
+            minimum,
+            value
+        )
+    );
+
+}
+
+
+function mix(
+start,
+end,
+amount
+){
+
+    return start +
+        (
+            end -
+            start
+        ) * amount;
+
+}
+
+
+function updatePageTransition(){
+
+
+    if(
+        !scrollStatue ||
+        !firmStatue ||
+        !firmCopy
+    ){
+        return;
+    }
+
+
+    const mobile =
+        window.innerWidth <=
+        900;
+
+
+    const heroHeight =
+        Math.max(
+            1,
+            hero.offsetHeight
+        );
+
+
+    const progress =
+        clamp(
+            window.scrollY /
+            heroHeight,
+            0,
+            1
+        );
+
+
+    const smooth =
+        progress *
+        progress *
+        (
+            3 -
+            2 * progress
+        );
+
+
+    /* When scrolling begins,
+       automatically use the full
+       Justice image on desktop */
+
+    if(
+        !mobile &&
+        window.scrollY > 18 &&
+        document.body
+        .classList
+        .contains(
+            "ready"
+        )
+    ){
+
+        hero.classList.add(
+            "stage3"
+        );
+
+        desktopHasRotated =
+            true;
+
+    }
+
+
+    let startX;
+    let startY;
+
+    let endX;
+    let endY;
+
+    let startWidth;
+    let endWidth;
+
+
+    if(
+        mobile
+    ){
+
+        startX =
+            window.innerWidth *
+            .50;
+
+        startY =
+            window.innerHeight *
+            .14;
+
+
+        endX =
+            window.innerWidth *
+            .72;
+
+        endY =
+            window.innerHeight *
+            .52;
+
+
+        startWidth =
+            Math.min(
+                250,
+                window.innerWidth *
+                .60
+            );
+
+
+        endWidth =
+            Math.min(
+                185,
+                window.innerWidth *
+                .44
+            );
+
+    }
+    else{
+
+        startX =
+            window.innerWidth *
+            .74;
+
+        startY =
+            window.innerHeight *
+            .15;
+
+
+        endX =
+            window.innerWidth *
+            .82;
+
+        endY =
+            window.innerHeight *
+            .47;
+
+
+        startWidth =
+            Math.min(
+                430,
+                window.innerWidth *
+                .30
+            );
+
+
+        endWidth =
+            Math.min(
+                320,
+                window.innerWidth *
+                .22
+            );
+
+    }
+
+
+    scrollStatue.style.left =
+        mix(
+            startX,
+            endX,
+            smooth
+        ) + "px";
+
+
+    scrollStatue.style.top =
+        mix(
+            startY,
+            endY,
+            smooth
+        ) + "px";
+
+
+    scrollStatue.style.width =
+        mix(
+            startWidth,
+            endWidth,
+            smooth
+        ) + "px";
+
+
+    scrollStatue.style.transform =
+        "translate(-50%,0) rotate(" +
+        mix(
+            -2,
+            2,
+            smooth
+        ) +
+        "deg) scale(" +
+        mix(
+            1,
+            .88,
+            smooth
+        ) +
+        ")";
+
+
+    /* Figure appears as if it
+       separates from Page 1 */
+
+    const appear =
+        clamp(
+            (
+                progress -
+                .05
+            ) /
+            .18,
+            0,
+            1
+        );
+
+
+    /* Moving figure blends into
+       Page 2 statue */
+
+    const handoff =
+        clamp(
+            (
+                progress -
+                .74
+            ) /
+            .22,
+            0,
+            1
+        );
+
+
+    /* Page 2 content reveal */
+
+    const reveal =
+        clamp(
+            (
+                progress -
+                .58
+            ) /
+            .30,
+            0,
+            1
+        );
+
+
+    scrollStatue.style.opacity =
+        String(
+            appear *
+            (
+                1 -
+                handoff
+            )
+        );
+
+
+    firmStatue.style.opacity =
+        String(
+            handoff
+        );
+
+
+    firmStatue.style.transform =
+        "translateY(" +
+        mix(
+            28,
+            0,
+            handoff
+        ) +
+        "px) scale(" +
+        mix(
+            .94,
+            1,
+            handoff
+        ) +
+        ")";
+
+
+    firmCopy.style.opacity =
+        String(
+            reveal
+        );
+
+
+    firmCopy.style.transform =
+        "translateY(" +
+        mix(
+            28,
+            0,
+            reveal
+        ) +
+        "px)";
+
+}
+
+
+/* smoother animation */
+
+let transitionFrame =
+false;
+
+
+function requestTransitionUpdate(){
+
+    if(
+        transitionFrame
+    ){
+        return;
+    }
+
+
+    transitionFrame =
+        true;
+
+
+    requestAnimationFrame(
+    function(){
+
+        updatePageTransition();
+
+        transitionFrame =
+            false;
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    requestTransitionUpdate,
+    {
+        passive:true
+    }
+);
+
+
+window.addEventListener(
+    "resize",
+    requestTransitionUpdate
+);
+
+
+window.addEventListener(
+    "load",
+    updatePageTransition
+);
+
+
+updatePageTransition();
 
 </script>
 
