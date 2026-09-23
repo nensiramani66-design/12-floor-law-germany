@@ -31,6 +31,15 @@
     article.append(head,practice,quote);
     return article;
   }
+  function buildFooter(){
+    var footer=document.createElement("footer");
+    footer.id="kl-premium-footer";
+    footer.className="kl-premium-footer kl-site";
+    footer.innerHTML=lang()==="de"
+      ? '<div class="kl-shell kl-premium-footer-grid"><div><div class="kl-premium-brand">KRONBERG <span>LEGAL</span></div><p>München · Internationale Perspektive</p><p class="kl-footer-muted">Unabhängig gedacht. International verbunden. Fiktives Website-Konzept.</p></div><div><h3>Schnellzugriff</h3><a href="floors.html">12 Etagen</a><a href="lawyers.html">Team</a><a href="our-firm.html">Kanzlei</a><a href="insights.html">Insights</a></div><div><h3>Kontakt</h3><p>München, Deutschland</p><p>contact@kronberg.example</p><a href="contact.html">Kontaktbereich ↗</a></div><div><h3>Folgen</h3><div class="kl-footer-socials"><button data-social="LinkedIn" aria-label="LinkedIn">in</button><button data-social="Instagram" aria-label="Instagram">◎</button><button data-social="YouTube" aria-label="YouTube">▶</button><button data-social="X" aria-label="X">X</button></div></div></div><div class="kl-shell kl-premium-footer-bottom"><span>© 2026 KRONBERG LEGAL · Alle Rechte vorbehalten · Fiktives Website-Konzept</span><nav><a href="legal.html">Recht & Datenschutz</a><a href="contact.html">Kontakt</a><a href="insights.html">Insights</a></nav></div>'
+      : '<div class="kl-shell kl-premium-footer-grid"><div><div class="kl-premium-brand">KRONBERG <span>LEGAL</span></div><p>Munich · International Perspective</p><p class="kl-footer-muted">Independent thinking. International perspective. Fictional website concept.</p></div><div><h3>Quick links</h3><a href="floors.html">12 Floors</a><a href="lawyers.html">People</a><a href="our-firm.html">Our Firm</a><a href="insights.html">Insights</a></div><div><h3>Contact</h3><p>Munich, Germany</p><p>contact@kronberg.example</p><a href="contact.html">Contact area ↗</a></div><div><h3>Follow</h3><div class="kl-footer-socials"><button data-social="LinkedIn" aria-label="LinkedIn">in</button><button data-social="Instagram" aria-label="Instagram">◎</button><button data-social="YouTube" aria-label="YouTube">▶</button><button data-social="X" aria-label="X">X</button></div></div></div><div class="kl-shell kl-premium-footer-bottom"><span>© 2026 KRONBERG LEGAL · All rights reserved · Fictional website concept</span><nav><a href="legal.html">Legal & Privacy</a><a href="contact.html">Contact</a><a href="insights.html">Insights</a></nav></div>';
+    return footer;
+  }
   function render(){
     if(!/(\/|\/index\.html)$/i.test(location.pathname))return;
     var host=document.getElementById("our-firm")||document.body;
@@ -45,6 +54,10 @@
     var track=document.createElement("div");track.className="kl-testimonial-track";
     rows.concat(rows).forEach(function(t){track.append(card(t));});
     win.append(track);section.append(title,win);host.append(section);
+    document.getElementById("kl-global-links")?.remove();
+    document.querySelectorAll(".firm-footer").forEach(function(el){el.style.display="none";});
+    document.getElementById("kl-premium-footer")?.remove();
+    host.append(buildFooter());
   }
   window.addEventListener("load",render);
   new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
