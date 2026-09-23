@@ -24,3 +24,114 @@
 
 /* Long German words and example addresses stay inside narrow screens. */
 .kl-site h1,.kl-site h2,.kl-site h3,.kl-site .kl-floor-name,.kl-site dd,.kl-site .kl-form-result{overflow-wrap:anywhere;hyphens:auto}
+
+
+/* =========================================================
+   FLOOR IMAGE CARDS — 12 matching AI-created backgrounds
+   Preserve upper-left crop; expanded state reveals more scene.
+========================================================= */
+.kl-site[data-page="floors"] .kl-floor-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background:#080b09;
+}
+.kl-site[data-page="floors"] .kl-floor-select{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:190px;
+  background:#080b09;
+  transition:min-height .55s cubic-bezier(.2,.75,.2,1);
+}
+.kl-site[data-page="floors"] .kl-floor-select::before{
+  content:"";
+  position:absolute;
+  inset:-6%;
+  z-index:-2;
+  background-image:
+    linear-gradient(90deg,rgba(5,7,6,.96) 0%,rgba(5,7,6,.87) 28%,rgba(5,7,6,.55) 50%,rgba(5,7,6,.19) 75%,rgba(5,7,6,.30) 100%),
+    var(--floor-image);
+  background-repeat:no-repeat;
+  background-position:center,top left;
+  background-size:100% 100%,cover;
+  transform:scale(1.08);
+  transform-origin:top left;
+  filter:saturate(.93) brightness(.84) contrast(1.03);
+  transition:transform .62s cubic-bezier(.2,.75,.2,1),filter .42s ease;
+}
+.kl-site[data-page="floors"] .kl-floor-select::after{
+  z-index:4;
+  text-shadow:0 2px 16px #000;
+}
+.kl-site[data-page="floors"] .kl-floor-select > *{
+  position:relative;
+  z-index:2;
+}
+.kl-site[data-page="floors"] .kl-floor-num{
+  color:#dfc078;
+  text-shadow:0 3px 22px #000,0 1px 4px #000;
+}
+.kl-site[data-page="floors"] .kl-floor-name{
+  color:#fffaf0;
+  text-shadow:0 3px 22px #000,0 1px 4px #000;
+  max-width:78%;
+}
+.kl-site[data-page="floors"] .kl-floor-card:hover .kl-floor-select::before,
+.kl-site[data-page="floors"] .kl-floor-card:focus-within .kl-floor-select::before{
+  transform:scale(1.035);
+  filter:saturate(1.08) brightness(.92) contrast(1.04);
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select{
+  min-height:315px;
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::before{
+  transform:scale(.965);
+  filter:saturate(1.02) brightness(.90) contrast(1.02);
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-name{
+  font-size:clamp(28px,2.5vw,38px);
+  max-width:62%;
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{
+  font-size:48px;
+}
+.kl-site[data-page="floors"] .kl-floor-preview{
+  position:relative;
+  z-index:3;
+  background:linear-gradient(180deg,rgba(5,7,6,.40),rgba(5,7,6,.93) 38%);
+  backdrop-filter:blur(3px);
+}
+.kl-site[data-page="floors"] .kl-preview-inside p{
+  color:#eee8dc;
+  text-shadow:0 2px 12px #000;
+}
+
+/* Each practice gets its own image. */
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(1){--floor-image:url("floor-cards/floor-01.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(2){--floor-image:url("floor-cards/floor-02.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(3){--floor-image:url("floor-cards/floor-03.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(4){--floor-image:url("floor-cards/floor-04.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(5){--floor-image:url("floor-cards/floor-05.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(6){--floor-image:url("floor-cards/floor-06.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(7){--floor-image:url("floor-cards/floor-07.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(8){--floor-image:url("floor-cards/floor-08.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(9){--floor-image:url("floor-cards/floor-09.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(10){--floor-image:url("floor-cards/floor-10.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(11){--floor-image:url("floor-cards/floor-11.webp")}
+.kl-site[data-page="floors"] .kl-floor-card:nth-child(12){--floor-image:url("floor-cards/floor-12.webp")}
+
+@media(min-width:1100px){
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select{min-height:320px}
+}
+@media(max-width:700px){
+  .kl-site[data-page="floors"] .kl-floor-select{min-height:170px}
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select{min-height:245px}
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-name{font-size:25px;max-width:78%}
+  .kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{font-size:38px}
+  .kl-site[data-page="floors"] .kl-floor-select::before{
+    background-image:
+      linear-gradient(90deg,rgba(5,7,6,.96) 0%,rgba(5,7,6,.82) 35%,rgba(5,7,6,.38) 70%,rgba(5,7,6,.30) 100%),
+      var(--floor-image);
+  }
+}
