@@ -1050,3 +1050,25 @@ body:has(#kl-home-final) .firm-footer{display:none!important}
   .kl-leadership .kl-leader-copy{padding:24px 20px 26px}
 }
 
+/* Leadership portrait crop correction */
+.kl-leadership .kl-leader-photo-frame{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.kl-leadership .kl-leader-photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  background:#090a09;
+}
+.kl-leadership .kl-leader:first-child .kl-leader-photo-frame img{
+  object-fit:contain;
+  object-position:center center;
+  transform:scale(.96);
+}
+.kl-leadership .kl-leader:first-child:hover .kl-leader-photo-frame img{
+  transform:scale(.985);
+}
+
