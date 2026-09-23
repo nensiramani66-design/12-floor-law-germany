@@ -3,10 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kronberg Legal | Rechtsanwälte München</title>
 
@@ -57,7 +54,6 @@ body{
     border-radius:50%;
 
     pointer-events:none;
-
     z-index:9999;
 
     opacity:0;
@@ -74,7 +70,6 @@ body{
         );
 
     filter:blur(6px);
-
     mix-blend-mode:screen;
 
     transition:opacity .25s ease;
@@ -108,26 +103,21 @@ header{
     z-index:1000;
 }
 
-
 .logo{
     font-family:Georgia,serif;
 
     font-size:23px;
-
     letter-spacing:3px;
 
     white-space:nowrap;
 }
 
-
 .logo span{
     color:var(--gold);
 }
 
-
 .header-center{
     font-size:10px;
-
     letter-spacing:4px;
 
     color:#888;
@@ -135,12 +125,10 @@ header{
     text-transform:uppercase;
 }
 
-
 .header-right{
     justify-self:end;
 
     display:flex;
-
     align-items:center;
 
     gap:18px;
@@ -153,22 +141,17 @@ header{
 
 .languages{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
-
 .lang{
     background:none;
-
     border:none;
 
     color:#777;
 
     font-size:11px;
-
     letter-spacing:2px;
 
     cursor:pointer;
@@ -176,16 +159,13 @@ header{
     transition:.3s;
 }
 
-
 .lang.active,
 .lang:hover{
     color:var(--gold);
 }
 
-
 .lang-line{
     width:1px;
-
     height:14px;
 
     background:#555;
@@ -201,20 +181,16 @@ header{
     height:32px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:none;
-
     border:none;
 
     color:white;
 
     cursor:pointer;
 }
-
 
 .search-button svg{
     width:20px;
@@ -231,29 +207,23 @@ header{
     height:27px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:space-between;
 
     background:none;
-
     border:none;
 
     cursor:pointer;
 }
 
-
 .hamburger span{
     width:100%;
-
     height:2px;
 
     background:white;
 
     transition:.3s;
 }
-
 
 .hamburger:hover span:nth-child(2){
     width:65%;
@@ -268,16 +238,12 @@ header{
     position:absolute;
 
     top:var(--header);
-
     left:0;
 
     width:100%;
 
-    height:
-        calc(100vh - var(--header));
-
-    height:
-        calc(100dvh - var(--header));
+    height:calc(100vh - var(--header));
+    height:calc(100dvh - var(--header));
 
     overflow:hidden;
 
@@ -306,8 +272,7 @@ header{
 
     aspect-ratio:16 / 9;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     z-index:5;
 
@@ -320,7 +285,6 @@ header{
         height 1s cubic-bezier(.7,0,.2,1),
         transform 1s cubic-bezier(.7,0,.2,1);
 }
-
 
 .card-inner{
     position:relative;
@@ -339,7 +303,6 @@ header{
         0 30px 90px rgba(0,0,0,.78);
 }
 
-
 .card-face{
     position:absolute;
 
@@ -356,7 +319,6 @@ header{
         1px solid rgba(202,164,95,.28);
 
     backface-visibility:hidden;
-
     -webkit-backface-visibility:hidden;
 }
 
@@ -369,13 +331,11 @@ header{
     transform:rotateY(0deg);
 }
 
-
 .card-front img{
     width:100%;
     height:100%;
 
     object-fit:contain;
-
     object-position:center;
 
     display:block;
@@ -395,7 +355,6 @@ header{
     position:absolute;
 
     right:7%;
-
     top:50%;
 
     width:260px;
@@ -415,7 +374,6 @@ header{
         transform .8s ease .7s;
 }
 
-
 body.ready .image-brand{
     opacity:1;
 
@@ -423,19 +381,14 @@ body.ready .image-brand{
         translateY(-50%);
 }
 
-
 .brand-symbol{
     width:92px;
-
     height:92px;
 
-    margin:
-        0 auto 23px;
+    margin:0 auto 23px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border:
@@ -444,12 +397,10 @@ body.ready .image-brand{
     transform:rotate(45deg);
 }
 
-
 .brand-symbol span{
     font-family:Georgia,serif;
 
     font-size:31px;
-
     letter-spacing:2px;
 
     color:#d7b36b;
@@ -457,12 +408,10 @@ body.ready .image-brand{
     transform:rotate(-45deg);
 }
 
-
 .brand-name{
     font-family:Georgia,serif;
 
     font-size:25px;
-
     letter-spacing:4px;
 
     color:white;
@@ -470,15 +419,12 @@ body.ready .image-brand{
     white-space:nowrap;
 }
 
-
 .brand-name span{
     color:var(--gold);
 }
 
-
 .brand-rule{
     width:75px;
-
     height:1px;
 
     margin:17px auto;
@@ -486,12 +432,10 @@ body.ready .image-brand{
     background:var(--gold);
 }
 
-
 .brand-subtitle{
     color:#b2a38b;
 
     font-size:9px;
-
     letter-spacing:3px;
 
     line-height:1.8;
@@ -508,7 +452,6 @@ body.ready .image-brand{
     background:#080706;
 }
 
-
 .card-back img{
     width:100%;
     height:100%;
@@ -516,7 +459,6 @@ body.ready .image-brand{
     display:block;
 
     object-fit:cover;
-
     object-position:center top;
 
     transform:scaleX(-1);
@@ -540,8 +482,7 @@ body.ready .image-brand{
 
     width:90%;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     text-align:center;
 
@@ -554,17 +495,14 @@ body.ready .image-brand{
         transform .9s ease;
 }
 
-
 .intro-small{
     margin-bottom:18px;
 
     color:var(--gold);
 
     font-size:11px;
-
     letter-spacing:6px;
 }
-
 
 .intro h1{
     font-family:Georgia,serif;
@@ -589,7 +527,6 @@ body.ready .image-brand{
     position:absolute;
 
     left:7.5%;
-
     top:50%;
 
     width:560px;
@@ -609,17 +546,14 @@ body.ready .image-brand{
         transform 1s ease .4s;
 }
 
-
 .eyebrow{
     margin-bottom:22px;
 
     color:var(--gold);
 
     font-size:11px;
-
     letter-spacing:4px;
 }
-
 
 .content h2{
     font-family:Georgia,serif;
@@ -632,11 +566,9 @@ body.ready .image-brand{
     line-height:1.04;
 }
 
-
 .content h2 span{
     color:var(--gold);
 }
-
 
 .description{
     margin-top:25px;
@@ -646,10 +578,8 @@ body.ready .image-brand{
     color:#ccc;
 
     font-size:16px;
-
     line-height:1.75;
 }
-
 
 .buttons{
     display:flex;
@@ -659,22 +589,17 @@ body.ready .image-brand{
     margin-top:33px;
 }
 
-
 .btn{
-    padding:
-        16px 25px;
+    padding:16px 25px;
 
     text-decoration:none;
-
     text-transform:uppercase;
 
     font-size:11px;
-
     letter-spacing:1.4px;
 
     transition:.3s;
 }
-
 
 .gold{
     background:var(--gold);
@@ -682,11 +607,9 @@ body.ready .image-brand{
     color:#111;
 }
 
-
 .gold:hover{
     background:#e1c17c;
 }
-
 
 .outline{
     color:white;
@@ -694,7 +617,6 @@ body.ready .image-brand{
     border:
         1px solid rgba(255,255,255,.42);
 }
-
 
 .outline:hover{
     color:var(--gold);
@@ -711,11 +633,9 @@ body.ready .image-brand{
     position:absolute;
 
     left:4.4%;
-
     top:38%;
 
     width:1px;
-
     height:180px;
 
     background:
@@ -735,12 +655,11 @@ body.ready .image-brand{
 
 
 /* =========================================================
-   STAGE 2
+   DESKTOP STAGE 2
 ========================================================= */
 
 body.ready .justice-card{
     left:76.5%;
-
     top:50%;
 
     width:min(760px,47vw);
@@ -749,7 +668,6 @@ body.ready .justice-card{
         translate(-50%,-50%);
 }
 
-
 body.ready .intro{
     opacity:0;
 
@@ -757,7 +675,6 @@ body.ready .intro{
         translate(-58%,-50%)
         scale(.96);
 }
-
 
 body.ready .content{
     opacity:1;
@@ -769,23 +686,20 @@ body.ready .content{
         translateX(0);
 }
 
-
 body.ready .gold-line{
     opacity:1;
 }
 
 
 /* =========================================================
-   STAGE 3
+   DESKTOP STAGE 3
 ========================================================= */
 
 .hero.stage3 .justice-card{
     left:0;
-
     top:0;
 
     width:100%;
-
     height:100%;
 
     aspect-ratio:auto;
@@ -794,7 +708,6 @@ body.ready .gold-line{
 
     z-index:8;
 }
-
 
 .hero.stage3 .card-inner{
     transform:rotateY(180deg);
@@ -831,11 +744,9 @@ body.ready .gold-line{
         opacity .55s ease .3s;
 }
 
-
 .hero.stage3 .stage3-shade{
     opacity:1;
 }
-
 
 .hero.stage3 .content{
     opacity:1;
@@ -854,18 +765,15 @@ body.ready .gold-line{
     position:absolute;
 
     top:0;
-
     right:0;
 
     width:52%;
-
     height:100%;
 
     z-index:50;
 
     cursor:pointer;
 }
-
 
 .hero.stage3 .interaction-zone{
     pointer-events:none;
@@ -880,7 +788,6 @@ body.ready .gold-line{
     position:fixed;
 
     top:var(--header);
-
     right:6%;
 
     width:330px;
@@ -904,7 +811,6 @@ body.ready .gold-line{
     transition:.3s;
 }
 
-
 .search-panel.open{
     opacity:1;
 
@@ -913,7 +819,6 @@ body.ready .gold-line{
     transform:
         translateY(0);
 }
-
 
 .search-panel input{
     width:100%;
@@ -951,7 +856,6 @@ body.ready .gold-line{
 
     transition:.4s;
 }
-
 
 .overlay.open{
     opacity:1;
@@ -991,21 +895,17 @@ body.ready .gold-line{
         right .55s cubic-bezier(.7,0,.2,1);
 }
 
-
 .side-menu.open{
     right:0;
 }
-
 
 .close-menu{
     position:absolute;
 
     top:26px;
-
     right:35px;
 
     background:none;
-
     border:none;
 
     color:white;
@@ -1014,7 +914,6 @@ body.ready .gold-line{
 
     cursor:pointer;
 }
-
 
 .side-menu a{
     display:block;
@@ -1035,7 +934,6 @@ body.ready .gold-line{
     transition:.3s;
 }
 
-
 .side-menu a:hover{
     padding-left:10px;
 
@@ -1047,24 +945,32 @@ body.ready .gold-line{
 /* =========================================================
    =========================================================
    MOBILE / ANDROID / IPHONE ONLY
+   DESKTOP CODE ABOVE REMAINS UNCHANGED
    =========================================================
 ========================================================= */
 
 @media screen and (max-width:900px){
 
     :root{
-        --header:68px;
+        --header:70px;
     }
+
+
+    /* =====================================================
+       MOBILE BASE
+    ===================================================== */
 
     html,
     body{
         width:100%;
         min-height:100%;
+
         overflow-x:hidden;
     }
 
     body{
         overflow-y:auto;
+
         background:#070707;
     }
 
@@ -1074,15 +980,17 @@ body.ready .gold-line{
     ===================================================== */
 
     header{
-        height:68px;
+        height:70px;
 
-        padding:0 14px;
+        padding:
+            0 14px;
 
         display:flex;
 
         align-items:center;
 
-        justify-content:space-between;
+        justify-content:
+            space-between;
 
         background:
             rgba(7,7,7,.98);
@@ -1091,20 +999,15 @@ body.ready .gold-line{
             1px solid rgba(255,255,255,.10);
     }
 
-
     .logo{
         font-size:15px;
 
-        letter-spacing:1.4px;
-
-        white-space:nowrap;
+        letter-spacing:1.3px;
     }
-
 
     .header-center{
         display:none;
     }
-
 
     .header-right{
         display:flex;
@@ -1114,11 +1017,9 @@ body.ready .gold-line{
         gap:8px;
     }
 
-
     .languages{
         gap:4px;
     }
-
 
     .lang{
         font-size:10px;
@@ -1126,23 +1027,19 @@ body.ready .gold-line{
         letter-spacing:.8px;
     }
 
-
     .lang-line{
         height:12px;
     }
-
 
     .search-button{
         width:26px;
         height:26px;
     }
 
-
     .search-button svg{
         width:17px;
         height:17px;
     }
-
 
     .hamburger{
         width:28px;
@@ -1151,14 +1048,17 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE PAGE
+       MOBILE HERO
+
+       IMPORTANT:
+       Everything uses normal vertical page flow.
+       The image and text therefore CANNOT overlap.
     ===================================================== */
 
     .hero{
         position:relative;
 
-        top:68px;
-
+        top:70px;
         left:0;
 
         width:100%;
@@ -1166,97 +1066,85 @@ body.ready .gold-line{
         height:auto;
 
         min-height:
-            calc(100vh - 68px);
-
-        min-height:
-            calc(100dvh - 68px);
-
-        padding-bottom:36px;
+            calc(100dvh - 70px);
 
         overflow:visible;
 
+        padding:
+            16px 16px 42px;
+
         background:
             radial-gradient(
-                circle at 50% 19%,
-                #241c12 0%,
-                #120f0b 40%,
-                #070707 76%
+                circle at 50% 18%,
+                #261e14 0%,
+                #120f0b 38%,
+                #070707 75%
             );
+
+        perspective:1500px;
     }
 
 
     /* =====================================================
-       MOBILE STAGE 1
-       IMAGE AT TOP
-       COMPANY NAME BELOW
+       MOBILE OPENING IMAGE
+
+       IMAGE IS AT THE TOP.
+       COMPANY NAME IS UNDER THE IMAGE.
+       NOTHING IS WRITTEN OVER THE PHOTO.
     ===================================================== */
 
     .justice-card{
-        position:absolute;
+        position:relative;
 
-        left:50%;
+        left:auto;
+        top:auto;
 
-        top:18px;
-
-        width:94vw;
+        width:100%;
+        max-width:620px;
 
         height:auto;
 
-        aspect-ratio:16 / 9;
+        margin:
+            0 auto;
 
-        transform:
-            translateX(-50%);
+        aspect-ratio:
+            16 / 10;
+
+        transform:none;
+
+        z-index:5;
     }
 
+    .card-inner{
+        width:100%;
+        height:100%;
+    }
+
+    /*
+       On mobile we crop away more of the
+       empty architectural area.
+
+       Lady Justice is the focus.
+    */
 
     .card-front img{
         width:100%;
-
         height:100%;
 
-        object-fit:contain;
+        object-fit:cover;
 
-        object-position:center;
-    }
+        object-position:
+            34% 18%;
 
-
-    .intro{
-        left:50%;
-
-        top:calc(52.875vw + 48px);
-
-        width:90%;
-
-        transform:
-            translateX(-50%);
-
-        text-align:center;
-    }
-
-
-    .intro-small{
-        margin-bottom:11px;
-
-        font-size:10px;
-
-        letter-spacing:3px;
-    }
-
-
-    .intro h1{
-        font-size:
-            clamp(36px,10vw,48px);
-
-        line-height:1.02;
-
-        letter-spacing:2px;
+        display:block;
     }
 
 
     /*
-       Do not put KL logo on top of the
-       mobile image.
-       This avoids overlap.
+       Desktop KL mark stays exactly as it is,
+       but is intentionally hidden on mobile
+       because the company identity appears
+       underneath the photograph.
     */
 
     .image-brand{
@@ -1265,109 +1153,214 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE STAGE 2
-       IMAGE ABOVE
-       INFORMATION BELOW
+       MOBILE OPENING COMPANY IDENTITY
     ===================================================== */
 
-    body.ready .justice-card{
-        left:50%;
+    .intro{
+        position:relative;
 
-        top:18px;
+        left:auto;
+        top:auto;
 
-        width:94vw;
+        width:100%;
 
-        height:auto;
+        margin:
+            24px auto 0;
 
-        aspect-ratio:16 / 9;
+        padding:
+            0 4px;
 
-        transform:
-            translateX(-50%);
+        transform:none;
+
+        text-align:center;
+
+        opacity:1;
+
+        z-index:20;
+
+        transition:
+            opacity .55s ease,
+            max-height .55s ease,
+            margin .55s ease;
+
+        max-height:180px;
+    }
+
+    .intro-small{
+        margin-bottom:12px;
+
+        color:var(--gold);
+
+        font-size:12px;
+
+        letter-spacing:3px;
+    }
+
+    .intro h1{
+        font-family:Georgia,serif;
+
+        font-size:
+            clamp(39px,10vw,54px);
+
+        line-height:1.02;
+
+        letter-spacing:2px;
+
+        font-weight:normal;
+
+        text-shadow:none;
     }
 
 
-    body.ready .card-front img{
-        object-fit:contain;
-
-        object-position:center;
-    }
-
-
-    body.ready .intro{
-        opacity:0;
-
-        transform:
-            translateX(-50%)
-            translateY(12px);
-    }
-
+    /* =====================================================
+       MOBILE INFORMATION
+       HIDDEN DURING OPENING
+    ===================================================== */
 
     .content{
         position:relative;
 
         left:auto;
-
+        top:auto;
         right:auto;
 
-        top:auto;
-
-        width:auto;
+        width:100%;
 
         margin:
-            calc(52.875vw + 54px)
-            20px
-            0;
+            0 auto;
 
-        padding-bottom:28px;
-
-        opacity:0;
+        padding:
+            0 3px;
 
         transform:none;
 
+        opacity:0;
+
+        pointer-events:none;
+
         z-index:30;
+
+        max-height:0;
+
+        overflow:hidden;
+
+        transition:
+            opacity .65s ease,
+            max-height .75s ease,
+            margin .75s ease;
     }
 
+
+    /* =====================================================
+       MOBILE TRANSITION 1
+
+       IMAGE STAYS AT TOP.
+       COMPANY OPENING TITLE DISAPPEARS.
+       INFORMATION OPENS BELOW THE IMAGE.
+    ===================================================== */
+
+    body.ready .justice-card{
+        position:relative;
+
+        left:auto;
+        top:auto;
+
+        width:100%;
+
+        max-width:620px;
+
+        height:auto;
+
+        margin:
+            0 auto;
+
+        aspect-ratio:
+            16 / 10;
+
+        transform:none;
+    }
+
+    body.ready .card-front img{
+        object-fit:cover;
+
+        object-position:
+            34% 18%;
+    }
+
+    body.ready .intro{
+        opacity:0;
+
+        max-height:0;
+
+        margin-top:0;
+
+        overflow:hidden;
+    }
 
     body.ready .content{
         opacity:1;
 
         pointer-events:auto;
 
+        max-height:900px;
+
+        overflow:visible;
+
+        margin-top:28px;
+
         transform:none;
     }
 
 
+    /* =====================================================
+       MOBILE INFORMATION TYPOGRAPHY
+    ===================================================== */
+
     .eyebrow{
-        margin-bottom:13px;
+        margin-bottom:14px;
 
-        font-size:10px;
+        color:var(--gold);
 
-        letter-spacing:2.3px;
+        font-size:11px;
+
+        letter-spacing:2.5px;
     }
-
 
     .content h2{
         max-width:100%;
 
-        font-size:
-            clamp(37px,10vw,47px);
+        font-family:
+            Georgia,
+            serif;
 
-        line-height:1.03;
+        font-size:
+            clamp(40px,10.5vw,54px);
+
+        line-height:1.02;
+
+        font-weight:normal;
     }
 
+    .content h2 span{
+        color:var(--gold);
+    }
 
     .description{
         max-width:100%;
 
-        margin-top:18px;
+        margin-top:20px;
 
-        font-size:15.5px;
+        color:#d2d2d2;
+
+        font-size:16px;
 
         line-height:1.62;
-
-        color:#d0d0d0;
     }
 
+
+    /* =====================================================
+       MOBILE BUTTONS
+    ===================================================== */
 
     .buttons{
         display:flex;
@@ -1378,15 +1371,16 @@ body.ready .gold-line{
 
         width:100%;
 
-        margin-top:22px;
+        margin-top:24px;
     }
 
-
     .btn{
+        display:block;
+
         width:100%;
 
         padding:
-            15px 12px;
+            16px 14px;
 
         text-align:center;
 
@@ -1397,33 +1391,42 @@ body.ready .gold-line{
         white-space:normal;
     }
 
-
     .gold-line{
         display:none;
     }
 
 
     /* =====================================================
-       MOBILE STAGE 3
-       SECOND AND FINAL TRANSITION
+       MOBILE TRANSITION 2
+       FINAL ONE-TIME IMAGE VIEW
+
+       USER TAPS THE IMAGE ONCE.
+
+       - Image rotates.
+       - Final crop focuses on Lady Justice.
+       - Face is visible.
+       - Head is upper-middle.
+       - Upper body visible.
+       - Scales visible.
+       - Architectural empty side cropped away.
+       - No information over image.
+       - No third transition.
     ===================================================== */
 
     .hero.stage3{
         position:fixed;
 
-        top:68px;
-
+        top:70px;
         left:0;
 
         width:100%;
 
         height:
-            calc(100vh - 68px);
-
-        height:
-            calc(100dvh - 68px);
+            calc(100dvh - 70px);
 
         min-height:0;
+
+        margin:0;
 
         padding:0;
 
@@ -1434,17 +1437,18 @@ body.ready .gold-line{
         z-index:50;
     }
 
-
     .hero.stage3 .justice-card{
         position:absolute;
 
         left:0;
-
         top:0;
 
         width:100%;
+        max-width:none;
 
         height:100%;
+
+        margin:0;
 
         aspect-ratio:auto;
 
@@ -1453,41 +1457,45 @@ body.ready .gold-line{
         z-index:8;
     }
 
-
     .hero.stage3 .card-inner{
+        width:100%;
+        height:100%;
+
         transform:
             rotateY(180deg);
     }
 
-
     .hero.stage3 .card-face{
+        width:100%;
+        height:100%;
+
         border:none;
     }
 
 
     /*
-       IMPORTANT MOBILE FINAL IMAGE:
+       THIS IS THE IMPORTANT FINAL MOBILE CROP.
 
-       The picture still uses the original
-       Justice image.
+       We deliberately focus the crop on
+       the Lady Justice figure rather than
+       the blank side of the photograph.
 
-       object-position focuses the crop
-       on Lady Justice rather than on the
-       empty architectural side.
+       object-position:
+       34% = follows the figure horizontally.
+       18% = protects the face/head vertically.
 
-       Face + upper body + scales remain
-       inside the phone screen.
+       Because the image is mirrored,
+       Lady Justice remains the visual focus.
     */
 
     .hero.stage3 .card-back img{
         width:100%;
-
         height:100%;
 
         object-fit:cover;
 
         object-position:
-            28% center;
+            34% 18%;
 
         transform:
             scaleX(-1);
@@ -1500,17 +1508,13 @@ body.ready .gold-line{
 
 
     /*
-       Final mobile view is only the
-       Justice image.
-
-       No text on top.
-       No buttons on top.
-       Nothing overlaps the figure.
+       Absolutely no text overlays the
+       final photograph.
     */
 
-    .hero.stage3 .stage3-shade,
     .hero.stage3 .content,
     .hero.stage3 .intro,
+    .hero.stage3 .stage3-shade,
     .hero.stage3 .gold-line,
     .hero.stage3 .image-brand{
         display:none !important;
@@ -1522,17 +1526,15 @@ body.ready .gold-line{
     ===================================================== */
 
     .search-panel{
-        top:68px;
+        top:70px;
 
         left:5%;
-
         right:5%;
 
         width:90%;
 
         padding:14px;
     }
-
 
     .search-panel input{
         padding:13px;
@@ -1542,7 +1544,7 @@ body.ready .gold-line{
 
 
     /* =====================================================
-       MOBILE SIDE MENU
+       MOBILE MENU
     ===================================================== */
 
     .side-menu{
@@ -1554,13 +1556,12 @@ body.ready .gold-line{
             92px 28px 32px;
     }
 
-
     .side-menu a{
-        padding:15px 0;
+        padding:
+            15px 0;
 
         font-size:23px;
     }
-
 
     .close-menu{
         top:21px;
@@ -1577,12 +1578,20 @@ body.ready .gold-line{
         display:none !important;
     }
 
+    /*
+       Desktop hover trigger is removed
+       on mobile.
+
+       Mobile uses a direct tap on
+       #justiceCard instead.
+    */
 
     .interaction-zone{
         display:none !important;
     }
 
 }
+
 
 
 /* =========================================================
@@ -1594,104 +1603,158 @@ body.ready .gold-line{
     .logo{
         font-size:13px;
 
-        letter-spacing:1px;
+        letter-spacing:.9px;
     }
-
 
     .header-right{
         gap:6px;
     }
 
-
     .lang{
         font-size:9px;
     }
 
-
     .search-button{
         width:24px;
-
         height:24px;
     }
 
+    .search-button svg{
+        width:16px;
+        height:16px;
+    }
 
     .hamburger{
         width:25px;
-
         height:18px;
     }
 
+    .hero{
+        padding:
+            14px 14px 36px;
+    }
+
+    .justice-card,
+    body.ready .justice-card{
+        aspect-ratio:
+            16 / 10.4;
+    }
 
     .intro{
-        top:
-            calc(52.875vw + 44px);
+        margin-top:20px;
     }
 
+    .intro-small{
+        font-size:10px;
+    }
 
     .intro h1{
-        font-size:35px;
+        font-size:
+            clamp(34px,9.8vw,44px);
     }
 
-
-    .content{
-        margin:
-            calc(52.875vw + 48px)
-            17px
-            0;
+    body.ready .content{
+        margin-top:24px;
     }
-
 
     .content h2{
-        font-size:35px;
+        font-size:
+            clamp(36px,10vw,45px);
     }
-
 
     .description{
-        font-size:14.5px;
-    }
+        font-size:15px;
 
+        line-height:1.58;
+    }
 
     .btn{
-        font-size:11.5px;
-
         padding:
-            14px 10px;
-    }
+            15px 12px;
 
+        font-size:11px;
+    }
 
     .hero.stage3 .card-back img{
         object-position:
-            27% center;
+            34% 16%;
     }
 
 }
 
 
+
 /* =========================================================
-   SHORT MOBILE SCREENS
+   VERY NARROW PHONES
 ========================================================= */
 
-@media screen and (max-width:900px) and (max-height:520px){
+@media screen and (max-width:345px){
+
+    header{
+        padding:
+            0 10px;
+    }
+
+    .logo{
+        font-size:11.5px;
+    }
+
+    .lang{
+        font-size:8px;
+    }
+
+    .hamburger{
+        width:23px;
+    }
 
     .hero{
-        min-height:620px;
+        padding:
+            12px 12px 32px;
     }
-
 
     .intro h1{
-        font-size:34px;
+        font-size:32px;
     }
-
 
     .content h2{
-        font-size:34px;
+        font-size:33px;
     }
-
 
     .description{
         font-size:14px;
     }
 
+}
+
+
+
+/* =========================================================
+   MOBILE LANDSCAPE / SHORT HEIGHT
+========================================================= */
+
+@media screen and (max-width:900px) and (max-height:600px){
+
+    /*
+       For a phone held horizontally,
+       scrolling remains available during
+       the information stage.
+    */
+
+    .hero{
+        min-height:650px;
+    }
+
+    .intro h1{
+        font-size:36px;
+    }
+
+    .content h2{
+        font-size:37px;
+    }
+
+    .description{
+        font-size:14px;
+    }
 
     .hero.stage3{
         min-height:0;
@@ -1700,7 +1763,6 @@ body.ready .gold-line{
 }
 
 </style>
-
 </head>
 
 
@@ -1708,7 +1770,7 @@ body.ready .gold-line{
 
 
 <!-- =====================================================
-     CURSOR LIGHT
+     GOLD CURSOR LIGHT
 ===================================================== -->
 
 <div
@@ -1717,26 +1779,19 @@ id="cursorGlow">
 </div>
 
 
-
 <!-- =====================================================
      HEADER
 ===================================================== -->
 
 <header>
 
-
     <div class="logo">
-
-        KRONBERG
-        <span>LEGAL</span>
-
+        KRONBERG <span>LEGAL</span>
     </div>
 
 
     <div class="header-center">
-
         MÜNCHEN · INTERNATIONAL COUNSEL
-
     </div>
 
 
@@ -1745,13 +1800,10 @@ id="cursorGlow">
 
         <div class="languages">
 
-
             <button
             class="lang active"
             id="englishButton">
-
                 EN
-
             </button>
 
 
@@ -1761,14 +1813,10 @@ id="cursorGlow">
             <button
             class="lang"
             id="germanButton">
-
                 DE
-
             </button>
 
-
         </div>
-
 
 
         <button
@@ -1776,20 +1824,17 @@ id="cursorGlow">
         id="searchButton"
         aria-label="Search">
 
-
             <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="1.8">
 
-
                 <circle
                 cx="11"
                 cy="11"
                 r="6.5">
                 </circle>
-
 
                 <line
                 x1="16"
@@ -1798,12 +1843,9 @@ id="cursorGlow">
                 y2="21">
                 </line>
 
-
             </svg>
 
-
         </button>
-
 
 
         <button
@@ -1811,19 +1853,13 @@ id="cursorGlow">
         id="menuButton"
         aria-label="Menu">
 
-
             <span></span>
-
             <span></span>
-
             <span></span>
-
 
         </button>
 
-
     </div>
-
 
 </header>
 
@@ -1842,7 +1878,9 @@ id="hero">
 
 
 
-    <!-- IMAGE CARD -->
+    <!-- =================================================
+         IMAGE CARD
+    ================================================== -->
 
     <div
     class="justice-card"
@@ -1852,113 +1890,95 @@ id="hero">
         <div class="card-inner">
 
 
-
-            <!-- ORIGINAL IMAGE -->
+            <!-- ORIGINAL SIDE -->
 
             <div class="card-face card-front">
-
 
                 <img
                 src="blindfolded_justice_in_golden_shadows.png"
                 alt="Lady Justice">
 
 
-                <!-- COMPANY MARK -->
+                <!-- DESKTOP COMPANY MARK -->
 
                 <div class="image-brand">
 
-
                     <div class="brand-symbol">
-
                         <span>KL</span>
-
                     </div>
 
 
                     <div class="brand-name">
-
-                        KRONBERG
-
-                        <span>
-                        LEGAL
-                        </span>
-
+                        KRONBERG <span>LEGAL</span>
                     </div>
 
 
-                    <div class="brand-rule">
-                    </div>
+                    <div class="brand-rule"></div>
 
 
                     <div class="brand-subtitle">
-
                         RECHTSANWÄLTE
-
                         <br>
-
                         MÜNCHEN · GERMANY
-
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
-
-            <!-- ROTATED IMAGE -->
+            <!-- ROTATED SIDE -->
 
             <div class="card-face card-back">
-
 
                 <img
                 src="blindfolded_justice_in_golden_shadows.png"
                 alt="Lady Justice">
 
-
             </div>
 
 
         </div>
 
-
     </div>
 
 
 
-    <!-- FINAL STAGE GRADIENT -->
+    <!-- =================================================
+         FINAL DESKTOP GRADIENT
+    ================================================== -->
 
-    <div class="stage3-shade">
-    </div>
+    <div class="stage3-shade"></div>
 
 
 
-    <!-- STAGE 1 TEXT -->
+    <!-- =================================================
+         OPENING COMPANY IDENTITY
+
+         DESKTOP:
+         overlays image like current design.
+
+         MOBILE:
+         sits BELOW photograph.
+    ================================================== -->
 
     <div class="intro">
 
-
         <div class="intro-small">
-
             RECHTSANWÄLTE · MÜNCHEN
-
         </div>
 
-
         <h1>
-
             KRONBERG LEGAL
-
         </h1>
-
 
     </div>
 
 
 
-    <!-- MAIN INFORMATION -->
+    <!-- =================================================
+         INFORMATION
+    ================================================== -->
 
     <section class="content">
 
@@ -1997,7 +2017,6 @@ id="hero">
         </p>
 
 
-
         <div class="buttons">
 
 
@@ -2028,7 +2047,9 @@ id="hero">
 
 
 
-    <!-- DESKTOP ROTATION AREA -->
+    <!-- =================================================
+         DESKTOP HOVER AREA
+    ================================================== -->
 
     <div
     class="interaction-zone"
@@ -2041,19 +2062,17 @@ id="hero">
 
 
 <!-- =====================================================
-     SEARCH PANEL
+     SEARCH
 ===================================================== -->
 
 <div
 class="search-panel"
 id="searchPanel">
 
-
     <input
     id="searchInput"
     type="text"
     placeholder="Search Kronberg Legal...">
-
 
 </div>
 
@@ -2082,20 +2101,15 @@ id="sideMenu">
     <button
     class="close-menu"
     id="closeMenu">
-
         ×
-
     </button>
-
 
 
     <a
     href="#"
     data-en="Home"
     data-de="Startseite">
-
         Home
-
     </a>
 
 
@@ -2103,9 +2117,7 @@ id="sideMenu">
     href="#"
     data-en="Our Firm"
     data-de="Unsere Kanzlei">
-
         Our Firm
-
     </a>
 
 
@@ -2113,9 +2125,7 @@ id="sideMenu">
     href="#"
     data-en="Expertise"
     data-de="Expertise">
-
         Expertise
-
     </a>
 
 
@@ -2123,9 +2133,7 @@ id="sideMenu">
     href="#"
     data-en="12 Floors"
     data-de="12 Etagen">
-
         12 Floors
-
     </a>
 
 
@@ -2133,9 +2141,7 @@ id="sideMenu">
     href="#"
     data-en="Lawyers"
     data-de="Anwälte">
-
         Lawyers
-
     </a>
 
 
@@ -2143,9 +2149,7 @@ id="sideMenu">
     href="#"
     data-en="Contact"
     data-de="Kontakt">
-
         Contact
-
     </a>
 
 
@@ -2154,7 +2158,6 @@ id="sideMenu">
 
 
 <script>
-
 
 /* =========================================================
    STAGE 1 → STAGE 2
@@ -2188,20 +2191,24 @@ document.getElementById(
     "hero"
 );
 
+const justiceCard =
+document.getElementById(
+    "justiceCard"
+);
 
 const interactionZone =
 document.getElementById(
     "interactionZone"
 );
 
-
 let hasRotated =
 false;
 
 
-
 /* =========================================================
    DESKTOP
+
+   THIS BEHAVIOR IS UNCHANGED.
 ========================================================= */
 
 interactionZone.addEventListener(
@@ -2230,65 +2237,51 @@ function(){
 
 /* =========================================================
    MOBILE
-   TAP JUSTICE IMAGE ONCE ONLY
+
+   TAP THE PHOTO ONCE.
+
+   ONLY TRANSITION 2 IS TRIGGERED.
+
+   AFTERWARD IT STAYS THERE.
 ========================================================= */
 
-hero.addEventListener(
+justiceCard.addEventListener(
 "click",
 function(event){
 
-    /*
-       Only phones / touch devices.
-    */
+    const mobileDevice =
+        window.matchMedia(
+            "(max-width:900px)"
+        ).matches;
 
     if(
-        !window
-        .matchMedia(
-            "(hover:none)"
-        )
-        .matches
+        !mobileDevice
     ){
-
         return;
-
     }
 
-
-    /*
-       The final transition only happens
-       when the image itself is tapped.
-    */
-
     if(
-        !event.target.closest(
-            "#justiceCard"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    /*
-       Only one final rotation.
-    */
-
-    if(
-        !hasRotated &&
-        document.body.classList.contains(
+        !document.body.classList.contains(
             "ready"
         )
     ){
+        return;
+    }
 
-        hasRotated =
+    if(
+        hasRotated
+    ){
+        return;
+    }
+
+    event.preventDefault();
+
+    hasRotated =
         true;
 
-        hero.classList.add(
-            "stage3"
-        );
-
-    }
+    hero.classList.add(
+        "stage3"
+    );
 
 });
 
@@ -2296,7 +2289,6 @@ function(event){
 
 /* =========================================================
    GOLD CURSOR LIGHT
-   DESKTOP ONLY
 ========================================================= */
 
 const cursorGlow =
@@ -2304,20 +2296,11 @@ document.getElementById(
     "cursorGlow"
 );
 
+let mouseX = 0;
+let mouseY = 0;
 
-let mouseX =
-0;
-
-let mouseY =
-0;
-
-
-let glowX =
-0;
-
-let glowY =
-0;
-
+let glowX = 0;
+let glowY = 0;
 
 
 if(
@@ -2333,16 +2316,15 @@ if(
     function(event){
 
         mouseX =
-        event.clientX;
+            event.clientX;
 
         mouseY =
-        event.clientY;
+            event.clientY;
 
         cursorGlow.style.opacity =
-        "1";
+            "1";
 
     });
-
 
 
     document.addEventListener(
@@ -2350,10 +2332,9 @@ if(
     function(){
 
         cursorGlow.style.opacity =
-        "0";
+            "0";
 
     });
-
 
 
     document.addEventListener(
@@ -2361,29 +2342,27 @@ if(
     function(){
 
         cursorGlow.style.opacity =
-        "1";
+            "1";
 
     });
-
 
 
     function animateGlow(){
 
         glowX +=
-        (mouseX - glowX)
-        * 0.14;
+            (mouseX - glowX)
+            * 0.14;
 
         glowY +=
-        (mouseY - glowY)
-        * 0.14;
+            (mouseY - glowY)
+            * 0.14;
 
 
         cursorGlow.style.left =
-        glowX + "px";
-
+            glowX + "px";
 
         cursorGlow.style.top =
-        glowY + "px";
+            glowY + "px";
 
 
         requestAnimationFrame(
@@ -2407,7 +2386,6 @@ const searchButton =
 document.getElementById(
     "searchButton"
 );
-
 
 const searchPanel =
 document.getElementById(
@@ -2437,24 +2415,20 @@ document.getElementById(
     "menuButton"
 );
 
-
 const sideMenu =
 document.getElementById(
     "sideMenu"
 );
-
 
 const overlay =
 document.getElementById(
     "overlay"
 );
 
-
 const closeMenu =
 document.getElementById(
     "closeMenu"
 );
-
 
 
 menuButton.onclick =
@@ -2466,7 +2440,6 @@ function(){
         "open"
     );
 
-
     overlay
     .classList
     .add(
@@ -2474,7 +2447,6 @@ function(){
     );
 
 };
-
 
 
 function closeSideMenu(){
@@ -2485,7 +2457,6 @@ function closeSideMenu(){
         "open"
     );
 
-
     overlay
     .classList
     .remove(
@@ -2495,10 +2466,8 @@ function closeSideMenu(){
 }
 
 
-
 closeMenu.onclick =
 closeSideMenu;
-
 
 overlay.onclick =
 closeSideMenu;
@@ -2514,12 +2483,10 @@ document.getElementById(
     "englishButton"
 );
 
-
 const germanButton =
 document.getElementById(
     "germanButton"
 );
-
 
 
 const translations =
@@ -2531,22 +2498,17 @@ const translations =
         eyebrow:
         "KRONBERG LEGAL · GERMANY",
 
-
         headline:
         'Law with <span>clarity.</span><br>Counsel with purpose.',
-
 
         description:
         "Kronberg Legal is a fictional international law firm based in Munich, Germany. Our specialist legal teams are organised across twelve floors, bringing together focused expertise for businesses, institutions and private clients.",
 
-
         firm:
         "Explore Our Firm",
 
-
         floor:
         "Discover The Floors",
-
 
         search:
         "Search Kronberg Legal..."
@@ -2560,22 +2522,17 @@ const translations =
         eyebrow:
         "KRONBERG LEGAL · DEUTSCHLAND",
 
-
         headline:
         'Recht mit <span>Klarheit.</span><br>Beratung mit Haltung.',
-
 
         description:
         "Kronberg Legal ist eine fiktive internationale Kanzlei mit Sitz in München. Unsere spezialisierten Rechtsteams sind auf zwölf Etagen organisiert und beraten Unternehmen, Institutionen und Privatmandanten.",
 
-
         firm:
         "Unsere Kanzlei",
 
-
         floor:
         "Die Etagen entdecken",
-
 
         search:
         "Kronberg Legal durchsuchen..."
@@ -2591,9 +2548,9 @@ language
 ){
 
     const text =
-    translations[
-        language
-    ];
+        translations[
+            language
+        ];
 
 
     document
@@ -2601,7 +2558,7 @@ language
         "eyebrow"
     )
     .textContent =
-    text.eyebrow;
+        text.eyebrow;
 
 
     document
@@ -2609,7 +2566,7 @@ language
         "headline"
     )
     .innerHTML =
-    text.headline;
+        text.headline;
 
 
     document
@@ -2617,7 +2574,7 @@ language
         "description"
     )
     .textContent =
-    text.description;
+        text.description;
 
 
     document
@@ -2625,7 +2582,7 @@ language
         "firmButton"
     )
     .textContent =
-    text.firm;
+        text.firm;
 
 
     document
@@ -2633,7 +2590,7 @@ language
         "floorButton"
     )
     .textContent =
-    text.floor;
+        text.floor;
 
 
     document
@@ -2641,7 +2598,7 @@ language
         "searchInput"
     )
     .placeholder =
-    text.search;
+        text.search;
 
 
     document
@@ -2652,9 +2609,9 @@ language
     function(link){
 
         link.textContent =
-        link.dataset[
-            language
-        ];
+            link.dataset[
+                language
+            ];
 
     });
 
@@ -2678,7 +2635,7 @@ language
     document
     .documentElement
     .lang =
-    language;
+        language;
 
 }
 
@@ -2694,7 +2651,6 @@ function(){
 };
 
 
-
 germanButton.onclick =
 function(){
 
@@ -2703,7 +2659,6 @@ function(){
     );
 
 };
-
 
 </script>
 
