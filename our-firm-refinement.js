@@ -63,6 +63,23 @@
 .kl-firm-refined .firm-floor{scroll-margin-top:calc(var(--header,82px) + 28px)}
 .kl-firm-refined .firm-floor:target{outline:1px solid #caa45f;outline-offset:-1px;background:#1b1911}
 .kl-firm-refined .kl-floor-summary{font-size:13px;line-height:1.55;color:#b8b1a4;margin-top:13px}
+
+.kl-firm-refined .kl-who-detail{max-width:1200px;margin:-18px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#ffffff18;border:1px solid #ffffff12}
+.kl-firm-refined .kl-who-detail article{padding:24px;background:#0d0f0d}
+.kl-firm-refined .kl-who-detail strong{display:block;color:#caa45f;font:normal 20px/1.2 Georgia,serif;margin-bottom:9px}
+.kl-firm-refined .kl-who-detail p{margin:0;color:#bdb7ab;font-size:13px;line-height:1.65}
+.kl-firm-refined .kl-leadership{max-width:1200px;margin:58px auto 0;padding-top:46px;border-top:1px solid #caa45f35}
+.kl-firm-refined .kl-leadership-head{display:grid;grid-template-columns:190px 1fr;gap:40px;margin-bottom:28px}
+.kl-firm-refined .kl-leadership-head h3{font:normal clamp(32px,3vw,45px)/1.08 Georgia,serif;color:#f3efe7}
+.kl-firm-refined .kl-leadership-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kl-firm-refined .kl-leader{display:grid;grid-template-columns:180px 1fr;min-height:230px;border:1px solid #ffffff18;background:linear-gradient(135deg,#11130f,#0b0d0b);overflow:hidden}
+.kl-firm-refined .kl-leader img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.18) contrast(1.08);border-right:1px solid #caa45f30}
+.kl-firm-refined .kl-leader-copy{padding:26px}
+.kl-firm-refined .kl-leader-role{color:#caa45f;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.kl-firm-refined .kl-leader h4{font:normal 26px/1.1 Georgia,serif;color:#f3efe7;margin:0 0 11px}
+.kl-firm-refined .kl-leader p{color:#bdb7ab;font-size:13px;line-height:1.65;margin:0}
+.kl-firm-refined .kl-leader-note{margin-top:11px;color:#807c74;font-size:10px;letter-spacing:.4px}
+
 @media(max-width:1349px){
  .kl-firm-refined .firm-copy{display:block}
  .kl-firm-refined .firm-title{font-size:clamp(44px,5vw,64px)}
@@ -81,6 +98,13 @@
  .kl-firm-refined .kl-approach h3{font-size:28px}
  .kl-firm-refined .kl-approach-intro{font-size:14px}
  .kl-firm-refined .kl-steps li{font-size:13px}
+ .kl-firm-refined .kl-who-detail{grid-template-columns:1fr;margin-top:0}
+ .kl-firm-refined .kl-leadership{margin-top:42px;padding-top:34px}
+ .kl-firm-refined .kl-leadership-head{grid-template-columns:1fr;gap:10px}
+ .kl-firm-refined .kl-leadership-grid{grid-template-columns:1fr}
+ .kl-firm-refined .kl-leader{grid-template-columns:118px 1fr;min-height:190px}
+ .kl-firm-refined .kl-leader-copy{padding:19px}
+ .kl-firm-refined .kl-leader h4{font-size:22px}
  .kl-firm-refined .kl-pathways{padding:34px 20px 30px}
  .kl-firm-refined .kl-pathways-top{display:block;margin-bottom:24px}
  .kl-firm-refined .kl-pathways h2{font-size:34px;margin-bottom:14px}
@@ -140,6 +164,46 @@
     </nav>
     <p class="kl-demo-note" data-kl-text="demoNote"></p>`;
   facts.replaceWith(pathways);
+
+  const whoSection = root.querySelector('#firm-who, #who-we-are');
+  if (whoSection && !whoSection.querySelector('.kl-leadership')) {
+    const whoDetail = document.createElement('div');
+    whoDetail.className = 'kl-who-detail';
+    whoDetail.innerHTML = `
+      <article><strong data-kl-text="whoPoint1Title"></strong><p data-kl-text="whoPoint1Copy"></p></article>
+      <article><strong data-kl-text="whoPoint2Title"></strong><p data-kl-text="whoPoint2Copy"></p></article>
+      <article><strong data-kl-text="whoPoint3Title"></strong><p data-kl-text="whoPoint3Copy"></p></article>`;
+    whoSection.append(whoDetail);
+
+    const leadership = document.createElement('section');
+    leadership.className = 'kl-leadership';
+    leadership.innerHTML = `
+      <div class="kl-leadership-head">
+        <div class="kl-kicker" data-kl-text="leadershipKicker"></div>
+        <h3 data-kl-text="leadershipTitle"></h3>
+      </div>
+      <div class="kl-leadership-grid">
+        <article class="kl-leader">
+          <img src="assets/ceo-portrait.webp" alt="Fictional CEO portrait">
+          <div class="kl-leader-copy">
+            <div class="kl-leader-role" data-kl-text="ceoRole"></div>
+            <h4>Dr. Alexander Kronberg</h4>
+            <p data-kl-text="ceoCopy"></p>
+            <div class="kl-leader-note" data-kl-text="leadershipNote"></div>
+          </div>
+        </article>
+        <article class="kl-leader">
+          <img src="assets/manager-portrait.webp" alt="Fictional Managing Director portrait">
+          <div class="kl-leader-copy">
+            <div class="kl-leader-role" data-kl-text="managerRole"></div>
+            <h4>Leonie Falk</h4>
+            <p data-kl-text="managerCopy"></p>
+            <div class="kl-leader-note" data-kl-text="leadershipNote"></div>
+          </div>
+        </article>
+      </div>`;
+    whoSection.append(leadership);
+  }
   [0, 1, 9].forEach((index, i) => {
     const p = document.createElement('p');
     p.className = 'kl-floor-summary';
@@ -163,7 +227,14 @@
       pathLink:'Explore this practice', demoNote:'Fictional firm / illustrative practice areas. This website does not offer legal advice or accept mandates.',
       floorSummary0:'Company structures, transactions and corporate governance.',
       floorSummary1:'Commercial disputes, negotiations and dispute resolution.',
-      floorSummary2:'Private assets, family businesses and succession planning.'
+      floorSummary2:'Private assets, family businesses and succession planning.',
+      whoPoint1Title:'Independent by design', whoPoint1Copy:'A Munich-based fictional firm concept built around direct responsibility, clear ownership of work and specialist collaboration.',
+      whoPoint2Title:'Connected across floors', whoPoint2Copy:'The twelve-floor model makes cross-practice work visible: corporate, disputes, technology, private clients and other disciplines connect around the same matter.',
+      whoPoint3Title:'International perspective', whoPoint3Copy:'German and English communication, cross-border coordination and a practical understanding of business context shape the client experience.',
+      leadershipKicker:'04 / LEADERSHIP', leadershipTitle:'Responsibility at the centre of the firm.',
+      ceoRole:'Chief Executive Officer', ceoCopy:'Leads firm-wide strategy, key client relationships and the integration of the twelve specialist floors, with a focus on long-term direction and international growth.',
+      managerRole:'Managing Director', managerCopy:'Leads operations, talent, technology and client-service standards so specialist teams can work consistently across practices and matters.',
+      leadershipNote:'AI-generated / fictional leadership profile'
     },
     de: {
       approachKicker:'UNSER ANSATZ', approachTitle:'Klar denken. Gemeinsam beraten.',
@@ -180,7 +251,14 @@
       pathLink:'Rechtsgebiet entdecken', demoNote:'Fiktive Kanzlei / beispielhafte Rechtsgebiete. Diese Website bietet keine Rechtsberatung und nimmt keine Mandate an.',
       floorSummary0:'Unternehmensstrukturen, Transaktionen und Unternehmensf\u00fchrung.',
       floorSummary1:'Wirtschaftliche Streitigkeiten, Verhandlungen und Konfliktl\u00f6sung.',
-      floorSummary2:'Privates Verm\u00f6gen, Familienunternehmen und Nachfolgeplanung.'
+      floorSummary2:'Privates Verm\u00f6gen, Familienunternehmen und Nachfolgeplanung.',
+      whoPoint1Title:'Bewusst unabhängig', whoPoint1Copy:'Ein fiktives Münchner Kanzleikonzept mit direkter Verantwortung, klarer Zuständigkeit und fachübergreifender Zusammenarbeit.',
+      whoPoint2Title:'Über Etagen verbunden', whoPoint2Copy:'Das Zwölf-Etagen-Modell macht Zusammenarbeit sichtbar: Gesellschaftsrecht, Streitbeilegung, Technologie, Privatmandanten und weitere Fachgebiete greifen ineinander.',
+      whoPoint3Title:'Internationale Perspektive', whoPoint3Copy:'Deutsch- und englischsprachige Kommunikation, grenzüberschreitende Koordination und wirtschaftlicher Kontext prägen das Mandantenerlebnis.',
+      leadershipKicker:'04 / LEITUNG', leadershipTitle:'Verantwortung im Zentrum der Kanzlei.',
+      ceoRole:'Chief Executive Officer', ceoCopy:'Verantwortet die Gesamtstrategie, zentrale Mandantenbeziehungen und die Verbindung der zwölf Fachetagen mit Blick auf langfristige Entwicklung und internationale Zusammenarbeit.',
+      managerRole:'Managing Director', managerCopy:'Verantwortet Betrieb, Talente, Technologie und Servicestandards, damit Fachteams konsistent über Rechtsgebiete und Mandate hinweg zusammenarbeiten.',
+      leadershipNote:'KI-generiert / fiktives Leitungsprofil'
     }
   };
 
