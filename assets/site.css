@@ -135,3 +135,60 @@
       var(--floor-image);
   }
 }
+
+/* =========================================================
+   FLOOR IMAGE COLOR TREATMENT — vintage monochrome
+   Keep the photography subdued; floor number is the only
+   strong gold/yellow accent in the directory cards.
+========================================================= */
+.kl-site[data-page="floors"] .kl-floor-select::before{
+  filter:grayscale(1) sepia(.58) saturate(.72) brightness(.70) contrast(1.10);
+  background-image:
+    linear-gradient(90deg,
+      rgba(5,7,6,.95) 0%,
+      rgba(5,7,6,.84) 26%,
+      rgba(5,7,6,.54) 49%,
+      rgba(5,7,6,.18) 76%,
+      rgba(5,7,6,.28) 100%),
+    var(--floor-image);
+}
+.kl-site[data-page="floors"] .kl-floor-card:hover .kl-floor-select::before,
+.kl-site[data-page="floors"] .kl-floor-card:focus-within .kl-floor-select::before{
+  filter:grayscale(1) sepia(.62) saturate(.76) brightness(.78) contrast(1.10);
+}
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::before{
+  filter:grayscale(1) sepia(.55) saturate(.68) brightness(.76) contrast(1.08);
+}
+.kl-site[data-page="floors"] .kl-floor-num,
+.kl-site[data-page="floors"] .kl-floor-card:hover .kl-floor-num,
+.kl-site[data-page="floors"] .kl-floor-card:focus-within .kl-floor-num,
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-num{
+  color:#d8b25f;
+}
+.kl-site[data-page="floors"] .kl-floor-name{
+  color:#f4efe5;
+}
+.kl-site[data-page="floors"] .kl-floor-select::after,
+.kl-site[data-page="floors"] .kl-floor-card.active .kl-floor-select::after{
+  color:#e7e1d6;
+}
+.kl-site[data-page="floors"] .kl-floor-card,
+.kl-site[data-page="floors"] .kl-floor-card:hover,
+.kl-site[data-page="floors"] .kl-floor-card:focus-within,
+.kl-site[data-page="floors"] .kl-floor-card.active{
+  border-color:rgba(238,232,219,.26);
+  box-shadow:0 12px 42px rgba(0,0,0,.38);
+  background:#0b0d0c;
+}
+.kl-site[data-page="floors"] .kl-floor-preview{
+  background:linear-gradient(180deg,rgba(5,7,6,.48),rgba(5,7,6,.95) 38%);
+}
+.kl-site[data-page="floors"] .kl-preview-inside .kl-btn{
+  border-color:rgba(238,232,219,.36);
+  color:#f4efe5;
+}
+.kl-site[data-page="floors"] .kl-preview-inside .kl-btn:hover{
+  background:rgba(255,255,255,.07);
+  transform:translateY(-2px);
+}
+
