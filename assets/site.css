@@ -804,3 +804,249 @@ body:has(#kl-client-perspectives) .firm-footer{display:none!important}
   .kl-reveal{opacity:1;transform:none;transition:none}
 }
 
+/* =========================================================
+   FINAL AUTHENTICITY PASS — OUR FIRM + SINGLE FOOTER
+========================================================= */
+
+/* The generated Munich / Marienplatz panorama is intentionally shared
+   as a visual thread between the firm story and the final homepage footer. */
+#who-we-are.kl-who-hero{
+  position:relative;
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  padding:105px 7%;
+  overflow:hidden;
+  isolation:isolate;
+  background:#070908;
+}
+#who-we-are.kl-who-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,5,5,.97) 0%,rgba(4,5,5,.88) 35%,rgba(4,5,5,.48) 61%,rgba(4,5,5,.18) 100%),
+    url("munich-marienplatz-generated.jpg") center/cover no-repeat;
+  filter:saturate(.68) contrast(1.05);
+  transform:scale(1.015);
+}
+#who-we-are.kl-who-hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(202,164,95,.52),transparent);
+}
+#who-we-are.kl-who-hero .section-heading{
+  width:100%;
+  max-width:1240px;
+  margin:auto;
+  grid-template-columns:190px minmax(0,650px);
+}
+#who-we-are.kl-who-hero h2{
+  font-size:clamp(46px,4.8vw,70px);
+  max-width:720px;
+}
+#who-we-are.kl-who-hero .section-copy{
+  color:#ddd7cd;
+  font-size:18px;
+  line-height:1.8;
+  text-shadow:0 2px 22px rgba(0,0,0,.72);
+}
+
+/* Leadership belongs directly after Who We Are and is deliberately framed
+   like editorial profile photography rather than full-height cut-outs. */
+.kl-leadership{
+  padding:86px 7%;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle at 86% 8%,rgba(202,164,95,.08),transparent 26%),
+    linear-gradient(180deg,#0b0c0a,#070908);
+}
+.kl-leadership-head{
+  max-width:1240px;
+  margin:0 auto 38px;
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  gap:40px;
+  align-items:end;
+}
+.kl-leadership-head h3{
+  margin:0;
+  font:normal clamp(42px,4.2vw,62px)/1.05 Georgia,serif;
+  color:#f3efe7;
+}
+.kl-leadership-grid{
+  max-width:1240px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.kl-leadership .kl-leader{
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  min-height:430px;
+  overflow:hidden;
+  border:1px solid rgba(202,164,95,.28);
+  background:
+    linear-gradient(135deg,rgba(202,164,95,.055),rgba(255,255,255,.012)),
+    #0b0d0b;
+  box-shadow:0 18px 55px rgba(0,0,0,.26);
+}
+.kl-leader-photo-frame{
+  margin:24px 0 24px 24px;
+  min-height:360px;
+  overflow:hidden;
+  border:1px solid rgba(202,164,95,.22);
+  background:#090a09;
+}
+.kl-leadership .kl-leader-photo-frame img{
+  width:100%;
+  height:100%;
+  min-height:360px;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:grayscale(1) sepia(.20) contrast(1.08);
+  transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .35s ease;
+}
+.kl-leadership .kl-leader:hover .kl-leader-photo-frame img{
+  transform:scale(1.025);
+  filter:grayscale(1) sepia(.28) contrast(1.08);
+}
+.kl-leadership .kl-leader-copy{
+  padding:34px 30px;
+  align-self:center;
+}
+.kl-leader-role{
+  color:#caa45f;
+  font-size:10px;
+  line-height:1.4;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+.kl-leadership .kl-leader-copy h4{
+  margin:10px 0 15px;
+  color:#f3efe7;
+  font:normal 31px/1.08 Georgia,serif;
+}
+.kl-leadership .kl-leader-copy>p{
+  margin:0;
+  color:#c5bfb5;
+  font-size:14px;
+  line-height:1.7;
+}
+.kl-leader-experience{
+  margin-top:18px!important;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.kl-leader-scope{
+  margin-top:18px;
+  color:#ddd4c5;
+  font-size:11px;
+  line-height:1.6;
+  letter-spacing:.45px;
+}
+.kl-leader-note{
+  margin-top:17px;
+  color:#77746d;
+  font-size:9px;
+  letter-spacing:.6px;
+}
+
+/* Keep one final homepage section only. testimonials.js no longer creates
+   another footer, and this CSS also protects against a cached duplicate. */
+#kl-premium-footer{display:none!important}
+body:has(#kl-home-final) .firm-footer{display:none!important}
+.kl-home-final{
+  min-height:470px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:
+    linear-gradient(90deg,rgba(4,5,5,.95),rgba(5,6,5,.72) 52%,rgba(5,6,5,.50)),
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.72)),
+    url("munich-marienplatz-generated.jpg") center/cover no-repeat!important;
+}
+.kl-home-final::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent 68%,rgba(0,0,0,.42));
+}
+.kl-home-final-grid,
+.kl-home-final-bottom{position:relative;z-index:2}
+.kl-home-final-grid{
+  padding:28px;
+  border:1px solid rgba(202,164,95,.18);
+  background:rgba(6,7,6,.38);
+  backdrop-filter:blur(4px);
+}
+.kl-home-final-bottom{
+  padding-bottom:4px;
+}
+
+/* Compact, clearly different visual treatments on the remaining subpages. */
+.kl-site[data-page="lawyers"] .kl-page-hero{
+  background:
+    linear-gradient(105deg,rgba(5,6,6,.97),rgba(5,6,6,.62)),
+    url("portraits.webp") center 28%/cover no-repeat;
+}
+.kl-site[data-page="contact"] .kl-page-hero{
+  background:
+    linear-gradient(105deg,rgba(5,6,6,.97),rgba(5,6,6,.66)),
+    url("munich-marienplatz-generated.jpg") center/cover no-repeat;
+}
+.kl-site[data-page="client-guide"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 80% 30%,rgba(126,151,135,.18),transparent 30%),
+    linear-gradient(145deg,#08100e,#0b0e0d 60%,#070908);
+}
+.kl-site[data-page="insights"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 78% 28%,rgba(118,94,142,.16),transparent 30%),
+    linear-gradient(145deg,#0a090d,#0e0b11 60%,#070908);
+}
+.kl-site[data-page="legal"] .kl-page-hero{
+  background:
+    radial-gradient(circle at 78% 28%,rgba(104,126,91,.14),transparent 30%),
+    linear-gradient(145deg,#080b09,#0d100c 60%,#070908);
+}
+
+@media(max-width:900px){
+  #who-we-are.kl-who-hero{
+    min-height:620px;
+    padding:72px 18px;
+    align-items:flex-end;
+  }
+  #who-we-are.kl-who-hero::before{
+    background:
+      linear-gradient(180deg,rgba(4,5,5,.30),rgba(4,5,5,.68) 42%,rgba(4,5,5,.98) 84%),
+      url("munich-marienplatz-generated.jpg") 62% center/cover no-repeat;
+  }
+  #who-we-are.kl-who-hero .section-heading{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  #who-we-are.kl-who-hero .section-copy{font-size:16px}
+  .kl-leadership{padding:62px 18px}
+  .kl-leadership-head{grid-template-columns:1fr;gap:12px}
+  .kl-leadership-grid{grid-template-columns:1fr}
+  .kl-leadership .kl-leader{grid-template-columns:150px minmax(0,1fr);min-height:340px}
+  .kl-leader-photo-frame{margin:18px 0 18px 18px;min-height:304px}
+  .kl-leadership .kl-leader-photo-frame img{min-height:304px}
+  .kl-leadership .kl-leader-copy{padding:24px 20px}
+  .kl-home-final{min-height:0}
+  .kl-home-final-grid{padding:22px}
+}
+@media(max-width:560px){
+  .kl-leadership .kl-leader{grid-template-columns:1fr}
+  .kl-leader-photo-frame{margin:18px 18px 0;min-height:310px}
+  .kl-leadership .kl-leader-photo-frame img{height:310px;min-height:310px}
+  .kl-leadership .kl-leader-copy{padding:24px 20px 26px}
+}
+
