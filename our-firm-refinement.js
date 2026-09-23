@@ -185,7 +185,7 @@
       </div>
       <div class="kl-leadership-grid">
         <article class="kl-leader">
-          <div class="kl-leader-photo-frame"><img src="assets/ceo-portrait-final.webp" alt="Fictional CEO portrait"></div>
+          <div class="kl-leader-photo-frame"><img src="assets/portraits.webp" alt="Fictional CEO portrait"></div>
           <div class="kl-leader-copy">
             <div class="kl-leader-role" data-kl-text="ceoRole"></div>
             <h4>Dr. Alexander Kronberg</h4>
