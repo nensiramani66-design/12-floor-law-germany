@@ -43,6 +43,7 @@
             <button type="button" data-social="X" aria-label="X">𝕏</button>
             <button type="button" data-social="Instagram" aria-label="Instagram">◎</button>
             <button type="button" data-social="YouTube" aria-label="YouTube">▶</button>
+            <button type="button" data-social="Facebook" aria-label="Facebook">f</button>
           </div>
         </div>
       </div>
@@ -89,6 +90,11 @@
       }
     }
     const principle=[...document.querySelectorAll(".section")].find(s=>/OUR PRINCIPLES|UNSERE GRUNDSÄTZE/i.test(s.textContent));
+    const principleLabel=principle?.querySelector(".section-label");
+    if(principleLabel)principleLabel.textContent="03 / "+L("OUR PRINCIPLES","UNSERE GRUNDSÄTZE");
+    const building=document.getElementById("floors");
+    const buildingLabel=building?.querySelector(".section-label");
+    if(buildingLabel)buildingLabel.textContent="04 / "+L("THE BUILDING","DAS GEBÄUDE");
     if(principle&&!principle.querySelector(".kl-principle-intro")){
       const h=principle.querySelector(".section-heading");
       const p=document.createElement("p");
