@@ -2191,9 +2191,126 @@ body.ready .gold-line{
 
 }
 
+/* =========================================================
+   MOBILE-ONLY MOTION POLISH
+   No desktop/laptop rules are changed below.
+========================================================= */
+@media screen and (max-width:900px){
+
+    body.mobile-page2-static .scroll-statue{
+        display:none !important;
+        opacity:0 !important;
+    }
+
+    body.mobile-page2-static .firm-statue{
+        opacity:1 !important;
+        transform:none !important;
+        transition:none !important;
+    }
+
+    body.mobile-page2-static .firm-copy{
+        opacity:1 !important;
+        transform:none !important;
+    }
+
+    .firm-page .mobile-reveal{
+        opacity:0;
+        transform:
+            translateY(18px)
+            scale(.992);
+        filter:blur(2px);
+
+        transition:
+            opacity .50s ease,
+            transform .58s cubic-bezier(.2,.72,.2,1),
+            filter .45s ease;
+    }
+
+    .firm-page .mobile-reveal.mobile-in-view{
+        opacity:1;
+        transform:none;
+        filter:none;
+    }
+
+    .firm-btn,
+    .firm-card,
+    .firm-floor,
+    .mobile-extra-item{
+        -webkit-tap-highlight-color:
+            transparent;
+    }
+
+    .firm-btn{
+        transition:
+            transform .18s ease,
+            background .25s ease,
+            border-color .25s ease,
+            color .25s ease;
+    }
+
+    .firm-btn:active{
+        transform:scale(.975);
+    }
+
+    .firm-card,
+    .firm-floor,
+    .mobile-extra-item{
+        transition:
+            transform .22s ease,
+            border-color .28s ease,
+            background .28s ease;
+    }
+
+    .firm-card:active,
+    .firm-floor:active,
+    .mobile-extra-item:active{
+        transform:scale(.985);
+    }
+
+    .side-menu{
+        transition:
+            right .42s
+            cubic-bezier(.2,.75,.2,1);
+    }
+
+    .overlay{
+        transition:
+            opacity .30s ease;
+    }
+
+    .search-panel{
+        transition:
+            opacity .28s ease,
+            transform .32s
+            cubic-bezier(.2,.75,.2,1);
+    }
+}
+
+
+@media screen and (max-width:900px)
+and (prefers-reduced-motion:reduce){
+
+    .firm-page .mobile-reveal{
+        opacity:1 !important;
+        transform:none !important;
+        filter:none !important;
+        transition:none !important;
+    }
+
+    .firm-btn,
+    .firm-card,
+    .firm-floor,
+    .mobile-extra-item,
+    .side-menu,
+    .overlay,
+    .search-panel{
+        transition:none !important;
+    }
+}
+
 </style>
-<script src="our-firm-refinement.js?v=20260923i" defer></script>
-<link rel="stylesheet" href="assets/site.css?v=20260923i">
+<script src="our-firm-refinement.js?v=20260924m1" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=20260924m1">
 </head>
 
 
@@ -3748,6 +3865,43 @@ function updatePageTransition(){
         900;
 
 
+    /*
+       MOBILE: Page 2 uses its normal static Justice image.
+       The desktop scroll/figure handoff is intentionally disabled
+       because it does not read cleanly on a phone-sized viewport.
+    */
+    if(
+        mobile
+    ){
+
+        scrollStatue.style.display =
+            "none";
+
+        scrollStatue.style.opacity =
+            "0";
+
+        firmStatue.style.opacity =
+            "1";
+
+        firmStatue.style.transform =
+            "none";
+
+        firmCopy.style.opacity =
+            "1";
+
+        firmCopy.style.transform =
+            "none";
+
+        return;
+
+    }
+
+
+    /* Restore the original desktop transition unchanged. */
+    scrollStatue.style.display =
+        "block";
+
+
     const heroHeight =
         Math.max(
             1,
@@ -4070,14 +4224,130 @@ window.addEventListener(
 );
 
 
+/* =========================================================
+   MOBILE PAGE 2 MOTION
+   Mobile only. Desktop/laptop behavior is untouched.
+========================================================= */
+
+function initMobilePage2Motion(){
+
+    if(
+        !window.matchMedia(
+            "(max-width:900px)"
+        ).matches
+    ){
+        return;
+    }
+
+
+    document.body.classList.add(
+        "mobile-page2-static"
+    );
+
+
+    const items =
+        document.querySelectorAll(
+            ".firm-page .firm-fact, " +
+            ".firm-page .firm-section, " +
+            ".firm-page .firm-card, " +
+            ".firm-page .firm-floor, " +
+            ".firm-page .firm-cta"
+        );
+
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    items.forEach(
+    function(item){
+
+        item.classList.add(
+            "mobile-reveal"
+        );
+
+    });
+
+
+    if(
+        reducedMotion ||
+        !("IntersectionObserver" in window)
+    ){
+
+        items.forEach(
+        function(item){
+
+            item.classList.add(
+                "mobile-in-view"
+            );
+
+        });
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target.classList.add(
+                        "mobile-in-view"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.08,
+            rootMargin:
+                "0px 0px -32px 0px"
+        }
+        );
+
+
+    items.forEach(
+    function(item){
+
+        observer.observe(
+            item
+        );
+
+    });
+
+}
+
+
+window.addEventListener(
+    "load",
+    initMobilePage2Motion
+);
+
+
 updatePageTransition();
 
 </script>
 
 <script defer src="assets/site-data.js?v=20260923g"></script>
 <script defer src="assets/site-content.js?v=20260923g"></script>
-<script defer src="assets/site.js?v=20260923i"></script>
+<script defer src="assets/site.js?v=20260924m1"></script>
 <script defer src="assets/testimonials.js?v=20260923i"></script>
-<script defer src="assets/final-polish.js?v=20260923i"></script>
+<script defer src="assets/final-polish.js?v=20260924m1"></script>
 </body>
 </html>
